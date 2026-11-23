@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Cartoons Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="cartoons">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="unblur" type="button">🎨 Frame Unblur</button>
+      <button class="mode-tab" data-mode="plot" type="button">📖 Episode Plot</button>
+      <button class="mode-tab" data-mode="duel" type="button">⚡ Score / Era Duel</button>
+      <button class="mode-tab" data-mode="voice" type="button">🎙️ Voice Actor Link</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="unblur">
+      <div class="game-header">
+        <div><span class="game-tag">TMDB Animation Proxy</span><h2>Cartoon Frame Unblur</h2></div>
+        <span id="ct-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <p class="game-tip">Spot the animated series from the blurred frame. Fewer hints earn more points.</p>
+
+      <div class="stage-card movie-stage">
+        <div id="ct-loader" class="loader">Loading cartoon frame...</div>
+        <img id="ct-img" class="movie-img blur-3" alt="Blurred cartoon frame" />
+      </div>
+
+      <div class="action-bar">
+        <button id="ct-hint-btn" class="btn btn-secondary" type="button">💡 Unblur &amp; Premiere Year (-75 pts)</button>
+        <div id="ct-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="ct-options" class="options-grid"></div>
+      <div id="ct-feedback" class="feedback hidden"></div>
+      <button id="ct-next" class="btn btn-primary full-width hidden" type="button">Next Cartoon →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="plot">
+      <div class="game-header">
+        <div><span class="game-tag">TVMaze Episode Vault</span><h2>Episode Plot Guess</h2></div>
+        <span class="points-chip">+220 PTS</span>
+      </div>
+      <p class="game-tip">Read this real (redacted) episode plot and pick which cartoon it came from.</p>
+
+      <div class="stage-card clue-stage" style="min-height:130px;">
+        <div id="plot-loader" class="loader">Fetching episode synopsis...</div>
+        <div id="plot-text" class="quote-block"></div>
+      </div>
+
+      <div id="plot-options" class="options-grid"></div>
+      <div id="plot-feedback" class="feedback hidden"></div>
+      <button id="plot-next" class="btn btn-primary full-width hidden" type="button">Next Episode →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="duel">
+      <div class="game-header">
+        <div><span class="game-tag">Cartoon Showdown</span><h2>Score / Era Duel</h2></div>
+        <div class="header-right">
+          <div class="seg-toggle">
+            <button id="ct-duel-rating" class="seg-btn active" type="button">Rating</button>
+            <button id="ct-duel-year" class="seg-btn" type="button">Premiere Year</button>
+          </div>
+          <span class="points-chip">Run: <strong id="ct-duel-run">0</strong></span>
+        </div>
+      </div>
+      <p id="ct-duel-tip" class="game-tip">Does the right-hand cartoon have a higher or lower viewer rating?</p>
+
+      <div class="duel-arena">
+        <div id="ct-duel-loader" class="loader">Loading cartoons...</div>
+        <article class="duel-card-visual">
+          <img id="ct-l-img" alt="Left cartoon" />
+          <div class="duel-overlay">
+            <span id="ct-l-meta" class="duel-meta"></span>
+            <h3 id="ct-l-title"></h3>
+            <div class="score-box"><span id="ct-l-label" class="score-label">RATING</span><span id="ct-l-val" class="score-val">--</span></div>
+          </div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-visual">
+          <img id="ct-r-img" alt="Right cartoon" />
+          <div class="duel-overlay">
+            <span id="ct-r-meta" class="duel-meta"></span>
+            <h3 id="ct-r-title"></h3>
+            <div class="score-box"><span id="ct-r-label" class="score-label">RATING</span><span id="ct-r-val" class="score-val mystery">???</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div id="ct-duel-controls" class="duel-controls">
+        <button id="ct-btn-higher" class="btn btn-higher" type="button">▲ Higher / Newer</button>
+        <button id="ct-btn-lower" class="btn btn-lower" type="button">▼ Lower / Older</button>
+      </div>
+      <div id="ct-duel-status" class="feedback hidden"></div>
+      <button id="ct-duel-restart" class="btn btn-primary full-width hidden" type="button">New Duel ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="voice">
+      <div class="game-header">
+        <div><span class="game-tag">Behind the Mic</span><h2>Voice Actor Link</h2></div>
+        <span class="points-chip">+200 PTS</span>
+      </div>
+      <p class="game-tip">Connect legendary voice actors to their iconic animated characters.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="va-actor" class="game-tag" style="font-size:0.85rem; margin-bottom:6px;">---</div>
+        <div id="va-question" class="quote-block" style="margin-bottom:12px;"></div>
+        <div id="va-roles" class="clue-pill-grid"></div>
+      </div>
+
+      <div id="va-options" class="options-grid"></div>
+      <div id="va-feedback" class="feedback hidden"></div>
+      <button id="va-next" class="btn btn-primary full-width hidden" type="button">Next Voice Actor →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/cartoons.js"></script>
+</body>
+</html>

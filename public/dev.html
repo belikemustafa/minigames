@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Dev Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="dev">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="stars" type="button">⭐ GitHub Stars</button>
+      <button class="mode-tab" data-mode="bug" type="button">🐛 Spot the Bug</button>
+      <button class="mode-tab" data-mode="output" type="button">🖥️ Output?</button>
+      <button class="mode-tab" data-mode="lang" type="button">🔤 Language</button>
+      <button class="mode-tab" data-mode="bigo" type="button">📈 Big-O Blitz</button>
+      <button class="mode-tab" data-mode="http" type="button">🌐 HTTP &amp; Git</button>
+      <button class="mode-tab" data-mode="outage" type="button">🚨 Prod Outage</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="stars">
+      <div class="game-header">
+        <div><span class="game-tag">Live GitHub API</span><h2>GitHub Stars Duel</h2></div>
+        <span class="points-chip">Run: <strong id="gh-run">0</strong></span>
+      </div>
+      <p class="game-tip">Which open-source repository has MORE GitHub stars right now?</p>
+
+      <div class="duel-arena">
+        <div id="gh-loader" class="loader">Fetching top GitHub repos...</div>
+        <article class="duel-card-text">
+          <div><span id="gh-l-lang" class="hub-badge">JS</span><h3 id="gh-l-name" style="margin-top:8px;">---</h3><p id="gh-l-desc" class="sub"></p></div>
+          <div class="score-box"><span class="score-label">STARS</span><span id="gh-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><span id="gh-r-lang" class="hub-badge">PY</span><h3 id="gh-r-name" style="margin-top:8px;">---</h3><p id="gh-r-desc" class="sub"></p></div>
+          <div class="score-box"><span class="score-label">STARS</span><span id="gh-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="gh-controls" class="duel-controls">
+        <button id="gh-higher" class="btn btn-higher" type="button">▲ More Stars</button>
+        <button id="gh-lower" class="btn btn-lower" type="button">▼ Fewer Stars</button>
+      </div>
+      <div id="gh-status" class="feedback hidden"></div>
+      <button id="gh-restart" class="btn btn-primary full-width hidden" type="button">New Stars Duel ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="bug">
+      <div class="game-header">
+        <div><span class="game-tag">Tap the Broken Line</span><h2>Spot the Bug</h2></div>
+        <span id="bug-lang" class="points-chip">JavaScript</span>
+      </div>
+      <p id="bug-title" class="game-tip">Tap the single line of code that causes the bug.</p>
+
+      <div id="bug-code" class="code-stage"></div>
+      <div id="bug-feedback" class="feedback hidden"></div>
+      <button id="bug-next" class="btn btn-primary full-width hidden" type="button">Next Snippet →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="output">
+      <div class="game-header">
+        <div><span class="game-tag">Runtime Brainteaser</span><h2>What's the Output?</h2></div>
+        <span id="out-lang" class="points-chip">JS</span>
+      </div>
+      <p class="game-tip">Predict what gets printed to the console.</p>
+
+      <div id="out-code" class="code-stage"></div>
+      <div id="out-options" class="options-grid"></div>
+      <div id="out-feedback" class="feedback hidden"></div>
+      <button id="out-next" class="btn btn-primary full-width hidden" type="button">Next Output →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="lang">
+      <div class="game-header">
+        <div><span class="game-tag">Syntax Radar</span><h2>Guess the Language</h2></div>
+        <span id="lang-pts" class="points-chip">+200 PTS</span>
+      </div>
+      <p class="game-tip">Identify the programming language from this short snippet.</p>
+
+      <div id="lang-code" class="code-stage"></div>
+      <div class="action-bar">
+        <button id="lang-hint-btn" class="btn btn-secondary" type="button">💡 Year &amp; Use-Case Hint (-50 pts)</button>
+        <div id="lang-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="lang-options" class="options-grid"></div>
+      <div id="lang-feedback" class="feedback hidden"></div>
+      <button id="lang-next" class="btn btn-primary full-width hidden" type="button">Next Language →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="bigo">
+      <div class="game-header">
+        <div><span class="game-tag">Algorithm Speed</span><h2>Big-O Blitz</h2></div>
+        <span class="points-chip">+150 PTS</span>
+      </div>
+      <p class="game-tip">Tap the matching time complexity.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="bigo-prompt" class="quote-block"></div>
+      </div>
+
+      <div id="bigo-options" class="options-grid"></div>
+      <div id="bigo-feedback" class="feedback hidden"></div>
+      <button id="bigo-next" class="btn btn-primary full-width hidden" type="button">Next Complexity →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="http">
+      <div class="game-header">
+        <div><span class="game-tag">Backend &amp; CLI</span><h2>HTTP &amp; Git Survival</h2></div>
+        <span id="http-tag" class="points-chip">HTTP</span>
+      </div>
+      <p class="game-tip">Match the status code or terminal command to what it actually does.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="http-prompt" class="quote-block" style="font-family:ui-monospace,monospace; font-weight:700;"></div>
+      </div>
+
+      <div id="http-options" class="options-grid"></div>
+      <div id="http-feedback" class="feedback hidden"></div>
+      <button id="http-next" class="btn btn-primary full-width hidden" type="button">Next Command →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="outage">
+      <div class="game-header">
+        <div><span class="game-tag">On-Call Incident</span><h2>Prod Outage Simulator</h2></div>
+        <span id="outage-step" class="points-chip">Incident 1 / 5</span>
+      </div>
+      <p class="game-tip">Make the smartest first move to keep uptime high and latency low.</p>
+
+      <div class="meter-row">
+        <div class="meter-box"><span>UPTIME SLA</span><strong id="outage-uptime">99.9%</strong></div>
+        <div class="meter-box"><span>P99 LATENCY</span><strong id="outage-latency">140 ms</strong></div>
+      </div>
+
+      <div class="stage-card clue-stage">
+        <h3 id="outage-title" style="margin:0 0 8px; font-family:'Space Grotesk',sans-serif;">---</h3>
+        <div id="outage-desc" class="quote-block"></div>
+      </div>
+
+      <div id="outage-choices" class="clue-list" style="margin-bottom:14px;"></div>
+      <div id="outage-feedback" class="feedback hidden"></div>
+      <button id="outage-next" class="btn btn-primary full-width hidden" type="button">Next Incident →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/dev.js"></script>
+</body>
+</html>

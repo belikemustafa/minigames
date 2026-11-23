@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0c10" />
-  <title>Fandom Arcade — Movies, Anime & Pokémon</title>
+  <title>Home — Fandom Arcade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
@@ -13,365 +13,111 @@
 <body data-theme="hub">
   <div id="ambient-bg" aria-hidden="true"></div>
 
-  <!-- Top HUD -->
   <header class="hud">
-    <button class="brand" data-view="hub" type="button" aria-label="Return to Arcade Home">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
       <span class="brand-mark" aria-hidden="true">◈</span>
       <span class="brand-text">Fandom<strong>Arcade</strong></span>
-    </button>
-
+    </a>
     <div class="hud-stats">
-      <div class="pill" title="Session Score">
-        <span class="pill-label">PTS</span>
-        <span id="hud-score">0</span>
-      </div>
-      <div class="pill streak-pill" title="Current Win Streak">
-        <span aria-hidden="true">🔥</span>
-        <span id="hud-streak">0</span>
-      </div>
-      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound Effects">🔊</button>
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
     </div>
   </header>
 
-  <!-- Main Content -->
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
   <main class="container">
-    <!-- HUB VIEW -->
-    <section id="view-hub" class="view active">
-      <div class="welcome-card">
-        <div class="welcome-meta">
-          <span class="welcome-kicker">6 MINI-GAMES • 3 UNIVERSES</span>
-          <span id="arcade-rank" class="rank-badge">Rank: Newcomer</span>
-        </div>
-        <h1 id="welcome-greeting">Welcome to Fandom Arcade</h1>
-        <p>Take a quick break or chase a high streak across cinema, anime, and Pokémon. Pick any game below to jump straight in—your best scores save automatically.</p>
-        <div class="welcome-chips">
-          <span>🎬 Blur &amp; Cast Trivia</span>
-          <span>⚡ Live MAL Duels</span>
-          <span>◓ Silhouettes, Cries &amp; Stats</span>
-        </div>
+    <section class="welcome-card">
+      <div class="welcome-meta">
+        <span class="welcome-kicker">8 ARENAS • 25 MINI-GAMES</span>
+        <span id="arcade-rank" class="rank-badge">Rank: Newcomer</span>
       </div>
-
-      <div class="hub-grid">
-        <button class="hub-card card-movies" data-view="movies" data-mode="unblur" type="button">
-          <div class="hub-card-top">
-            <span class="hub-badge">MOVIES</span>
-            <span class="hub-best">Best: <strong id="best-movies">0</strong></span>
-          </div>
-          <div class="hub-emoji">🎬</div>
-          <h2>Scene Unblur</h2>
-          <p>Identify films from blurred stills. Spend fewer hints to keep the full payout.</p>
-          <span class="play-cta">Play Scene Unblur →</span>
-        </button>
-
-        <button class="hub-card card-movies" data-view="movies" data-mode="cast" type="button">
-          <div class="hub-card-top">
-            <span class="hub-badge">MOVIES</span>
-            <span class="hub-best">Best: <strong id="best-movieCast">0</strong></span>
-          </div>
-          <div class="hub-emoji">🎭</div>
-          <h2>Cast Match</h2>
-          <p>Spot the movie from its top-billed actors, with optional character clues.</p>
-          <span class="play-cta">Play Cast Match →</span>
-        </button>
-
-        <button class="hub-card card-anime" data-view="anime" data-mode="duel" type="button">
-          <div class="hub-card-top">
-            <span class="hub-badge">ANIME</span>
-            <span class="hub-best">Best Run: <strong id="best-anime">0</strong></span>
-          </div>
-          <div class="hub-emoji">⚡</div>
-          <h2>Score Duel</h2>
-          <p>Higher or Lower? Call which anime holds the higher MyAnimeList rating.</p>
-          <span class="play-cta">Play Score Duel →</span>
-        </button>
-
-        <button class="hub-card card-anime" data-view="anime" data-mode="chars" type="button">
-          <div class="hub-card-top">
-            <span class="hub-badge">ANIME</span>
-            <span class="hub-best">Best: <strong id="best-animeChars">0</strong></span>
-          </div>
-          <div class="hub-emoji">🗡️</div>
-          <h2>Character Match</h2>
-          <p>Recognize iconic main characters and match them back to their series.</p>
-          <span class="play-cta">Play Character Match →</span>
-        </button>
-
-        <button class="hub-card card-pokemon" data-view="pokemon" data-mode="silhouette" type="button">
-          <div class="hub-card-top">
-            <span class="hub-badge">POKÉMON</span>
-            <span class="hub-best">Best: <strong id="best-pokemon">0</strong></span>
-          </div>
-          <div class="hub-emoji">◓</div>
-          <h2>Who's That?</h2>
-          <p>Guess from the silhouette, play its real cry, and inspect full base stats.</p>
-          <span class="play-cta">Play Who's That →</span>
-        </button>
-
-        <button class="hub-card card-pokemon" data-view="pokemon" data-mode="clash" type="button">
-          <div class="hub-card-top">
-            <span class="hub-badge">POKÉMON</span>
-            <span class="hub-best">Best Run: <strong id="best-pokeClash">0</strong></span>
-          </div>
-          <div class="hub-emoji">⚔️</div>
-          <h2>Stat Clash</h2>
-          <p>Two Pokémon go head-to-head—pick who leads in HP, Attack, Speed, or BST.</p>
-          <span class="play-cta">Play Stat Clash →</span>
-        </button>
+      <h1 id="welcome-greeting">Welcome to Fandom Arcade</h1>
+      <p>Every category runs on its own dedicated page for fast mobile play and zero clutter. Pick any arena below—your session streak carries across pages and best scores save automatically.</p>
+      <div class="welcome-chips">
+        <span>📱 Mobile-First</span>
+        <span>🔒 Hidden TMDB Key</span>
+        <span>⚡ Live APIs + Instant Mode</span>
       </div>
     </section>
 
-    <!-- MOVIES VIEW -->
-    <section id="view-movies" class="view">
-      <div class="mode-tabs" data-group="movies">
-        <button class="mode-tab active" data-mode="unblur" type="button">🎬 Scene Unblur</button>
-        <button class="mode-tab" data-mode="cast" type="button">🎭 Cast Match</button>
-      </div>
+    <div class="hub-grid">
+      <a class="hub-card card-movies" href="movies.html">
+        <div class="hub-card-top"><span class="hub-badge">MOVIES</span><span class="hub-best">Best: <strong id="best-cat-movies">0</strong></span></div>
+        <div class="hub-emoji">🎬</div>
+        <h2>Movies Arena</h2>
+        <p>Unblur cinema stills step by step or identify blockbusters from their cast portraits.</p>
+        <div class="hub-tags"><span>Scene Unblur</span><span>Cast Match</span></div>
+        <span class="play-cta">Open Movies Site →</span>
+      </a>
 
-      <!-- Movies 1: Scene Unblur -->
-      <div id="movies-mode-unblur" class="mode-panel active">
-        <div class="game-header">
-          <div>
-            <span class="game-tag">Cinema Challenge</span>
-            <h2>Scene Unblur</h2>
-          </div>
-          <span id="movie-points-badge" class="points-chip">+300 PTS</span>
-        </div>
-        <p class="game-tip">Pick the matching film below, or spend points to sharpen the frame and unlock clues.</p>
+      <a class="hub-card card-anime" href="anime.html">
+        <div class="hub-card-top"><span class="hub-badge">ANIME</span><span class="hub-best">Best: <strong id="best-cat-anime">0</strong></span></div>
+        <div class="hub-emoji">⚡</div>
+        <h2>Anime Arena</h2>
+        <p>Powered by AniList GraphQL — duel anime ratings or match main characters to their series.</p>
+        <div class="hub-tags"><span>Score Duel</span><span>Character Match</span></div>
+        <span class="play-cta">Open Anime Site →</span>
+      </a>
 
-        <div class="stage-card movie-stage">
-          <div id="movie-loader" class="loader">Loading reel...</div>
-          <img id="movie-img" class="movie-img blur-3" alt="Blurred movie frame" />
-        </div>
+      <a class="hub-card card-pokemon" href="pokemon.html">
+        <div class="hub-card-top"><span class="hub-badge">POKÉMON</span><span class="hub-best">Best: <strong id="best-cat-pokemon">0</strong></span></div>
+        <div class="hub-emoji">◓</div>
+        <h2>Pokémon Arena</h2>
+        <p>Who's That Pokémon with Easy 4-choice &amp; Hard type-to-guess modes, cries, and Stat Clash.</p>
+        <div class="hub-tags"><span>Easy &amp; Hard Mode</span><span>Stat Clash</span></div>
+        <span class="play-cta">Open Pokémon Site →</span>
+      </a>
 
-        <div class="action-bar">
-          <button id="movie-hint-btn" class="btn btn-secondary" type="button">💡 Unblur &amp; Genre Clue (-75 pts)</button>
-          <div id="movie-hints-box" class="hints-box hidden"></div>
-        </div>
+      <a class="hub-card card-food" href="food.html">
+        <div class="hub-card-top"><span class="hub-badge">FOOD</span><span class="hub-best">Best: <strong id="best-cat-food">0</strong></span></div>
+        <div class="hub-emoji">🍜</div>
+        <h2>Food Arena</h2>
+        <p>Guess dish origins, decode raw ingredients, compare calories/protein, and crown a bracket champ.</p>
+        <div class="hub-tags"><span>Cuisine Compass</span><span>Ingredients</span><span>Macro Duel</span><span>Bracket</span></div>
+        <span class="play-cta">Open Food Site →</span>
+      </a>
 
-        <div id="movie-options" class="options-grid"></div>
-        <div id="movie-feedback" class="feedback hidden"></div>
-        <button id="movie-next-btn" class="btn btn-primary full-width hidden" type="button">Next Movie →</button>
-      </div>
+      <a class="hub-card card-careers" href="careers.html">
+        <div class="hub-card-top"><span class="hub-badge">CAREERS</span><span class="hub-best">Best: <strong id="best-cat-careers">0</strong></span></div>
+        <div class="hub-emoji">💼</div>
+        <h2>Careers Arena</h2>
+        <p>Compare US/India salaries, identify jobs by tools, crack Career Spotle, or solve workday clues.</p>
+        <div class="hub-tags"><span>Salary Showdown</span><span>Tools</span><span>Career Spotle</span><span>Day-in-Life</span></div>
+        <span class="play-cta">Open Careers Site →</span>
+      </a>
 
-      <!-- Movies 2: Cast Match -->
-      <div id="movies-mode-cast" class="mode-panel">
-        <div class="game-header">
-          <div>
-            <span class="game-tag">Star Power</span>
-            <h2>Cast Match</h2>
-          </div>
-          <span id="cast-points-badge" class="points-chip">+250 PTS</span>
-        </div>
-        <p class="game-tip">Which movie brings these credited cast members together?</p>
+      <a class="hub-card card-cartoons" href="cartoons.html">
+        <div class="hub-card-top"><span class="hub-badge">CARTOONS</span><span class="hub-best">Best: <strong id="best-cat-cartoons">0</strong></span></div>
+        <div class="hub-emoji">📺</div>
+        <h2>Cartoons Arena</h2>
+        <p>Unblur animated show stills, guess wild TVMaze episode plots, duel ratings/eras, and link voice actors.</p>
+        <div class="hub-tags"><span>Frame Unblur</span><span>Plot Guess</span><span>Score/Era Duel</span><span>Voice Link</span></div>
+        <span class="play-cta">Open Cartoons Site →</span>
+      </a>
 
-        <div class="stage-card cast-stage">
-          <div id="cast-loader" class="loader">Assembling cast...</div>
-          <div id="cast-reveal-banner" class="cast-reveal-banner hidden"></div>
-          <div id="cast-grid" class="cast-grid"></div>
-        </div>
+      <a class="hub-card card-dev" href="dev.html">
+        <div class="hub-card-top"><span class="hub-badge">SOFTWARE ENG</span><span class="hub-best">Best: <strong id="best-cat-dev">0</strong></span></div>
+        <div class="hub-emoji">💻</div>
+        <h2>Dev Arena</h2>
+        <p>GitHub Stars Duel, tap-to-fix Spot the Bug, Output quizzes, Language ID, Big-O, HTTP/Git &amp; Prod Outages.</p>
+        <div class="hub-tags"><span>GitHub Stars</span><span>Spot the Bug</span><span>Big-O</span><span>Prod Outage</span></div>
+        <span class="play-cta">Open Dev Site →</span>
+      </a>
 
-        <div class="action-bar">
-          <button id="cast-hint-btn" class="btn btn-secondary" type="button">🎭 Reveal Character Names (-75 pts)</button>
-        </div>
-
-        <div id="cast-options" class="options-grid"></div>
-        <div id="cast-feedback" class="feedback hidden"></div>
-        <button id="cast-next-btn" class="btn btn-primary full-width hidden" type="button">Next Cast →</button>
-      </div>
-    </section>
-
-    <!-- ANIME VIEW -->
-    <section id="view-anime" class="view">
-      <div class="mode-tabs" data-group="anime">
-        <button class="mode-tab active" data-mode="duel" type="button">⚡ Score Duel</button>
-        <button class="mode-tab" data-mode="chars" type="button">🗡️ Character Match</button>
-      </div>
-
-      <!-- Anime 1: Score Duel -->
-      <div id="anime-mode-duel" class="mode-panel active">
-        <div class="game-header">
-          <div>
-            <span class="game-tag">MyAnimeList Duel</span>
-            <h2>Higher or Lower</h2>
-          </div>
-          <span class="points-chip">Run: <strong id="anime-run-score">0</strong></span>
-        </div>
-        <p class="game-tip">Predict whether the right-hand challenger has a higher or lower MAL score.</p>
-
-        <div class="duel-arena">
-          <div id="anime-loader" class="loader">Loading anime matchup...</div>
-
-          <article class="anime-card">
-            <img id="anime-champ-img" alt="Champion anime poster" />
-            <div class="anime-overlay">
-              <span id="anime-champ-meta" class="anime-meta"></span>
-              <h3 id="anime-champ-title"></h3>
-              <div class="score-box">
-                <span class="score-label">MAL SCORE</span>
-                <span id="anime-champ-score" class="score-val">--</span>
-              </div>
-            </div>
-          </article>
-
-          <div class="vs-badge" aria-hidden="true">VS</div>
-
-          <article class="anime-card">
-            <img id="anime-chal-img" alt="Challenger anime poster" />
-            <div class="anime-overlay">
-              <span id="anime-chal-meta" class="anime-meta"></span>
-              <h3 id="anime-chal-title"></h3>
-              <div class="score-box">
-                <span class="score-label">MAL SCORE</span>
-                <span id="anime-chal-score" class="score-val mystery">?.??</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div id="anime-controls" class="duel-controls">
-          <button id="btn-higher" class="btn btn-higher" type="button">▲ Higher</button>
-          <button id="btn-lower" class="btn btn-lower" type="button">▼ Lower</button>
-        </div>
-
-        <div id="anime-status" class="feedback hidden"></div>
-        <button id="anime-restart-btn" class="btn btn-primary full-width hidden" type="button">Start New Duel ↻</button>
-      </div>
-
-      <!-- Anime 2: Character Match -->
-      <div id="anime-mode-chars" class="mode-panel">
-        <div class="game-header">
-          <div>
-            <span class="game-tag">Anime Roster</span>
-            <h2>Character Match</h2>
-          </div>
-          <span id="char-points-badge" class="points-chip">+250 PTS</span>
-        </div>
-        <p class="game-tip">Match this character back to their anime—reveal their name if you need a nudge.</p>
-
-        <div class="stage-card char-stage">
-          <div id="char-loader" class="loader">Loading character...</div>
-          <img id="char-img" class="char-img" alt="Mystery anime character" />
-          <div id="char-name" class="char-name hidden"></div>
-        </div>
-
-        <div class="action-bar">
-          <button id="char-hint-btn" class="btn btn-secondary" type="button">💡 Reveal Character Name (-75 pts)</button>
-        </div>
-
-        <div id="char-options" class="options-grid"></div>
-        <div id="char-feedback" class="feedback hidden"></div>
-        <button id="char-next-btn" class="btn btn-primary full-width hidden" type="button">Next Character →</button>
-      </div>
-    </section>
-
-    <!-- POKÉMON VIEW -->
-    <section id="view-pokemon" class="view">
-      <div class="mode-tabs" data-group="pokemon">
-        <button class="mode-tab active" data-mode="silhouette" type="button">◓ Who's That?</button>
-        <button class="mode-tab" data-mode="clash" type="button">⚔️ Stat Clash</button>
-      </div>
-
-      <!-- Pokémon 1: Who's That? -->
-      <div id="pokemon-mode-silhouette" class="mode-panel active">
-        <div class="game-header">
-          <div>
-            <span class="game-tag">Silhouette &amp; Cry</span>
-            <h2>Who's That Pokémon?</h2>
-          </div>
-          <select id="poke-gen-select" class="gen-select" aria-label="Select Pokémon Generation">
-            <option value="151">Gen 1 (1–151)</option>
-            <option value="493" selected>Gen 1–4 (1–493)</option>
-            <option value="1025">All (1–1025)</option>
-          </select>
-        </div>
-        <p class="game-tip">Guess from the shadow, listen to its cry, or reveal its element typing.</p>
-
-        <div id="poke-stage" class="stage-card poke-stage">
-          <div class="pokeball-ring" aria-hidden="true"></div>
-          <div id="poke-loader" class="loader">Scanning tall grass...</div>
-          <img id="poke-img" class="poke-img silhouette" alt="Mystery Pokémon silhouette" />
-        </div>
-
-        <div class="poke-tools">
-          <button id="poke-cry-btn" class="btn btn-secondary" type="button">🔊 Play Cry</button>
-          <button id="poke-hint-btn" class="btn btn-secondary" type="button">💡 Type Hint (-50)</button>
-        </div>
-
-        <div id="poke-hint-box" class="type-badges hidden"></div>
-        <div id="poke-stats" class="poke-stats hidden"></div>
-        <div id="poke-options" class="options-grid"></div>
-        <div id="poke-feedback" class="feedback hidden"></div>
-        <button id="poke-next-btn" class="btn btn-primary full-width hidden" type="button">Next Encounter →</button>
-      </div>
-
-      <!-- Pokémon 2: Stat Clash -->
-      <div id="pokemon-mode-clash" class="mode-panel">
-        <div class="game-header">
-          <div>
-            <span class="game-tag">Base Stat Battle</span>
-            <h2>Stat Clash</h2>
-          </div>
-          <div class="header-right">
-            <select id="clash-gen-select" class="gen-select" aria-label="Select Stat Clash Generation">
-              <option value="151">Gen 1</option>
-              <option value="493" selected>Gen 1–4</option>
-              <option value="1025">All</option>
-            </select>
-            <span class="points-chip">Run: <strong id="clash-run-score">0</strong></span>
-          </div>
-        </div>
-        <p class="game-tip">Tap the Pokémon card you think holds the higher stat.</p>
-
-        <div id="clash-stat-banner" class="clash-banner">Loading matchup...</div>
-
-        <div class="clash-arena">
-          <div id="clash-loader" class="loader">Preparing battle...</div>
-
-          <button id="clash-left" class="clash-card" type="button">
-            <img alt="Left Pokémon" />
-            <h3>---</h3>
-            <span class="clash-types">---</span>
-            <div class="clash-stat-val mystery">???</div>
-          </button>
-
-          <div class="vs-badge" aria-hidden="true">VS</div>
-
-          <button id="clash-right" class="clash-card" type="button">
-            <img alt="Right Pokémon" />
-            <h3>---</h3>
-            <span class="clash-types">---</span>
-            <div class="clash-stat-val mystery">???</div>
-          </button>
-        </div>
-
-        <div id="clash-status" class="feedback hidden"></div>
-        <button id="clash-restart-btn" class="btn btn-primary full-width hidden" type="button">New Battle Streak ↻</button>
-      </div>
-    </section>
+      <a class="hub-card card-blitz" href="blitz.html">
+        <div class="hub-card-top"><span class="hub-badge">CROSS-ARCADE</span><span class="hub-best">Best: <strong id="best-cat-blitz">0</strong></span></div>
+        <div class="hub-emoji">⏱️</div>
+        <h2>60s Blitz &amp; Challenges</h2>
+        <p>Race a 60-second mixed trivia clock or generate a shareable friend link with the exact same 5 rounds.</p>
+        <div class="hub-tags"><span>60-Second Blitz</span><span>Friend Challenge Link</span></div>
+        <span class="play-cta">Open Blitz Site →</span>
+      </a>
+    </div>
   </main>
 
-  <!-- Mobile Bottom Navigation -->
-  <nav class="bottom-nav" aria-label="Main Navigation">
-    <button class="nav-btn active" data-view="hub" type="button">
-      <span class="nav-ico">⌂</span>
-      <span>Hub</span>
-    </button>
-    <button class="nav-btn" data-view="movies" type="button">
-      <span class="nav-ico">🎬</span>
-      <span>Movies</span>
-    </button>
-    <button class="nav-btn" data-view="anime" type="button">
-      <span class="nav-ico">⚡</span>
-      <span>Anime</span>
-    </button>
-    <button class="nav-btn" data-view="pokemon" type="button">
-      <span class="nav-ico">◓</span>
-      <span>Pokémon</span>
-    </button>
-  </nav>
-
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/hub.js"></script>
 </body>
 </html>

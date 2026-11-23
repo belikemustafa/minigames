@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Anime Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="anime">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="duel" type="button">⚡ Score Duel</button>
+      <button class="mode-tab" data-mode="chars" type="button">🗡️ Character Match</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="duel">
+      <div class="game-header">
+        <div><span class="game-tag">AniList Score Duel</span><h2>Higher or Lower</h2></div>
+        <span class="points-chip">Run: <strong id="anime-run-score">0</strong></span>
+      </div>
+      <p class="game-tip">Predict whether the right-hand challenger holds a higher or lower AniList rating (out of 10).</p>
+
+      <div class="duel-arena">
+        <div id="anime-loader" class="loader">Loading anime matchup...</div>
+
+        <article class="duel-card-visual">
+          <img id="anime-champ-img" alt="Champion anime cover" />
+          <div class="duel-overlay">
+            <span id="anime-champ-meta" class="duel-meta"></span>
+            <h3 id="anime-champ-title"></h3>
+            <div class="score-box"><span class="score-label">SCORE</span><span id="anime-champ-score" class="score-val">--</span></div>
+          </div>
+        </article>
+
+        <div class="vs-badge" aria-hidden="true">VS</div>
+
+        <article class="duel-card-visual">
+          <img id="anime-chal-img" alt="Challenger anime cover" />
+          <div class="duel-overlay">
+            <span id="anime-chal-meta" class="duel-meta"></span>
+            <h3 id="anime-chal-title"></h3>
+            <div class="score-box"><span class="score-label">SCORE</span><span id="anime-chal-score" class="score-val mystery">?.?</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div id="anime-controls" class="duel-controls">
+        <button id="btn-higher" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="btn-lower" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+
+      <div id="anime-status" class="feedback hidden"></div>
+      <button id="anime-restart-btn" class="btn btn-primary full-width hidden" type="button">Start New Duel ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="chars">
+      <div class="game-header">
+        <div><span class="game-tag">Anime Roster</span><h2>Character Match</h2></div>
+        <span id="char-points-badge" class="points-chip">+250 PTS</span>
+      </div>
+      <p class="game-tip">Match this main character back to their anime series.</p>
+
+      <div class="stage-card char-stage">
+        <div id="char-loader" class="loader">Loading character...</div>
+        <img id="char-img" class="char-img" alt="Mystery anime character" />
+        <div id="char-name" class="char-name hidden"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="char-hint-btn" class="btn btn-secondary" type="button">💡 Reveal Character Name (-75 pts)</button>
+      </div>
+
+      <div id="char-options" class="options-grid"></div>
+      <div id="char-feedback" class="feedback hidden"></div>
+      <button id="char-next-btn" class="btn btn-primary full-width hidden" type="button">Next Character →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/anime.js"></script>
+</body>
+</html>

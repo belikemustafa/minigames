@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Careers Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="careers">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="salary" type="button">💰 Salary Showdown</button>
+      <button class="mode-tab" data-mode="tools" type="button">🧰 Tools of the Trade</button>
+      <button class="mode-tab" data-mode="spotle" type="button">🟩 Career Spotle</button>
+      <button class="mode-tab" data-mode="day" type="button">📋 Day-in-the-Life</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="salary">
+      <div class="game-header">
+        <div><span class="game-tag">Average Mid-Career Pay</span><h2>Salary Showdown</h2></div>
+        <div class="header-right">
+          <div class="seg-toggle">
+            <button id="sal-reg-in" class="seg-btn active" type="button">India (₹ LPA)</button>
+            <button id="sal-reg-us" class="seg-btn" type="button">US ($k)</button>
+          </div>
+          <span class="points-chip">Run: <strong id="sal-run">0</strong></span>
+        </div>
+      </div>
+      <p class="game-tip">Which profession earns a higher typical mid-career salary?</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="sal-l-emoji" class="emoji-big">⚙️</div><h3 id="sal-l-name">---</h3><p id="sal-l-sector" class="sub"></p></div>
+          <div class="score-box"><span class="score-label">AVG PAY</span><span id="sal-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="sal-r-emoji" class="emoji-big">✈️</div><h3 id="sal-r-name">---</h3><p id="sal-r-sector" class="sub"></p></div>
+          <div class="score-box"><span class="score-label">AVG PAY</span><span id="sal-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="sal-controls" class="duel-controls">
+        <button id="sal-btn-higher" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="sal-btn-lower" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="sal-status" class="feedback hidden"></div>
+      <button id="sal-restart" class="btn btn-primary full-width hidden" type="button">New Salary Run ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="tools">
+      <div class="game-header">
+        <div><span class="game-tag">Signature Kit</span><h2>Tools of the Trade</h2></div>
+        <span class="points-chip">+200 PTS</span>
+      </div>
+      <p class="game-tip">Identify the profession that uses these everyday tools &amp; software.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="tools-chips" class="clue-pill-grid"></div>
+      </div>
+
+      <div id="tools-options" class="options-grid"></div>
+      <div id="tools-feedback" class="feedback hidden"></div>
+      <button id="tools-next" class="btn btn-primary full-width hidden" type="button">Next Toolkit →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="spotle">
+      <div class="game-header">
+        <div><span class="game-tag">6-Try Deduction</span><h2>Career Spotle</h2></div>
+        <span id="spotle-tries" class="points-chip">Tries: 0 / 6</span>
+      </div>
+      <p class="game-tip">Guess the hidden career in 6 tries. Green = exact match, Yellow = close pay tier.</p>
+
+      <div class="search-box-wrap">
+        <div class="search-row">
+          <input id="spotle-input" class="text-input" type="text" placeholder="Type a career to guess..." autocomplete="off" />
+          <button id="spotle-submit" class="btn btn-primary" type="button">Guess</button>
+        </div>
+        <div id="spotle-dropdown" class="dropdown-list hidden"></div>
+      </div>
+
+      <div class="spotle-grid">
+        <div class="spotle-head">
+          <div>Career</div><div>Sector</div><div>Setting</div><div>Degree</div><div>Pay</div><div>Team</div>
+        </div>
+        <div id="spotle-rows" class="spotle-grid"></div>
+      </div>
+
+      <div id="spotle-feedback" class="feedback hidden"></div>
+      <button id="spotle-new" class="btn btn-primary full-width hidden" type="button">New Mystery Career ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="day">
+      <div class="game-header">
+        <div><span class="game-tag">Progressive Clues</span><h2>Day-in-the-Life Detective</h2></div>
+        <span id="day-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <p class="game-tip">Start with Clue 1 (a real workday problem). Reveal more clues if stuck.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="day-clues" class="clue-list"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="day-hint-btn" class="btn btn-secondary" type="button">🔎 Reveal Next Clue (-75 pts)</button>
+      </div>
+
+      <div id="day-options" class="options-grid"></div>
+      <div id="day-feedback" class="feedback hidden"></div>
+      <button id="day-next" class="btn btn-primary full-width hidden" type="button">Next Case →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/careers.js"></script>
+</body>
+</html>

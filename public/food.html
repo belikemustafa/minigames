@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Food Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="food">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="compass" type="button">🧭 Cuisine Compass</button>
+      <button class="mode-tab" data-mode="ingredients" type="button">🧄 Ingredient Detective</button>
+      <button class="mode-tab" data-mode="macro" type="button">🔥 Calorie &amp; Macro Duel</button>
+      <button class="mode-tab" data-mode="bracket" type="button">🏆 Knockout Bracket</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="compass">
+      <div class="game-header">
+        <div><span class="game-tag">TheMealDB World Kitchen</span><h2>Cuisine Compass</h2></div>
+        <span id="compass-pts" class="points-chip">+250 PTS</span>
+      </div>
+      <p class="game-tip">Identify the dish's cuisine/region of origin from its photo. Reveal 3 key ingredients if you need a clue.</p>
+
+      <div class="stage-card dish-photo-stage">
+        <div id="compass-loader" class="loader">Plating dish...</div>
+        <img id="compass-img" alt="World dish photo" />
+      </div>
+
+      <div class="action-bar">
+        <button id="compass-hint-btn" class="btn btn-secondary" type="button">💡 Show 3 Key Ingredients (-75 pts)</button>
+        <div id="compass-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="compass-options" class="options-grid"></div>
+      <div id="compass-feedback" class="feedback hidden"></div>
+      <button id="compass-next-btn" class="btn btn-primary full-width hidden" type="button">Next Dish →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="ingredients">
+      <div class="game-header">
+        <div><span class="game-tag">Recipe Decoder</span><h2>Ingredient Detective</h2></div>
+        <span id="ing-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <p class="game-tip">Start with 3 raw ingredients and guess the finished dish. Reveal extra ingredients for fewer points.</p>
+
+      <div class="stage-card">
+        <div id="ing-loader" class="loader">Chopping ingredients...</div>
+        <div id="ing-grid" class="ing-grid"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="ing-hint-btn" class="btn btn-secondary" type="button">➕ Reveal Another Ingredient (-60 pts)</button>
+      </div>
+
+      <div id="ing-options" class="options-grid"></div>
+      <div id="ing-feedback" class="feedback hidden"></div>
+      <button id="ing-next-btn" class="btn btn-primary full-width hidden" type="button">Next Recipe →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="macro">
+      <div class="game-header">
+        <div><span class="game-tag">Nutrition Showdown</span><h2>Calorie &amp; Macro Duel</h2></div>
+        <div class="header-right">
+          <div class="seg-toggle">
+            <button class="seg-btn active" data-macro="calories" type="button">Calories</button>
+            <button class="seg-btn" data-macro="protein" type="button">Protein</button>
+            <button class="seg-btn" data-macro="sugar" type="button">Sugar</button>
+          </div>
+          <span class="points-chip">Run: <strong id="macro-run">0</strong></span>
+        </div>
+      </div>
+      <p class="game-tip">Per 100g — does the right-hand food have MORE or LESS?</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="macro-l-emoji" class="emoji-big">🥞</div><h3 id="macro-l-name">---</h3><p id="macro-l-desc" class="sub"></p></div>
+          <div class="score-box"><span id="macro-l-label" class="score-label">KCAL</span><span id="macro-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="macro-r-emoji" class="emoji-big">🥐</div><h3 id="macro-r-name">---</h3><p id="macro-r-desc" class="sub"></p></div>
+          <div class="score-box"><span id="macro-r-label" class="score-label">KCAL</span><span id="macro-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="macro-controls" class="duel-controls">
+        <button id="macro-btn-higher" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="macro-btn-lower" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="macro-status" class="feedback hidden"></div>
+      <button id="macro-restart-btn" class="btn btn-primary full-width hidden" type="button">New Macro Run ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="bracket">
+      <div class="game-header">
+        <div><span class="game-tag">16-Dish Tournament</span><h2>Food Knockout Bracket</h2></div>
+        <select id="bracket-pack" class="gen-select" aria-label="Food Pack">
+          <option value="global">Global Classics</option>
+          <option value="indian">Indian Favorites</option>
+          <option value="desserts">World Desserts</option>
+        </select>
+      </div>
+      <p id="bracket-round-label" class="game-tip">Round of 16 — Tap your favorite dish to advance it.</p>
+
+      <div id="bracket-match" class="bracket-stack">
+        <button id="bracket-top" class="bracket-tile" type="button">
+          <div><h3 id="b-top-name">---</h3><p id="b-top-note">---</p></div>
+          <span id="b-top-emoji" class="b-emoji">🍕</span>
+        </button>
+        <div class="bracket-or">VERSUS</div>
+        <button id="bracket-bot" class="bracket-tile" type="button">
+          <div><h3 id="b-bot-name">---</h3><p id="b-bot-note">---</p></div>
+          <span id="b-bot-emoji" class="b-emoji">🍜</span>
+        </button>
+      </div>
+
+      <div id="bracket-winner" class="stage-card clue-stage hidden" style="text-align:center;">
+        <div id="b-win-emoji" style="font-size:3rem;">🏆</div>
+        <h2 id="b-win-name" style="margin:6px 0;">Champion</h2>
+        <p id="b-win-note" class="game-tip" style="margin-bottom:14px;"></p>
+        <button id="bracket-restart" class="btn btn-primary" type="button">Start New Bracket ↻</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/food.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>60s Blitz & Challenges — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="blitz">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="blitz" type="button">⏱️ 60-Second Blitz</button>
+      <button class="mode-tab" data-mode="challenge" type="button">🔗 Friend Challenge</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="blitz">
+      <div class="game-header">
+        <div><span class="game-tag">Cross-Arcade Rush</span><h2>60-Second Blitz</h2></div>
+        <div class="header-right">
+          <span class="points-chip">Time: <strong id="blitz-timer">60</strong>s</span>
+          <span class="points-chip">Score: <strong id="blitz-score">0</strong></span>
+        </div>
+      </div>
+      <p class="game-tip">Rapid-fire mix from Food, Careers, Cartoons, and Dev. Streaks multiply your points!</p>
+
+      <div class="timer-bar-wrap"><div id="blitz-bar" class="timer-bar-fill"></div></div>
+
+      <div id="blitz-intro" class="stage-card clue-stage" style="text-align:center;">
+        <h3 style="margin:0 0 8px;">Ready to beat the clock?</h3>
+        <p class="game-tip">Answer as many cross-category trivia questions as you can in 60 seconds.</p>
+        <button id="blitz-start-btn" class="btn btn-primary" type="button">Start 60s Blitz ⚡</button>
+      </div>
+
+      <div id="blitz-play" class="hidden">
+        <div class="stage-card clue-stage">
+          <span id="blitz-cat" class="hub-badge">CATEGORY</span>
+          <div id="blitz-q" class="quote-block" style="margin-top:10px;"></div>
+        </div>
+        <div id="blitz-options" class="options-grid"></div>
+      </div>
+
+      <div id="blitz-result" class="feedback hidden"></div>
+    </section>
+
+    <section class="mode-panel" data-panel="challenge">
+      <div class="game-header">
+        <div><span class="game-tag">Identical 5-Round Seed</span><h2>Friend Challenge Link</h2></div>
+        <span id="chal-progress" class="points-chip">Q 1 / 5</span>
+      </div>
+      <p class="game-tip">Every link locks in the exact same 5 mixed questions so you and your friends can compare scores fairly.</p>
+
+      <div class="stage-card clue-stage">
+        <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; margin-bottom:12px;">
+          <span id="chal-seed-badge" class="hub-badge">SEED: ----</span>
+          <div style="display:flex; gap:8px;">
+            <button id="chal-copy-btn" class="btn btn-secondary" type="button" style="min-height:38px; padding:6px 12px; font-size:0.82rem;">📋 Copy Link</button>
+            <button id="chal-new-btn" class="btn btn-secondary" type="button" style="min-height:38px; padding:6px 12px; font-size:0.82rem;">🎲 New Seed</button>
+          </div>
+        </div>
+        <span id="chal-cat" class="game-tag">CATEGORY</span>
+        <div id="chal-q" class="quote-block" style="margin-top:8px;"></div>
+      </div>
+
+      <div id="chal-options" class="options-grid"></div>
+      <div id="chal-feedback" class="feedback hidden"></div>
+      <button id="chal-next" class="btn btn-primary full-width hidden" type="button">Next Question →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/blitz.js"></script>
+</body>
+</html>

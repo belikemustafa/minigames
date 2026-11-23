@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Pokémon Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="pokemon">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="who" type="button">◓ Who's That?</button>
+      <button class="mode-tab" data-mode="clash" type="button">⚔️ Stat Clash</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="who">
+      <div class="game-header">
+        <div><span class="game-tag">Silhouette &amp; Cry</span><h2>Who's That Pokémon?</h2></div>
+        <div class="header-right">
+          <div class="seg-toggle" role="group" aria-label="Difficulty Mode">
+            <button id="poke-diff-easy" class="seg-btn active" type="button">Easy</button>
+            <button id="poke-diff-hard" class="seg-btn" type="button">Hard</button>
+          </div>
+          <select id="poke-gen-select" class="gen-select" aria-label="Pokémon Generation">
+            <option value="151">Gen 1 (1–151)</option>
+            <option value="493" selected>Gen 1–4 (1–493)</option>
+            <option value="1025">All (1–1025)</option>
+          </select>
+        </div>
+      </div>
+      <p id="poke-tip" class="game-tip">Easy Mode: Choose from 4 options. Switch to Hard Mode to type and pick from a text-only dropdown.</p>
+
+      <div class="stage-card poke-stage">
+        <div class="pokeball-ring" aria-hidden="true"></div>
+        <div id="poke-loader" class="loader">Scanning tall grass...</div>
+        <img id="poke-img" class="poke-img silhouette" alt="Mystery Pokémon silhouette" />
+      </div>
+
+      <div class="poke-tools">
+        <button id="poke-cry-btn" class="btn btn-secondary" type="button">🔊 Play Cry</button>
+        <button id="poke-hint-btn" class="btn btn-secondary" type="button">💡 Type Hint (-50)</button>
+      </div>
+
+      <div id="poke-hint-box" class="type-badges hidden"></div>
+      <div id="poke-stats" class="poke-stats hidden"></div>
+
+      <!-- Easy Mode: 4 Option Buttons -->
+      <div id="poke-options" class="options-grid"></div>
+
+      <!-- Hard Mode: Type & Select from Text-Only Dropdown (Strictly NO images!) -->
+      <div id="poke-hard-wrap" class="search-box-wrap hidden">
+        <div class="search-row">
+          <input id="poke-hard-input" class="text-input" type="text" placeholder="Type Pokémon name and pick from list..." autocomplete="off" />
+          <button id="poke-hard-submit" class="btn btn-primary" type="button">Guess</button>
+        </div>
+        <div id="poke-hard-dropdown" class="dropdown-list hidden" role="listbox" aria-label="Pokémon suggestions"></div>
+      </div>
+
+      <div id="poke-feedback" class="feedback hidden"></div>
+      <button id="poke-next-btn" class="btn btn-primary full-width hidden" type="button">Next Encounter →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="clash">
+      <div class="game-header">
+        <div><span class="game-tag">Base Stat Battle</span><h2>Stat Clash</h2></div>
+        <div class="header-right">
+          <select id="clash-gen-select" class="gen-select" aria-label="Stat Clash Generation">
+            <option value="151">Gen 1</option>
+            <option value="493" selected>Gen 1–4</option>
+            <option value="1025">All</option>
+          </select>
+          <span class="points-chip">Run: <strong id="clash-run-score">0</strong></span>
+        </div>
+      </div>
+      <p class="game-tip">Tap the Pokémon card you think has the higher base stat or BST.</p>
+
+      <div id="clash-stat-banner" class="clash-banner">Loading matchup...</div>
+
+      <div class="clash-arena">
+        <div id="clash-loader" class="loader">Preparing battle...</div>
+        <button id="clash-left" class="clash-card" type="button">
+          <img alt="Left Pokémon" /><h3>---</h3><span class="clash-types">---</span><div class="clash-stat-val mystery">???</div>
+        </button>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <button id="clash-right" class="clash-card" type="button">
+          <img alt="Right Pokémon" /><h3>---</h3><span class="clash-types">---</span><div class="clash-stat-val mystery">???</div>
+        </button>
+      </div>
+
+      <div id="clash-status" class="feedback hidden"></div>
+      <button id="clash-restart-btn" class="btn btn-primary full-width hidden" type="button">New Battle Streak ↻</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/pokemon.js"></script>
+</body>
+</html>

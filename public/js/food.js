@@ -1,0 +1,412 @@
+import {
+  initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
+  resetStreak, shuffle, escapeHtml, preloadImage,
+} from './core.js';
+import { MACRO_FOODS, BRACKET_PACKS } from './data/foodData.js';
+
+initChrome('food');
+
+const AREAS = [
+  'Indian', 'Italian', 'Japanese', 'Mexican', 'Chinese', 'Thai', 'French',
+  'American', 'British', 'Greek', 'Turkish', 'Spanish', 'Moroccan', 'Canadian',
+  'Vietnamese', 'Malaysian', 'Jamaican', 'Egyptian', 'Russian', 'Polish',
+];
+
+function extractIngredients(meal) {
+  const list = [];
+  for (let i = 1; i <= 20; i++) {
+    const val = (meal[`strIngredient${i}`] || '').trim();
+    if (val && !list.includes(val)) list.push(val);
+  }
+  return list;
+}
+
+async function fetchRandomMeal() {
+  const res = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
+  if (!res.ok) throw new Error(`TheMealDB HTTP ${res.status}`);
+  const json = await res.json();
+  const meal = json?.meals?.[0];
+  if (!meal) throw new Error('No meal returned');
+  return {
+    id: meal.idMeal,
+    name: meal.strMeal,
+    area: meal.strArea && meal.strArea !== 'Unknown' ? meal.strArea : 'International',
+    image: meal.strMealThumb,
+    ingredients: extractIngredients(meal),
+  };
+}
+
+// ---------- 1. CUISINE COMPASS ----------
+function initCompass() {
+  let target = null, hintUsed = false, locked = true, token = 0;
+
+  const imgEl = document.getElementById('compass-img');
+  const loader = document.getElementById('compass-loader');
+  const ptsEl = document.getElementById('compass-pts');
+  const hintBtn = document.getElementById('compass-hint-btn');
+  const hintBox = document.getElementById('compass-hint-box');
+  const optionsEl = document.getElementById('compass-options');
+  const feedbackEl = document.getElementById('compass-feedback');
+  const nextBtn = document.getElementById('compass-next-btn');
+
+  async function startRound() {
+    const t = ++token;
+    locked = true; hintUsed = false;
+    ptsEl.textContent = '+250 PTS';
+    hintBtn.disabled = true;
+    hintBox.classList.add('hidden');
+    feedbackEl.classList.add('hidden');
+    nextBtn.classList.add('hidden');
+    loader.textContent = 'Plating dish...';
+    loader.classList.remove('hidden');
+    imgEl.className = '';
+    optionsEl.innerHTML = '';
+
+    try {
+      let meal = await fetchRandomMeal();
+      if (meal.area === 'International') meal = await fetchRandomMeal();
+      if (t !== token) return;
+      target = meal;
+
+      await preloadImage(target.image);
+      if (t !== token) return;
+      imgEl.src = target.image;
+      imgEl.classList.add('ready');
+      loader.classList.add('hidden');
+
+      const decoys = shuffle(AREAS.filter((a) => a.toLowerCase() !== target.area.toLowerCase())).slice(0, 3);
+      shuffle([target.area, ...decoys]).forEach((area) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'option-btn';
+        btn.textContent = area;
+        btn.addEventListener('click', () => handleGuess(area, btn));
+        optionsEl.appendChild(btn);
+      });
+
+      locked = false;
+      hintBtn.disabled = false;
+    } catch {
+      if (t !== token) return;
+      loader.textContent = 'TheMealDB hiccup — tap Retry.';
+      nextBtn.textContent = 'Retry ↻';
+      nextBtn.classList.remove('hidden');
+    }
+  }
+
+  function handleGuess(sel, btnEl) {
+    if (locked || !target) return;
+    locked = true; hintBtn.disabled = true;
+    optionsEl.querySelectorAll('.option-btn').forEach((b) => {
+      b.disabled = true;
+      if (b.textContent === target.area) b.classList.add('correct');
+    });
+    feedbackEl.classList.remove('hidden', 'good', 'bad');
+    if (sel === target.area) {
+      playSfx('correct');
+      const earned = recordWin('foodCompass', hintUsed ? 175 : 250);
+      feedbackEl.classList.add('good');
+      feedbackEl.textContent = `Delicious! "${target.name}" is ${target.area} — +${earned} pts`;
+    } else {
+      playSfx('wrong');
+      btnEl.classList.add('wrong');
+      resetStreak();
+      feedbackEl.classList.add('bad');
+      feedbackEl.textContent = `That dish is "${target.name}" (${target.area}).`;
+    }
+    nextBtn.textContent = 'Next Dish →';
+    nextBtn.classList.remove('hidden');
+  }
+
+  hintBtn.addEventListener('click', () => {
+    if (locked || hintUsed || !target) return;
+    playSfx('click');
+    hintUsed = true;
+    hintBtn.disabled = true;
+    ptsEl.textContent = '+175 PTS';
+    const top3 = target.ingredients.slice(0, 3).join(', ') || 'House spices';
+    hintBox.innerHTML = `<strong>Key Ingredients:</strong> ${escapeHtml(top3)}`;
+    hintBox.classList.remove('hidden');
+  });
+
+  nextBtn.addEventListener('click', () => { playSfx('click'); startRound(); });
+  startRound();
+}
+
+// ---------- 2. INGREDIENT DETECTIVE ----------
+function initIngredients() {
+  let target = null, shownCount = 3, pts = 300, locked = true, token = 0;
+
+  const loader = document.getElementById('ing-loader');
+  const gridEl = document.getElementById('ing-grid');
+  const ptsEl = document.getElementById('ing-pts');
+  const hintBtn = document.getElementById('ing-hint-btn');
+  const optionsEl = document.getElementById('ing-options');
+  const feedbackEl = document.getElementById('ing-feedback');
+  const nextBtn = document.getElementById('ing-next-btn');
+
+  function renderIngredients() {
+    gridEl.innerHTML = '';
+    const slice = target.ingredients.slice(0, shownCount);
+    slice.forEach((ing) => {
+      const tile = document.createElement('div');
+      tile.className = 'ing-tile';
+      const slug = encodeURIComponent(ing.replace(/\s+/g, '_'));
+      tile.innerHTML = `
+        <img src="https://www.themealdb.com/images/ingredients/${slug}-medium.png" alt="${escapeHtml(ing)}" onerror="this.style.display='none'" />
+        <span>${escapeHtml(ing)}</span>`;
+      gridEl.appendChild(tile);
+    });
+  }
+
+  async function startRound() {
+    const t = ++token;
+    locked = true; shownCount = 3; pts = 300;
+    ptsEl.textContent = '+300 PTS';
+    hintBtn.disabled = true;
+    feedbackEl.classList.add('hidden');
+    nextBtn.classList.add('hidden');
+    loader.textContent = 'Chopping ingredients...';
+    loader.classList.remove('hidden');
+    gridEl.innerHTML = '';
+    optionsEl.innerHTML = '';
+
+    try {
+      const batch = await Promise.all([fetchRandomMeal(), fetchRandomMeal(), fetchRandomMeal(), fetchRandomMeal()]);
+      if (t !== token) return;
+      const unique = [];
+      const seen = new Set();
+      batch.forEach((m) => { if (!seen.has(m.id)) { seen.add(m.id); unique.push(m); } });
+      if (unique.length < 3) throw new Error('Duplicate meals returned');
+
+      target = unique[0];
+      renderIngredients();
+      loader.classList.add('hidden');
+
+      shuffle(unique).forEach((m) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'option-btn';
+        btn.dataset.id = m.id;
+        btn.textContent = m.name;
+        btn.addEventListener('click', () => handleGuess(m, btn));
+        optionsEl.appendChild(btn);
+      });
+
+      locked = false;
+      hintBtn.disabled = target.ingredients.length <= 3;
+    } catch {
+      if (t !== token) return;
+      loader.textContent = 'TheMealDB hiccup — tap Retry.';
+      nextBtn.textContent = 'Retry ↻';
+      nextBtn.classList.remove('hidden');
+    }
+  }
+
+  function handleGuess(sel, btnEl) {
+    if (locked || !target) return;
+    locked = true; hintBtn.disabled = true;
+    optionsEl.querySelectorAll('.option-btn').forEach((b) => {
+      b.disabled = true;
+      if (b.dataset.id === target.id) b.classList.add('correct');
+    });
+    feedbackEl.classList.remove('hidden', 'good', 'bad');
+    if (sel.id === target.id) {
+      playSfx('correct');
+      const earned = recordWin('foodIng', pts);
+      feedbackEl.classList.add('good');
+      feedbackEl.textContent = `Chef's kiss! It's "${target.name}" (${target.area}) — +${earned} pts`;
+    } else {
+      playSfx('wrong');
+      btnEl.classList.add('wrong');
+      resetStreak();
+      feedbackEl.classList.add('bad');
+      feedbackEl.textContent = `Those ingredients make "${target.name}" (${target.area}).`;
+    }
+    nextBtn.textContent = 'Next Recipe →';
+    nextBtn.classList.remove('hidden');
+  }
+
+  hintBtn.addEventListener('click', () => {
+    if (locked || !target || shownCount >= Math.min(target.ingredients.length, 6)) return;
+    playSfx('click');
+    shownCount += 1;
+    pts = Math.max(120, pts - 60);
+    ptsEl.textContent = `+${pts} PTS`;
+    renderIngredients();
+    if (shownCount >= Math.min(target.ingredients.length, 6)) hintBtn.disabled = true;
+  });
+
+  nextBtn.addEventListener('click', () => { playSfx('click'); startRound(); });
+  startRound();
+}
+
+// ---------- 3. CALORIE & MACRO DUEL ----------
+function initMacroDuel() {
+  const META = {
+    calories: { label: 'KCAL / 100G', unit: ' kcal' },
+    protein:  { label: 'PROTEIN / 100G', unit: 'g' },
+    sugar:    { label: 'SUGAR / 100G', unit: 'g' },
+  };
+  let metric = 'calories', pool = [], left = null, right = null, run = 0, locked = false, timer = null;
+
+  const runEl = document.getElementById('macro-run');
+  const lEmoji = document.getElementById('macro-l-emoji'), lName = document.getElementById('macro-l-name'), lDesc = document.getElementById('macro-l-desc'), lLabel = document.getElementById('macro-l-label'), lVal = document.getElementById('macro-l-val');
+  const rEmoji = document.getElementById('macro-r-emoji'), rName = document.getElementById('macro-r-name'), rDesc = document.getElementById('macro-r-desc'), rLabel = document.getElementById('macro-r-label'), rVal = document.getElementById('macro-r-val');
+  const controls = document.getElementById('macro-controls');
+  const btnHi = document.getElementById('macro-btn-higher'), btnLo = document.getElementById('macro-btn-lower');
+  const statusEl = document.getElementById('macro-status');
+  const restartBtn = document.getElementById('macro-restart-btn');
+
+  function draw(exclude) {
+    if (pool.length < 3) pool = shuffle(MACRO_FOODS);
+    const idx = pool.findIndex((f) => f.name !== exclude);
+    return pool.splice(idx === -1 ? 0 : idx, 1)[0];
+  }
+
+  function render(showRight = false) {
+    const m = META[metric];
+    lEmoji.textContent = left.emoji; lName.textContent = left.name; lDesc.textContent = left.desc;
+    lLabel.textContent = m.label; lVal.textContent = `${left[metric]}${m.unit}`;
+
+    rEmoji.textContent = right.emoji; rName.textContent = right.name; rDesc.textContent = right.desc;
+    rLabel.textContent = m.label;
+    rVal.textContent = showRight ? `${right[metric]}${m.unit}` : '???';
+    rVal.classList.toggle('mystery', !showRight);
+  }
+
+  function startRun() {
+    clearTimeout(timer);
+    run = 0; runEl.textContent = '0'; locked = false;
+    pool = shuffle(MACRO_FOODS);
+    left = draw(null); right = draw(left.name);
+    statusEl.classList.add('hidden');
+    restartBtn.classList.add('hidden');
+    controls.classList.remove('hidden');
+    btnHi.disabled = false; btnLo.disabled = false;
+    render(false);
+  }
+
+  function guess(dir) {
+    if (locked) return;
+    locked = true; btnHi.disabled = true; btnLo.disabled = true;
+    render(true);
+    const ok = (dir === 'higher' && right[metric] >= left[metric]) || (dir === 'lower' && right[metric] <= left[metric]);
+    statusEl.classList.remove('hidden', 'good', 'bad');
+    if (ok) {
+      playSfx('correct');
+      run += 1; runEl.textContent = run;
+      recordWin(null, 120);
+      recordBestValue('foodMacro', run);
+      statusEl.classList.add('good');
+      statusEl.textContent = `Spot on! ${right.name}: ${right[metric]}${META[metric].unit} per 100g`;
+      timer = setTimeout(() => {
+        left = right; right = draw(left.name);
+        statusEl.classList.add('hidden');
+        btnHi.disabled = false; btnLo.disabled = false;
+        locked = false;
+        render(false);
+      }, 1150);
+    } else {
+      playSfx('wrong');
+      resetStreak();
+      statusEl.classList.add('bad');
+      statusEl.textContent = `Missed! ${right.name} has ${right[metric]}${META[metric].unit} per 100g. Final run: ${run}`;
+      controls.classList.add('hidden');
+      restartBtn.classList.remove('hidden');
+    }
+  }
+
+  document.querySelectorAll('[data-macro]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      playSfx('click');
+      metric = btn.dataset.macro;
+      document.querySelectorAll('[data-macro]').forEach((b) => b.classList.toggle('active', b === btn));
+      startRun();
+    });
+  });
+
+  btnHi.addEventListener('click', () => guess('higher'));
+  btnLo.addEventListener('click', () => guess('lower'));
+  restartBtn.addEventListener('click', () => { playSfx('click'); startRun(); });
+  startRun();
+}
+
+// ---------- 4. FOOD KNOCKOUT BRACKET ----------
+function initBracket() {
+  let currentRound = [], nextRound = [], idx = 0;
+
+  const packSel = document.getElementById('bracket-pack');
+  const labelEl = document.getElementById('bracket-round-label');
+  const matchBox = document.getElementById('bracket-match');
+  const winBox = document.getElementById('bracket-winner');
+  const btnTop = document.getElementById('bracket-top'), btnBot = document.getElementById('bracket-bot');
+  const topName = document.getElementById('b-top-name'), topNote = document.getElementById('b-top-note'), topEmoji = document.getElementById('b-top-emoji');
+  const botName = document.getElementById('b-bot-name'), botNote = document.getElementById('b-bot-note'), botEmoji = document.getElementById('b-bot-emoji');
+  const winEmoji = document.getElementById('b-win-emoji'), winName = document.getElementById('b-win-name'), winNote = document.getElementById('b-win-note');
+  const restartBtn = document.getElementById('bracket-restart');
+
+  function roundTitle(n) {
+    if (n === 16) return 'Round of 16';
+    if (n === 8) return 'Quarterfinals';
+    if (n === 4) return 'Semifinals';
+    return 'Grand Final';
+  }
+
+  function renderPair() {
+    const a = currentRound[idx];
+    const b = currentRound[idx + 1];
+    const matchNum = idx / 2 + 1;
+    const totalMatches = currentRound.length / 2;
+    labelEl.textContent = `${roundTitle(currentRound.length)} • Match ${matchNum} of ${totalMatches}`;
+    topName.textContent = a.name; topNote.textContent = a.note; topEmoji.textContent = a.emoji;
+    botName.textContent = b.name; botNote.textContent = b.note; botEmoji.textContent = b.emoji;
+  }
+
+  function startBracket() {
+    const pack = BRACKET_PACKS[packSel.value] || BRACKET_PACKS.global;
+    currentRound = shuffle(pack).slice(0, 16);
+    nextRound = [];
+    idx = 0;
+    matchBox.classList.remove('hidden');
+    winBox.classList.add('hidden');
+    renderPair();
+  }
+
+  function choose(winnerOffset) {
+    playSfx('click');
+    nextRound.push(currentRound[idx + winnerOffset]);
+    idx += 2;
+    if (idx >= currentRound.length) {
+      if (nextRound.length === 1) {
+        const champ = nextRound[0];
+        playSfx('correct');
+        recordWin('foodBracket', 200);
+        matchBox.classList.add('hidden');
+        winBox.classList.remove('hidden');
+        labelEl.textContent = 'Tournament Complete!';
+        winEmoji.textContent = champ.emoji;
+        winName.textContent = `🏆 ${champ.name}`;
+        winNote.textContent = champ.note;
+        return;
+      }
+      currentRound = nextRound;
+      nextRound = [];
+      idx = 0;
+    }
+    renderPair();
+  }
+
+  btnTop.addEventListener('click', () => choose(0));
+  btnBot.addEventListener('click', () => choose(1));
+  packSel.addEventListener('change', () => { playSfx('click'); startBracket(); });
+  restartBtn.addEventListener('click', () => { playSfx('click'); startBracket(); });
+  startBracket();
+}
+
+setupModeTabs((mode) => {
+  if (mode === 'compass') initCompass();
+  if (mode === 'ingredients') initIngredients();
+  if (mode === 'macro') initMacroDuel();
+  if (mode === 'bracket') initBracket();
+});
