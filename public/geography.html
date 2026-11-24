@@ -30,23 +30,37 @@
   <main class="container">
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="flags" type="button">🚩 Flag &amp; Capital Blitz</button>
-      <button class="mode-tab" data-mode="duel" type="button">🌍 Population / Area Duel</button>
+      <button class="mode-tab" data-mode="duel" type="button">🌍 World Scale Duel</button>
       <button class="mode-tab" data-mode="weather" type="button">🌦️ Live Weather Bet</button>
     </div>
 
     <section class="mode-panel active" data-panel="flags">
       <div class="game-header">
-        <div><span class="game-tag">REST Countries Live API</span><h2>Flag &amp; Capital Blitz</h2></div>
+        <div><span class="game-tag">103 Countries</span><h2>Flag, Capital &amp; Currency</h2></div>
+        <div class="seg-toggle">
+          <button id="geo-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="geo-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <select id="geo-flag-region" class="gen-select" aria-label="Continent Filter">
+          <option value="All">All Continents (103)</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Americas">Americas</option>
+          <option value="Africa">Africa</option>
+          <option value="Oceania">Oceania</option>
+        </select>
         <div class="seg-toggle">
           <button class="seg-btn active" data-fmode="flag" type="button">Flags</button>
           <button class="seg-btn" data-fmode="capital" type="button">Capitals</button>
+          <button class="seg-btn" data-fmode="currency" type="button">Currency</button>
           <button class="seg-btn" data-fmode="mixed" type="button">Mixed</button>
         </div>
       </div>
       <p id="geo-flag-tip" class="game-tip">Identify the country from its national flag.</p>
 
       <div class="stage-card flag-stage">
-        <div id="geo-flag-loader" class="loader">Loading world flags...</div>
         <img id="geo-flag-img" class="flag-img hidden" alt="Country flag" />
         <div id="geo-cap-prompt" class="quote-block hidden" style="text-align:center; width:100%;"></div>
       </div>
@@ -58,20 +72,26 @@
 
     <section class="mode-panel" data-panel="duel">
       <div class="game-header">
-        <div><span class="game-tag">Global Scale Duel</span><h2>Population / Area Duel</h2></div>
-        <div class="header-right">
-          <div class="seg-toggle">
-            <button class="seg-btn active" data-gstat="population" type="button">Population</button>
-            <button class="seg-btn" data-gstat="area" type="button">Area</button>
-            <button class="seg-btn" data-gstat="borders" type="button">Borders</button>
-          </div>
-          <span class="points-chip">Run: <strong id="geo-duel-run">0</strong></span>
+        <div><span class="game-tag">Global Scale Duel</span><h2>Population / Area / Borders</h2></div>
+        <span class="points-chip">Run: <strong id="geo-duel-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="geo-duel-region" class="gen-select" aria-label="Duel Continent">
+          <option value="All">All Continents</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Americas">Americas</option>
+          <option value="Africa">Africa</option>
+        </select>
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-gstat="pop" type="button">Population</button>
+          <button class="seg-btn" data-gstat="area" type="button">Area</button>
+          <button class="seg-btn" data-gstat="borders" type="button">Borders</button>
         </div>
       </div>
       <p id="geo-duel-tip" class="game-tip">Does the right-hand country have a higher or lower population?</p>
 
       <div class="duel-arena">
-        <div id="geo-duel-loader" class="loader">Loading countries...</div>
         <article class="duel-card-text">
           <div>
             <img id="geo-l-flag" style="height:44px; border-radius:6px; border:1px solid var(--border); margin-bottom:8px;" alt="Left flag" />
@@ -101,7 +121,16 @@
 
     <section class="mode-panel" data-panel="weather">
       <div class="game-header">
-        <div><span class="game-tag">Open-Meteo Live Weather</span><h2>Live Weather Bet</h2></div>
+        <div><span class="game-tag">52 Cities • Open-Meteo Live</span><h2>Live Weather Bet</h2></div>
+        <span id="wx-source-badge" class="points-chip">Live</span>
+      </div>
+      <div class="filter-row">
+        <select id="wx-region" class="gen-select" aria-label="Weather Region">
+          <option value="All">All 52 Cities</option>
+          <option value="Asia">India &amp; Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Americas">Americas</option>
+        </select>
         <div class="seg-toggle">
           <button id="wx-mode-duel" class="seg-btn active" type="button">Warmer City</button>
           <button id="wx-mode-exact" class="seg-btn" type="button">Exact °C</button>
@@ -109,7 +138,6 @@
       </div>
       <p id="wx-tip" class="game-tip">Tap whichever city is warmer RIGHT NOW in real-time.</p>
 
-      <!-- Warmer City Duel -->
       <div id="wx-duel-box">
         <div class="clash-arena">
           <div id="wx-loader" class="loader">Checking live thermometers...</div>
@@ -129,7 +157,6 @@
         </div>
       </div>
 
-      <!-- Exact Temp Slider -->
       <div id="wx-exact-box" class="hidden">
         <div class="stage-card clue-stage" style="text-align:center; min-height:110px;">
           <div id="wx-exact-loader" class="loader">Reading live temperature...</div>

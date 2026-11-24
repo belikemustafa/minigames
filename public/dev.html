@@ -40,10 +40,18 @@
 
     <section class="mode-panel active" data-panel="stars">
       <div class="game-header">
-        <div><span class="game-tag">Live GitHub API</span><h2>GitHub Stars Duel</h2></div>
+        <div><span class="game-tag">Live GitHub API + 42 Curated</span><h2>GitHub Stars Duel</h2></div>
         <span class="points-chip">Run: <strong id="gh-run">0</strong></span>
       </div>
-      <p class="game-tip">Which open-source repository has MORE GitHub stars right now?</p>
+      <div class="filter-row">
+        <select id="gh-cat" class="gen-select" aria-label="Repo Ecosystem">
+          <option value="all">All Top Repos (Live)</option>
+          <option value="js">JS / TS / Web</option>
+          <option value="python">Python &amp; AI/ML</option>
+          <option value="systems">C / Rust / Go / Systems</option>
+        </select>
+      </div>
+      <p class="game-tip">Which open-source repository has MORE GitHub stars?</p>
 
       <div class="duel-arena">
         <div id="gh-loader" class="loader">Fetching top GitHub repos...</div>
@@ -68,10 +76,20 @@
 
     <section class="mode-panel" data-panel="bug">
       <div class="game-header">
-        <div><span class="game-tag">Tap the Broken Line</span><h2>Spot the Bug</h2></div>
+        <div><span class="game-tag">22 Real Code Bugs</span><h2>Spot the Bug</h2></div>
         <span id="bug-lang" class="points-chip">JavaScript</span>
       </div>
-      <p id="bug-title" class="game-tip">Tap the single line of code that causes the bug.</p>
+      <div class="filter-row">
+        <select id="bug-filter" class="gen-select" aria-label="Language Filter">
+          <option value="all">All Languages</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Python">Python</option>
+          <option value="C">C</option>
+          <option value="SQL">SQL</option>
+          <option value="Go">Go</option>
+        </select>
+      </div>
+      <p id="bug-title" class="game-tip">Tap the exact line of code that causes the bug.</p>
 
       <div id="bug-code" class="code-stage"></div>
       <div id="bug-feedback" class="feedback hidden"></div>
@@ -80,8 +98,15 @@
 
     <section class="mode-panel" data-panel="output">
       <div class="game-header">
-        <div><span class="game-tag">Runtime Brainteaser</span><h2>What's the Output?</h2></div>
+        <div><span class="game-tag">22 Runtime Brainteasers</span><h2>What's the Output?</h2></div>
         <span id="out-lang" class="points-chip">JS</span>
+      </div>
+      <div class="filter-row">
+        <select id="out-filter" class="gen-select" aria-label="Output Language">
+          <option value="all">All Languages</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Python">Python</option>
+        </select>
       </div>
       <p class="game-tip">Predict what gets printed to the console.</p>
 
@@ -93,8 +118,14 @@
 
     <section class="mode-panel" data-panel="lang">
       <div class="game-header">
-        <div><span class="game-tag">Syntax Radar</span><h2>Guess the Language</h2></div>
+        <div><span class="game-tag">20 Languages</span><h2>Guess the Language</h2></div>
         <span id="lang-pts" class="points-chip">+200 PTS</span>
+      </div>
+      <div class="filter-row">
+        <div class="seg-toggle">
+          <button id="lang-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="lang-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
       </div>
       <p class="game-tip">Identify the programming language from this short snippet.</p>
 
@@ -111,7 +142,7 @@
 
     <section class="mode-panel" data-panel="bigo">
       <div class="game-header">
-        <div><span class="game-tag">Algorithm Speed</span><h2>Big-O Blitz</h2></div>
+        <div><span class="game-tag">24 Algorithms</span><h2>Big-O Blitz</h2></div>
         <span class="points-chip">+150 PTS</span>
       </div>
       <p class="game-tip">Tap the matching time complexity.</p>
@@ -127,8 +158,16 @@
 
     <section class="mode-panel" data-panel="http">
       <div class="game-header">
-        <div><span class="game-tag">Backend &amp; CLI</span><h2>HTTP &amp; Git Survival</h2></div>
+        <div><span class="game-tag">30 Backend &amp; CLI Cards</span><h2>HTTP &amp; Git Survival</h2></div>
         <span id="http-tag" class="points-chip">HTTP</span>
+      </div>
+      <div class="filter-row">
+        <select id="http-filter" class="gen-select" aria-label="Topic Filter">
+          <option value="all">All Topics (30)</option>
+          <option value="HTTP">HTTP Status Codes</option>
+          <option value="Git">Git Commands</option>
+          <option value="Linux/Docker">Linux, Docker &amp; SQL</option>
+        </select>
       </div>
       <p class="game-tip">Match the status code or terminal command to what it actually does.</p>
 
@@ -143,8 +182,8 @@
 
     <section class="mode-panel" data-panel="outage">
       <div class="game-header">
-        <div><span class="game-tag">On-Call Incident</span><h2>Prod Outage Simulator</h2></div>
-        <span id="outage-step" class="points-chip">Incident 1 / 5</span>
+        <div><span class="game-tag">14 On-Call Incidents</span><h2>Prod Outage Simulator</h2></div>
+        <span id="outage-step" class="points-chip">Incident 1 / 14</span>
       </div>
       <p class="game-tip">Make the smartest first move to keep uptime high and latency low.</p>
 

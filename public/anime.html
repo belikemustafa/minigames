@@ -29,37 +29,48 @@
 
   <main class="container">
     <div class="mode-tabs">
-      <button class="mode-tab active" data-mode="duel" type="button">⚡ Score Duel</button>
+      <button class="mode-tab active" data-mode="duel" type="button">⚡ Score / Era Duel</button>
       <button class="mode-tab" data-mode="chars" type="button">🗡️ Character Match</button>
     </div>
 
     <section class="mode-panel active" data-panel="duel">
       <div class="game-header">
-        <div><span class="game-tag">AniList Score Duel</span><h2>Higher or Lower</h2></div>
+        <div><span class="game-tag">AniList Showdown</span><h2>Higher or Lower</h2></div>
         <span class="points-chip">Run: <strong id="anime-run-score">0</strong></span>
       </div>
-      <p class="game-tip">Predict whether the right-hand challenger holds a higher or lower AniList rating (out of 10).</p>
+      <div class="filter-row">
+        <select id="anime-duel-filter" class="gen-select" aria-label="Anime Category">
+          <option value="all">All Popular</option>
+          <option value="action">Action / Shonen</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="romance">Romance</option>
+          <option value="classic">Classics (Pre-2010)</option>
+        </select>
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-amode="score" type="button">Rating</button>
+          <button class="seg-btn" data-amode="popularity" type="button">Popularity</button>
+          <button class="seg-btn" data-amode="year" type="button">Year</button>
+        </div>
+      </div>
+      <p id="anime-duel-tip" class="game-tip">Predict whether the right-hand challenger holds a higher or lower AniList rating.</p>
 
       <div class="duel-arena">
         <div id="anime-loader" class="loader">Loading anime matchup...</div>
-
         <article class="duel-card-visual">
           <img id="anime-champ-img" alt="Champion anime cover" />
           <div class="duel-overlay">
             <span id="anime-champ-meta" class="duel-meta"></span>
             <h3 id="anime-champ-title"></h3>
-            <div class="score-box"><span class="score-label">SCORE</span><span id="anime-champ-score" class="score-val">--</span></div>
+            <div class="score-box"><span id="anime-champ-label" class="score-label">SCORE</span><span id="anime-champ-score" class="score-val">--</span></div>
           </div>
         </article>
-
         <div class="vs-badge" aria-hidden="true">VS</div>
-
         <article class="duel-card-visual">
           <img id="anime-chal-img" alt="Challenger anime cover" />
           <div class="duel-overlay">
             <span id="anime-chal-meta" class="duel-meta"></span>
             <h3 id="anime-chal-title"></h3>
-            <div class="score-box"><span class="score-label">SCORE</span><span id="anime-chal-score" class="score-val mystery">?.?</span></div>
+            <div class="score-box"><span id="anime-chal-label" class="score-label">SCORE</span><span id="anime-chal-score" class="score-val mystery">?.?</span></div>
           </div>
         </article>
       </div>
@@ -68,7 +79,6 @@
         <button id="btn-higher" class="btn btn-higher" type="button">▲ Higher</button>
         <button id="btn-lower" class="btn btn-lower" type="button">▼ Lower</button>
       </div>
-
       <div id="anime-status" class="feedback hidden"></div>
       <button id="anime-restart-btn" class="btn btn-primary full-width hidden" type="button">Start New Duel ↻</button>
     </section>
@@ -77,6 +87,19 @@
       <div class="game-header">
         <div><span class="game-tag">Anime Roster</span><h2>Character Match</h2></div>
         <span id="char-points-badge" class="points-chip">+250 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="char-filter" class="gen-select" aria-label="Character Genre">
+          <option value="all">All Popular</option>
+          <option value="action">Action / Shonen</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="romance">Romance</option>
+          <option value="classic">Classics (Pre-2010)</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="char-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="char-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
       </div>
       <p class="game-tip">Match this main character back to their anime series.</p>
 

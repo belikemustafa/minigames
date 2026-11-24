@@ -31,7 +31,7 @@
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="compass" type="button">🧭 Cuisine Compass</button>
       <button class="mode-tab" data-mode="ingredients" type="button">🧄 Ingredient Detective</button>
-      <button class="mode-tab" data-mode="macro" type="button">🔥 Calorie &amp; Macro Duel</button>
+      <button class="mode-tab" data-mode="macro" type="button">🔥 Macro Duel</button>
       <button class="mode-tab" data-mode="bracket" type="button">🏆 Knockout Bracket</button>
     </div>
 
@@ -40,7 +40,13 @@
         <div><span class="game-tag">TheMealDB World Kitchen</span><h2>Cuisine Compass</h2></div>
         <span id="compass-pts" class="points-chip">+250 PTS</span>
       </div>
-      <p class="game-tip">Identify the dish's cuisine/region of origin from its photo. Reveal 3 key ingredients if you need a clue.</p>
+      <div class="filter-row">
+        <div class="seg-toggle">
+          <button id="compass-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="compass-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Identify the dish's cuisine/region of origin from its photo. Reveal 3 key ingredients if needed.</p>
 
       <div class="stage-card dish-photo-stage">
         <div id="compass-loader" class="loader">Plating dish...</div>
@@ -80,14 +86,23 @@
 
     <section class="mode-panel" data-panel="macro">
       <div class="game-header">
-        <div><span class="game-tag">Nutrition Showdown</span><h2>Calorie &amp; Macro Duel</h2></div>
-        <div class="header-right">
-          <div class="seg-toggle">
-            <button class="seg-btn active" data-macro="calories" type="button">Calories</button>
-            <button class="seg-btn" data-macro="protein" type="button">Protein</button>
-            <button class="seg-btn" data-macro="sugar" type="button">Sugar</button>
-          </div>
-          <span class="points-chip">Run: <strong id="macro-run">0</strong></span>
+        <div><span class="game-tag">64-Food Nutrition Showdown</span><h2>Calorie &amp; Macro Duel</h2></div>
+        <span class="points-chip">Run: <strong id="macro-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="macro-cat" class="gen-select" aria-label="Food Category">
+          <option value="all">All 64 Foods</option>
+          <option value="indian">Indian Dishes</option>
+          <option value="fitness">Fitness &amp; High-Protein</option>
+          <option value="global">Global &amp; Snacks</option>
+          <option value="dessert">Desserts &amp; Drinks</option>
+        </select>
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-macro="calories" type="button">Kcal</button>
+          <button class="seg-btn" data-macro="protein" type="button">Protein</button>
+          <button class="seg-btn" data-macro="carbs" type="button">Carbs</button>
+          <button class="seg-btn" data-macro="fat" type="button">Fat</button>
+          <button class="seg-btn" data-macro="sugar" type="button">Sugar</button>
         </div>
       </div>
       <p class="game-tip">Per 100g — does the right-hand food have MORE or LESS?</p>
@@ -114,12 +129,20 @@
 
     <section class="mode-panel" data-panel="bracket">
       <div class="game-header">
-        <div><span class="game-tag">16-Dish Tournament</span><h2>Food Knockout Bracket</h2></div>
-        <select id="bracket-pack" class="gen-select" aria-label="Food Pack">
-          <option value="global">Global Classics</option>
-          <option value="indian">Indian Favorites</option>
-          <option value="desserts">World Desserts</option>
-        </select>
+        <div><span class="game-tag">Food Tournament</span><h2>Food Knockout Bracket</h2></div>
+        <div class="header-right">
+          <select id="bracket-pack" class="gen-select" aria-label="Food Pack">
+            <option value="global">Global Classics</option>
+            <option value="indian">Indian Favorites</option>
+            <option value="street">Indian Street Food</option>
+            <option value="desserts">World Desserts</option>
+            <option value="protein">High-Protein Meals</option>
+          </select>
+          <div class="seg-toggle">
+            <button id="bracket-sz-8" class="seg-btn" type="button">8 Quick</button>
+            <button id="bracket-sz-16" class="seg-btn active" type="button">16 Full</button>
+          </div>
+        </div>
       </div>
       <p id="bracket-round-label" class="game-tip">Round of 16 — Tap your favorite dish to advance it.</p>
 

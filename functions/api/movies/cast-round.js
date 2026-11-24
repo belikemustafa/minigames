@@ -39,10 +39,25 @@ export async function onRequestGet(context) {
     return jsonResponse({ error: 'TMDB_API_KEY missing in Cloudflare Pages Environment Variables.' }, 500);
   }
   try {
-    const page = Math.floor(Math.random() * 12) + 1;
-    const popRes = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${encodeURIComponent(apiKey)}&language=en-US&page=${page}&include_adult=false`
-    );
+    const reqUrl = new URL(context.request.url);
+    const region = reqUrl.searchParams.get('region') || 'all';
+    const choiceCount = Math.min(6, Math.max(4, Number(reqUrl.searchParams.get('choices')) || 4));
+    const maxPage = region === 'indian' ? 10 : 16;
+    const page = Math.floor(Math.random() * maxPage) + 1;
+
+    const params = new URLSearchParams({
+      api_key: apiKey,
+      language: 'en-US',
+      include_adult: 'false',
+      sort_by: 'popularity.desc',
+      page: String(page),
+    });
+    if (region === 'hollywood') { params.set('with_original_language', 'en'); params.set('vote_count.gte', '500'); }
+    else if (region === 'indian') { params.set('with_origin_country', 'IN'); params.set('vote_count.gte', '35'); }
+    else if (region === 'intl') { params.set('without_original_language', 'en'); params.set('vote_count.gte', '120'); }
+    else { params.set('vote_count.gte', '250'); }
+
+    const popRes = await fetch(`https://api.themoviedb.org/3/discover/movie?${params.toString()}`);
     if (!popRes.ok) throw new Error(`TMDB HTTP ${popRes.status}`);
     const popJson = await popRes.json();
 
@@ -56,9 +71,9 @@ export async function onRequestGet(context) {
         image: m.backdrop_path || m.poster_path ? `${TMDB_IMG_BASE}${m.backdrop_path || m.poster_path}` : '',
       }));
 
-    if (pool.length < 4) throw new Error('Not enough movies returned');
+    if (pool.length < choiceCount) throw new Error('Not enough movies returned');
     const shuffled = shuffle(pool);
-    const results = await Promise.allSettled(shuffled.slice(0, 5).map((m) => fetchMovieCast(apiKey, m)));
+    const results = await Promise.allSettled(shuffled.slice(0, 6).map((m) => fetchMovieCast(apiKey, m)));
     const fulfilled = results
       .filter((r) => r.status === 'fulfilled' && r.value.cast.length >= 2)
       .map((r) => r.value)
@@ -69,7 +84,7 @@ export async function onRequestGet(context) {
 
     const decoys = shuffled
       .filter((m) => m.id !== best.movie.id)
-      .slice(0, 3)
+      .slice(0, choiceCount - 1)
       .map((m) => ({ id: m.id, title: m.title, year: m.year }));
 
     const options = shuffle([{ id: best.movie.id, title: best.movie.title, year: best.movie.year }, ...decoys]);

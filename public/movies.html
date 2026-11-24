@@ -38,6 +38,23 @@
         <div><span class="game-tag">Cinema Challenge</span><h2>Scene Unblur</h2></div>
         <span id="movie-points-badge" class="points-chip">+300 PTS</span>
       </div>
+      <div class="filter-row">
+        <select id="movie-region" class="gen-select" aria-label="Movie Industry">
+          <option value="all">All Cinema</option>
+          <option value="hollywood">Hollywood (English)</option>
+          <option value="indian">Indian Cinema</option>
+          <option value="intl">World / Non-English</option>
+        </select>
+        <select id="movie-era" class="gen-select" aria-label="Movie Era">
+          <option value="all">All Eras</option>
+          <option value="modern">Modern (2010+)</option>
+          <option value="classic">Classics (Pre-2010)</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="movie-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="movie-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
       <p class="game-tip">Identify the movie from the blurred frame. Spend points to unblur further and unlock clues.</p>
 
       <div class="stage-card movie-stage">
@@ -59,6 +76,18 @@
       <div class="game-header">
         <div><span class="game-tag">Star Power</span><h2>Cast Match</h2></div>
         <span id="cast-points-badge" class="points-chip">+250 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="cast-region" class="gen-select" aria-label="Cast Industry">
+          <option value="all">All Cinema</option>
+          <option value="hollywood">Hollywood (English)</option>
+          <option value="indian">Indian Cinema</option>
+          <option value="intl">World / Non-English</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="cast-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="cast-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
       </div>
       <p class="game-tip">Which film brings these credited actors together?</p>
 

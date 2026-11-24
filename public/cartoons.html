@@ -31,13 +31,23 @@
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="unblur" type="button">🎨 Frame Unblur</button>
       <button class="mode-tab" data-mode="duel" type="button">⚡ Score / Era Duel</button>
-      <button class="mode-tab" data-mode="voice" type="button">🎙️ Voice Actor Link</button>
     </div>
 
     <section class="mode-panel active" data-panel="unblur">
       <div class="game-header">
         <div><span class="game-tag">TMDB Animation Proxy</span><h2>Cartoon Frame Unblur</h2></div>
         <span id="ct-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="ct-era" class="gen-select" aria-label="Cartoon Era">
+          <option value="all">All Eras</option>
+          <option value="classic">90s &amp; 2000s Classics</option>
+          <option value="modern">Modern (2010+)</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="ct-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="ct-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
       </div>
       <p class="game-tip">Spot the animated series from the blurred frame. Fewer hints earn more points.</p>
 
@@ -59,12 +69,18 @@
     <section class="mode-panel" data-panel="duel">
       <div class="game-header">
         <div><span class="game-tag">Cartoon Showdown</span><h2>Score / Era Duel</h2></div>
-        <div class="header-right">
-          <div class="seg-toggle">
-            <button id="ct-duel-rating" class="seg-btn active" type="button">Rating</button>
-            <button id="ct-duel-year" class="seg-btn" type="button">Premiere Year</button>
-          </div>
-          <span class="points-chip">Run: <strong id="ct-duel-run">0</strong></span>
+        <span class="points-chip">Run: <strong id="ct-duel-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="ct-duel-era" class="gen-select" aria-label="Duel Era">
+          <option value="all">All Eras</option>
+          <option value="classic">Classics (Pre-2010)</option>
+          <option value="modern">Modern (2010+)</option>
+        </select>
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-ctmetric="rating" type="button">Rating</button>
+          <button class="seg-btn" data-ctmetric="year" type="button">Year</button>
+          <button class="seg-btn" data-ctmetric="popularity" type="button">Popularity</button>
         </div>
       </div>
       <p id="ct-duel-tip" class="game-tip">Does the right-hand cartoon have a higher or lower viewer rating?</p>
@@ -96,24 +112,6 @@
       </div>
       <div id="ct-duel-status" class="feedback hidden"></div>
       <button id="ct-duel-restart" class="btn btn-primary full-width hidden" type="button">New Duel ↻</button>
-    </section>
-
-    <section class="mode-panel" data-panel="voice">
-      <div class="game-header">
-        <div><span class="game-tag">Behind the Mic</span><h2>Voice Actor Link</h2></div>
-        <span class="points-chip">+200 PTS</span>
-      </div>
-      <p class="game-tip">Connect legendary voice actors to their iconic animated characters.</p>
-
-      <div class="stage-card clue-stage">
-        <div id="va-actor" class="game-tag" style="font-size:0.85rem; margin-bottom:6px;">---</div>
-        <div id="va-question" class="quote-block" style="margin-bottom:12px;"></div>
-        <div id="va-roles" class="clue-pill-grid"></div>
-      </div>
-
-      <div id="va-options" class="options-grid"></div>
-      <div id="va-feedback" class="feedback hidden"></div>
-      <button id="va-next" class="btn btn-primary full-width hidden" type="button">Next Voice Actor →</button>
     </section>
   </main>
 

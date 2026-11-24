@@ -14,8 +14,39 @@ function jsonResponse(data, status = 200) {
   });
 }
 
-async function fetchTmdbPage(apiKey, page) {
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${encodeURIComponent(apiKey)}&language=en-US&page=${page}&include_adult=false`;
+function buildDiscoverUrl(apiKey, page, region, era) {
+  const params = new URLSearchParams({
+    api_key: apiKey,
+    language: 'en-US',
+    include_adult: 'false',
+    sort_by: 'popularity.desc',
+    page: String(page),
+  });
+
+  if (region === 'hollywood') {
+    params.set('with_original_language', 'en');
+    params.set('vote_count.gte', '500');
+  } else if (region === 'indian') {
+    params.set('with_origin_country', 'IN');
+    params.set('vote_count.gte', '35');
+  } else if (region === 'intl') {
+    params.set('without_original_language', 'en');
+    params.set('vote_count.gte', '120');
+  } else {
+    params.set('vote_count.gte', '250');
+  }
+
+  if (era === 'classic') {
+    params.set('primary_release_date.lte', '2009-12-31');
+  } else if (era === 'modern') {
+    params.set('primary_release_date.gte', '2010-01-01');
+  }
+
+  return `https://api.themoviedb.org/3/discover/movie?${params.toString()}`;
+}
+
+async function fetchTmdbPage(apiKey, page, region, era) {
+  const url = buildDiscoverUrl(apiKey, page, region, era);
   const res = await fetch(url);
   if (!res.ok) throw new Error(`TMDB HTTP ${res.status}`);
   const json = await res.json();
@@ -39,10 +70,19 @@ export async function onRequestGet(context) {
     return jsonResponse({ error: 'TMDB_API_KEY missing in Cloudflare Pages Environment Variables.' }, 500);
   }
   try {
-    const p1 = Math.floor(Math.random() * 15) + 1;
-    let p2 = Math.floor(Math.random() * 15) + 1;
-    if (p2 === p1) p2 = (p1 % 15) + 1;
-    const [list1, list2] = await Promise.all([fetchTmdbPage(apiKey, p1), fetchTmdbPage(apiKey, p2)]);
+    const reqUrl = new URL(context.request.url);
+    const region = reqUrl.searchParams.get('region') || 'all';
+    const era = reqUrl.searchParams.get('era') || 'all';
+    const maxPage = region === 'indian' ? 12 : 20;
+
+    const p1 = Math.floor(Math.random() * maxPage) + 1;
+    let p2 = Math.floor(Math.random() * maxPage) + 1;
+    if (p2 === p1) p2 = (p1 % maxPage) + 1;
+
+    const [list1, list2] = await Promise.all([
+      fetchTmdbPage(apiKey, p1, region, era),
+      fetchTmdbPage(apiKey, p2, region, era),
+    ]);
     const map = new Map();
     [...list1, ...list2].forEach((m) => map.set(m.id, m));
     return jsonResponse({ movies: Array.from(map.values()) });

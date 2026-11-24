@@ -1172,3 +1172,262 @@ body[data-theme="puzzles"]   { --accent: #34d399; --accent-rgb: 52, 211, 153; --
   background: var(--bad);
   border-color: #fecaca;
 }
+
+/* Filter Bar & Category Toggle Chips */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.chip-toggle {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.chip-toggle.active {
+  background: rgba(var(--accent-rgb), 0.16);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   60 FPS GPU-COMPOSITED MOTION & IMMERSION LAYER
+   (Strict transform + opacity animations, zero layout thrash)
+   ========================================================= */
+
+#fx-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  display: block;
+}
+
+#fx-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 44;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+}
+#fx-vignette.vig-good {
+  background: radial-gradient(circle at center, transparent 58%, rgba(16, 185, 129, 0.24) 100%);
+  animation: vigPulse 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+#fx-vignette.vig-bad {
+  background: radial-gradient(circle at center, transparent 58%, rgba(239, 68, 68, 0.26) 100%);
+  animation: vigPulse 460ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes vigPulse {
+  0%   { opacity: 0; }
+  22%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Ambient breathing gradient */
+#ambient-bg {
+  will-change: transform, opacity;
+  animation: ambientBreathe 14s ease-in-out infinite alternate;
+}
+@keyframes ambientBreathe {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.92; }
+  100% { transform: translate3d(0, 12px, 0) scale(1.06); opacity: 1; }
+}
+
+/* Smooth page load reveal */
+main.container {
+  animation: pageReveal 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes pageReveal {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* Ripple containment on interactive elements */
+.btn, .option-btn, .clash-card, .bracket-tile, .hub-card, .mode-tab {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.fx-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.32) 0%, rgba(var(--accent-rgb), 0) 70%);
+  transform: scale(0);
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: rippleOut 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes rippleOut {
+  to { transform: scale(1.65); opacity: 0; }
+}
+
+/* Subtle pointer-following spotlight on Hub & Clash cards (desktop hover) */
+.hub-card::after, .clash-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--accent-rgb), 0.13), transparent 70%);
+  transition: opacity 220ms ease;
+}
+.hub-card:hover::after, .clash-card:hover::after {
+  opacity: 1;
+}
+
+/* Staggered spring entrance for options, cards, tiles */
+.fx-enter {
+  animation: fxEnter 340ms cubic-bezier(0.22, 1, 0.36, 1) var(--stagger, 0ms) both;
+  will-change: transform, opacity;
+}
+@keyframes fxEnter {
+  from { opacity: 0; transform: translate3d(0, 12px, 0) scale(0.975); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* HUD score & streak pill bump + streak tier glow */
+.fx-pill-bump {
+  animation: pillBump 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes pillBump {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.13); }
+  100% { transform: scale(1); }
+}
+
+.streak-pill[data-streak-tier="1"] {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.22);
+}
+.streak-pill[data-streak-tier="2"] {
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.32);
+}
+.streak-pill[data-streak-tier="3"] {
+  border-color: rgba(16, 185, 129, 0.8);
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.4);
+}
+
+/* Micro-shake on wrong answer (GPU-only) */
+.fx-shake {
+  animation: fxMicroShake 260ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+@keyframes fxMicroShake {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  20%      { transform: translate3d(-4px, 0, 0); }
+  45%      { transform: translate3d(4px, 0, 0); }
+  70%      { transform: translate3d(-2px, 0, 0); }
+}
+
+/* Pop animation for newly revealed stages & banners */
+.fx-pop {
+  animation: fxPop 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes fxPop {
+  0%   { transform: scale(0.94); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Duel card kinetic shift when challenger becomes champion */
+.duel-shift {
+  animation: duelShift 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes duelShift {
+  0%   { opacity: 0.55; transform: translate3d(18px, 0, 0) scale(0.98); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Cinematic Lens-Focus Sheen Sweep (Movies, Cartoons & Headlights) */
+.lens-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.18) 50%, transparent 80%);
+  transform: translate3d(-120%, 0, 0);
+  animation: lensSweepAnim 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes lensSweepAnim {
+  to { transform: translate3d(120%, 0, 0); }
+}
+
+/* Pokémon Silhouette Reveal Flash Ring */
+.poke-flash::after {
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 3px solid rgba(var(--accent-rgb), 0.85);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.34), transparent 70%);
+  pointer-events: none;
+  z-index: 3;
+  animation: pokeFlashRing 540ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes pokeFlashRing {
+  0%   { transform: scale(0.35); opacity: 1; }
+  100% { transform: scale(1.85); opacity: 0; }
+}
+
+/* Elastic bounce on Pokémon full reveal */
+.poke-img.revealed {
+  animation: pokeBounce 480ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes pokeBounce {
+  0%   { transform: scale(0.86); }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Smooth feedback banner entrance */
+.feedback:not(.hidden) {
+  animation: feedbackSlide 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes feedbackSlide {
+  from { opacity: 0; transform: translate3d(0, 8px, 0) scale(0.985); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Blitz 60 FPS GPU-scaled timer bar (transform: scaleX instead of width!) */
+.timer-bar-fill {
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: background-color 260ms ease;
+  will-change: transform;
+}
+.timer-bar-fill.warn { background: #eab308; }
+.timer-bar-fill.danger {
+  background: #ef4444;
+  animation: dangerPulse 500ms ease-in-out infinite alternate;
+}
+@keyframes dangerPulse {
+  from { opacity: 0.72; }
+  to   { opacity: 1; }
+}
+
+/* Reduced Motion Accessibility & User Toggle */
+body.reduced-fx *, body.reduced-fx *::before, body.reduced-fx *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  #ambient-bg, .fx-enter, .fx-shake, .duel-shift, .lens-sweep::after, .poke-flash::after {
+    animation: none !important;
+  }
+}

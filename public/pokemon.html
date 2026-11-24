@@ -36,19 +36,24 @@
     <section class="mode-panel active" data-panel="who">
       <div class="game-header">
         <div><span class="game-tag">Silhouette &amp; Cry</span><h2>Who's That Pokémon?</h2></div>
-        <div class="header-right">
-          <div class="seg-toggle" role="group" aria-label="Difficulty Mode">
-            <button id="poke-diff-easy" class="seg-btn active" type="button">Easy</button>
-            <button id="poke-diff-hard" class="seg-btn" type="button">Hard</button>
-          </div>
-          <select id="poke-gen-select" class="gen-select" aria-label="Pokémon Generation">
-            <option value="151">Gen 1 (1–151)</option>
-            <option value="493" selected>Gen 1–4 (1–493)</option>
-            <option value="1025">All (1–1025)</option>
-          </select>
+        <select id="poke-gen-select" class="gen-select" aria-label="Pokémon Generation">
+          <option value="1-151">Gen 1 — Kanto (1–151)</option>
+          <option value="152-251">Gen 2 — Johto (152–251)</option>
+          <option value="252-386">Gen 3 — Hoenn (252–386)</option>
+          <option value="387-493">Gen 4 — Sinnoh (387–493)</option>
+          <option value="494-649">Gen 5 — Unova (494–649)</option>
+          <option value="1-493" selected>Gen 1–4 (1–493)</option>
+          <option value="1-1025">All Generations (1–1025)</option>
+        </select>
+      </div>
+      <div class="filter-row">
+        <div class="seg-toggle" role="group" aria-label="Difficulty Mode">
+          <button id="poke-diff-easy" class="seg-btn active" type="button">Easy (4)</button>
+          <button id="poke-diff-med" class="seg-btn" type="button">Medium (6)</button>
+          <button id="poke-diff-hard" class="seg-btn" type="button">Hard (Type)</button>
         </div>
       </div>
-      <p id="poke-tip" class="game-tip">Easy Mode: Choose from 4 options. Switch to Hard Mode to type and pick from a text-only dropdown.</p>
+      <p id="poke-tip" class="game-tip">Easy Mode: Pick from 4 options (+200 pts). Switch to Hard Mode to type and pick from a text-only dropdown.</p>
 
       <div class="stage-card poke-stage">
         <div class="pokeball-ring" aria-hidden="true"></div>
@@ -64,13 +69,12 @@
       <div id="poke-hint-box" class="type-badges hidden"></div>
       <div id="poke-stats" class="poke-stats hidden"></div>
 
-      <!-- Easy Mode: 4 Option Buttons -->
       <div id="poke-options" class="options-grid"></div>
 
-      <!-- Hard Mode: Type & Select from Text-Only Dropdown (Strictly NO images!) -->
+      <!-- Hard Mode: Type & Select from Text-Only Dropdown (ZERO IMAGES!) -->
       <div id="poke-hard-wrap" class="search-box-wrap hidden">
         <div class="search-row">
-          <input id="poke-hard-input" class="text-input" type="text" placeholder="Type Pokémon name and pick from list..." autocomplete="off" />
+          <input id="poke-hard-input" class="text-input" type="text" placeholder="Type Pokémon name and select from list..." autocomplete="off" />
           <button id="poke-hard-submit" class="btn btn-primary" type="button">Guess</button>
         </div>
         <div id="poke-hard-dropdown" class="dropdown-list hidden" role="listbox" aria-label="Pokémon suggestions"></div>
@@ -83,16 +87,24 @@
     <section class="mode-panel" data-panel="clash">
       <div class="game-header">
         <div><span class="game-tag">Base Stat Battle</span><h2>Stat Clash</h2></div>
-        <div class="header-right">
-          <select id="clash-gen-select" class="gen-select" aria-label="Stat Clash Generation">
-            <option value="151">Gen 1</option>
-            <option value="493" selected>Gen 1–4</option>
-            <option value="1025">All</option>
-          </select>
-          <span class="points-chip">Run: <strong id="clash-run-score">0</strong></span>
-        </div>
+        <span class="points-chip">Run: <strong id="clash-run-score">0</strong></span>
       </div>
-      <p class="game-tip">Tap the Pokémon card you think has the higher base stat or BST.</p>
+      <div class="filter-row">
+        <select id="clash-gen-select" class="gen-select" aria-label="Stat Clash Generation">
+          <option value="1-151">Gen 1 (1–151)</option>
+          <option value="1-493" selected>Gen 1–4 (1–493)</option>
+          <option value="1-1025">All (1–1025)</option>
+        </select>
+        <select id="clash-stat-mode" class="gen-select" aria-label="Stat Category">
+          <option value="random">Random Stat</option>
+          <option value="bst">Total Base Stats (BST)</option>
+          <option value="attack">Base Attack Only</option>
+          <option value="speed">Base Speed Only</option>
+          <option value="hp">Base HP Only</option>
+          <option value="special-attack">Special Attack Only</option>
+        </select>
+      </div>
+      <p class="game-tip">Tap the Pokémon card you think has the higher stat.</p>
 
       <div id="clash-stat-banner" class="clash-banner">Loading matchup...</div>
 

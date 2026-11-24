@@ -1,17 +1,22 @@
-const BESTS_KEY = 'fandom_arcade_suite_bests_v4';
-const SESSION_KEY = 'fandom_arcade_suite_session_v4';
+import {
+  initFx, isFxEnabled, setFxEnabled, burstWin, burstMilestone,
+  pulseWrong, animateNumber, triggerFlash,
+} from './fx.js';
+
+export { animateNumber, burstMilestone, triggerFlash };
+
+const BESTS_KEY = 'fandom_arcade_suite_bests_v5';
+const SESSION_KEY = 'fandom_arcade_suite_session_v5';
 
 const DEFAULT_BESTS = {
   moviesUnblur: 0, moviesCast: 0,
   animeDuel: 0, animeChars: 0,
   pokeWho: 0, pokeClash: 0,
   foodCompass: 0, foodIng: 0, foodMacro: 0, foodBracket: 0,
-  careerSalary: 0, careerSpotle: 0,
-  cartoonUnblur: 0, cartoonDuel: 0, cartoonVoice: 0,
+  cartoonUnblur: 0, cartoonDuel: 0,
   devStars: 0, devBug: 0, devOutput: 0, devLang: 0, devBigO: 0, devHttp: 0, devOutage: 0,
   geoFlags: 0, geoDuel: 0, geoWeather: 0,
   autoSpecs: 0, autoUnblur: 0, autoSound: 0,
-  puzConn: 0, puzTime: 0, puzSlider: 0, puzMem: 0,
   blitz: 0,
 };
 
@@ -29,6 +34,8 @@ export const state = {
   bests: { ...DEFAULT_BESTS, ...savedBests },
   sessionScores: {},
 };
+
+let displayedScore = state.score;
 
 function persistSession() {
   try {
@@ -102,37 +109,67 @@ export function getAudioCtx() {
   return audioCtx;
 }
 
+function playNote(ctx, freq, startOffset, duration, type = 'triangle', vol = 0.1) {
+  const now = ctx.currentTime + startOffset;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, now);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.linearRampToValueAtTime(vol, now + 0.015);
+  gain.gain.exponentialRampToValueAtTime(0.0008, now + duration);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + duration + 0.02);
+}
+
 export function playSfx(type) {
   if (!state.soundEnabled) return;
   try {
     const ctx = getAudioCtx();
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
     if (type === 'correct') {
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(523.25, now);
-      osc.frequency.setValueAtTime(659.25, now + 0.07);
-      osc.frequency.setValueAtTime(783.99, now + 0.14);
-      gain.gain.setValueAtTime(0.12, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-      osc.start(now); osc.stop(now + 0.3);
-    } else if (type === 'wrong') {
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(200, now);
-      osc.frequency.linearRampToValueAtTime(115, now + 0.24);
-      gain.gain.setValueAtTime(0.09, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
-      osc.start(now); osc.stop(now + 0.26);
-    } else {
+      // Streak-scaled warm triad arpeggio
+      const semis = Math.min(state.streak, 7);
+      const mult = Math.pow(2, semis / 12);
+      playNote(ctx, 523.25 * mult, 0, 0.16, 'triangle', 0.11);
+      playNote(ctx, 659.25 * mult, 0.055, 0.18, 'triangle', 0.11);
+      playNote(ctx, 783.99 * mult, 0.11, 0.24, 'sine', 0.12);
+      playNote(ctx, 261.63 * mult, 0, 0.22, 'sine', 0.05);
+    } else if (type === 'fanfare') {
+      playNote(ctx, 523.25, 0, 0.16, 'triangle', 0.11);
+      playNote(ctx, 659.25, 0.08, 0.16, 'triangle', 0.11);
+      playNote(ctx, 783.99, 0.16, 0.18, 'triangle', 0.12);
+      playNote(ctx, 1046.5, 0.24, 0.36, 'sine', 0.13);
+    } else if (type === 'reveal') {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(480, now);
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
-      osc.start(now); osc.stop(now + 0.06);
+      osc.frequency.setValueAtTime(320, now);
+      osc.frequency.exponentialRampToValueAtTime(680, now + 0.2);
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.linearRampToValueAtTime(0.07, now + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.22);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.24);
+    } else if (type === 'wrong') {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(195, now);
+      osc.frequency.exponentialRampToValueAtTime(98, now + 0.22);
+      gain.gain.setValueAtTime(0.11, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.26);
+    } else {
+      playNote(ctx, 520, 0, 0.055, 'sine', 0.045);
     }
   } catch {}
 }
@@ -152,10 +189,18 @@ export function recordWin(gameKey, basePoints) {
   const earned = basePoints + bonus;
   state.score += earned;
   haptic(14);
+  burstWin(earned, state.streak);
 
   if (state.streak === 3) showToast('🔥 3 Streak! Bonus points active');
-  else if (state.streak === 5) showToast('🔥 5 Streak! Locked in');
-  else if (state.streak === 10) showToast('🏆 10 Streak! Arcade Legend');
+  else if (state.streak === 5) {
+    showToast('🔥 5 Streak! Locked in');
+    burstMilestone('🔥 5 STREAK!');
+    setTimeout(() => playSfx('fanfare'), 140);
+  } else if (state.streak === 10) {
+    showToast('🏆 10 Streak! Arcade Legend');
+    burstMilestone('🏆 10 STREAK!');
+    setTimeout(() => playSfx('fanfare'), 140);
+  }
 
   if (gameKey) {
     state.sessionScores[gameKey] = (state.sessionScores[gameKey] || 0) + earned;
@@ -165,7 +210,7 @@ export function recordWin(gameKey, basePoints) {
     }
   }
   persistSession();
-  syncHud();
+  syncHud(true);
   return earned;
 }
 
@@ -179,8 +224,9 @@ export function recordBestValue(gameKey, val) {
 export function resetStreak() {
   state.streak = 0;
   haptic([24, 38, 24]);
+  pulseWrong();
   persistSession();
-  syncHud();
+  syncHud(false);
 }
 
 export function getArcadeRank() {
@@ -192,12 +238,31 @@ export function getArcadeRank() {
   return 'Newcomer';
 }
 
-export function syncHud() {
+export function syncHud(animate = false) {
   const s = document.getElementById('hud-score');
   const st = document.getElementById('hud-streak');
+  const streakPill = document.querySelector('.streak-pill');
   const btn = document.getElementById('sound-toggle');
-  if (s) s.textContent = state.score;
-  if (st) st.textContent = state.streak;
+
+  if (s) {
+    if (animate && displayedScore !== state.score) {
+      animateNumber(s, displayedScore, state.score, { duration: 420 });
+      triggerFlash(s.closest('.pill'), 'fx-pill-bump');
+    } else {
+      s.textContent = state.score;
+    }
+    displayedScore = state.score;
+  }
+
+  if (st) {
+    st.textContent = state.streak;
+    if (streakPill) {
+      const tier = state.streak >= 10 ? '3' : state.streak >= 5 ? '2' : state.streak >= 3 ? '1' : '0';
+      streakPill.dataset.streakTier = tier;
+      if (animate && state.streak > 0) triggerFlash(streakPill, 'fx-pill-bump');
+    }
+  }
+
   if (btn) btn.textContent = state.soundEnabled ? '🔊' : '🔇';
 }
 
@@ -208,12 +273,10 @@ export function initChrome(activePage) {
     { id: 'anime', href: 'anime.html', label: '⚡ Anime' },
     { id: 'pokemon', href: 'pokemon.html', label: '◓ Pokémon' },
     { id: 'food', href: 'food.html', label: '🍜 Food' },
-    { id: 'careers', href: 'careers.html', label: '💼 Careers' },
     { id: 'cartoons', href: 'cartoons.html', label: '📺 Cartoons' },
     { id: 'dev', href: 'dev.html', label: '💻 Dev' },
     { id: 'geography', href: 'geography.html', label: '🌍 World' },
     { id: 'auto', href: 'auto.html', label: '🏍️ Auto' },
-    { id: 'puzzles', href: 'puzzles.html', label: '🧩 Puzzles' },
     { id: 'blitz', href: 'blitz.html', label: '⏱️ Blitz' },
   ];
 
@@ -226,16 +289,38 @@ export function initChrome(activePage) {
     if (activeEl) activeEl.scrollIntoView({ inline: 'center', block: 'nearest' });
   }
 
+  const hudStats = document.querySelector('.hud-stats');
   const soundBtn = document.getElementById('sound-toggle');
+
+  // Inject crisp FX / Motion toggle right beside sound button
+  if (hudStats && soundBtn && !document.getElementById('fx-toggle')) {
+    const fxBtn = document.createElement('button');
+    fxBtn.id = 'fx-toggle';
+    fxBtn.type = 'button';
+    fxBtn.className = 'icon-btn';
+    fxBtn.title = 'Toggle 60 FPS Visual Effects';
+    fxBtn.setAttribute('aria-label', 'Toggle Visual Effects');
+    fxBtn.textContent = isFxEnabled() ? '✨' : '○';
+    fxBtn.addEventListener('click', () => {
+      const next = setFxEnabled(!isFxEnabled());
+      fxBtn.textContent = next ? '✨' : '○';
+      playSfx('click');
+      showToast(next ? '60 FPS FX On' : 'Reduced Motion Mode');
+    });
+    hudStats.insertBefore(fxBtn, soundBtn);
+  }
+
   if (soundBtn) {
     soundBtn.addEventListener('click', () => {
       state.soundEnabled = !state.soundEnabled;
       persistSession();
-      syncHud();
+      syncHud(false);
       showToast(state.soundEnabled ? 'Sound On' : 'Sound Muted');
     });
   }
-  syncHud();
+
+  initFx();
+  syncHud(false);
 }
 
 export function setupModeTabs(onSwitch) {

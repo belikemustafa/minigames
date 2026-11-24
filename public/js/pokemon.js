@@ -1,15 +1,24 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue, resetStreak,
-  shuffle, state, showToast, preloadImage,
+  shuffle, state, showToast, preloadImage, animateNumber, triggerFlash,
 } from './core.js';
 
 initChrome('pokemon');
 
 const pokeCache = new Map();
-let allPokemonNames = null; // [{ id, name }] text-only list for Hard Mode dropdown
+let allPokemonNames = null;
 
 function formatName(raw) {
   return raw.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+function parseGenRange(val) {
+  const [min, max] = String(val || '1-493').split('-').map(Number);
+  return { min: min || 1, max: max || 493 };
+}
+
+function randomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 async function fetchPokemon(id) {
@@ -42,25 +51,18 @@ async function ensureNameIndex() {
   const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
   if (!res.ok) throw new Error('Could not load Pokémon name list');
   const json = await res.json();
-  allPokemonNames = (json.results || []).map((item, idx) => ({
-    id: idx + 1,
-    name: formatName(item.name),
-  }));
+  allPokemonNames = (json.results || []).map((item, idx) => ({ id: idx + 1, name: formatName(item.name) }));
   try { sessionStorage.setItem('poke_names_1025', JSON.stringify(allPokemonNames)); } catch {}
   return allPokemonNames;
 }
 
-// ---------- 1. WHO'S THAT POKÉMON? (Easy 4-Options + Hard Text-Only Dropdown!) ----------
+// ---------- 1. WHO'S THAT POKÉMON? (Easy 4 / Medium 6 / Hard Text-Only Dropdown!) ----------
 function initWho() {
-  let difficulty = 'easy'; // 'easy' | 'hard'
-  let current = null;
-  let hintUsed = false;
-  let locked = true;
-  let cryAudio = null;
-  let token = 0;
-  let selectedHardEntry = null;
+  let difficulty = 'easy'; // 'easy' | 'med' | 'hard'
+  let current = null, hintUsed = false, locked = true, cryAudio = null, token = 0, selectedHardEntry = null;
 
   const btnEasy = document.getElementById('poke-diff-easy');
+  const btnMed = document.getElementById('poke-diff-med');
   const btnHard = document.getElementById('poke-diff-hard');
   const genSelect = document.getElementById('poke-gen-select');
   const tipEl = document.getElementById('poke-tip');
@@ -78,9 +80,9 @@ function initWho() {
   const feedbackEl = document.getElementById('poke-feedback');
   const nextBtn = document.getElementById('poke-next-btn');
 
-  function pickIds(maxId, n) {
+  function pickIds(min, max, n) {
     const s = new Set();
-    while (s.size < n) s.add(Math.floor(Math.random() * maxId) + 1);
+    while (s.size < n) s.add(randomInRange(min, max));
     return Array.from(s);
   }
 
@@ -103,19 +105,19 @@ function initWho() {
     const q = query.trim().toLowerCase();
     if (!q) { hardDropdown.classList.add('hidden'); return; }
 
-    const maxId = Number(genSelect.value) || 493;
+    const { min, max } = parseGenRange(genSelect.value);
     const matches = allPokemonNames
-      .filter((p) => p.id <= maxId && p.name.toLowerCase().includes(q))
+      .filter((p) => p.id >= min && p.id <= max && p.name.toLowerCase().includes(q))
       .sort((a, b) => {
-        const aStarts = a.name.toLowerCase().startsWith(q) ? 0 : 1;
-        const bStarts = b.name.toLowerCase().startsWith(q) ? 0 : 1;
-        return aStarts - bStarts || a.name.localeCompare(b.name);
+        const aS = a.name.toLowerCase().startsWith(q) ? 0 : 1;
+        const bS = b.name.toLowerCase().startsWith(q) ? 0 : 1;
+        return aS - bS || a.name.localeCompare(b.name);
       })
       .slice(0, 12);
 
     if (!matches.length) { hardDropdown.classList.add('hidden'); return; }
 
-    // STRICTLY TEXT-ONLY DROPDOWN ITEMS — NO IMAGES!
+    // STRICTLY TEXT-ONLY SUGGESTIONS — NO IMAGES!
     matches.forEach((entry) => {
       const item = document.createElement('button');
       item.type = 'button';
@@ -133,46 +135,42 @@ function initWho() {
     hardDropdown.classList.remove('hidden');
   }
 
-  function syncDifficultyUI() {
+  function syncUI() {
     btnEasy.classList.toggle('active', difficulty === 'easy');
+    btnMed.classList.toggle('active', difficulty === 'med');
     btnHard.classList.toggle('active', difficulty === 'hard');
-    optionsEl.classList.toggle('hidden', difficulty !== 'easy');
+    optionsEl.classList.toggle('hidden', difficulty === 'hard');
     hardWrap.classList.toggle('hidden', difficulty !== 'hard');
-    tipEl.textContent = difficulty === 'easy'
-      ? 'Easy Mode: Pick from 4 options (+200 pts).'
-      : 'Hard Mode: Type the Pokémon name and pick from the text-only dropdown (+300 pts).';
+    if (difficulty === 'easy') tipEl.textContent = 'Easy Mode: Pick from 4 options (+200 pts).';
+    else if (difficulty === 'med') tipEl.textContent = 'Medium Mode: Pick from 6 options (+260 pts).';
+    else tipEl.textContent = 'Hard Mode: Type the name and pick from the text-only dropdown (+320 pts).';
   }
 
   async function startRound() {
     const t = ++token;
-    locked = true;
-    hintUsed = false;
-    selectedHardEntry = null;
-
+    locked = true; hintUsed = false; selectedHardEntry = null;
     hintBtn.disabled = true;
     hintBox.classList.add('hidden');
     hintBox.innerHTML = '';
     statsEl.classList.add('hidden');
     feedbackEl.classList.add('hidden');
     nextBtn.classList.add('hidden');
-    hardInput.value = '';
-    hardInput.disabled = true;
-    hardSubmit.disabled = true;
+    hardInput.value = ''; hardInput.disabled = true; hardSubmit.disabled = true;
     hardDropdown.classList.add('hidden');
     loaderEl.textContent = 'Scanning tall grass...';
     loaderEl.classList.remove('hidden');
     optionsEl.innerHTML = '';
     imgEl.className = 'poke-img silhouette';
-    syncDifficultyUI();
+    syncUI();
 
     try {
-      const maxId = Number(genSelect.value) || 493;
+      const { min, max } = parseGenRange(genSelect.value);
       if (difficulty === 'hard') {
         await ensureNameIndex();
-        const id = Math.floor(Math.random() * maxId) + 1;
-        current = await fetchPokemon(id);
+        current = await fetchPokemon(randomInRange(min, max));
       } else {
-        const ids = pickIds(maxId, 4);
+        const count = difficulty === 'med' ? 6 : 4;
+        const ids = pickIds(min, max, count);
         const group = await Promise.all(ids.map(fetchPokemon));
         if (t !== token) return;
         current = group[0];
@@ -194,11 +192,9 @@ function initWho() {
       imgEl.src = current.image;
       imgEl.classList.add('ready');
       loaderEl.classList.add('hidden');
-      locked = false;
-      hintBtn.disabled = false;
-      hardInput.disabled = false;
-      hardSubmit.disabled = false;
-    } catch (err) {
+      locked = false; hintBtn.disabled = false;
+      hardInput.disabled = false; hardSubmit.disabled = false;
+    } catch {
       if (t !== token) return;
       loaderEl.textContent = 'PokéAPI connection hiccup — tap Retry.';
       nextBtn.textContent = 'Retry ↻';
@@ -208,12 +204,12 @@ function initWho() {
 
   function finishGuess(guessedId, clickedBtn = null) {
     if (locked || !current) return;
-    locked = true;
-    hintBtn.disabled = true;
-    hardInput.disabled = true;
-    hardSubmit.disabled = true;
+    locked = true; hintBtn.disabled = true;
+    hardInput.disabled = true; hardSubmit.disabled = true;
     hardDropdown.classList.add('hidden');
     imgEl.className = 'poke-img ready revealed';
+    triggerFlash(imgEl.parentElement, 'poke-flash');
+    playSfx('reveal');
 
     optionsEl.querySelectorAll('.option-btn').forEach((b) => {
       b.disabled = true;
@@ -222,21 +218,24 @@ function initWho() {
 
     const s = current.stats;
     statsEl.innerHTML = `
-      <div class="stat-chip"><span>HP</span><strong>${s.hp ?? '?'}</strong></div>
-      <div class="stat-chip"><span>ATK</span><strong>${s.attack ?? '?'}</strong></div>
-      <div class="stat-chip"><span>DEF</span><strong>${s.defense ?? '?'}</strong></div>
-      <div class="stat-chip"><span>SP.ATK</span><strong>${s['special-attack'] ?? '?'}</strong></div>
-      <div class="stat-chip"><span>SP.DEF</span><strong>${s['special-defense'] ?? '?'}</strong></div>
-      <div class="stat-chip"><span>SPD</span><strong>${s.speed ?? '?'}</strong></div>
-      <div class="stat-chip bst-chip"><span>BASE STAT TOTAL (BST)</span><strong>${s.bst}</strong></div>`;
+      <div class="stat-chip"><span>HP</span><strong data-val="${s.hp ?? 0}">0</strong></div>
+      <div class="stat-chip"><span>ATK</span><strong data-val="${s.attack ?? 0}">0</strong></div>
+      <div class="stat-chip"><span>DEF</span><strong data-val="${s.defense ?? 0}">0</strong></div>
+      <div class="stat-chip"><span>SP.ATK</span><strong data-val="${s['special-attack'] ?? 0}">0</strong></div>
+      <div class="stat-chip"><span>SP.DEF</span><strong data-val="${s['special-defense'] ?? 0}">0</strong></div>
+      <div class="stat-chip"><span>SPD</span><strong data-val="${s.speed ?? 0}">0</strong></div>
+      <div class="stat-chip bst-chip"><span>BASE STAT TOTAL (BST)</span><strong data-val="${s.bst ?? 0}">0</strong></div>`;
     statsEl.classList.remove('hidden');
+    statsEl.querySelectorAll('strong[data-val]').forEach((el) => {
+      animateNumber(el, 0, Number(el.dataset.val) || 0, { duration: 480 });
+    });
     if (!hintUsed) renderTypes(current.types);
 
     feedbackEl.classList.remove('hidden', 'good', 'bad');
     if (guessedId === current.id) {
       playSfx('correct');
       if (state.soundEnabled) setTimeout(playCry, 240);
-      const base = difficulty === 'hard' ? (hintUsed ? 250 : 300) : (hintUsed ? 150 : 200);
+      const base = difficulty === 'hard' ? (hintUsed ? 270 : 320) : difficulty === 'med' ? (hintUsed ? 210 : 260) : (hintUsed ? 150 : 200);
       const earned = recordWin('pokeWho', base);
       feedbackEl.classList.add('good');
       feedbackEl.textContent = `Gotcha! It's ${current.name} (#${current.id}) — +${earned} pts`;
@@ -255,56 +254,35 @@ function initWho() {
     if (locked || !current || !allPokemonNames) return;
     const raw = hardInput.value.trim().toLowerCase();
     if (!raw) return showToast('Type and select a Pokémon from the dropdown');
-    const maxId = Number(genSelect.value) || 493;
+    const { min, max } = parseGenRange(genSelect.value);
     const exact =
       (selectedHardEntry && selectedHardEntry.name.toLowerCase() === raw ? selectedHardEntry : null) ||
-      allPokemonNames.find((p) => p.id <= maxId && p.name.toLowerCase() === raw);
+      allPokemonNames.find((p) => p.id >= min && p.id <= max && p.name.toLowerCase() === raw);
 
-    if (!exact) {
-      return showToast('Please select a valid Pokémon from the dropdown list');
-    }
+    if (!exact) return showToast('Select a valid Pokémon from the dropdown list');
     finishGuess(exact.id);
   }
 
-  hardInput.addEventListener('input', () => {
-    selectedHardEntry = null;
-    renderDropdown(hardInput.value);
-  });
-  hardInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { e.preventDefault(); submitHardGuess(); }
-  });
-  document.addEventListener('click', (e) => {
-    if (!hardWrap.contains(e.target)) hardDropdown.classList.add('hidden');
-  });
+  hardInput.addEventListener('input', () => { selectedHardEntry = null; renderDropdown(hardInput.value); });
+  hardInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); submitHardGuess(); } });
+  document.addEventListener('click', (e) => { if (!hardWrap.contains(e.target)) hardDropdown.classList.add('hidden'); });
   hardSubmit.addEventListener('click', submitHardGuess);
 
-  btnEasy.addEventListener('click', () => {
-    if (difficulty === 'easy') return;
-    playSfx('click');
-    difficulty = 'easy';
-    startRound();
-  });
-  btnHard.addEventListener('click', () => {
-    if (difficulty === 'hard') return;
-    playSfx('click');
-    difficulty = 'hard';
-    startRound();
-  });
+  btnEasy.addEventListener('click', () => { if (difficulty !== 'easy') { playSfx('click'); difficulty = 'easy'; startRound(); } });
+  btnMed.addEventListener('click', () => { if (difficulty !== 'med') { playSfx('click'); difficulty = 'med'; startRound(); } });
+  btnHard.addEventListener('click', () => { if (difficulty !== 'hard') { playSfx('click'); difficulty = 'hard'; startRound(); } });
   cryBtn.addEventListener('click', playCry);
   hintBtn.addEventListener('click', () => {
     if (locked || hintUsed || !current) return;
-    playSfx('click');
-    hintUsed = true;
-    hintBtn.disabled = true;
+    playSfx('click'); hintUsed = true; hintBtn.disabled = true;
     renderTypes(current.types);
   });
   genSelect.addEventListener('change', () => { playSfx('click'); startRound(); });
   nextBtn.addEventListener('click', () => { playSfx('click'); startRound(); });
-
   startRound();
 }
 
-// ---------- 2. STAT CLASH ----------
+// ---------- 2. STAT CLASH (Stat Mode Selector!) ----------
 function initClash() {
   const CATS = [
     { key: 'hp', label: 'Base HP' }, { key: 'attack', label: 'Base Attack' },
@@ -315,6 +293,7 @@ function initClash() {
   let leftMon = null, rightMon = null, stat = null, run = 0, locked = true, token = 0, timer = null;
 
   const genSelect = document.getElementById('clash-gen-select');
+  const statSelect = document.getElementById('clash-stat-mode');
   const loader = document.getElementById('clash-loader');
   const runEl = document.getElementById('clash-run-score');
   const banner = document.getElementById('clash-stat-banner');
@@ -328,8 +307,9 @@ function initClash() {
     el.querySelector('h3').textContent = mon.name;
     el.querySelector('.clash-types').textContent = mon.types.join(' / ');
     const v = el.querySelector('.clash-stat-val');
-    v.textContent = show ? mon.stats[stat.key] : '???';
     v.classList.toggle('mystery', !show);
+    if (show) animateNumber(v, 0, mon.stats[stat.key], { duration: 440 });
+    else v.textContent = '???';
   }
 
   async function nextMatch() {
@@ -344,10 +324,10 @@ function initClash() {
     loader.classList.remove('hidden');
 
     try {
-      const maxId = Number(genSelect.value) || 493;
-      const id1 = Math.floor(Math.random() * maxId) + 1;
-      let id2 = Math.floor(Math.random() * maxId) + 1;
-      while (id2 === id1) id2 = Math.floor(Math.random() * maxId) + 1;
+      const { min, max } = parseGenRange(genSelect.value);
+      const id1 = randomInRange(min, max);
+      let id2 = randomInRange(min, max);
+      while (id2 === id1) id2 = randomInRange(min, max);
 
       const [a, b] = await Promise.all([fetchPokemon(id1), fetchPokemon(id2)]);
       if (t !== token) return;
@@ -355,7 +335,11 @@ function initClash() {
       if (t !== token) return;
 
       leftMon = a; rightMon = b;
-      stat = CATS[Math.floor(Math.random() * CATS.length)];
+      const modeVal = statSelect.value;
+      stat = modeVal === 'random'
+        ? CATS[Math.floor(Math.random() * CATS.length)]
+        : (CATS.find((c) => c.key === modeVal) || CATS[0]);
+
       banner.textContent = `Who has higher ${stat.label}?`;
       renderCard(cardL, leftMon, false);
       renderCard(cardR, rightMon, false);
@@ -387,7 +371,7 @@ function initClash() {
       (side === 'left' ? cardL : cardR).classList.add('win');
       statusEl.classList.add('good');
       statusEl.textContent = `Super effective! ${leftMon.name} (${lv}) vs ${rightMon.name} (${rv})`;
-      timer = setTimeout(() => { if (t === token) nextMatch(); }, 1250);
+      timer = setTimeout(() => { if (t === token) nextMatch(); }, 1200);
     } else {
       playSfx('wrong');
       resetStreak();
@@ -402,6 +386,7 @@ function initClash() {
   cardL.addEventListener('click', () => pick('left'));
   cardR.addEventListener('click', () => pick('right'));
   genSelect.addEventListener('change', () => { playSfx('click'); run = 0; runEl.textContent = '0'; nextMatch(); });
+  statSelect.addEventListener('change', () => { playSfx('click'); run = 0; runEl.textContent = '0'; nextMatch(); });
   restartBtn.addEventListener('click', () => { playSfx('click'); run = 0; runEl.textContent = '0'; nextMatch(); });
   nextMatch();
 }

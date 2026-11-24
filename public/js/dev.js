@@ -1,6 +1,6 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
-  resetStreak, shuffle, escapeHtml,
+  resetStreak, shuffle, escapeHtml, animateNumber, triggerFlash,
 } from './core.js';
 import {
   FALLBACK_GITHUB_REPOS, BUG_SNIPPETS, OUTPUT_QUIZZES,
@@ -10,16 +10,17 @@ import {
 initChrome('dev');
 
 function renderStaticCode(el, codeStr) {
-  const lines = codeStr.split('\n');
+  const lines = String(codeStr).split('\n');
   el.innerHTML = lines
     .map((l, i) => `<div class="code-line"><span class="ln">${i + 1}</span><span>${escapeHtml(l)}</span></div>`)
     .join('');
 }
 
-// ---------- 1. GITHUB STARS DUEL (Live GitHub API + Automatic Fallback) ----------
+// ---------- 1. GITHUB STARS DUEL (Ecosystem Filter + Live API + 42 Curated) ----------
 function initGithubStars() {
   let pool = [], left = null, right = null, run = 0, locked = true, timer = null;
 
+  const catSel = document.getElementById('gh-cat');
   const loader = document.getElementById('gh-loader');
   const runEl = document.getElementById('gh-run');
   const lLang = document.getElementById('gh-l-lang'), lName = document.getElementById('gh-l-name'), lDesc = document.getElementById('gh-l-desc'), lVal = document.getElementById('gh-l-val');
@@ -29,36 +30,45 @@ function initGithubStars() {
   const statusEl = document.getElementById('gh-status');
   const restartBtn = document.getElementById('gh-restart');
 
-  async function loadRepos() {
-    try {
-      const res = await fetch('https://api.github.com/search/repositories?q=stars:>35000&sort=stars&order=desc&per_page=60');
-      if (!res.ok) throw new Error('GitHub rate limit');
-      const json = await res.json();
-      const mapped = (json.items || [])
-        .filter((r) => r.full_name && r.stargazers_count)
-        .map((r) => ({
-          name: r.full_name,
-          lang: r.language || 'Docs/Multi',
-          stars: r.stargazers_count,
-          desc: (r.description || 'Popular open-source repository').slice(0, 95),
-        }));
-      if (mapped.length >= 10) return shuffle(mapped);
-    } catch {}
-    return shuffle(FALLBACK_GITHUB_REPOS);
+  function getCurated() {
+    const c = catSel.value;
+    return c === 'all' ? FALLBACK_GITHUB_REPOS : FALLBACK_GITHUB_REPOS.filter((r) => r.cat === c);
   }
 
-  function fmt(n) { return `${Number(n).toLocaleString()} ★`; }
+  async function loadRepos() {
+    if (catSel.value === 'all') {
+      try {
+        const res = await fetch('https://api.github.com/search/repositories?q=stars:>35000&sort=stars&order=desc&per_page=60');
+        if (res.ok) {
+          const json = await res.json();
+          const mapped = (json.items || [])
+            .filter((r) => r.full_name && r.stargazers_count)
+            .map((r) => ({
+              name: r.full_name,
+              lang: r.language || 'Multi',
+              stars: r.stargazers_count,
+              desc: (r.description || 'Popular open-source repository').slice(0, 95),
+            }));
+          if (mapped.length >= 12) return shuffle(mapped);
+        }
+      } catch {}
+    }
+    return shuffle(getCurated());
+  }
+
+  const fmt = (n) => `${Number(n).toLocaleString()} ★`;
   function draw(ex) {
-    if (pool.length < 3) pool = shuffle(FALLBACK_GITHUB_REPOS);
+    if (pool.length < 3) pool = shuffle(getCurated());
     const i = pool.findIndex((r) => r.name !== ex);
     return pool.splice(i === -1 ? 0 : i, 1)[0];
   }
 
-  function render(showRight = false) {
+  function render(showR = false) {
     lLang.textContent = left.lang; lName.textContent = left.name; lDesc.textContent = left.desc; lVal.textContent = fmt(left.stars);
     rLang.textContent = right.lang; rName.textContent = right.name; rDesc.textContent = right.desc;
-    rVal.textContent = showRight ? fmt(right.stars) : '???';
-    rVal.classList.toggle('mystery', !showRight);
+    rVal.classList.toggle('mystery', !showR);
+    if (showR) animateNumber(rVal, 0, right.stars, { duration: 480, locale: true, suffix: ' ★' });
+    else rVal.textContent = '???';
   }
 
   async function startDuel() {
@@ -70,7 +80,7 @@ function initGithubStars() {
     btnHi.disabled = true; btnLo.disabled = true;
     loader.classList.remove('hidden');
 
-    if (pool.length < 8) pool = await loadRepos();
+    pool = await loadRepos();
     left = draw(null); right = draw(left.name);
     render(false);
     loader.classList.add('hidden');
@@ -97,6 +107,7 @@ function initGithubStars() {
         btnHi.disabled = false; btnLo.disabled = false;
         locked = false;
         render(false);
+        triggerFlash(rVal.closest('.duel-arena'), 'duel-shift');
       }, 1150);
     } else {
       playSfx('wrong');
@@ -108,24 +119,31 @@ function initGithubStars() {
     }
   }
 
+  catSel.addEventListener('change', () => { playSfx('click'); startDuel(); });
   btnHi.addEventListener('click', () => pick('higher'));
   btnLo.addEventListener('click', () => pick('lower'));
   restartBtn.addEventListener('click', () => { playSfx('click'); startDuel(); });
   startDuel();
 }
 
-// ---------- 2. SPOT THE BUG (Tap the Broken Line!) ----------
+// ---------- 2. SPOT THE BUG (22 Snippets + Language Filter!) ----------
 function initSpotBug() {
   let pool = [], current = null, locked = false;
+  const filterSel = document.getElementById('bug-filter');
   const langEl = document.getElementById('bug-lang');
   const titleEl = document.getElementById('bug-title');
   const codeEl = document.getElementById('bug-code');
   const feedbackEl = document.getElementById('bug-feedback');
   const nextBtn = document.getElementById('bug-next');
 
+  function getFiltered() {
+    const f = filterSel.value;
+    return f === 'all' ? BUG_SNIPPETS : BUG_SNIPPETS.filter((b) => b.lang === f);
+  }
+
   function nextRound() {
     locked = false;
-    if (!pool.length) pool = shuffle(BUG_SNIPPETS);
+    if (!pool.length) pool = shuffle(getFiltered());
     current = pool.pop();
     langEl.textContent = current.lang;
     titleEl.textContent = `Task: ${current.title} — Tap the exact line with the bug.`;
@@ -165,22 +183,29 @@ function initSpotBug() {
     });
   }
 
+  filterSel.addEventListener('change', () => { playSfx('click'); pool = []; nextRound(); });
   nextBtn.addEventListener('click', () => { playSfx('click'); nextRound(); });
   nextRound();
 }
 
-// ---------- 3. WHAT'S THE OUTPUT? ----------
+// ---------- 3. WHAT'S THE OUTPUT? (22 Quizzes + Language Filter!) ----------
 function initOutput() {
   let pool = [], current = null, locked = false;
+  const filterSel = document.getElementById('out-filter');
   const langEl = document.getElementById('out-lang');
   const codeEl = document.getElementById('out-code');
   const optionsEl = document.getElementById('out-options');
   const feedbackEl = document.getElementById('out-feedback');
   const nextBtn = document.getElementById('out-next');
 
+  function getFiltered() {
+    const f = filterSel.value;
+    return f === 'all' ? OUTPUT_QUIZZES : OUTPUT_QUIZZES.filter((q) => q.lang === f);
+  }
+
   function nextRound() {
     locked = false;
-    if (!pool.length) pool = shuffle(OUTPUT_QUIZZES);
+    if (!pool.length) pool = shuffle(getFiltered());
     current = pool.pop();
     langEl.textContent = current.lang;
     renderStaticCode(codeEl, current.code);
@@ -220,13 +245,17 @@ function initOutput() {
     });
   }
 
+  filterSel.addEventListener('change', () => { playSfx('click'); pool = []; nextRound(); });
   nextBtn.addEventListener('click', () => { playSfx('click'); nextRound(); });
   nextRound();
 }
 
-// ---------- 4. GUESS THE LANGUAGE ----------
+// ---------- 4. GUESS THE LANGUAGE (20 Languages + 4/6 Options!) ----------
 function initLang() {
-  let pool = [], current = null, hintUsed = false, locked = false;
+  let pool = [], current = null, hintUsed = false, locked = false, choiceCount = 4;
+  const ALL_LANGS = LANG_SNIPPETS.map((l) => l.answer);
+  const btnOpt4 = document.getElementById('lang-opt-4');
+  const btnOpt6 = document.getElementById('lang-opt-6');
   const ptsEl = document.getElementById('lang-pts');
   const codeEl = document.getElementById('lang-code');
   const hintBtn = document.getElementById('lang-hint-btn');
@@ -239,7 +268,8 @@ function initLang() {
     locked = false; hintUsed = false;
     if (!pool.length) pool = shuffle(LANG_SNIPPETS);
     current = pool.pop();
-    ptsEl.textContent = '+200 PTS';
+    const basePts = choiceCount === 6 ? 260 : 200;
+    ptsEl.textContent = `+${basePts} PTS`;
     hintBtn.disabled = false;
     hintBox.classList.add('hidden');
     feedbackEl.classList.add('hidden');
@@ -247,7 +277,8 @@ function initLang() {
     renderStaticCode(codeEl, current.code);
     optionsEl.innerHTML = '';
 
-    shuffle(current.options).forEach((opt) => {
+    const decoys = shuffle(ALL_LANGS.filter((l) => l !== current.answer)).slice(0, choiceCount - 1);
+    shuffle([current.answer, ...decoys]).forEach((opt) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'option-btn';
@@ -262,7 +293,7 @@ function initLang() {
         feedbackEl.classList.remove('hidden', 'good', 'bad');
         if (opt === current.answer) {
           playSfx('correct');
-          const earned = recordWin('devLang', hintUsed ? 150 : 200);
+          const earned = recordWin('devLang', hintUsed ? basePts - 50 : basePts);
           feedbackEl.classList.add('good');
           feedbackEl.textContent = `Sharp syntax radar! It's ${current.answer} — +${earned} pts`;
         } else {
@@ -278,11 +309,12 @@ function initLang() {
     });
   }
 
+  btnOpt4.addEventListener('click', () => { playSfx('click'); choiceCount = 4; btnOpt4.classList.add('active'); btnOpt6.classList.remove('active'); nextRound(); });
+  btnOpt6.addEventListener('click', () => { playSfx('click'); choiceCount = 6; btnOpt6.classList.add('active'); btnOpt4.classList.remove('active'); nextRound(); });
   hintBtn.addEventListener('click', () => {
     if (locked || hintUsed || !current) return;
-    playSfx('click');
-    hintUsed = true; hintBtn.disabled = true;
-    ptsEl.textContent = '+150 PTS';
+    playSfx('click'); hintUsed = true; hintBtn.disabled = true;
+    ptsEl.textContent = `+${choiceCount === 6 ? 210 : 150} PTS`;
     hintBox.textContent = current.hint;
     hintBox.classList.remove('hidden');
   });
@@ -290,9 +322,9 @@ function initLang() {
   nextRound();
 }
 
-// ---------- 5. BIG-O BLITZ ----------
+// ---------- 5. BIG-O BLITZ (24 Questions, Dynamic 6-Button Complexity Pad!) ----------
 function initBigO() {
-  const COMPLEXITIES = ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)', 'O(n²)'];
+  const ALL_BIGO = ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)', 'O(n²)', 'O(n³)', 'O(2ⁿ)', 'O(n!)'];
   let pool = [], current = null, locked = false;
   const promptEl = document.getElementById('bigo-prompt');
   const optionsEl = document.getElementById('bigo-options');
@@ -308,7 +340,10 @@ function initBigO() {
     feedbackEl.classList.add('hidden');
     nextBtn.classList.add('hidden');
 
-    COMPLEXITIES.forEach((c) => {
+    const decoys = shuffle(ALL_BIGO.filter((x) => x !== current.answer)).slice(0, 5);
+    const ordered = [current.answer, ...decoys].sort((a, b) => ALL_BIGO.indexOf(a) - ALL_BIGO.indexOf(b));
+
+    ordered.forEach((c) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'option-btn';
@@ -324,7 +359,7 @@ function initBigO() {
         feedbackEl.classList.remove('hidden', 'good', 'bad');
         if (c === current.answer) {
           playSfx('correct');
-          const earned = recordWin('devBigO', 150);
+          const earned = recordWin('devBigO', 160);
           feedbackEl.classList.add('good');
           feedbackEl.textContent = `Exact! ${current.answer} (+${earned} pts) — ${current.note}`;
         } else {
@@ -344,18 +379,24 @@ function initBigO() {
   nextRound();
 }
 
-// ---------- 6. HTTP & GIT SURVIVAL ----------
+// ---------- 6. HTTP, GIT, LINUX & DOCKER SURVIVAL (30 Cards + Topic Filter!) ----------
 function initHttpGit() {
   let pool = [], current = null, locked = false;
+  const filterSel = document.getElementById('http-filter');
   const tagEl = document.getElementById('http-tag');
   const promptEl = document.getElementById('http-prompt');
   const optionsEl = document.getElementById('http-options');
   const feedbackEl = document.getElementById('http-feedback');
   const nextBtn = document.getElementById('http-next');
 
+  function getFiltered() {
+    const f = filterSel.value;
+    return f === 'all' ? HTTP_GIT_QUESTIONS : HTTP_GIT_QUESTIONS.filter((q) => q.tag === f);
+  }
+
   function nextRound() {
     locked = false;
-    if (!pool.length) pool = shuffle(HTTP_GIT_QUESTIONS);
+    if (!pool.length) pool = shuffle(getFiltered());
     current = pool.pop();
     tagEl.textContent = current.tag;
     promptEl.textContent = current.prompt;
@@ -394,11 +435,12 @@ function initHttpGit() {
     });
   }
 
+  filterSel.addEventListener('change', () => { playSfx('click'); pool = []; nextRound(); });
   nextBtn.addEventListener('click', () => { playSfx('click'); nextRound(); });
   nextRound();
 }
 
-// ---------- 7. PROD OUTAGE SIMULATOR ----------
+// ---------- 7. PROD OUTAGE SIMULATOR (14 Incidents!) ----------
 function initOutage() {
   let scenarios = [], idx = 0, uptime = 99.9, latency = 140, locked = false;
   const stepEl = document.getElementById('outage-step');
@@ -474,7 +516,6 @@ function initOutage() {
     if (idx >= scenarios.length) startShift();
     else renderScenario();
   });
-
   startShift();
 }
 

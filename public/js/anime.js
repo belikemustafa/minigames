@@ -1,15 +1,15 @@
-import { initChrome, setupModeTabs, playSfx, recordWin, recordBestValue, resetStreak, shuffle, preloadImage } from './core.js';
+import { initChrome, setupModeTabs, playSfx, recordWin, recordBestValue, resetStreak, shuffle, preloadImage, animateNumber, triggerFlash } from './core.js';
 
 initChrome('anime');
 
-// Reliable AniList GraphQL fetcher (Cloudflare proxy first, direct browser GraphQL fallback!)
 const ANILIST_QUERY = `
-query ($page: Int, $perPage: Int) {
+query ($page: Int, $perPage: Int, $genre: String, $endYear: FuzzyDateInt) {
   Page(page: $page, perPage: $perPage) {
-    media(type: ANIME, sort: POPULARITY_DESC, isAdult: false, averageScore_greater: 50) {
+    media(type: ANIME, sort: POPULARITY_DESC, isAdult: false, averageScore_greater: 50, genre: $genre, startDate_lesser: $endYear) {
       id
       title { romaji english }
       averageScore
+      popularity
       seasonYear
       episodes
       format
@@ -26,27 +26,28 @@ query ($page: Int, $perPage: Int) {
 }
 `;
 
-let sharedAnimeCache = [];
+async function fetchAnimeBatch(filter = 'all') {
+  const maxPage = filter === 'all' ? 16 : 8;
+  const page = Math.floor(Math.random() * maxPage) + 1;
 
-async function fetchAnimeBatch() {
-  const page = Math.floor(Math.random() * 10) + 1;
-
-  // 1) Try Cloudflare Pages Function proxy
   try {
-    const proxyRes = await fetch(`/api/anime/pool?page=${page}`);
+    const proxyRes = await fetch(`/api/anime/pool?filter=${encodeURIComponent(filter)}&page=${page}`);
     if (proxyRes.ok) {
       const json = await proxyRes.json();
-      if (Array.isArray(json.anime) && json.anime.length >= 6) {
-        return json.anime;
-      }
+      if (Array.isArray(json.anime) && json.anime.length >= 6) return json.anime;
     }
   } catch {}
 
-  // 2) Direct fallback to official AniList GraphQL API (CORS-enabled, keyless, 90 req/min)
+  const variables = { page, perPage: 25 };
+  if (filter === 'action') variables.genre = 'Action';
+  else if (filter === 'romance') variables.genre = 'Romance';
+  else if (filter === 'fantasy') variables.genre = 'Fantasy';
+  else if (filter === 'classic') variables.endYear = 20100101;
+
   const res = await fetch('https://graphql.anilist.co', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ query: ANILIST_QUERY, variables: { page, perPage: 25 } }),
+    body: JSON.stringify({ query: ANILIST_QUERY, variables }),
   });
   if (!res.ok) throw new Error(`AniList HTTP ${res.status}`);
   const json = await res.json();
@@ -58,7 +59,8 @@ async function fetchAnimeBatch() {
       id: a.id,
       title: a.title?.english || a.title?.romaji || 'Unknown Anime',
       score: Number((a.averageScore / 10).toFixed(1)),
-      year: a.seasonYear || 'Classic',
+      popularity: a.popularity || 10000,
+      year: a.seasonYear || 2005,
       episodes: a.episodes ? `${a.episodes} eps` : a.format || 'Series',
       image: a.coverImage.extraLarge || a.coverImage.large,
       characters: (a.characters?.nodes || [])
@@ -67,80 +69,53 @@ async function fetchAnimeBatch() {
     }));
 }
 
-async function getAnimePool(minSize = 10) {
-  if (sharedAnimeCache.length < minSize) {
-    const fresh = await fetchAnimeBatch();
-    const seen = new Set(sharedAnimeCache.map((a) => a.id));
-    sharedAnimeCache = shuffle([...sharedAnimeCache, ...fresh.filter((a) => !seen.has(a.id))]);
-  }
-  return sharedAnimeCache;
-}
-
-// ---------- 1. SCORE DUEL ----------
+// ---------- 1. SCORE / POPULARITY / YEAR DUEL ----------
 function initScoreDuel() {
-  let pool = [];
-  let champ = null;
-  let chal = null;
-  let run = 0;
-  let locked = true;
-  let token = 0;
-  let timer = null;
-  let animId = null;
+  const METRICS = {
+    score:      { label: 'SCORE', tip: 'higher or lower AniList rating?', fmt: (v) => v.toFixed(1) },
+    popularity: { label: 'FANS',  tip: 'more or fewer AniList members?', fmt: (v) => `${Math.round(v / 1000)}k` },
+    year:       { label: 'YEAR',  tip: 'newer (higher year) or older (lower year) release?', fmt: (v) => String(v) },
+  };
+  let metric = 'score', pool = [], champ = null, chal = null, run = 0, locked = true, token = 0, timer = null;
 
+  const filterSel = document.getElementById('anime-duel-filter');
+  const tipEl = document.getElementById('anime-duel-tip');
   const loader = document.getElementById('anime-loader');
   const runEl = document.getElementById('anime-run-score');
-  const cImg = document.getElementById('anime-champ-img');
-  const cTitle = document.getElementById('anime-champ-title');
-  const cMeta = document.getElementById('anime-champ-meta');
-  const cScore = document.getElementById('anime-champ-score');
-  const rImg = document.getElementById('anime-chal-img');
-  const rTitle = document.getElementById('anime-chal-title');
-  const rMeta = document.getElementById('anime-chal-meta');
-  const rScore = document.getElementById('anime-chal-score');
+  const cImg = document.getElementById('anime-champ-img'), cTitle = document.getElementById('anime-champ-title'), cMeta = document.getElementById('anime-champ-meta'), cLabel = document.getElementById('anime-champ-label'), cScore = document.getElementById('anime-champ-score');
+  const rImg = document.getElementById('anime-chal-img'), rTitle = document.getElementById('anime-chal-title'), rMeta = document.getElementById('anime-chal-meta'), rLabel = document.getElementById('anime-chal-label'), rScore = document.getElementById('anime-chal-score');
   const controls = document.getElementById('anime-controls');
-  const btnHi = document.getElementById('btn-higher');
-  const btnLo = document.getElementById('btn-lower');
+  const btnHi = document.getElementById('btn-higher'), btnLo = document.getElementById('btn-lower');
   const statusEl = document.getElementById('anime-status');
   const restartBtn = document.getElementById('anime-restart-btn');
 
-  function draw(excludeId) {
-    const i = pool.findIndex((a) => a.id !== excludeId);
+  function draw(ex) {
+    const i = pool.findIndex((a) => a.id !== ex);
     return i === -1 ? null : pool.splice(i, 1)[0];
   }
 
-  function render() {
-    cImg.src = champ.image;
-    cTitle.textContent = champ.title;
-    cMeta.textContent = `${champ.year} • ${champ.episodes}`;
-    cScore.textContent = champ.score.toFixed(1);
+  function render(showR = false) {
+    const m = METRICS[metric];
+    cImg.src = champ.image; cTitle.textContent = champ.title; cMeta.textContent = `${champ.year} • ${champ.episodes}`;
+    cLabel.textContent = m.label; cScore.textContent = m.fmt(champ[metric]);
 
-    rImg.src = chal.image;
-    rTitle.textContent = chal.title;
-    rMeta.textContent = `${chal.year} • ${chal.episodes}`;
-    rScore.textContent = '?.?';
-    rScore.classList.add('mystery');
-  }
-
-  function animateVal(target, t, done) {
-    const start = performance.now();
-    rScore.classList.remove('mystery');
-    function tick(now) {
-      if (t !== token) return;
-      const p = Math.min((now - start) / 480, 1);
-      rScore.textContent = (target * p).toFixed(1);
-      if (p < 1) animId = requestAnimationFrame(tick);
-      else { rScore.textContent = target.toFixed(1); done(); }
+    rImg.src = chal.image; rTitle.textContent = chal.title; rMeta.textContent = `${metric === 'year' ? '' : chal.year + ' • '}${chal.episodes}`;
+    rLabel.textContent = m.label;
+    rScore.classList.toggle('mystery', !showR);
+    if (showR) {
+      if (metric === 'score') animateNumber(rScore, 0, chal.score, { duration: 460, decimals: 1 });
+      else if (metric === 'popularity') animateNumber(rScore, 0, Math.round(chal.popularity / 1000), { duration: 480, suffix: 'k' });
+      else animateNumber(rScore, 1980, chal.year, { duration: 480 });
+    } else {
+      rScore.textContent = '???';
     }
-    animId = requestAnimationFrame(tick);
   }
 
   async function startDuel() {
     clearTimeout(timer);
-    cancelAnimationFrame(animId);
     const t = ++token;
-    locked = true;
-    run = 0;
-    runEl.textContent = '0';
+    locked = true; run = 0; runEl.textContent = '0';
+    tipEl.textContent = `Does the right-hand challenger have a ${METRICS[metric].tip}`;
     statusEl.classList.add('hidden');
     restartBtn.classList.add('hidden');
     controls.classList.remove('hidden');
@@ -149,22 +124,19 @@ function initScoreDuel() {
     loader.classList.remove('hidden');
 
     try {
-      if (pool.length < 8) pool = shuffle([...await getAnimePool(12)]);
+      if (pool.length < 8) pool = shuffle(await fetchAnimeBatch(filterSel.value));
       if (t !== token) return;
-      champ = draw(null);
-      chal = draw(champ?.id);
-      if (!champ || !chal) throw new Error('Could not draw anime pair');
-
+      champ = draw(null); chal = draw(champ?.id);
+      if (!champ || !chal) throw new Error('Pool empty');
       await Promise.all([preloadImage(champ.image, 6000), preloadImage(chal.image, 6000)]);
       if (t !== token) return;
-
-      render();
+      render(false);
       loader.classList.add('hidden');
       btnHi.disabled = false; btnLo.disabled = false;
       locked = false;
-    } catch (err) {
+    } catch {
       if (t !== token) return;
-      loader.textContent = 'Could not reach AniList right now — tap Start New Duel.';
+      loader.textContent = 'AniList API hiccup — tap Start New Duel.';
       controls.classList.add('hidden');
       restartBtn.classList.remove('hidden');
     }
@@ -173,63 +145,63 @@ function initScoreDuel() {
   function pick(dir) {
     if (locked || !champ || !chal) return;
     const t = token;
-    locked = true;
-    btnHi.disabled = true; btnLo.disabled = true;
-
-    const ok = (dir === 'higher' && chal.score >= champ.score) || (dir === 'lower' && chal.score <= champ.score);
-    animateVal(chal.score, t, () => {
-      if (t !== token) return;
-      statusEl.classList.remove('hidden', 'good', 'bad');
-      if (ok) {
-        playSfx('correct');
-        run += 1;
-        runEl.textContent = run;
-        recordWin(null, 120);
-        recordBestValue('animeDuel', run);
-        statusEl.classList.add('good');
-        statusEl.textContent = `Nice! ${chal.title} scores ${chal.score.toFixed(1)} — next challenger up...`;
-
-        timer = setTimeout(async () => {
-          if (t !== token) return;
-          if (pool.length < 4) {
-            try { pool = shuffle([...pool, ...await fetchAnimeBatch()]); } catch {}
-          }
-          champ = chal;
-          chal = draw(champ.id);
-          if (!chal) return startDuel();
-          await preloadImage(chal.image, 5000);
-          if (t !== token) return;
-          render();
-          statusEl.classList.add('hidden');
-          btnHi.disabled = false; btnLo.disabled = false;
-          locked = false;
-        }, 1150);
-      } else {
-        playSfx('wrong');
-        resetStreak();
-        statusEl.classList.add('bad');
-        statusEl.textContent = `Run ended! ${chal.title} has a ${chal.score.toFixed(1)} rating. Final run: ${run}`;
-        controls.classList.add('hidden');
-        restartBtn.classList.remove('hidden');
-      }
-    });
+    locked = true; btnHi.disabled = true; btnLo.disabled = true;
+    render(true);
+    const lv = champ[metric], rv = chal[metric];
+    const ok = (dir === 'higher' && rv >= lv) || (dir === 'lower' && rv <= lv);
+    statusEl.classList.remove('hidden', 'good', 'bad');
+    if (ok) {
+      playSfx('correct');
+      run += 1; runEl.textContent = run;
+      recordWin(null, 120);
+      recordBestValue('animeDuel', run);
+      statusEl.classList.add('good');
+      statusEl.textContent = `Nice! ${chal.title}: ${METRICS[metric].fmt(rv)} — next challenger up...`;
+      timer = setTimeout(async () => {
+        if (t !== token) return;
+        if (pool.length < 4) { try { pool = shuffle([...pool, ...await fetchAnimeBatch(filterSel.value)]); } catch {} }
+        champ = chal; chal = draw(champ.id);
+        if (!chal) return startDuel();
+        await preloadImage(chal.image, 5000);
+        if (t !== token) return;
+        render(false);
+        triggerFlash(document.querySelector('#anime-loader')?.parentElement, 'duel-shift');
+        statusEl.classList.add('hidden');
+        btnHi.disabled = false; btnLo.disabled = false;
+        locked = false;
+      }, 1150);
+    } else {
+      playSfx('wrong');
+      resetStreak();
+      statusEl.classList.add('bad');
+      statusEl.textContent = `Run ended! ${chal.title}: ${METRICS[metric].fmt(rv)}. Final run: ${run}`;
+      controls.classList.add('hidden');
+      restartBtn.classList.remove('hidden');
+    }
   }
 
+  filterSel.addEventListener('change', () => { playSfx('click'); pool = []; startDuel(); });
+  document.querySelectorAll('[data-amode]').forEach((b) => {
+    b.addEventListener('click', () => {
+      playSfx('click');
+      metric = b.dataset.amode;
+      document.querySelectorAll('[data-amode]').forEach((x) => x.classList.toggle('active', x === b));
+      startDuel();
+    });
+  });
   btnHi.addEventListener('click', () => pick('higher'));
   btnLo.addEventListener('click', () => pick('lower'));
   restartBtn.addEventListener('click', () => { playSfx('click'); startDuel(); });
   startDuel();
 }
 
-// ---------- 2. CHARACTER MATCH ----------
+// ---------- 2. CHARACTER MATCH (Genre Filter + 4/6 Options!) ----------
 function initCharMatch() {
-  let pool = [];
-  let target = null;
-  let charObj = null;
-  let hintUsed = false;
-  let locked = true;
-  let token = 0;
+  let pool = [], target = null, charObj = null, hintUsed = false, locked = true, token = 0, choiceCount = 4;
 
+  const filterSel = document.getElementById('char-filter');
+  const btnOpt4 = document.getElementById('char-opt-4');
+  const btnOpt6 = document.getElementById('char-opt-6');
   const loader = document.getElementById('char-loader');
   const imgEl = document.getElementById('char-img');
   const nameEl = document.getElementById('char-name');
@@ -241,9 +213,9 @@ function initCharMatch() {
 
   async function startRound() {
     const t = ++token;
-    locked = true;
-    hintUsed = false;
-    ptsBadge.textContent = '+250 PTS';
+    locked = true; hintUsed = false;
+    const basePts = choiceCount === 6 ? 310 : 250;
+    ptsBadge.textContent = `+${basePts} PTS`;
     hintBtn.disabled = true;
     nameEl.classList.add('hidden');
     feedbackEl.classList.add('hidden');
@@ -254,20 +226,16 @@ function initCharMatch() {
     imgEl.className = 'char-img';
 
     try {
-      if (pool.length < 6) {
-        const fetched = await getAnimePool(12);
+      if (pool.length < choiceCount + 2) {
+        const fetched = await fetchAnimeBatch(filterSel.value);
         pool = shuffle(fetched.filter((a) => a.characters && a.characters.length > 0));
-        if (pool.length < 4) {
-          const fresh = await fetchAnimeBatch();
-          pool = shuffle(fresh.filter((a) => a.characters && a.characters.length > 0));
-        }
       }
       if (t !== token) return;
-      if (pool.length < 4) throw new Error('Not enough characters found');
+      if (pool.length < choiceCount) throw new Error('Not enough characters found');
 
       target = pool.pop();
       charObj = target.characters[Math.floor(Math.random() * target.characters.length)];
-      const decoys = shuffle(pool.filter((a) => a.id !== target.id)).slice(0, 3);
+      const decoys = shuffle(pool.filter((a) => a.id !== target.id)).slice(0, choiceCount - 1);
       const choices = shuffle([target, ...decoys]);
 
       await preloadImage(charObj.image);
@@ -287,12 +255,10 @@ function initCharMatch() {
         btn.addEventListener('click', () => handleGuess(a, btn));
         optionsEl.appendChild(btn);
       });
-
-      locked = false;
-      hintBtn.disabled = false;
-    } catch (err) {
+      locked = false; hintBtn.disabled = false;
+    } catch {
       if (t !== token) return;
-      loader.textContent = 'Could not load character right now — tap Retry.';
+      loader.textContent = 'Could not load character — tap Retry.';
       nextBtn.textContent = 'Retry ↻';
       nextBtn.classList.remove('hidden');
     }
@@ -301,27 +267,24 @@ function initCharMatch() {
   function revealName() {
     if (locked || hintUsed) return;
     playSfx('click');
-    hintUsed = true;
-    hintBtn.disabled = true;
-    ptsBadge.textContent = '+175 PTS';
+    hintUsed = true; hintBtn.disabled = true;
+    ptsBadge.textContent = `+${choiceCount === 6 ? 235 : 175} PTS`;
     nameEl.classList.remove('hidden');
   }
 
   function handleGuess(sel, btnEl) {
     if (locked || !target) return;
-    locked = true;
-    hintBtn.disabled = true;
+    locked = true; hintBtn.disabled = true;
     nameEl.classList.remove('hidden');
-
     optionsEl.querySelectorAll('.option-btn').forEach((b) => {
       b.disabled = true;
       if (Number(b.dataset.id) === target.id) b.classList.add('correct');
     });
-
     feedbackEl.classList.remove('hidden', 'good', 'bad');
     if (sel.id === target.id) {
       playSfx('correct');
-      const earned = recordWin('animeChars', hintUsed ? 175 : 250);
+      const base = choiceCount === 6 ? (hintUsed ? 235 : 310) : (hintUsed ? 175 : 250);
+      const earned = recordWin('animeChars', base);
       feedbackEl.classList.add('good');
       feedbackEl.textContent = `Spot on! ${charObj.name} is from ${target.title} — +${earned} pts`;
     } else {
@@ -335,6 +298,9 @@ function initCharMatch() {
     nextBtn.classList.remove('hidden');
   }
 
+  filterSel.addEventListener('change', () => { playSfx('click'); pool = []; startRound(); });
+  btnOpt4.addEventListener('click', () => { playSfx('click'); choiceCount = 4; btnOpt4.classList.add('active'); btnOpt6.classList.remove('active'); startRound(); });
+  btnOpt6.addEventListener('click', () => { playSfx('click'); choiceCount = 6; btnOpt6.classList.add('active'); btnOpt4.classList.remove('active'); startRound(); });
   hintBtn.addEventListener('click', revealName);
   nextBtn.addEventListener('click', () => { playSfx('click'); startRound(); });
   startRound();

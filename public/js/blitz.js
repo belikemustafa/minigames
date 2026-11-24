@@ -1,72 +1,79 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
-  resetStreak, shuffle, createSeededRng, showToast,
+  resetStreak, shuffle, createSeededRng, showToast, burstMilestone, triggerFlash,
 } from './core.js';
+import { WORLD_COUNTRIES } from './data/worldData.js';
 import { MACRO_FOODS } from './data/foodData.js';
-import { CAREERS } from './data/careersData.js';
-import { VOICE_ACTORS } from './data/cartoonsData.js';
-import { OUTPUT_QUIZZES, BIGO_QUESTIONS, HTTP_GIT_QUESTIONS } from './data/devData.js';
 import { AUTO_SPECS } from './data/autoData.js';
+import { OUTPUT_QUIZZES, BIGO_QUESTIONS, HTTP_GIT_QUESTIONS } from './data/devData.js';
 
 initChrome('blitz');
 
 function buildQuestionBank() {
   const bank = [];
 
-  // Careers: Salary comparison (India LPA)
-  for (let i = 0; i + 1 < CAREERS.length; i += 2) {
-    const a = CAREERS[i], b = CAREERS[i + 1];
-    const winner = a.inSalary >= b.inSalary ? a.name : b.name;
+  // World: Capitals & Populations (100+ questions!)
+  WORLD_COUNTRIES.slice(0, 60).forEach((c, idx) => {
+    const decoys = WORLD_COUNTRIES.filter((x) => x.code !== c.code).slice((idx * 3) % 40, ((idx * 3) % 40) + 3).map((x) => x.capital);
     bank.push({
-      cat: 'Careers',
-      q: `Which role typically has a higher average mid-career salary in India: ${a.name} or ${b.name}?`,
-      answer: winner,
-      options: [a.name, b.name],
+      group: 'world',
+      cat: 'World Capitals',
+      q: `What is the capital city of ${c.name}?`,
+      answer: c.capital,
+      options: [c.capital, ...decoys],
     });
-  }
+  });
 
-  // Food: Calorie comparison
+  // Food: Calories & Protein
   for (let i = 0; i + 1 < MACRO_FOODS.length; i += 2) {
     const a = MACRO_FOODS[i], b = MACRO_FOODS[i + 1];
-    const winner = a.calories >= b.calories ? a.name : b.name;
     bank.push({
-      cat: 'Food Nutrition',
+      group: 'food',
+      cat: 'Food Calories',
       q: `Per 100g, which has MORE calories: ${a.name} or ${b.name}?`,
-      answer: winner,
+      answer: a.calories >= b.calories ? a.name : b.name,
+      options: [a.name, b.name],
+    });
+    bank.push({
+      group: 'food',
+      cat: 'Food Protein',
+      q: `Per 100g, which has MORE protein: ${a.name} or ${b.name}?`,
+      answer: a.protein >= b.protein ? a.name : b.name,
       options: [a.name, b.name],
     });
   }
 
-  // Auto: Horsepower comparison
-  const allVehicles = [...AUTO_SPECS.bikes, ...AUTO_SPECS.suvs, ...AUTO_SPECS.supercars];
+  // Auto: Power & 0-100
+  const allVehicles = [...AUTO_SPECS.bikes, ...AUTO_SPECS.suvs, ...AUTO_SPECS.supercars, ...AUTO_SPECS.jdm];
   for (let i = 0; i + 1 < allVehicles.length; i += 2) {
     const a = allVehicles[i], b = allVehicles[i + 1];
-    const winner = a.bhp >= b.bhp ? a.name : b.name;
     bank.push({
+      group: 'auto',
       cat: 'Bikes & Cars',
       q: `Which machine makes MORE horsepower (BHP): ${a.name} or ${b.name}?`,
-      answer: winner,
+      answer: a.bhp >= b.bhp ? a.name : b.name,
+      options: [a.name, b.name],
+    });
+    bank.push({
+      group: 'auto',
+      cat: 'Bikes & Cars',
+      q: `Which reaches 0–100 km/h FASTER: ${a.name} or ${b.name}?`,
+      answer: a.zeroTo100 <= b.zeroTo100 ? a.name : b.name,
       options: [a.name, b.name],
     });
   }
 
-  // Cartoons: Voice Actors
-  VOICE_ACTORS.forEach((v) => {
-    bank.push({ cat: 'Cartoons', q: `${v.actor}: ${v.question}`, answer: v.answer, options: v.options });
-  });
-
-  // Dev: Output, Big-O, HTTP/Git
+  // Dev: Output, Big-O, HTTP/Git/Linux/Docker
   OUTPUT_QUIZZES.forEach((o) => {
-    bank.push({ cat: 'Dev Output', q: `[${o.lang}] What prints? → ${o.code.replace(/\n/g, ' ; ')}`, answer: o.answer, options: o.options });
+    bank.push({ group: 'dev', cat: 'Dev Output', q: `[${o.lang}] What prints? → ${o.code.replace(/\n/g, ' ; ')}`, answer: o.answer, options: o.options });
   });
   BIGO_QUESTIONS.forEach((b) => {
-    const opts = ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'].includes(b.answer)
-      ? ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)']
-      : ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'];
-    bank.push({ cat: 'Dev Big-O', q: `Time complexity of: ${b.prompt}`, answer: b.answer, options: opts });
+    const baseOpts = ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'];
+    const opts = baseOpts.includes(b.answer) ? baseOpts : ['O(1)', 'O(n)', 'O(n²)', b.answer];
+    bank.push({ group: 'dev', cat: 'Dev Big-O', q: `Time complexity of: ${b.prompt}`, answer: b.answer, options: [...new Set(opts)] });
   });
   HTTP_GIT_QUESTIONS.forEach((h) => {
-    bank.push({ cat: `Dev ${h.tag}`, q: `What does "${h.prompt}" mean?`, answer: h.answer, options: h.options });
+    bank.push({ group: 'dev', cat: `Dev ${h.tag}`, q: `What does "${h.prompt}" mean?`, answer: h.answer, options: h.options });
   });
 
   return bank;
@@ -74,8 +81,10 @@ function buildQuestionBank() {
 
 const QUESTION_BANK = buildQuestionBank();
 
+// ---------- 1. TIMED BLITZ (30s / 60s / 90s + Category Toggles!) ----------
 function initBlitz() {
-  let timeLeft = 60, blitzScore = 0, blitzStreak = 0, interval = null, pool = [], current = null, running = false;
+  let duration = 60, endTime = 0, timerRaf = null, blitzScore = 0, blitzStreak = 0, pool = [], current = null, running = false;
+  const activeGroups = new Set(['world', 'food', 'auto', 'dev']);
 
   const timerEl = document.getElementById('blitz-timer');
   const scoreEl = document.getElementById('blitz-score');
@@ -88,11 +97,16 @@ function initBlitz() {
   const optionsEl = document.getElementById('blitz-options');
   const resultEl = document.getElementById('blitz-result');
 
+  function getActivePool() {
+    return QUESTION_BANK.filter((q) => activeGroups.has(q.group));
+  }
+
   function nextQuestion() {
-    if (!pool.length) pool = shuffle(QUESTION_BANK);
+    if (!pool.length) pool = shuffle(getActivePool());
     current = pool.pop();
     catEl.textContent = current.cat;
     qEl.textContent = current.q;
+    triggerFlash(qEl.parentElement, 'fx-pop');
     optionsEl.innerHTML = '';
 
     shuffle(current.options).forEach((opt) => {
@@ -122,43 +136,85 @@ function initBlitz() {
 
   function endBlitz() {
     running = false;
-    clearInterval(interval);
+    if (timerRaf) cancelAnimationFrame(timerRaf);
+    timerRaf = null;
+    barEl.style.transform = 'scaleX(0)';
+    barEl.classList.remove('warn', 'danger');
     playEl.classList.add('hidden');
     introEl.classList.remove('hidden');
     recordBestValue('blitz', blitzScore);
+    playSfx('fanfare');
+    burstMilestone(`⚡ ${blitzScore} PTS!`);
     resultEl.classList.remove('hidden', 'bad');
     resultEl.classList.add('good');
-    resultEl.textContent = `⏱️ Time's up! Final 60s Blitz Score: ${blitzScore} pts`;
+    resultEl.textContent = `⏱️ Time's up! Final ${duration}s Blitz Score: ${blitzScore} pts`;
     startBtn.textContent = 'Play Again ⚡';
   }
 
+  function tickTimer(now) {
+    if (!running) return;
+    const remMs = Math.max(0, endTime - now);
+    const ratio = remMs / (duration * 1000);
+    const secs = Math.ceil(remMs / 1000);
+    if (timerEl.textContent !== String(secs)) timerEl.textContent = String(secs);
+    barEl.style.transform = `scaleX(${ratio.toFixed(4)})`;
+    barEl.classList.toggle('warn', secs <= 20 && secs > 10);
+    barEl.classList.toggle('danger', secs <= 10);
+    if (remMs <= 0) {
+      endBlitz();
+    } else {
+      timerRaf = requestAnimationFrame(tickTimer);
+    }
+  }
+
   function startBlitz() {
+    if (!activeGroups.size) return showToast('Select at least 1 category first!');
     playSfx('click');
     running = true;
-    timeLeft = 60; blitzScore = 0; blitzStreak = 0;
-    timerEl.textContent = '60';
+    blitzScore = 0; blitzStreak = 0;
+    endTime = performance.now() + duration * 1000;
+    timerEl.textContent = String(duration);
     scoreEl.textContent = '0';
-    barEl.style.width = '100%';
+    barEl.classList.remove('warn', 'danger');
+    barEl.style.transform = 'scaleX(1)';
     introEl.classList.add('hidden');
     resultEl.classList.add('hidden');
     playEl.classList.remove('hidden');
-    pool = shuffle(QUESTION_BANK);
+    pool = shuffle(getActivePool());
     nextQuestion();
 
-    clearInterval(interval);
-    interval = setInterval(() => {
-      timeLeft -= 1;
-      timerEl.textContent = Math.max(0, timeLeft);
-      barEl.style.width = `${(Math.max(0, timeLeft) / 60) * 100}%`;
-      if (timeLeft <= 0) endBlitz();
-    }, 1000);
+    if (timerRaf) cancelAnimationFrame(timerRaf);
+    timerRaf = requestAnimationFrame(tickTimer);
   }
+
+  document.querySelectorAll('[data-btime]').forEach((b) => {
+    b.addEventListener('click', () => {
+      if (running) return;
+      playSfx('click');
+      duration = Number(b.dataset.btime) || 60;
+      timerEl.textContent = String(duration);
+      document.querySelectorAll('[data-btime]').forEach((x) => x.classList.toggle('active', x === b));
+    });
+  });
+
+  document.querySelectorAll('[data-bcat]').forEach((b) => {
+    b.addEventListener('click', () => {
+      if (running) return;
+      playSfx('click');
+      const g = b.dataset.bcat;
+      if (activeGroups.has(g) && activeGroups.size === 1) return showToast('Keep at least 1 category active');
+      if (activeGroups.has(g)) activeGroups.delete(g);
+      else activeGroups.add(g);
+      b.classList.toggle('active', activeGroups.has(g));
+    });
+  });
 
   startBtn.addEventListener('click', startBlitz);
 }
 
+// ---------- 2. FRIEND CHALLENGE LINK (5 / 10 / 15 Seeded Rounds!) ----------
 function initChallenge() {
-  let seed = '', questions = [], idx = 0, score = 0, locked = false;
+  let seed = '', roundCount = 5, questions = [], idx = 0, score = 0, locked = false;
 
   const progressEl = document.getElementById('chal-progress');
   const seedBadge = document.getElementById('chal-seed-badge');
@@ -170,12 +226,15 @@ function initChallenge() {
   const feedbackEl = document.getElementById('chal-feedback');
   const nextBtn = document.getElementById('chal-next');
 
-  function randomSeed() { return Math.random().toString(36).slice(2, 8).toUpperCase(); }
+  const randomSeed = () => Math.random().toString(36).slice(2, 8).toUpperCase();
 
-  function loadSeed(s) {
+  function loadSeed(s, len = roundCount) {
     seed = s;
-    const rng = createSeededRng(seed);
-    questions = shuffle(QUESTION_BANK, rng).slice(0, 5).map((q) => ({
+    roundCount = len;
+    document.querySelectorAll('[data-clen]').forEach((b) => b.classList.toggle('active', Number(b.dataset.clen) === roundCount));
+
+    const rng = createSeededRng(`${seed}-${roundCount}`);
+    questions = shuffle(QUESTION_BANK, rng).slice(0, roundCount).map((q) => ({
       ...q,
       shuffledOptions: shuffle(q.options, rng),
     }));
@@ -184,6 +243,7 @@ function initChallenge() {
     const url = new URL(window.location.href);
     url.searchParams.set('mode', 'challenge');
     url.searchParams.set('seed', seed);
+    url.searchParams.set('len', String(roundCount));
     window.history.replaceState({}, '', url.toString());
     renderQ();
   }
@@ -191,7 +251,7 @@ function initChallenge() {
   function renderQ() {
     locked = false;
     const cur = questions[idx];
-    progressEl.textContent = `Q ${idx + 1} / 5 • ${score}/5`;
+    progressEl.textContent = `Q ${idx + 1} / ${roundCount} • ${score}/${roundCount}`;
     catEl.textContent = cur.cat;
     qEl.textContent = cur.q;
     optionsEl.innerHTML = '';
@@ -224,8 +284,8 @@ function initChallenge() {
           feedbackEl.classList.add('bad');
           feedbackEl.textContent = `Answer: ${cur.answer}`;
         }
-        progressEl.textContent = `Q ${idx + 1} / 5 • ${score}/5`;
-        nextBtn.textContent = idx === 4 ? 'Finish & Copy Result 📋' : 'Next Question →';
+        progressEl.textContent = `Q ${idx + 1} / ${roundCount} • ${score}/${roundCount}`;
+        nextBtn.textContent = idx === roundCount - 1 ? 'Finish & Copy Result 📋' : 'Next Question →';
         nextBtn.classList.remove('hidden');
       });
       optionsEl.appendChild(btn);
@@ -234,17 +294,26 @@ function initChallenge() {
 
   nextBtn.addEventListener('click', () => {
     playSfx('click');
-    if (idx < 4) { idx += 1; renderQ(); }
+    if (idx < roundCount - 1) { idx += 1; renderQ(); }
     else {
-      const shareText = `Fandom Arcade Challenge (${seed}) — I scored ${score}/5! Play the exact same 5 rounds: ${window.location.href}`;
+      const shareText = `Fandom Arcade Challenge (${seed}) — I scored ${score}/${roundCount}! Play the exact same ${roundCount} rounds: ${window.location.href}`;
       navigator.clipboard?.writeText(shareText).then(
         () => showToast('Challenge result & link copied!'),
-        () => showToast(`Finished! You scored ${score}/5 on seed ${seed}`)
+        () => showToast(`Finished! You scored ${score}/${roundCount} on seed ${seed}`)
       );
       feedbackEl.classList.remove('bad');
       feedbackEl.classList.add('good');
-      feedbackEl.textContent = `🏆 Final Score: ${score}/5 on Seed ${seed}! Send the link to a friend.`;
+      playSfx('fanfare');
+      burstMilestone(`🏆 ${score}/${roundCount}!`);
+      feedbackEl.textContent = `🏆 Final Score: ${score}/${roundCount} on Seed ${seed}! Send the link to a friend.`;
     }
+  });
+
+  document.querySelectorAll('[data-clen]').forEach((b) => {
+    b.addEventListener('click', () => {
+      playSfx('click');
+      loadSeed(seed, Number(b.dataset.clen) || 5);
+    });
   });
 
   copyBtn.addEventListener('click', () => {
@@ -254,10 +323,11 @@ function initChallenge() {
       () => showToast('Copy the URL from your browser bar')
     );
   });
+  newBtn.addEventListener('click', () => { playSfx('click'); loadSeed(randomSeed(), roundCount); });
 
-  newBtn.addEventListener('click', () => { playSfx('click'); loadSeed(randomSeed()); });
   const params = new URLSearchParams(window.location.search);
-  loadSeed((params.get('seed') || randomSeed()).toUpperCase());
+  const initLen = [5, 10, 15].includes(Number(params.get('len'))) ? Number(params.get('len')) : 5;
+  loadSeed((params.get('seed') || randomSeed()).toUpperCase(), initLen);
 }
 
 setupModeTabs((mode) => {

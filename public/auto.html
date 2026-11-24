@@ -29,29 +29,30 @@
 
   <main class="container">
     <div class="mode-tabs">
-      <button class="mode-tab active" data-mode="specs" type="button">📊 Spec Sheet Showdown</button>
+      <button class="mode-tab active" data-mode="specs" type="button">📊 Spec Showdown</button>
       <button class="mode-tab" data-mode="unblur" type="button">🔦 Headlight Unblur</button>
-      <button class="mode-tab" data-mode="sound" type="button">🔊 Exhaust Sound Guess</button>
+      <button class="mode-tab" data-mode="sound" type="button">🔊 Exhaust Sound</button>
     </div>
 
     <section class="mode-panel active" data-panel="specs">
       <div class="game-header">
-        <div><span class="game-tag">Higher or Lower</span><h2>Spec Sheet Showdown</h2></div>
-        <div class="header-right">
-          <select id="auto-pack" class="gen-select" aria-label="Vehicle Pack">
-            <option value="bikes">Indian Bikes &amp; Scooters</option>
-            <option value="suvs">Indian 7-Seaters &amp; SUVs</option>
-            <option value="supercars">Global Supercars</option>
-          </select>
-          <span class="points-chip">Run: <strong id="auto-run">0</strong></span>
-        </div>
+        <div><span class="game-tag">66 Machines • Higher or Lower</span><h2>Spec Sheet Showdown</h2></div>
+        <span class="points-chip">Run: <strong id="auto-run">0</strong></span>
       </div>
-      <div style="margin-bottom:12px;">
+      <div class="filter-row">
+        <select id="auto-pack" class="gen-select" aria-label="Vehicle Pack">
+          <option value="bikes">Indian Bikes &amp; Scooters (21)</option>
+          <option value="suvs">Indian Cars &amp; SUVs (18)</option>
+          <option value="supercars">Global Supercars (16)</option>
+          <option value="jdm">JDM &amp; Legends (11)</option>
+          <option value="all">All 66 Mixed</option>
+        </select>
         <div class="seg-toggle">
-          <button class="seg-btn active" data-ametric="bhp" type="button">Power (BHP)</button>
-          <button class="seg-btn" data-ametric="torque" type="button">Torque (Nm)</button>
-          <button class="seg-btn" data-ametric="weight" type="button">Weight (kg)</button>
-          <button class="seg-btn" data-ametric="price" type="button">Price (₹L)</button>
+          <button class="seg-btn active" data-ametric="bhp" type="button">BHP</button>
+          <button class="seg-btn" data-ametric="torque" type="button">Nm</button>
+          <button class="seg-btn" data-ametric="zeroTo100" type="button">0–100s</button>
+          <button class="seg-btn" data-ametric="weight" type="button">kg</button>
+          <button class="seg-btn" data-ametric="price" type="button">₹L</button>
         </div>
       </div>
       <p id="auto-spec-tip" class="game-tip">Does the right-hand machine produce MORE or LESS horsepower?</p>
@@ -78,10 +79,16 @@
 
     <section class="mode-panel" data-panel="unblur">
       <div class="game-header">
-        <div><span class="game-tag">Signature Light Profile</span><h2>Headlight / Silhouette Unblur</h2></div>
+        <div><span class="game-tag">16 Signature Lighting Profiles</span><h2>Headlight / Taillight Unblur</h2></div>
         <span id="hl-pts" class="points-chip">+300 PTS</span>
       </div>
-      <p class="game-tip">Identify the car or bike from its blurred signature lighting profile.</p>
+      <div class="filter-row">
+        <div class="seg-toggle">
+          <button id="hl-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="hl-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Identify the car or motorcycle from its blurred lighting profile.</p>
 
       <div class="stage-card svg-vehicle-stage">
         <div id="hl-svg-wrap" class="svg-vehicle-wrap blur-3"></div>
@@ -99,8 +106,14 @@
 
     <section class="mode-panel" data-panel="sound">
       <div class="game-header">
-        <div><span class="game-tag">Live Synth Engine Note</span><h2>Sound / Exhaust Guess</h2></div>
+        <div><span class="game-tag">10 Procedural Engine Notes</span><h2>Sound / Exhaust Guess</h2></div>
         <span class="points-chip">+220 PTS</span>
+      </div>
+      <div class="filter-row">
+        <div class="seg-toggle">
+          <button id="ex-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="ex-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
       </div>
       <p class="game-tip">Tap Play Engine Note and match the exhaust sound to the right powertrain.</p>
 
@@ -108,7 +121,7 @@
         <div id="ex-bars" class="eq-bars" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
-        <button id="ex-play-btn" class="btn btn-primary" type="button">🔊 Play 3.5s Engine Note</button>
+        <button id="ex-play-btn" class="btn btn-primary" type="button">🔊 Play 3.2s Engine Note</button>
       </div>
 
       <div id="ex-options" class="options-grid"></div>

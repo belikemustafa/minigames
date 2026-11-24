@@ -1,13 +1,20 @@
-// Uses AniList GraphQL API (reliable, keyless, no Jikan 504 outages)
 const ANILIST_ENDPOINT = 'https://graphql.anilist.co';
 
 const QUERY = `
-query ($page: Int, $perPage: Int) {
+query ($page: Int, $perPage: Int, $genre: String, $endYear: FuzzyDateInt) {
   Page(page: $page, perPage: $perPage) {
-    media(type: ANIME, sort: POPULARITY_DESC, isAdult: false, averageScore_greater: 50) {
+    media(
+      type: ANIME,
+      sort: POPULARITY_DESC,
+      isAdult: false,
+      averageScore_greater: 50,
+      genre: $genre,
+      startDate_lesser: $endYear
+    ) {
       id
       title { romaji english }
       averageScore
+      popularity
       seasonYear
       episodes
       format
@@ -33,13 +40,21 @@ function jsonResponse(data, status = 200) {
 
 export async function onRequestGet(context) {
   try {
-    const url = new URL(context.request.url);
-    const page = Number(url.searchParams.get('page')) || Math.floor(Math.random() * 10) + 1;
+    const reqUrl = new URL(context.request.url);
+    const filter = reqUrl.searchParams.get('filter') || 'all';
+    const maxPage = filter === 'all' ? 16 : 8;
+    const page = Number(reqUrl.searchParams.get('page')) || Math.floor(Math.random() * maxPage) + 1;
+
+    const variables = { page, perPage: 25 };
+    if (filter === 'action') variables.genre = 'Action';
+    else if (filter === 'romance') variables.genre = 'Romance';
+    else if (filter === 'fantasy') variables.genre = 'Fantasy';
+    else if (filter === 'classic') variables.endYear = 20100101;
 
     const res = await fetch(ANILIST_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ query: QUERY, variables: { page, perPage: 25 } }),
+      body: JSON.stringify({ query: QUERY, variables }),
     });
     if (!res.ok) throw new Error(`AniList HTTP ${res.status}`);
     const json = await res.json();
@@ -51,8 +66,8 @@ export async function onRequestGet(context) {
         id: a.id,
         title: a.title?.english || a.title?.romaji || 'Unknown Anime',
         score: Number((a.averageScore / 10).toFixed(1)),
-        rawScore: a.averageScore,
-        year: a.seasonYear || 'Classic',
+        popularity: a.popularity || 10000,
+        year: a.seasonYear || 2005,
         episodes: a.episodes ? `${a.episodes} eps` : a.format || 'Series',
         image: a.coverImage.extraLarge || a.coverImage.large,
         characters: (a.characters?.nodes || [])
