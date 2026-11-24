@@ -6,9 +6,8 @@ import { CAREERS } from './data/careersData.js';
 
 initChrome('careers');
 
-// ---------- 1. SALARY SHOWDOWN (India / US toggle) ----------
 function initSalary() {
-  let region = 'in'; // 'in' | 'us'
+  let region = 'in';
   let pool = [], left = null, right = null, run = 0, locked = false, timer = null;
 
   const btnIn = document.getElementById('sal-reg-in'), btnUs = document.getElementById('sal-reg-us');
@@ -88,61 +87,6 @@ function initSalary() {
   startRun();
 }
 
-// ---------- 2. TOOLS OF THE TRADE ----------
-function initTools() {
-  let pool = [], target = null, locked = false;
-  const chipsEl = document.getElementById('tools-chips');
-  const optionsEl = document.getElementById('tools-options');
-  const feedbackEl = document.getElementById('tools-feedback');
-  const nextBtn = document.getElementById('tools-next');
-
-  function nextRound() {
-    locked = false;
-    if (pool.length < 4) pool = shuffle(CAREERS);
-    target = pool.pop();
-    const decoys = shuffle(CAREERS.filter((c) => c.name !== target.name)).slice(0, 3);
-    chipsEl.innerHTML = target.tools.map((t) => `<span class="tool-chip">${escapeHtml(t)}</span>`).join('');
-    optionsEl.innerHTML = '';
-    feedbackEl.classList.add('hidden');
-    nextBtn.classList.add('hidden');
-
-    shuffle([target, ...decoys]).forEach((c) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'option-btn';
-      btn.textContent = `${c.emoji} ${c.name}`;
-      btn.dataset.name = c.name;
-      btn.addEventListener('click', () => {
-        if (locked) return;
-        locked = true;
-        optionsEl.querySelectorAll('.option-btn').forEach((b) => {
-          b.disabled = true;
-          if (b.dataset.name === target.name) b.classList.add('correct');
-        });
-        feedbackEl.classList.remove('hidden', 'good', 'bad');
-        if (c.name === target.name) {
-          playSfx('correct');
-          const earned = recordWin('careerTools', 200);
-          feedbackEl.classList.add('good');
-          feedbackEl.textContent = `Nailed it! That's the ${target.name} toolkit — +${earned} pts`;
-        } else {
-          playSfx('wrong');
-          btn.classList.add('wrong');
-          resetStreak();
-          feedbackEl.classList.add('bad');
-          feedbackEl.textContent = `Those tools belong to a ${target.name} (${target.sector}).`;
-        }
-        nextBtn.classList.remove('hidden');
-      });
-      optionsEl.appendChild(btn);
-    });
-  }
-
-  nextBtn.addEventListener('click', () => { playSfx('click'); nextRound(); });
-  nextRound();
-}
-
-// ---------- 3. CAREER SPOTLE ----------
 function initSpotle() {
   const PAY_RANK = ['Mid', 'Mid-High', 'High', 'Very High'];
   let target = null, tries = 0, guessed = new Set(), done = false, selectedCareer = null;
@@ -241,88 +185,7 @@ function initSpotle() {
   startNew();
 }
 
-// ---------- 4. DAY-IN-THE-LIFE DETECTIVE ----------
-function initDayInLife() {
-  let pool = [], target = null, clueIdx = 0, pts = 300, locked = false;
-
-  const ptsEl = document.getElementById('day-pts');
-  const cluesEl = document.getElementById('day-clues');
-  const hintBtn = document.getElementById('day-hint-btn');
-  const optionsEl = document.getElementById('day-options');
-  const feedbackEl = document.getElementById('day-feedback');
-  const nextBtn = document.getElementById('day-next');
-
-  function renderClues() {
-    const labels = ['Workplace Problem', 'Stakeholders', 'Daily Deliverable'];
-    cluesEl.innerHTML = target.clues
-      .slice(0, clueIdx + 1)
-      .map((text, i) => `<div class="quote-block"><strong>Clue ${i + 1} (${labels[i]}):</strong> ${escapeHtml(text)}</div>`)
-      .join('');
-  }
-
-  function nextRound() {
-    locked = false; clueIdx = 0; pts = 300;
-    if (pool.length < 4) pool = shuffle(CAREERS);
-    target = pool.pop();
-    const decoys = shuffle(CAREERS.filter((c) => c.name !== target.name)).slice(0, 3);
-
-    ptsEl.textContent = '+300 PTS';
-    hintBtn.disabled = false;
-    feedbackEl.classList.add('hidden');
-    nextBtn.classList.add('hidden');
-    optionsEl.innerHTML = '';
-    renderClues();
-
-    shuffle([target, ...decoys]).forEach((c) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'option-btn';
-      btn.textContent = `${c.emoji} ${c.name}`;
-      btn.dataset.name = c.name;
-      btn.addEventListener('click', () => {
-        if (locked) return;
-        locked = true; hintBtn.disabled = true;
-        clueIdx = 2; renderClues();
-        optionsEl.querySelectorAll('.option-btn').forEach((b) => {
-          b.disabled = true;
-          if (b.dataset.name === target.name) b.classList.add('correct');
-        });
-        feedbackEl.classList.remove('hidden', 'good', 'bad');
-        if (c.name === target.name) {
-          playSfx('correct');
-          const earned = recordWin('careerDay', pts);
-          feedbackEl.classList.add('good');
-          feedbackEl.textContent = `Case closed! That's a ${target.name} — +${earned} pts`;
-        } else {
-          playSfx('wrong');
-          btn.classList.add('wrong');
-          resetStreak();
-          feedbackEl.classList.add('bad');
-          feedbackEl.textContent = `That workday belongs to a ${target.name}.`;
-        }
-        nextBtn.classList.remove('hidden');
-      });
-      optionsEl.appendChild(btn);
-    });
-  }
-
-  hintBtn.addEventListener('click', () => {
-    if (locked || clueIdx >= 2) return;
-    playSfx('click');
-    clueIdx += 1;
-    pts = Math.max(150, pts - 75);
-    ptsEl.textContent = `+${pts} PTS`;
-    renderClues();
-    if (clueIdx >= 2) hintBtn.disabled = true;
-  });
-
-  nextBtn.addEventListener('click', () => { playSfx('click'); nextRound(); });
-  nextRound();
-}
-
 setupModeTabs((mode) => {
   if (mode === 'salary') initSalary();
-  if (mode === 'tools') initTools();
   if (mode === 'spotle') initSpotle();
-  if (mode === 'day') initDayInLife();
 });

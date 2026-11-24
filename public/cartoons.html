@@ -30,7 +30,6 @@
   <main class="container">
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="unblur" type="button">🎨 Frame Unblur</button>
-      <button class="mode-tab" data-mode="plot" type="button">📖 Episode Plot</button>
       <button class="mode-tab" data-mode="duel" type="button">⚡ Score / Era Duel</button>
       <button class="mode-tab" data-mode="voice" type="button">🎙️ Voice Actor Link</button>
     </div>
@@ -55,23 +54,6 @@
       <div id="ct-options" class="options-grid"></div>
       <div id="ct-feedback" class="feedback hidden"></div>
       <button id="ct-next" class="btn btn-primary full-width hidden" type="button">Next Cartoon →</button>
-    </section>
-
-    <section class="mode-panel" data-panel="plot">
-      <div class="game-header">
-        <div><span class="game-tag">TVMaze Episode Vault</span><h2>Episode Plot Guess</h2></div>
-        <span class="points-chip">+220 PTS</span>
-      </div>
-      <p class="game-tip">Read this real (redacted) episode plot and pick which cartoon it came from.</p>
-
-      <div class="stage-card clue-stage" style="min-height:130px;">
-        <div id="plot-loader" class="loader">Fetching episode synopsis...</div>
-        <div id="plot-text" class="quote-block"></div>
-      </div>
-
-      <div id="plot-options" class="options-grid"></div>
-      <div id="plot-feedback" class="feedback hidden"></div>
-      <button id="plot-next" class="btn btn-primary full-width hidden" type="button">Next Episode →</button>
     </section>
 
     <section class="mode-panel" data-panel="duel">

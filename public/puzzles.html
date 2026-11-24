@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Daily Logic & Puzzles — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="puzzles">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="connections" type="button">🧩 Connections 4×4</button>
+      <button class="mode-tab" data-mode="timeline" type="button">📅 Timeline Sort</button>
+      <button class="mode-tab" data-mode="slider" type="button">🎚️ Year Slider</button>
+      <button class="mode-tab" data-mode="memory" type="button">⚡ Memory Grid</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="connections">
+      <div class="game-header">
+        <div><span class="game-tag">4×4 Grouping</span><h2>Connections</h2></div>
+        <select id="conn-pack" class="gen-select" aria-label="Puzzle Pack">
+          <option value="0">Pack 1: Fandom &amp; Tech</option>
+          <option value="1">Pack 2: Cinema &amp; Bikes</option>
+          <option value="2">Pack 3: Gaming &amp; Dev</option>
+        </select>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <p class="game-tip" style="margin:0;">Select 4 related words and tap Submit.</p>
+        <div class="mistakes-dots">Lives: <span id="conn-dots"></span></div>
+      </div>
+
+      <div id="conn-solved" class="conn-solved-list"></div>
+      <div id="conn-grid" class="conn-grid"></div>
+
+      <div class="duel-controls">
+        <button id="conn-shuffle" class="btn btn-secondary" type="button">🔀 Shuffle</button>
+        <button id="conn-submit" class="btn btn-primary" type="button" disabled>Submit Group (0/4)</button>
+      </div>
+      <div id="conn-feedback" class="feedback hidden"></div>
+      <button id="conn-reset" class="btn btn-secondary full-width hidden" type="button">Play Again ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="timeline">
+      <div class="game-header">
+        <div><span class="game-tag">Chronological Order</span><h2>Timeline Sort</h2></div>
+        <span id="tl-pack-label" class="points-chip">Oldest → Newest</span>
+      </div>
+      <p class="game-tip">Tap any two cards to swap their positions, then check your order from oldest (1) to newest (5).</p>
+
+      <div id="tl-list" class="timeline-list"></div>
+      <button id="tl-check" class="btn btn-primary full-width" type="button" style="margin-bottom:12px;">Check Order ✓</button>
+      <div id="tl-feedback" class="feedback hidden"></div>
+      <button id="tl-next" class="btn btn-secondary full-width hidden" type="button">Next Timeline →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="slider">
+      <div class="game-header">
+        <div><span class="game-tag">Launch Year Precision</span><h2>Year Slider</h2></div>
+        <span id="sl-cat" class="points-chip">TECH</span>
+      </div>
+      <p class="game-tip">Drag the slider to the exact launch year. Closer guesses earn bigger points!</p>
+
+      <div class="stage-card clue-stage" style="text-align:center;">
+        <div id="sl-emoji" style="font-size:2.4rem; margin-bottom:6px;">📱</div>
+        <h3 id="sl-name" style="margin:0; font-family:'Space Grotesk',sans-serif; font-size:1.25rem;">---</h3>
+      </div>
+
+      <div class="slider-wrap">
+        <div id="sl-val" class="slider-readout">2010</div>
+        <input id="sl-input" class="range-input" type="range" min="1990" max="2026" value="2010" />
+        <div class="slider-bounds"><span id="sl-min">1990</span><span id="sl-max">2026</span></div>
+      </div>
+
+      <button id="sl-submit" class="btn btn-primary full-width" type="button" style="margin-bottom:12px;">Lock Year Guess</button>
+      <div id="sl-feedback" class="feedback hidden"></div>
+      <button id="sl-next" class="btn btn-primary full-width hidden" type="button">Next Milestone →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="memory">
+      <div class="game-header">
+        <div><span class="game-tag">Sequence Sprint</span><h2>Reaction &amp; Memory Grid</h2></div>
+        <div class="header-right">
+          <div class="seg-toggle">
+            <button id="mem-size-3" class="seg-btn active" type="button">3×3</button>
+            <button id="mem-size-4" class="seg-btn" type="button">4×4</button>
+          </div>
+          <span class="points-chip">Level: <strong id="mem-level">0</strong></span>
+        </div>
+      </div>
+      <p id="mem-tip" class="game-tip">Watch the lit sequence, then tap the tiles back in the exact same order. Speed increases every level!</p>
+
+      <div id="mem-grid" class="mem-grid size-3"></div>
+      <button id="mem-start" class="btn btn-primary full-width" type="button" style="margin-bottom:12px;">Start Sequence ⚡</button>
+      <div id="mem-feedback" class="feedback hidden"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/puzzles.js"></script>
+</body>
+</html>

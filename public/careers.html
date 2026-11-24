@@ -30,9 +30,7 @@
   <main class="container">
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="salary" type="button">💰 Salary Showdown</button>
-      <button class="mode-tab" data-mode="tools" type="button">🧰 Tools of the Trade</button>
       <button class="mode-tab" data-mode="spotle" type="button">🟩 Career Spotle</button>
-      <button class="mode-tab" data-mode="day" type="button">📋 Day-in-the-Life</button>
     </div>
 
     <section class="mode-panel active" data-panel="salary">
@@ -68,22 +66,6 @@
       <button id="sal-restart" class="btn btn-primary full-width hidden" type="button">New Salary Run ↻</button>
     </section>
 
-    <section class="mode-panel" data-panel="tools">
-      <div class="game-header">
-        <div><span class="game-tag">Signature Kit</span><h2>Tools of the Trade</h2></div>
-        <span class="points-chip">+200 PTS</span>
-      </div>
-      <p class="game-tip">Identify the profession that uses these everyday tools &amp; software.</p>
-
-      <div class="stage-card clue-stage">
-        <div id="tools-chips" class="clue-pill-grid"></div>
-      </div>
-
-      <div id="tools-options" class="options-grid"></div>
-      <div id="tools-feedback" class="feedback hidden"></div>
-      <button id="tools-next" class="btn btn-primary full-width hidden" type="button">Next Toolkit →</button>
-    </section>
-
     <section class="mode-panel" data-panel="spotle">
       <div class="game-header">
         <div><span class="game-tag">6-Try Deduction</span><h2>Career Spotle</h2></div>
@@ -108,26 +90,6 @@
 
       <div id="spotle-feedback" class="feedback hidden"></div>
       <button id="spotle-new" class="btn btn-primary full-width hidden" type="button">New Mystery Career ↻</button>
-    </section>
-
-    <section class="mode-panel" data-panel="day">
-      <div class="game-header">
-        <div><span class="game-tag">Progressive Clues</span><h2>Day-in-the-Life Detective</h2></div>
-        <span id="day-pts" class="points-chip">+300 PTS</span>
-      </div>
-      <p class="game-tip">Start with Clue 1 (a real workday problem). Reveal more clues if stuck.</p>
-
-      <div class="stage-card clue-stage">
-        <div id="day-clues" class="clue-list"></div>
-      </div>
-
-      <div class="action-bar">
-        <button id="day-hint-btn" class="btn btn-secondary" type="button">🔎 Reveal Next Clue (-75 pts)</button>
-      </div>
-
-      <div id="day-options" class="options-grid"></div>
-      <div id="day-feedback" class="feedback hidden"></div>
-      <button id="day-next" class="btn btn-primary full-width hidden" type="button">Next Case →</button>
     </section>
   </main>
 

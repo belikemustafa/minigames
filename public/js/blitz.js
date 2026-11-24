@@ -6,31 +6,45 @@ import { MACRO_FOODS } from './data/foodData.js';
 import { CAREERS } from './data/careersData.js';
 import { VOICE_ACTORS } from './data/cartoonsData.js';
 import { OUTPUT_QUIZZES, BIGO_QUESTIONS, HTTP_GIT_QUESTIONS } from './data/devData.js';
+import { AUTO_SPECS } from './data/autoData.js';
 
 initChrome('blitz');
 
-// Build a deterministic cross-category question bank for both Blitz & Friend Challenges
 function buildQuestionBank() {
   const bank = [];
 
-  // Careers: Tools
-  CAREERS.forEach((c) => {
-    const decoys = CAREERS.filter((x) => x.name !== c.name).slice(0, 3).map((x) => x.name);
+  // Careers: Salary comparison (India LPA)
+  for (let i = 0; i + 1 < CAREERS.length; i += 2) {
+    const a = CAREERS[i], b = CAREERS[i + 1];
+    const winner = a.inSalary >= b.inSalary ? a.name : b.name;
     bank.push({
       cat: 'Careers',
-      q: `Which profession relies on: ${c.tools.slice(0, 3).join(', ')}?`,
-      answer: c.name,
-      options: [c.name, ...decoys],
+      q: `Which role typically has a higher average mid-career salary in India: ${a.name} or ${b.name}?`,
+      answer: winner,
+      options: [a.name, b.name],
     });
-  });
+  }
 
-  // Food: High Calorie comparison
+  // Food: Calorie comparison
   for (let i = 0; i + 1 < MACRO_FOODS.length; i += 2) {
     const a = MACRO_FOODS[i], b = MACRO_FOODS[i + 1];
     const winner = a.calories >= b.calories ? a.name : b.name;
     bank.push({
       cat: 'Food Nutrition',
       q: `Per 100g, which has MORE calories: ${a.name} or ${b.name}?`,
+      answer: winner,
+      options: [a.name, b.name],
+    });
+  }
+
+  // Auto: Horsepower comparison
+  const allVehicles = [...AUTO_SPECS.bikes, ...AUTO_SPECS.suvs, ...AUTO_SPECS.supercars];
+  for (let i = 0; i + 1 < allVehicles.length; i += 2) {
+    const a = allVehicles[i], b = allVehicles[i + 1];
+    const winner = a.bhp >= b.bhp ? a.name : b.name;
+    bank.push({
+      cat: 'Bikes & Cars',
+      q: `Which machine makes MORE horsepower (BHP): ${a.name} or ${b.name}?`,
       answer: winner,
       options: [a.name, b.name],
     });
@@ -46,7 +60,10 @@ function buildQuestionBank() {
     bank.push({ cat: 'Dev Output', q: `[${o.lang}] What prints? → ${o.code.replace(/\n/g, ' ; ')}`, answer: o.answer, options: o.options });
   });
   BIGO_QUESTIONS.forEach((b) => {
-    bank.push({ cat: 'Dev Big-O', q: `Time complexity of: ${b.prompt}`, answer: b.answer, options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)', 'O(n²)'].slice(0, 4).includes(b.answer) ? ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'] : ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'] });
+    const opts = ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'].includes(b.answer)
+      ? ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)']
+      : ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'];
+    bank.push({ cat: 'Dev Big-O', q: `Time complexity of: ${b.prompt}`, answer: b.answer, options: opts });
   });
   HTTP_GIT_QUESTIONS.forEach((h) => {
     bank.push({ cat: `Dev ${h.tag}`, q: `What does "${h.prompt}" mean?`, answer: h.answer, options: h.options });
@@ -57,7 +74,6 @@ function buildQuestionBank() {
 
 const QUESTION_BANK = buildQuestionBank();
 
-// ---------- 1. 60-SECOND BLITZ ----------
 function initBlitz() {
   let timeLeft = 60, blitzScore = 0, blitzStreak = 0, interval = null, pool = [], current = null, running = false;
 
@@ -141,7 +157,6 @@ function initBlitz() {
   startBtn.addEventListener('click', startBlitz);
 }
 
-// ---------- 2. FRIEND CHALLENGE LINK (Seeded Identical 5 Rounds) ----------
 function initChallenge() {
   let seed = '', questions = [], idx = 0, score = 0, locked = false;
 
@@ -155,9 +170,7 @@ function initChallenge() {
   const feedbackEl = document.getElementById('chal-feedback');
   const nextBtn = document.getElementById('chal-next');
 
-  function randomSeed() {
-    return Math.random().toString(36).slice(2, 8).toUpperCase();
-  }
+  function randomSeed() { return Math.random().toString(36).slice(2, 8).toUpperCase(); }
 
   function loadSeed(s) {
     seed = s;
@@ -223,14 +236,14 @@ function initChallenge() {
     playSfx('click');
     if (idx < 4) { idx += 1; renderQ(); }
     else {
-      const shareText = `Fandom Arcade Challenge (${seed}) — I scored ${score}/5! Try the exact same 5 rounds: ${window.location.href}`;
+      const shareText = `Fandom Arcade Challenge (${seed}) — I scored ${score}/5! Play the exact same 5 rounds: ${window.location.href}`;
       navigator.clipboard?.writeText(shareText).then(
         () => showToast('Challenge result & link copied!'),
         () => showToast(`Finished! You scored ${score}/5 on seed ${seed}`)
       );
       feedbackEl.classList.remove('bad');
       feedbackEl.classList.add('good');
-      feedbackEl.textContent = `🏆 Final Score: ${score}/5 on Seed ${seed}! Send the link to a friend to beat you.`;
+      feedbackEl.textContent = `🏆 Final Score: ${score}/5 on Seed ${seed}! Send the link to a friend.`;
     }
   });
 
@@ -243,7 +256,6 @@ function initChallenge() {
   });
 
   newBtn.addEventListener('click', () => { playSfx('click'); loadSeed(randomSeed()); });
-
   const params = new URLSearchParams(window.location.search);
   loadSeed((params.get('seed') || randomSeed()).toUpperCase());
 }

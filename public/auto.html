@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Bikes, Cars & Motorsport — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="auto">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="specs" type="button">📊 Spec Sheet Showdown</button>
+      <button class="mode-tab" data-mode="unblur" type="button">🔦 Headlight Unblur</button>
+      <button class="mode-tab" data-mode="sound" type="button">🔊 Exhaust Sound Guess</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="specs">
+      <div class="game-header">
+        <div><span class="game-tag">Higher or Lower</span><h2>Spec Sheet Showdown</h2></div>
+        <div class="header-right">
+          <select id="auto-pack" class="gen-select" aria-label="Vehicle Pack">
+            <option value="bikes">Indian Bikes &amp; Scooters</option>
+            <option value="suvs">Indian 7-Seaters &amp; SUVs</option>
+            <option value="supercars">Global Supercars</option>
+          </select>
+          <span class="points-chip">Run: <strong id="auto-run">0</strong></span>
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-ametric="bhp" type="button">Power (BHP)</button>
+          <button class="seg-btn" data-ametric="torque" type="button">Torque (Nm)</button>
+          <button class="seg-btn" data-ametric="weight" type="button">Weight (kg)</button>
+          <button class="seg-btn" data-ametric="price" type="button">Price (₹L)</button>
+        </div>
+      </div>
+      <p id="auto-spec-tip" class="game-tip">Does the right-hand machine produce MORE or LESS horsepower?</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="auto-l-emoji" class="emoji-big">🏍️</div><h3 id="auto-l-name">---</h3><p id="auto-l-brand" class="sub"></p></div>
+          <div class="score-box"><span id="auto-l-label" class="score-label">BHP</span><span id="auto-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="auto-r-emoji" class="emoji-big">🏍️</div><h3 id="auto-r-name">---</h3><p id="auto-r-brand" class="sub"></p></div>
+          <div class="score-box"><span id="auto-r-label" class="score-label">BHP</span><span id="auto-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="auto-controls" class="duel-controls">
+        <button id="auto-btn-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="auto-btn-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="auto-status" class="feedback hidden"></div>
+      <button id="auto-restart" class="btn btn-primary full-width hidden" type="button">New Spec Run ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="unblur">
+      <div class="game-header">
+        <div><span class="game-tag">Signature Light Profile</span><h2>Headlight / Silhouette Unblur</h2></div>
+        <span id="hl-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <p class="game-tip">Identify the car or bike from its blurred signature lighting profile.</p>
+
+      <div class="stage-card svg-vehicle-stage">
+        <div id="hl-svg-wrap" class="svg-vehicle-wrap blur-3"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="hl-hint-btn" class="btn btn-secondary" type="button">💡 Unblur &amp; Country Clue (-75 pts)</button>
+        <div id="hl-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="hl-options" class="options-grid"></div>
+      <div id="hl-feedback" class="feedback hidden"></div>
+      <button id="hl-next" class="btn btn-primary full-width hidden" type="button">Next Machine →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="sound">
+      <div class="game-header">
+        <div><span class="game-tag">Live Synth Engine Note</span><h2>Sound / Exhaust Guess</h2></div>
+        <span class="points-chip">+220 PTS</span>
+      </div>
+      <p class="game-tip">Tap Play Engine Note and match the exhaust sound to the right powertrain.</p>
+
+      <div class="stage-card audio-stage">
+        <div id="ex-bars" class="eq-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <button id="ex-play-btn" class="btn btn-primary" type="button">🔊 Play 3.5s Engine Note</button>
+      </div>
+
+      <div id="ex-options" class="options-grid"></div>
+      <div id="ex-feedback" class="feedback hidden"></div>
+      <button id="ex-next" class="btn btn-primary full-width hidden" type="button">Next Engine →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/auto.js"></script>
+</body>
+</html>

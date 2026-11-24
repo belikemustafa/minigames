@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Geography & World Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="geography">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="flags" type="button">🚩 Flag &amp; Capital Blitz</button>
+      <button class="mode-tab" data-mode="duel" type="button">🌍 Population / Area Duel</button>
+      <button class="mode-tab" data-mode="weather" type="button">🌦️ Live Weather Bet</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="flags">
+      <div class="game-header">
+        <div><span class="game-tag">REST Countries Live API</span><h2>Flag &amp; Capital Blitz</h2></div>
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-fmode="flag" type="button">Flags</button>
+          <button class="seg-btn" data-fmode="capital" type="button">Capitals</button>
+          <button class="seg-btn" data-fmode="mixed" type="button">Mixed</button>
+        </div>
+      </div>
+      <p id="geo-flag-tip" class="game-tip">Identify the country from its national flag.</p>
+
+      <div class="stage-card flag-stage">
+        <div id="geo-flag-loader" class="loader">Loading world flags...</div>
+        <img id="geo-flag-img" class="flag-img hidden" alt="Country flag" />
+        <div id="geo-cap-prompt" class="quote-block hidden" style="text-align:center; width:100%;"></div>
+      </div>
+
+      <div id="geo-flag-options" class="options-grid"></div>
+      <div id="geo-flag-feedback" class="feedback hidden"></div>
+      <button id="geo-flag-next" class="btn btn-primary full-width hidden" type="button">Next Country →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="duel">
+      <div class="game-header">
+        <div><span class="game-tag">Global Scale Duel</span><h2>Population / Area Duel</h2></div>
+        <div class="header-right">
+          <div class="seg-toggle">
+            <button class="seg-btn active" data-gstat="population" type="button">Population</button>
+            <button class="seg-btn" data-gstat="area" type="button">Area</button>
+            <button class="seg-btn" data-gstat="borders" type="button">Borders</button>
+          </div>
+          <span class="points-chip">Run: <strong id="geo-duel-run">0</strong></span>
+        </div>
+      </div>
+      <p id="geo-duel-tip" class="game-tip">Does the right-hand country have a higher or lower population?</p>
+
+      <div class="duel-arena">
+        <div id="geo-duel-loader" class="loader">Loading countries...</div>
+        <article class="duel-card-text">
+          <div>
+            <img id="geo-l-flag" style="height:44px; border-radius:6px; border:1px solid var(--border); margin-bottom:8px;" alt="Left flag" />
+            <h3 id="geo-l-name">---</h3>
+            <p id="geo-l-reg" class="sub"></p>
+          </div>
+          <div class="score-box"><span id="geo-l-label" class="score-label">POPULATION</span><span id="geo-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div>
+            <img id="geo-r-flag" style="height:44px; border-radius:6px; border:1px solid var(--border); margin-bottom:8px;" alt="Right flag" />
+            <h3 id="geo-r-name">---</h3>
+            <p id="geo-r-reg" class="sub"></p>
+          </div>
+          <div class="score-box"><span id="geo-r-label" class="score-label">POPULATION</span><span id="geo-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="geo-duel-controls" class="duel-controls">
+        <button id="geo-btn-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="geo-btn-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="geo-duel-status" class="feedback hidden"></div>
+      <button id="geo-duel-restart" class="btn btn-primary full-width hidden" type="button">New World Run ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="weather">
+      <div class="game-header">
+        <div><span class="game-tag">Open-Meteo Live Weather</span><h2>Live Weather Bet</h2></div>
+        <div class="seg-toggle">
+          <button id="wx-mode-duel" class="seg-btn active" type="button">Warmer City</button>
+          <button id="wx-mode-exact" class="seg-btn" type="button">Exact °C</button>
+        </div>
+      </div>
+      <p id="wx-tip" class="game-tip">Tap whichever city is warmer RIGHT NOW in real-time.</p>
+
+      <!-- Warmer City Duel -->
+      <div id="wx-duel-box">
+        <div class="clash-arena">
+          <div id="wx-loader" class="loader">Checking live thermometers...</div>
+          <button id="wx-left" class="clash-card" type="button">
+            <div style="font-size:2rem;">🏙️</div>
+            <h3>---</h3>
+            <span class="clash-types">---</span>
+            <div class="clash-stat-val mystery">??°C</div>
+          </button>
+          <div class="vs-badge" aria-hidden="true">VS</div>
+          <button id="wx-right" class="clash-card" type="button">
+            <div style="font-size:2rem;">🌆</div>
+            <h3>---</h3>
+            <span class="clash-types">---</span>
+            <div class="clash-stat-val mystery">??°C</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Exact Temp Slider -->
+      <div id="wx-exact-box" class="hidden">
+        <div class="stage-card clue-stage" style="text-align:center; min-height:110px;">
+          <div id="wx-exact-loader" class="loader">Reading live temperature...</div>
+          <h3 id="wx-exact-city" style="margin:0 0 4px; font-family:'Space Grotesk',sans-serif; font-size:1.3rem;">---</h3>
+          <p id="wx-exact-country" class="game-tip" style="margin:0;">---</p>
+        </div>
+        <div class="slider-wrap">
+          <div id="wx-slider-val" class="slider-readout">20°C</div>
+          <input id="wx-slider" class="range-input" type="range" min="-25" max="48" value="20" />
+          <div class="slider-bounds"><span>-25°C</span><span>10°C</span><span>48°C</span></div>
+        </div>
+        <button id="wx-exact-submit" class="btn btn-primary full-width" type="button" style="margin-bottom:12px;">Lock Temperature Guess</button>
+      </div>
+
+      <div id="wx-status" class="feedback hidden"></div>
+      <button id="wx-next" class="btn btn-primary full-width hidden" type="button">Next Weather Bet →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/geography.js"></script>
+</body>
+</html>

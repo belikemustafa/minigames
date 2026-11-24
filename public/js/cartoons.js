@@ -2,7 +2,7 @@ import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
   resetStreak, shuffle, escapeHtml, preloadImage,
 } from './core.js';
-import { TVMAZE_CARTOONS, VOICE_ACTORS } from './data/cartoonsData.js';
+import { VOICE_ACTORS } from './data/cartoonsData.js';
 
 initChrome('cartoons');
 
@@ -23,7 +23,6 @@ async function fetchCartoonPool() {
   return sharedCartoonPool;
 }
 
-// ---------- 1. CARTOON FRAME UNBLUR (Fixed CSS Blur!) ----------
 function initCartoonUnblur() {
   let pool = [], target = null, hintsUsed = 0, pts = 300, locked = true, token = 0;
 
@@ -135,108 +134,8 @@ function initCartoonUnblur() {
   startRound();
 }
 
-// ---------- 2. EPISODE PLOT GUESS (TVMaze Keyless API) ----------
-function initEpisodePlot() {
-  const epCache = new Map();
-  let target = null, locked = true, token = 0;
-
-  const loader = document.getElementById('plot-loader');
-  const textEl = document.getElementById('plot-text');
-  const optionsEl = document.getElementById('plot-options');
-  const feedbackEl = document.getElementById('plot-feedback');
-  const nextBtn = document.getElementById('plot-next');
-
-  function stripHtml(html) {
-    return String(html || '').replace(/<[^>]+>/g, '').trim();
-  }
-
-  function redactShowName(summary, title) {
-    const words = title.split(/[\s:]+/).filter((w) => w.length >= 4 && !['The', 'And', 'Are', 'You', 'World', 'Show', 'Time'].includes(w));
-    let out = summary;
-    words.forEach((w) => {
-      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      out = out.replace(new RegExp(`\\b${esc}\\b`, 'gi'), '[REDACTED]');
-    });
-    return out;
-  }
-
-  async function startRound() {
-    const t = ++token;
-    locked = true;
-    feedbackEl.classList.add('hidden');
-    nextBtn.classList.add('hidden');
-    loader.textContent = 'Fetching real episode synopsis from TVMaze...';
-    loader.classList.remove('hidden');
-    optionsEl.innerHTML = '';
-
-    try {
-      const pickedShow = TVMAZE_CARTOONS[Math.floor(Math.random() * TVMAZE_CARTOONS.length)];
-      let episodes = epCache.get(pickedShow.id);
-      if (!episodes) {
-        const res = await fetch(`https://api.tvmaze.com/shows/${pickedShow.id}/episodes`);
-        if (!res.ok) throw new Error(`TVMaze HTTP ${res.status}`);
-        const raw = await res.json();
-        episodes = raw.filter((ep) => stripHtml(ep.summary).length >= 55);
-        epCache.set(pickedShow.id, episodes);
-      }
-      if (t !== token) return;
-      if (!episodes.length) throw new Error('No episode summaries found');
-
-      const ep = episodes[Math.floor(Math.random() * episodes.length)];
-      target = { show: pickedShow, epName: ep.name, season: ep.season, num: ep.number };
-
-      const cleanSummary = redactShowName(stripHtml(ep.summary), pickedShow.title);
-      textEl.textContent = `"${cleanSummary}"`;
-      loader.classList.add('hidden');
-
-      const decoys = shuffle(TVMAZE_CARTOONS.filter((s) => s.id !== pickedShow.id)).slice(0, 3);
-      shuffle([pickedShow, ...decoys]).forEach((s) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'option-btn';
-        btn.dataset.id = s.id;
-        btn.textContent = s.title;
-        btn.addEventListener('click', () => {
-          if (locked) return;
-          locked = true;
-          optionsEl.querySelectorAll('.option-btn').forEach((b) => {
-            b.disabled = true;
-            if (Number(b.dataset.id) === target.show.id) b.classList.add('correct');
-          });
-          feedbackEl.classList.remove('hidden', 'good', 'bad');
-          if (s.id === target.show.id) {
-            playSfx('correct');
-            const earned = recordWin('cartoonPlot', 220);
-            feedbackEl.classList.add('good');
-            feedbackEl.textContent = `Spot on! ${target.show.title} (S${target.season}E${target.num}: "${target.epName}") — +${earned} pts`;
-          } else {
-            playSfx('wrong');
-            btn.classList.add('wrong');
-            resetStreak();
-            feedbackEl.classList.add('bad');
-            feedbackEl.textContent = `That was ${target.show.title} — "${target.epName}".`;
-          }
-          nextBtn.textContent = 'Next Episode →';
-          nextBtn.classList.remove('hidden');
-        });
-        optionsEl.appendChild(btn);
-      });
-      locked = false;
-    } catch {
-      if (t !== token) return;
-      loader.textContent = 'TVMaze hiccup — tap Retry.';
-      nextBtn.textContent = 'Retry ↻';
-      nextBtn.classList.remove('hidden');
-    }
-  }
-
-  nextBtn.addEventListener('click', () => { playSfx('click'); startRound(); });
-  startRound();
-}
-
-// ---------- 3. CARTOON SCORE / ERA DUEL ----------
 function initCartoonDuel() {
-  let mode = 'rating'; // 'rating' | 'year'
+  let mode = 'rating';
   let pool = [], left = null, right = null, run = 0, locked = true, token = 0, timer = null;
 
   const btnRate = document.getElementById('ct-duel-rating'), btnYear = document.getElementById('ct-duel-year');
@@ -345,7 +244,6 @@ function initCartoonDuel() {
   startDuel();
 }
 
-// ---------- 4. VOICE ACTOR LINK ----------
 function initVoiceLink() {
   let pool = [], current = null, locked = false;
 
@@ -404,7 +302,6 @@ function initVoiceLink() {
 
 setupModeTabs((mode) => {
   if (mode === 'unblur') initCartoonUnblur();
-  if (mode === 'plot') initEpisodePlot();
   if (mode === 'duel') initCartoonDuel();
   if (mode === 'voice') initVoiceLink();
 });

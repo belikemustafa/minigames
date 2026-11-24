@@ -1,14 +1,17 @@
-const BESTS_KEY = 'fandom_arcade_suite_bests_v3';
-const SESSION_KEY = 'fandom_arcade_suite_session_v3';
+const BESTS_KEY = 'fandom_arcade_suite_bests_v4';
+const SESSION_KEY = 'fandom_arcade_suite_session_v4';
 
 const DEFAULT_BESTS = {
   moviesUnblur: 0, moviesCast: 0,
   animeDuel: 0, animeChars: 0,
   pokeWho: 0, pokeClash: 0,
   foodCompass: 0, foodIng: 0, foodMacro: 0, foodBracket: 0,
-  careerSalary: 0, careerTools: 0, careerSpotle: 0, careerDay: 0,
-  cartoonUnblur: 0, cartoonPlot: 0, cartoonDuel: 0, cartoonVoice: 0,
+  careerSalary: 0, careerSpotle: 0,
+  cartoonUnblur: 0, cartoonDuel: 0, cartoonVoice: 0,
   devStars: 0, devBug: 0, devOutput: 0, devLang: 0, devBigO: 0, devHttp: 0, devOutage: 0,
+  geoFlags: 0, geoDuel: 0, geoWeather: 0,
+  autoSpecs: 0, autoUnblur: 0, autoSound: 0,
+  puzConn: 0, puzTime: 0, puzSlider: 0, puzMem: 0,
   blitz: 0,
 };
 
@@ -93,16 +96,21 @@ export function haptic(pattern = 12) {
 }
 
 let audioCtx = null;
+export function getAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
 export function playSfx(type) {
   if (!state.soundEnabled) return;
   try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const now = audioCtx.currentTime;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
+    const ctx = getAudioCtx();
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
     osc.connect(gain);
-    gain.connect(audioCtx.destination);
+    gain.connect(ctx.destination);
 
     if (type === 'correct') {
       osc.type = 'triangle';
@@ -177,10 +185,10 @@ export function resetStreak() {
 
 export function getArcadeRank() {
   const total = Object.values(state.bests).reduce((a, b) => a + (Number(b) || 0), 0) + state.score;
-  if (total >= 12000) return 'Grandmaster';
-  if (total >= 6000) return 'Veteran';
-  if (total >= 2500) return 'Challenger';
-  if (total >= 700) return 'Rising Star';
+  if (total >= 14000) return 'Grandmaster';
+  if (total >= 7000) return 'Veteran';
+  if (total >= 3000) return 'Challenger';
+  if (total >= 800) return 'Rising Star';
   return 'Newcomer';
 }
 
@@ -203,6 +211,9 @@ export function initChrome(activePage) {
     { id: 'careers', href: 'careers.html', label: '💼 Careers' },
     { id: 'cartoons', href: 'cartoons.html', label: '📺 Cartoons' },
     { id: 'dev', href: 'dev.html', label: '💻 Dev' },
+    { id: 'geography', href: 'geography.html', label: '🌍 World' },
+    { id: 'auto', href: 'auto.html', label: '🏍️ Auto' },
+    { id: 'puzzles', href: 'puzzles.html', label: '🧩 Puzzles' },
     { id: 'blitz', href: 'blitz.html', label: '⏱️ Blitz' },
   ];
 
@@ -248,7 +259,6 @@ export function setupModeTabs(onSwitch) {
     });
   });
 
-  // Support deep link ?mode=xyz from Hub cards
   const params = new URLSearchParams(window.location.search);
   const requested = params.get('mode');
   const firstMode = tabs[0]?.dataset.mode;
