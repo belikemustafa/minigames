@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>TV Series & Streaming — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="tv">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="unblur" type="button">📺 Series Unblur</button>
+      <button class="mode-tab" data-mode="duel" type="button">⚡ Binge Duel</button>
+      <button class="mode-tab" data-mode="cast" type="button">🎭 TV Cast Match</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="unblur">
+      <div class="game-header">
+        <div><span class="game-tag">TMDB TV Proxy</span><h2>Series Frame Unblur</h2></div>
+        <span id="tv-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="tv-region" class="gen-select" aria-label="TV Region">
+          <option value="all">All TV Series</option>
+          <option value="hollywood">Hollywood / English</option>
+          <option value="indian">Indian Web Series</option>
+          <option value="kdrama">K-Dramas</option>
+          <option value="classic">Classics (Pre-2013)</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="tv-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="tv-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Guess the live-action TV show from the blurred frame.</p>
+
+      <div class="stage-card movie-stage">
+        <div id="tv-loader" class="loader">Loading series frame...</div>
+        <img id="tv-img" class="movie-img blur-3" alt="Blurred TV frame" />
+      </div>
+
+      <div class="action-bar">
+        <button id="tv-hint-btn" class="btn btn-secondary" type="button">💡 Unblur &amp; Premiere Clue (-75 pts)</button>
+        <div id="tv-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="tv-options" class="options-grid"></div>
+      <div id="tv-feedback" class="feedback hidden"></div>
+      <button id="tv-next" class="btn btn-primary full-width hidden" type="button">Next Series →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="duel">
+      <div class="game-header">
+        <div><span class="game-tag">Higher or Lower</span><h2>Binge Duel</h2></div>
+        <span class="points-chip">Run: <strong id="tvd-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="tvd-region" class="gen-select" aria-label="Binge Duel Region">
+          <option value="all">All TV Series</option>
+          <option value="hollywood">Hollywood</option>
+          <option value="indian">Indian Web Series</option>
+          <option value="kdrama">K-Dramas</option>
+        </select>
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-tvmetric="rating" type="button">Rating</button>
+          <button class="seg-btn" data-tvmetric="episodes" type="button">Episodes</button>
+          <button class="seg-btn" data-tvmetric="seasons" type="button">Seasons</button>
+          <button class="seg-btn" data-tvmetric="year" type="button">Year</button>
+        </div>
+      </div>
+      <p id="tvd-tip" class="game-tip">Does the right-hand show have a higher or lower viewer rating?</p>
+
+      <div class="duel-arena">
+        <div id="tvd-loader" class="loader">Loading shows &amp; episode counts...</div>
+        <article class="duel-card-visual">
+          <img id="tvd-l-img" alt="Left show" />
+          <div class="duel-overlay">
+            <span id="tvd-l-meta" class="duel-meta"></span>
+            <h3 id="tvd-l-title"></h3>
+            <div class="score-box"><span id="tvd-l-label" class="score-label">RATING</span><span id="tvd-l-val" class="score-val">--</span></div>
+          </div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-visual">
+          <img id="tvd-r-img" alt="Right show" />
+          <div class="duel-overlay">
+            <span id="tvd-r-meta" class="duel-meta"></span>
+            <h3 id="tvd-r-title"></h3>
+            <div class="score-box"><span id="tvd-r-label" class="score-label">RATING</span><span id="tvd-r-val" class="score-val mystery">???</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div id="tvd-controls" class="duel-controls">
+        <button id="tvd-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="tvd-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="tvd-status" class="feedback hidden"></div>
+      <button id="tvd-restart" class="btn btn-primary full-width hidden" type="button">New Binge Duel ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="cast">
+      <div class="game-header">
+        <div><span class="game-tag">TV Edition</span><h2>Cast Match</h2></div>
+        <span id="tvc-pts" class="points-chip">+250 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="tvc-region" class="gen-select" aria-label="TV Cast Region">
+          <option value="all">All TV Series</option>
+          <option value="hollywood">Hollywood</option>
+          <option value="indian">Indian Web Series</option>
+          <option value="kdrama">K-Dramas</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="tvc-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="tvc-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Spot the TV series starring these four cast members.</p>
+
+      <div class="stage-card cast-stage">
+        <div id="tvc-loader" class="loader">Calling TV cast...</div>
+        <div id="tvc-banner" class="cast-reveal-banner hidden"></div>
+        <div id="tvc-grid" class="cast-grid"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="tvc-hint-btn" class="btn btn-secondary" type="button">🎭 Reveal Character Names (-75 pts)</button>
+      </div>
+
+      <div id="tvc-options" class="options-grid"></div>
+      <div id="tvc-feedback" class="feedback hidden"></div>
+      <button id="tvc-next" class="btn btn-primary full-width hidden" type="button">Next TV Cast →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/tv.js"></script>
+</body>
+</html>

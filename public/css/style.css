@@ -1431,3 +1431,306 @@ body.reduced-fx *, body.reduced-fx *::before, body.reduced-fx *::after {
     animation: none !important;
   }
 }
+
+
+/* =========================================================
+   NEW CATEGORY THEMES + ANIMATED LIGHTLY BLURRED BACKGROUNDS
+   ========================================================= */
+
+body[data-theme="hub"]       { --accent: #2dd4bf; --accent-rgb: 45, 212, 191;  --accent-ink: #071312; --bg-a: 45, 212, 191;  --bg-b: 99, 102, 241;  --bg-c: 212, 175, 55; }
+body[data-theme="movies"]    { --accent: #d4af37; --accent-rgb: 212, 175, 55;  --accent-ink: #161103; --bg-a: 212, 175, 55;  --bg-b: 153, 27, 27;   --bg-c: 120, 53, 15; }
+body[data-theme="tv"]        { --accent: #818cf8; --accent-rgb: 129, 140, 248; --accent-ink: #090b22; --bg-a: 99, 102, 241;  --bg-b: 30, 64, 175;   --bg-c: 148, 163, 184; }
+body[data-theme="anime"]     { --accent: #38bdf8; --accent-rgb: 56, 189, 248;  --accent-ink: #06131c; --bg-a: 56, 189, 248;  --bg-b: 124, 58, 237;  --bg-c: 236, 72, 153; }
+body[data-theme="pokemon"]   { --accent: #10b981; --accent-rgb: 16, 185, 129;  --accent-ink: #041710; --bg-a: 16, 185, 129;  --bg-b: 234, 179, 8;   --bg-c: 14, 165, 233; }
+body[data-theme="sports"]    { --accent: #22c55e; --accent-rgb: 34, 197, 94;   --accent-ink: #03190b; --bg-a: 22, 163, 74;   --bg-b: 212, 175, 55;  --bg-c: 13, 148, 136; }
+body[data-theme="music"]     { --accent: #e879f9; --accent-rgb: 232, 121, 249; --accent-ink: #1d0621; --bg-a: 192, 38, 211;  --bg-b: 79, 70, 229;   --bg-c: 244, 63, 94; }
+body[data-theme="food"]      { --accent: #f59e0b; --accent-rgb: 245, 158, 11;  --accent-ink: #1a1003; --bg-a: 217, 119, 6;   --bg-b: 180, 83, 9;    --bg-c: 220, 38, 38; }
+body[data-theme="cartoons"]  { --accent: #fb7185; --accent-rgb: 251, 113, 133; --accent-ink: #1f060c; --bg-a: 244, 63, 94;   --bg-b: 245, 158, 11;  --bg-c: 56, 189, 248; }
+body[data-theme="gaming"]    { --accent: #6366f1; --accent-rgb: 99, 102, 241;  --accent-ink: #070821; --bg-a: 79, 70, 229;   --bg-b: 20, 184, 166;  --bg-c: 139, 92, 246; }
+body[data-theme="chess"]     { --accent: #d4af37; --accent-rgb: 212, 175, 55;  --accent-ink: #161103; --bg-a: 180, 145, 55;  --bg-b: 71, 85, 105;   --bg-c: 30, 41, 59; }
+body[data-theme="cosmos"]    { --accent: #a78bfa; --accent-rgb: 167, 139, 250; --accent-ink: #110824; --bg-a: 124, 58, 237;  --bg-b: 14, 165, 233;  --bg-c: 236, 72, 153; }
+body[data-theme="dev"]       { --accent: #2dd4bf; --accent-rgb: 45, 212, 191;  --accent-ink: #061614; --bg-a: 13, 148, 136;  --bg-b: 16, 185, 129;  --bg-c: 30, 58, 138; }
+body[data-theme="geography"] { --accent: #38bdf8; --accent-rgb: 56, 189, 248;  --accent-ink: #04131c; --bg-a: 2, 132, 199;   --bg-b: 16, 185, 129;  --bg-c: 30, 64, 175; }
+body[data-theme="auto"]      { --accent: #f97316; --accent-rgb: 249, 115, 22;  --accent-ink: #1c0a02; --bg-a: 234, 88, 12;   --bg-b: 185, 28, 28;   --bg-c: 212, 175, 55; }
+body[data-theme="arcade"]    { --accent: #34d399; --accent-rgb: 52, 211, 153;  --accent-ink: #041911; --bg-a: 16, 185, 129;  --bg-b: 6, 182, 212;   --bg-c: 168, 85, 247; }
+body[data-theme="blitz"]     { --accent: #c084fc; --accent-rgb: 192, 132, 252; --accent-ink: #160921; --bg-a: 168, 85, 247;  --bg-b: 45, 212, 191;  --bg-c: 244, 63, 94; }
+
+.card-sports:hover { border-color: rgba(34, 197, 94, 0.55); }   .card-sports .play-cta { color: #4ade80; }
+.card-music:hover  { border-color: rgba(232, 121, 249, 0.55); } .card-music .play-cta  { color: #f0abfc; }
+.card-tv:hover     { border-color: rgba(129, 140, 248, 0.55); } .card-tv .play-cta     { color: #a5b4fc; }
+.card-gaming:hover { border-color: rgba(99, 102, 241, 0.55); }  .card-gaming .play-cta { color: #a5b4fc; }
+.card-chess:hover  { border-color: rgba(212, 175, 55, 0.55); }  .card-chess .play-cta  { color: #e6c65c; }
+.card-cosmos:hover { border-color: rgba(167, 139, 250, 0.55); } .card-cosmos .play-cta { color: #c4b5fd; }
+.card-arcade:hover { border-color: rgba(52, 211, 153, 0.55); }  .card-arcade .play-cta { color: #6ee7b7; }
+
+/* Dark, Animated, Smooth, Lightly Blurred Category Background Stage */
+#bg-stage {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+  background: #07090d;
+  pointer-events: none;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(68px);
+  opacity: 0.24;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.bg-orb-1 {
+  width: min(62vw, 520px);
+  height: min(62vw, 520px);
+  top: -14%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(var(--bg-a, 45, 212, 191), 0.72) 0%, transparent 72%);
+  animation: orbDriftA 22s ease-in-out infinite alternate;
+}
+
+.bg-orb-2 {
+  width: min(58vw, 480px);
+  height: min(58vw, 480px);
+  bottom: -16%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(var(--bg-b, 99, 102, 241), 0.65) 0%, transparent 72%);
+  animation: orbDriftB 26s ease-in-out infinite alternate;
+}
+
+.bg-orb-3 {
+  width: min(46vw, 390px);
+  height: min(46vw, 390px);
+  top: 38%;
+  left: 42%;
+  opacity: 0.16;
+  background: radial-gradient(circle, rgba(var(--bg-c, 212, 175, 55), 0.6) 0%, transparent 72%);
+  animation: orbDriftC 30s ease-in-out infinite alternate;
+}
+
+#bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.24;
+  filter: blur(0.6px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 35%, transparent 100%);
+}
+
+/* Subtle category-specific blurred backdrop textures */
+body[data-theme="chess"] #bg-pattern {
+  background-image:
+    linear-gradient(45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.05) 75%);
+  background-size: 64px 64px;
+  filter: blur(1.4px);
+}
+body[data-theme="dev"] #bg-pattern,
+body[data-theme="arcade"] #bg-pattern {
+  background-image:
+    linear-gradient(rgba(var(--accent-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-rgb), 0.06) 1px, transparent 1px);
+  background-size: 38px 38px;
+  filter: blur(0.9px);
+}
+body[data-theme="sports"] #bg-pattern {
+  background-image: repeating-linear-gradient(90deg, rgba(34, 197, 94, 0.04) 0 42px, transparent 42px 84px);
+  filter: blur(2px);
+}
+body[data-theme="music"] #bg-pattern {
+  background-image: repeating-radial-gradient(circle at 50% 50%, rgba(232, 121, 249, 0.06) 0 1px, transparent 1px 28px);
+  filter: blur(1.2px);
+}
+body[data-theme="cosmos"] #bg-pattern {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+    radial-gradient(rgba(167, 139, 250, 0.18) 1.5px, transparent 1.5px);
+  background-size: 46px 46px, 78px 78px;
+  background-position: 0 0, 22px 26px;
+  filter: blur(0.5px);
+}
+
+#bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 80% at 50% 35%, rgba(8, 10, 15, 0.25) 0%, rgba(6, 8, 12, 0.78) 100%);
+}
+
+@keyframes orbDriftA {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(14vw, 10vh, 0) scale(1.12); }
+  100% { transform: translate3d(6vw, 22vh, 0) scale(0.94); }
+}
+@keyframes orbDriftB {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-15vw, -8vh, 0) scale(1.1); }
+  100% { transform: translate3d(-6vw, -20vh, 0) scale(0.95); }
+}
+@keyframes orbDriftC {
+  0%   { transform: translate3d(-14vw, -8vh, 0) scale(0.92); }
+  50%  { transform: translate3d(10vw, 6vh, 0) scale(1.15); }
+  100% { transform: translate3d(-6vw, 14vh, 0) scale(1); }
+}
+
+/* Slightly translucent obsidian surfaces so the blurred dark aura breathes gently behind cards */
+.surface-glass, .stage-card, .hub-card, .welcome-card, .duel-card-text, .clash-card, .option-btn, .mode-tabs {
+  background-color: rgba(16, 20, 29, 0.82);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   NEW COMPONENT STYLES: CHESS BOARD, CANVAS ARCADE, SPORTS & MUSIC
+   ========================================================= */
+
+/* Interactive 8x8 Chess Board */
+.chess-board-wrap {
+  max-width: 390px;
+  margin: 0 auto 14px;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(16, 20, 29, 0.9);
+  border: 1px solid var(--border-strong);
+}
+.chess-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.chess-sq {
+  position: relative;
+  border: none;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.35rem, 6.2vw, 2.25rem);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 140ms ease, transform 100ms ease;
+}
+.chess-sq.light { background: #334155; color: #f8fafc; }
+.chess-sq.dark  { background: #1e293b; color: #f8fafc; }
+.chess-sq.selected { background: rgba(212, 175, 55, 0.52) !important; box-shadow: inset 0 0 0 2px #fde047; }
+.chess-sq.legal::after {
+  content: '';
+  width: 28%;
+  height: 28%;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.72);
+  position: absolute;
+}
+.chess-sq.hint-from { box-shadow: inset 0 0 0 3px #38bdf8; }
+.chess-sq.good-sq   { background: rgba(16, 185, 129, 0.55) !important; }
+.chess-sq.bad-sq    { background: rgba(239, 68, 68, 0.55) !important; }
+.chess-sq.target-sq { background: rgba(212, 175, 55, 0.45) !important; box-shadow: inset 0 0 0 2px #facc15; }
+.chess-coord {
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  font-size: 0.56rem;
+  font-weight: 700;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Pure 60 FPS Canvas Arcade & Sports Meter Canvas */
+.game-canvas-wrap {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: #080b11;
+  margin-bottom: 14px;
+  touch-action: none;
+}
+.game-canvas {
+  width: 100%;
+  display: block;
+  touch-action: none;
+}
+.canvas-hud-overlay {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.canvas-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(8, 10, 15, 0.76);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+}
+
+/* Career Path Timeline Pills */
+.career-path-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.club-chip {
+  padding: 8px 13px;
+  border-radius: 10px;
+  background: var(--surface-elevated);
+  border: 1px solid rgba(var(--accent-rgb), 0.36);
+  font-weight: 600;
+  font-size: 0.86rem;
+}
+.club-arrow { color: var(--muted); font-weight: 700; }
+
+/* Album Cover Square Stage */
+.album-stage {
+  aspect-ratio: 1 / 1;
+  max-width: 310px;
+  margin: 0 auto 14px;
+}
+.album-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  will-change: filter, transform;
+  transition: filter 0.45s ease, transform 0.45s ease, opacity 0.25s ease;
+}
+.album-stage img.ready { opacity: 1; }
+
+/* Power Scale Attribute Bars */
+.power-bar-row {
+  display: grid;
+  grid-template-columns: 78px 1fr 34px;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+.power-track {
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.power-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}

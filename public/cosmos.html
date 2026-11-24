@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>Battles & Space Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="cosmos">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="jutsu" type="button">🍥 Jutsu &amp; Powers</button>
+      <button class="mode-tab" data-mode="power" type="button">⚔️ Power Scale Clash</button>
+      <button class="mode-tab" data-mode="space" type="button">🪐 Space &amp; Rockets</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="jutsu">
+      <div class="game-header">
+        <div><span class="game-tag">36 Signature Abilities</span><h2>Jutsu &amp; Superpower Match</h2></div>
+        <span id="jp-pts" class="points-chip">+220 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="jp-uni" class="gen-select" aria-label="Universe Filter">
+          <option value="all">All Universes (36)</option>
+          <option value="Naruto">Naruto (14)</option>
+          <option value="Shonen">Shonen Anime (10)</option>
+          <option value="Comics">Marvel &amp; DC (12)</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="jp-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="jp-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Match the signature technique, weapon, or power to its wielder.</p>
+
+      <div class="stage-card clue-stage" style="text-align:center;">
+        <span id="jp-badge" class="hub-badge">NARUTO</span>
+        <h3 id="jp-ability" style="margin:12px 0 0; font-size:1.28rem; font-family:'Space Grotesk',sans-serif;">---</h3>
+      </div>
+
+      <div class="action-bar">
+        <button id="jp-hint-btn" class="btn btn-secondary" type="button">💡 Character Title Clue (-60 pts)</button>
+        <div id="jp-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="jp-options" class="options-grid"></div>
+      <div id="jp-feedback" class="feedback hidden"></div>
+      <button id="jp-next" class="btn btn-primary full-width hidden" type="button">Next Ability →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="power">
+      <div class="game-header">
+        <div><span class="game-tag">28 Multiverse Fighters</span><h2>Power Scale Clash</h2></div>
+        <span class="points-chip">Run: <strong id="pw-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="pw-stat-sel" class="gen-select" aria-label="Attribute Filter">
+          <option value="random">Random Attribute</option>
+          <option value="strength">Strength</option>
+          <option value="speed">Speed</option>
+          <option value="iq">Battle IQ</option>
+          <option value="durability">Durability</option>
+          <option value="overall">Overall Power</option>
+        </select>
+      </div>
+      <div id="pw-banner" class="clash-banner">Who has higher Strength?</div>
+
+      <div class="clash-arena">
+        <button id="pw-left" class="clash-card" type="button">
+          <div class="emoji-big">🔥</div><h3>---</h3><span class="clash-types">---</span><div class="clash-stat-val mystery">???</div>
+        </button>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <button id="pw-right" class="clash-card" type="button">
+          <div class="emoji-big">💚</div><h3>---</h3><span class="clash-types">---</span><div class="clash-stat-val mystery">???</div>
+        </button>
+      </div>
+
+      <div id="pw-status" class="feedback hidden"></div>
+      <button id="pw-restart" class="btn btn-primary full-width hidden" type="button">New Power Streak ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="space">
+      <div class="game-header">
+        <div><span class="game-tag">26 Celestial Bodies &amp; Rockets</span><h2>Space &amp; Planet Showdown</h2></div>
+        <span class="points-chip">Run: <strong id="spc-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="spc-pack" class="gen-select" aria-label="Space Pack">
+          <option value="bodies">Planets, Moons &amp; Sun (16)</option>
+          <option value="rockets">Orbital Rockets (10)</option>
+        </select>
+        <div id="spc-metrics" class="seg-toggle"></div>
+      </div>
+      <p id="spc-tip" class="game-tip">Compare real planetary gravity, moons, diameter, or rocket thrust.</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="spc-l-emoji" class="emoji-big">🪐</div><h3 id="spc-l-name">---</h3><p id="spc-l-fact" class="sub"></p></div>
+          <div class="score-box"><span id="spc-l-label" class="score-label">GRAVITY</span><span id="spc-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="spc-r-emoji" class="emoji-big">🌍</div><h3 id="spc-r-name">---</h3><p id="spc-r-fact" class="sub"></p></div>
+          <div class="score-box"><span id="spc-r-label" class="score-label">GRAVITY</span><span id="spc-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="spc-controls" class="duel-controls">
+        <button id="spc-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="spc-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="spc-status" class="feedback hidden"></div>
+      <button id="spc-restart" class="btn btn-primary full-width hidden" type="button">New Space Run ↻</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/cosmos.js"></script>
+</body>
+</html>

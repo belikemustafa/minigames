@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>Cricket & Football Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="sports">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="clash" type="button">📊 Stat Clash</button>
+      <button class="mode-tab" data-mode="path" type="button">👕 Career Path / Jersey</button>
+      <button class="mode-tab" data-mode="timing" type="button">🏏 Super Over / Penalties</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="clash">
+      <div class="game-header">
+        <div><span class="game-tag">78 Cricket &amp; Football Icons</span><h2>Stat Clash</h2></div>
+        <span class="points-chip">Run: <strong id="sp-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="sp-pack" class="gen-select" aria-label="Sports Pack">
+          <option value="intl">International Cricket (26)</option>
+          <option value="ipl">IPL Cricket Stars (24)</option>
+          <option value="football">World Football Icons (28)</option>
+        </select>
+        <div id="sp-metrics" class="seg-toggle"></div>
+      </div>
+      <p id="sp-tip" class="game-tip">Does the right-hand player have a higher or lower career stat?</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="sp-l-emoji" class="emoji-big">🏏</div><h3 id="sp-l-name">---</h3><p id="sp-l-meta" class="sub"></p></div>
+          <div class="score-box"><span id="sp-l-label" class="score-label">RUNS</span><span id="sp-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="sp-r-emoji" class="emoji-big">🏏</div><h3 id="sp-r-name">---</h3><p id="sp-r-meta" class="sub"></p></div>
+          <div class="score-box"><span id="sp-r-label" class="score-label">RUNS</span><span id="sp-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="sp-controls" class="duel-controls">
+        <button id="sp-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="sp-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="sp-status" class="feedback hidden"></div>
+      <button id="sp-restart" class="btn btn-primary full-width hidden" type="button">New Stat Streak ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="path">
+      <div class="game-header">
+        <div><span class="game-tag">36 IPL &amp; Football Journeys</span><h2>Career Path / Jersey Guess</h2></div>
+        <span id="cp-pts" class="points-chip">+250 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="cp-sport" class="gen-select" aria-label="League Filter">
+          <option value="all">IPL + Football (36)</option>
+          <option value="ipl">IPL Franchises (18)</option>
+          <option value="football">Football Clubs (18)</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="cp-easy" class="seg-btn active" type="button">Easy (4)</button>
+          <button id="cp-med" class="seg-btn" type="button">Med (6)</button>
+          <button id="cp-hard" class="seg-btn" type="button">Hard (Type)</button>
+        </div>
+      </div>
+      <p id="cp-tip" class="game-tip">Identify the player from their club/franchise journey.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="cp-meta" style="text-align:center; font-size:0.82rem; color:var(--muted); margin-bottom:12px;">---</div>
+        <div id="cp-clubs" class="career-path-list"></div>
+      </div>
+
+      <div class="action-bar">
+        <button id="cp-hint-btn" class="btn btn-secondary" type="button">👕 Reveal Jersey Number (-50 pts)</button>
+      </div>
+
+      <div id="cp-options" class="options-grid"></div>
+
+      <div id="cp-hard-wrap" class="search-box-wrap hidden">
+        <div class="search-row">
+          <input id="cp-hard-input" class="text-input" type="text" placeholder="Type player name and pick from list..." autocomplete="off" />
+          <button id="cp-hard-submit" class="btn btn-primary" type="button">Guess</button>
+        </div>
+        <div id="cp-hard-dropdown" class="dropdown-list hidden" role="listbox"></div>
+      </div>
+
+      <div id="cp-feedback" class="feedback hidden"></div>
+      <button id="cp-next" class="btn btn-primary full-width hidden" type="button">Next Career Path →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="timing">
+      <div class="game-header">
+        <div><span class="game-tag">60 FPS One-Thumb Timing</span><h2>Super Over / Penalties</h2></div>
+        <div class="seg-toggle">
+          <button id="tm-cricket" class="seg-btn active" type="button">🏏 Super Over</button>
+          <button id="tm-football" class="seg-btn" type="button">⚽ Penalty Shootout</button>
+        </div>
+      </div>
+      <p id="tm-tip" class="game-tip">Tap SWING when the indicator hits the glowing emerald sweet spot to smash a 6!</p>
+
+      <div class="game-canvas-wrap">
+        <div class="canvas-hud-overlay">
+          <span id="tm-score-badge" class="canvas-badge">0 / 0</span>
+          <span id="tm-left-badge" class="canvas-badge">Balls: 6</span>
+        </div>
+        <canvas id="tm-canvas" class="game-canvas" height="260"></canvas>
+      </div>
+
+      <button id="tm-action-btn" class="btn btn-primary full-width" type="button" style="min-height:56px; font-size:1.05rem;">🏏 SWING NOW!</button>
+      <div id="tm-feedback" class="feedback hidden" style="margin-top:12px;"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/sports.js"></script>
+</body>
+</html>

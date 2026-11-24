@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>60 FPS Canvas Arcade — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="arcade">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="stack" type="button">🧱 Stack Tower</button>
+      <button class="mode-tab" data-mode="drift" type="button">☄️ Asteroid Drift</button>
+      <button class="mode-tab" data-mode="dash" type="button">⚡ Gravity Dash</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="stack">
+      <div class="game-header">
+        <div><span class="game-tag">Locked 60 FPS Physics</span><h2>Stack Tower</h2></div>
+        <span class="points-chip">Best: <strong id="st-best">0</strong></span>
+      </div>
+      <p class="game-tip">Tap anywhere on the canvas (or press Space) to drop each sliding block cleanly. Overhangs slice off!</p>
+
+      <div class="game-canvas-wrap">
+        <div class="canvas-hud-overlay">
+          <span id="st-score" class="canvas-badge">Height: 0</span>
+          <span id="st-combo" class="canvas-badge">Combo: 0</span>
+        </div>
+        <canvas id="st-canvas" class="game-canvas" height="400"></canvas>
+      </div>
+      <button id="st-btn" class="btn btn-primary full-width" type="button" style="min-height:54px;">DROP BLOCK</button>
+    </section>
+
+    <section class="mode-panel" data-panel="drift">
+      <div class="game-header">
+        <div><span class="game-tag">60 FPS Touch Steering</span><h2>Asteroid Drift</h2></div>
+        <span class="points-chip">Best: <strong id="dr-best">0</strong></span>
+      </div>
+      <p class="game-tip">Drag anywhere across the canvas to steer your ship through meteor lanes. Close grazes earn bonus points!</p>
+
+      <div class="game-canvas-wrap">
+        <div class="canvas-hud-overlay">
+          <span id="dr-score" class="canvas-badge">Score: 0</span>
+          <span id="dr-speed" class="canvas-badge">1.0x</span>
+        </div>
+        <canvas id="dr-canvas" class="game-canvas" height="400"></canvas>
+      </div>
+      <button id="dr-btn" class="btn btn-primary full-width" type="button">Start Drift 🚀</button>
+    </section>
+
+    <section class="mode-panel" data-panel="dash">
+      <div class="game-header">
+        <div><span class="game-tag">One-Thumb Gravity Flip</span><h2>Gravity Dash</h2></div>
+        <span class="points-chip">Best: <strong id="gd-best">0</strong></span>
+      </div>
+      <p class="game-tip">Tap anywhere on the canvas (or press Space) to flip between floor and ceiling, dodging barriers and grabbing orbs.</p>
+
+      <div class="game-canvas-wrap">
+        <div class="canvas-hud-overlay">
+          <span id="gd-score" class="canvas-badge">Score: 0</span>
+          <span id="gd-orbs" class="canvas-badge">Orbs: 0</span>
+        </div>
+        <canvas id="gd-canvas" class="game-canvas" height="360"></canvas>
+      </div>
+      <button id="gd-btn" class="btn btn-primary full-width" type="button" style="min-height:54px;">FLIP GRAVITY ⚡</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/arcade.js"></script>
+</body>
+</html>

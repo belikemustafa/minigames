@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>Chess & Tactics Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="chess">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="tactics" type="button">♟️ Mate-in-1 &amp; Forks</button>
+      <button class="mode-tab" data-mode="sprint" type="button">♞ Coordinate &amp; Knight Sprint</button>
+      <button class="mode-tab" data-mode="gm" type="button">👑 GM Rating Duel</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="tactics">
+      <div class="game-header">
+        <div><span id="ch-type" class="game-tag">Mate in 1</span><h2 id="ch-title">Tactics Blitz</h2></div>
+        <span id="ch-turn" class="points-chip">White to Move</span>
+      </div>
+      <div class="filter-row">
+        <select id="ch-filter" class="gen-select" aria-label="Puzzle Type">
+          <option value="all">All 20 Puzzles</option>
+          <option value="Mate in 1">Mate in 1 Only</option>
+          <option value="Tactical Fork">Tactical Forks Only</option>
+        </select>
+        <button id="ch-hint-btn" class="btn btn-secondary" type="button" style="min-height:36px; padding:6px 12px; font-size:0.8rem;">💡 Highlight Piece</button>
+      </div>
+      <p class="game-tip">Tap your piece, then tap the winning square on the board.</p>
+
+      <div class="chess-board-wrap">
+        <div id="ch-board" class="chess-board" role="grid" aria-label="Chess tactics board"></div>
+      </div>
+
+      <div id="ch-feedback" class="feedback hidden"></div>
+      <button id="ch-next" class="btn btn-primary full-width hidden" type="button">Next Puzzle →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="sprint">
+      <div class="game-header">
+        <div><span class="game-tag">Board Vision &amp; Knight Path</span><h2>Coordinate &amp; Knight Sprint</h2></div>
+        <div class="seg-toggle">
+          <button id="sp-mode-coord" class="seg-btn active" type="button">Coordinate (30s)</button>
+          <button id="sp-mode-knight" class="seg-btn" type="button">Knight Hop</button>
+        </div>
+      </div>
+
+      <div class="stage-card clue-stage" style="display:flex; justify-content:space-between; align-items:center; padding:12px 16px;">
+        <div>
+          <span id="cs-prompt-label" class="game-tag">FIND SQUARE</span>
+          <div id="cs-target" style="font-size:1.5rem; font-weight:700; font-family:'Space Grotesk',sans-serif;">---</div>
+        </div>
+        <div style="text-align:right;">
+          <span id="cs-stat-a" class="points-chip">Hits: 0</span>
+          <span id="cs-stat-b" class="points-chip" style="margin-left:6px;">30s</span>
+        </div>
+      </div>
+
+      <div class="chess-board-wrap">
+        <div id="cs-board" class="chess-board"></div>
+      </div>
+
+      <button id="cs-start" class="btn btn-primary full-width" type="button">Start Sprint ⚡</button>
+      <div id="cs-feedback" class="feedback hidden" style="margin-top:12px;"></div>
+    </section>
+
+    <section class="mode-panel" data-panel="gm">
+      <div class="game-header">
+        <div><span class="game-tag">26 Legends • Chess.com API</span><h2>Grandmaster Rating Duel</h2></div>
+        <span class="points-chip">Run: <strong id="gm-ch-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <div class="seg-toggle">
+          <button id="cgm-peak" class="seg-btn active" type="button">Peak FIDE Classical</button>
+          <button id="cgm-blitz" class="seg-btn" type="button">Live Chess.com Blitz</button>
+        </div>
+      </div>
+      <p id="cgm-tip" class="game-tip">Does the right-hand Grandmaster hold a higher or lower peak FIDE rating?</p>
+
+      <div class="duel-arena">
+        <div id="cgm-loader" class="loader hidden">Syncing Chess.com live ratings...</div>
+        <article class="duel-card-text">
+          <div><div class="emoji-big">♟️</div><h3 id="cgm-l-name">---</h3><p id="cgm-l-note" class="sub"></p></div>
+          <div class="score-box"><span id="cgm-l-label" class="score-label">PEAK ELO</span><span id="cgm-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div class="emoji-big">👑</div><h3 id="cgm-r-name">---</h3><p id="cgm-r-note" class="sub"></p></div>
+          <div class="score-box"><span id="cgm-r-label" class="score-label">PEAK ELO</span><span id="cgm-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="cgm-controls" class="duel-controls">
+        <button id="cgm-hi" class="btn btn-higher" type="button">▲ Higher Elo</button>
+        <button id="cgm-lo" class="btn btn-lower" type="button">▼ Lower Elo</button>
+      </div>
+      <div id="cgm-status" class="feedback hidden"></div>
+      <button id="cgm-restart" class="btn btn-primary full-width hidden" type="button">New GM Duel ↻</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/chess.js"></script>
+</body>
+</html>

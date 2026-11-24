@@ -582,6 +582,124 @@ export const BUG_SNIPPETS = [
     ],
     "bugLine": 1,
     "explanation": "Line 2 misses break;, causing case 1 to fall through and overwrite msg with \"WARN\"."
+  },
+  {
+    "lang": "JavaScript",
+    "title": "Compare Object Equality",
+    "lines": [
+      "function samePoint(a, b) {",
+      "  if (a === b) return true;",
+      "  return false;",
+      "}",
+      "// called with samePoint({x:1},{x:1})"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 compares object references with === instead of comparing a.x === b.x, always returning false for distinct objects."
+  },
+  {
+    "lang": "Python",
+    "title": "Modify Tuple Element",
+    "lines": [
+      "def set_first(coords, val):",
+      "    coords = (0, 0)",
+      "    coords[0] = val",
+      "    return coords"
+    ],
+    "bugLine": 2,
+    "explanation": "Line 3 tries to assign coords[0] = val on an immutable Python tuple, raising TypeError."
+  },
+  {
+    "lang": "JavaScript",
+    "title": "Async Loop Delay",
+    "lines": [
+      "for (var i = 0; i < 3; i++) {",
+      "  setTimeout(() => console.log(i), 100);",
+      "}"
+    ],
+    "bugLine": 0,
+    "explanation": "Line 1 declares var i (function-scoped), so all 3 timeouts print 3 instead of 0, 1, 2 (use let i)."
+  },
+  {
+    "lang": "Python",
+    "title": "Shadow Built-in List",
+    "lines": [
+      "def make_pairs(items):",
+      "    list = []",
+      "    for x in items:",
+      "        list.append(x)",
+      "    return list(set(list))"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 overwrites Python's built-in list() with a local variable, causing TypeError on line 5."
+  },
+  {
+    "lang": "SQL",
+    "title": "Update Single User Email",
+    "lines": [
+      "UPDATE users",
+      "SET email = 'new@mail.com';",
+      "-- intended only for user id 42"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 has no WHERE id = 42 clause, overwriting every single user's email in the entire table!"
+  },
+  {
+    "lang": "JavaScript",
+    "title": "Check Empty Array",
+    "lines": [
+      "function hasItems(arr) {",
+      "  if (arr) return true;",
+      "  return false;",
+      "}"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 checks truthiness of arr \u2014 in JS an empty array [] is truthy, so check arr.length > 0."
+  },
+  {
+    "lang": "C",
+    "title": "Integer Division Percentage",
+    "lines": [
+      "double getPercent(int hits, int total) {",
+      "  return (hits / total) * 100.0;",
+      "}"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 divides two ints (hits / total) before converting to double, truncating 3/4 to 0!"
+  },
+  {
+    "lang": "Python",
+    "title": "Compare String to None",
+    "lines": [
+      "def greet(name):",
+      "    if name == 'None':",
+      "        return 'Guest'",
+      "    return name"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 compares against the string 'None' instead of `if name is None:`."
+  },
+  {
+    "lang": "JavaScript",
+    "title": "Floating-Point Price Check",
+    "lines": [
+      "function isFree(balance, cost) {",
+      "  return balance - cost === 0;",
+      "}",
+      "// balance = 0.3, cost = 0.1 + 0.2"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 relies on exact float equality; 0.3 - (0.1 + 0.2) is -5.55e-17, not 0 (compare in integer cents)."
+  },
+  {
+    "lang": "Go",
+    "title": "Nil Map Assignment",
+    "lines": [
+      "var counts map[string]int",
+      "counts[\"hits\"] = 1",
+      "fmt.Println(counts)"
+    ],
+    "bugLine": 1,
+    "explanation": "Line 2 writes to a nil map without make(map[string]int), causing a runtime panic."
   }
 ];
 
@@ -849,6 +967,126 @@ export const OUTPUT_QUIZZES = [
       "\"b+a+a+a\""
     ],
     "note": "Unary +'a' evaluates to NaN, concatenating into 'baNaNa'."
+  },
+  {
+    "lang": "JavaScript",
+    "code": "console.log([] + []);",
+    "answer": "\"\"",
+    "options": [
+      "\"[]\"",
+      "\"\"",
+      "0",
+      "NaN"
+    ],
+    "note": "Both empty arrays coerce to empty strings and concatenate into ''."
+  },
+  {
+    "lang": "JavaScript",
+    "code": "console.log(!!'0', !!0);",
+    "answer": "true false",
+    "options": [
+      "false false",
+      "true false",
+      "true true",
+      "false true"
+    ],
+    "note": "Non-empty string '0' is truthy; number 0 is falsy."
+  },
+  {
+    "lang": "Python",
+    "code": "print(2 ** 3 ** 2)",
+    "answer": "512",
+    "options": [
+      "64",
+      "512",
+      "36",
+      "18"
+    ],
+    "note": "Exponentiation ** is right-associative: 2 ** (3 ** 2) = 2 ** 9 = 512."
+  },
+  {
+    "lang": "Python",
+    "code": "a = [1, 2, 3]\nprint(a[-1])",
+    "answer": "3",
+    "options": [
+      "1",
+      "3",
+      "-1",
+      "IndexError"
+    ],
+    "note": "Negative index -1 accesses the last element of a sequence."
+  },
+  {
+    "lang": "JavaScript",
+    "code": "console.log(Math.max());",
+    "answer": "-Infinity",
+    "options": [
+      "0",
+      "Infinity",
+      "-Infinity",
+      "NaN"
+    ],
+    "note": "With zero arguments, Math.max() returns -Infinity (its identity element)."
+  },
+  {
+    "lang": "Python",
+    "code": "print(round(2.5), round(3.5))",
+    "answer": "2 4",
+    "options": [
+      "3 4",
+      "2 4",
+      "2 3",
+      "3 3"
+    ],
+    "note": "Python 3 uses Banker's rounding (round-half-to-even)."
+  },
+  {
+    "lang": "JavaScript",
+    "code": "const a = [1, 2];\nconst b = [...a, 3];\nconsole.log(a.length, b.length);",
+    "answer": "2 3",
+    "options": [
+      "3 3",
+      "2 3",
+      "2 2",
+      "TypeError"
+    ],
+    "note": "Spread [...a, 3] creates a brand-new array without mutating a."
+  },
+  {
+    "lang": "Python",
+    "code": "print(all([]))",
+    "answer": "True",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "ValueError"
+    ],
+    "note": "Vacuous truth: no element in an empty iterable is falsy."
+  },
+  {
+    "lang": "JavaScript",
+    "code": "console.log(parseInt('08px', 10));",
+    "answer": "8",
+    "options": [
+      "8",
+      "0",
+      "NaN",
+      "8px"
+    ],
+    "note": "parseInt reads leading digits until the first non-digit character."
+  },
+  {
+    "lang": "C",
+    "code": "int a = 7, b = 2;\nprintf(\"%d\", a / b);",
+    "answer": "3",
+    "options": [
+      "3.5",
+      "3",
+      "4",
+      "3.0"
+    ],
+    "note": "Integer division in C truncates toward zero."
   }
 ];
 
@@ -952,6 +1190,36 @@ export const LANG_SNIPPETS = [
     "code": "const std = @import(\"std\");\npub fn main() void {\n    std.debug.print(\"Hi\\n\", .{});\n}",
     "answer": "Zig",
     "hint": "Modern low-level C alternative used to build the Bun runtime."
+  },
+  {
+    "code": "(defun square (x)\n  (* x x))\n(print (square 7))",
+    "answer": "Lisp",
+    "hint": "1958 functional pioneer famous for prefix notation and nested parentheses."
+  },
+  {
+    "code": "console.log(Object.entries({ a: 1 }).map(([k, v]) => `${k}=${v}`));",
+    "answer": "JavaScript",
+    "hint": "The native scripting language of every web browser since 1995."
+  },
+  {
+    "code": "object Main extends App {\n  val nums = List(1, 2, 3).map(_ * 2)\n  println(nums)\n}",
+    "answer": "Scala",
+    "hint": "Combines object-oriented and functional programming on the JVM; powers Apache Spark."
+  },
+  {
+    "code": "contract Vault {\n    mapping(address => uint256) public balances;\n}",
+    "answer": "Solidity",
+    "hint": "Smart-contract language designed for the Ethereum Virtual Machine."
+  },
+  {
+    "code": "PROGRAM HELLO\n  IMPLICIT NONE\n  PRINT *, 'READY'\nEND PROGRAM",
+    "answer": "Fortran",
+    "hint": "1957 scientific computing giant still used in weather and CFD supercomputing."
+  },
+  {
+    "code": "defmodule Counter do\n  use GenServer\nend",
+    "answer": "Elixir",
+    "hint": "Runs on the Erlang VM for massive fault-tolerant concurrency."
   }
 ];
 
@@ -1075,6 +1343,36 @@ export const BIGO_QUESTIONS = [
     "prompt": "Finding all subsets (power set) of a set with N elements",
     "answer": "O(2\u207f)",
     "note": "Each element is either included or excluded: 2^N subsets."
+  },
+  {
+    "prompt": "Searching a sorted matrix by binary-searching each of M rows of size N",
+    "answer": "O(m log n)",
+    "note": "Performs M independent binary searches of cost O(log n)."
+  },
+  {
+    "prompt": "Insertion Sort best-case time complexity (already sorted array)",
+    "answer": "O(n)",
+    "note": "Inner while loop never shifts when input is already sorted."
+  },
+  {
+    "prompt": "Radix Sort on N integers with constant K digits",
+    "answer": "O(n)",
+    "note": "Linear non-comparison bucket passes across fixed digit count K."
+  },
+  {
+    "prompt": "Checking if a value exists in an unsorted Singly Linked List",
+    "answer": "O(n)",
+    "note": "Must walk pointers linearly from head to tail."
+  },
+  {
+    "prompt": "Popping the minimum element from a Binary Min-Heap",
+    "answer": "O(log n)",
+    "note": "Swaps root with last leaf and sifts down O(log n) levels."
+  },
+  {
+    "prompt": "Appending to a dynamic array (JS Array / Python list) amortized",
+    "answer": "O(1)",
+    "note": "Geometric resizing doubles capacity so amortized push stays constant."
   }
 ];
 
@@ -1407,6 +1705,116 @@ export const HTTP_GIT_QUESTIONS = [
       "Deletes duplicate rows automatically",
       "Creates a B-tree index",
       "Exports query results to CSV"
+    ]
+  },
+  {
+    "tag": "HTTP",
+    "prompt": "Status Code 404",
+    "answer": "Not Found (requested URL or resource doesn't exist)",
+    "options": [
+      "Not Found (requested URL or resource doesn't exist)",
+      "Forbidden",
+      "Server Down",
+      "Moved Permanently"
+    ]
+  },
+  {
+    "tag": "HTTP",
+    "prompt": "Status Code 405",
+    "answer": "Method Not Allowed (e.g. POST sent to a GET-only route)",
+    "options": [
+      "Method Not Allowed (e.g. POST sent to a GET-only route)",
+      "Request Timeout",
+      "Bad Gateway",
+      "Unauthorized"
+    ]
+  },
+  {
+    "tag": "HTTP",
+    "prompt": "Status Code 422",
+    "answer": "Unprocessable Content (valid JSON syntax, failed validation)",
+    "options": [
+      "Unprocessable Content (valid JSON syntax, failed validation)",
+      "Too Many Requests",
+      "Payload Too Large",
+      "Internal Server Error"
+    ]
+  },
+  {
+    "tag": "HTTP",
+    "prompt": "Status Code 500",
+    "answer": "Internal Server Error (unhandled backend exception)",
+    "options": [
+      "Internal Server Error (unhandled backend exception)",
+      "Bad Request",
+      "Gateway Timeout",
+      "Service Unavailable"
+    ]
+  },
+  {
+    "tag": "Git",
+    "prompt": "git checkout -b feat/login",
+    "answer": "Creates and switches immediately to a new branch feat/login",
+    "options": [
+      "Creates and switches immediately to a new branch feat/login",
+      "Deletes branch feat/login",
+      "Merges feat/login into main",
+      "Pushes feat/login to remote"
+    ]
+  },
+  {
+    "tag": "Git",
+    "prompt": "git diff --staged",
+    "answer": "Shows exact line changes currently staged for the next commit",
+    "options": [
+      "Shows exact line changes currently staged for the next commit",
+      "Deletes staged changes",
+      "Lists all branches",
+      "Compares two remote repos"
+    ]
+  },
+  {
+    "tag": "Git",
+    "prompt": "git revert <commit>",
+    "answer": "Creates a new safe commit that undoes an earlier commit's changes",
+    "options": [
+      "Creates a new safe commit that undoes an earlier commit's changes",
+      "Erases commit history with force push",
+      "Resets uncommitted files only",
+      "Tags the commit as stable"
+    ]
+  },
+  {
+    "tag": "Linux/Docker",
+    "prompt": "ps aux | grep node",
+    "answer": "Lists running processes and filters for those matching 'node'",
+    "options": [
+      "Lists running processes and filters for those matching 'node'",
+      "Installs Node.js globally",
+      "Kills every Node process",
+      "Displays Node memory heap"
+    ]
+  },
+  {
+    "tag": "Linux/Docker",
+    "prompt": "ssh -i key.pem user@host",
+    "answer": "Connects securely to a remote server using a private key file",
+    "options": [
+      "Connects securely to a remote server using a private key file",
+      "Copies files locally",
+      "Generates a new TLS certificate",
+      "Opens a local HTTP proxy"
+    ]
+  },
+  {
+    "tag": "Linux/Docker",
+    "prompt": "docker logs -f api",
+    "answer": "Follows live stdout/stderr log output from container 'api'",
+    "options": [
+      "Follows live stdout/stderr log output from container 'api'",
+      "Restarts container api",
+      "Deletes api log files",
+      "Builds Dockerfile inside api"
     ]
   }
 ];
@@ -1787,6 +2195,114 @@ export const OUTAGE_SCENARIOS = [
         "latencyDelta": -10,
         "good": false,
         "outcome": "Permanent customer data loss!"
+      }
+    ]
+  },
+  {
+    "title": "JWT Secret Rotated Without Grace Window",
+    "situation": "Security rotated the JWT signing key directly in production; all 200,000 active users were logged out simultaneously.",
+    "choices": [
+      {
+        "text": "Support dual-key verification (old + new kid) during token TTL, then retire old key",
+        "uptimeDelta": 3,
+        "latencyDelta": -20,
+        "good": true,
+        "outcome": "Active sessions stay alive smoothly while new logins sign with the fresh key."
+      },
+      {
+        "text": "Disable JWT signature verification for 24 hours so nobody gets errors",
+        "uptimeDelta": -15,
+        "latencyDelta": 10,
+        "good": false,
+        "outcome": "Anyone can forge an admin token in 5 seconds!"
+      },
+      {
+        "text": "Force every user to reset their password via email",
+        "uptimeDelta": -10,
+        "latencyDelta": 50,
+        "good": false,
+        "outcome": "Email provider rate-limits and support tickets skyrocket."
+      }
+    ]
+  },
+  {
+    "title": "Unbounded Message Queue Backlog",
+    "situation": "A downstream webhook slowed down, leaving 1.2 million messages backed up in RabbitMQ/SQS.",
+    "choices": [
+      {
+        "text": "Scale consumers, route repeated failures to a Dead Letter Queue, and apply backoff",
+        "uptimeDelta": 2,
+        "latencyDelta": -50,
+        "good": true,
+        "outcome": "Poison messages isolate cleanly while healthy backlog drains 10x faster."
+      },
+      {
+        "text": "Purge the entire queue to bring backlog back to zero instantly",
+        "uptimeDelta": -15,
+        "latencyDelta": -10,
+        "good": false,
+        "outcome": "You permanently deleted 1.2 million paid order notifications!"
+      },
+      {
+        "text": "Set retry delay to 0ms so workers hammer the slow webhook nonstop",
+        "uptimeDelta": -12,
+        "latencyDelta": 95,
+        "good": false,
+        "outcome": "Tight retry loop keeps the downstream service completely crushed."
+      }
+    ]
+  },
+  {
+    "title": "Frontend Bundle Bloat (14MB JS)",
+    "situation": "Mobile users on 4G wait 11 seconds for a blank white screen after an icon pack imported every icon on earth.",
+    "choices": [
+      {
+        "text": "Enable tree-shaking, code-split routes dynamically, and import only needed icons",
+        "uptimeDelta": 3,
+        "latencyDelta": -70,
+        "good": true,
+        "outcome": "Initial JS bundle drops from 14MB to 140KB; mobile loads in under 1 second."
+      },
+      {
+        "text": "Add a prettier loading spinner and leave the 14MB bundle",
+        "uptimeDelta": -6,
+        "latencyDelta": 30,
+        "good": false,
+        "outcome": "Bounce rate on phones stays above 60%."
+      },
+      {
+        "text": "Disable Gzip/Brotli compression on the CDN",
+        "uptimeDelta": -10,
+        "latencyDelta": 85,
+        "good": false,
+        "outcome": "Makes transfers 4x slower!"
+      }
+    ]
+  },
+  {
+    "title": "Silent Backup Failure",
+    "situation": "A routine disaster-recovery check reveals nightly database backups have been failing for 3 weeks.",
+    "choices": [
+      {
+        "text": "Fix the backup job immediately, run a verified restore drill, and wire failure alerts",
+        "uptimeDelta": 3,
+        "latencyDelta": -10,
+        "good": true,
+        "outcome": "Verified snapshots resume and automated alerts catch future failures on day 1."
+      },
+      {
+        "text": "Wait until the weekend maintenance window to look at it",
+        "uptimeDelta": -12,
+        "latencyDelta": 15,
+        "good": false,
+        "outcome": "A hardware crash on Friday could lose 3 weeks of customer data."
+      },
+      {
+        "text": "Turn off backup alerts so the dashboard stays green",
+        "uptimeDelta": -15,
+        "latencyDelta": 10,
+        "good": false,
+        "outcome": "Hiding the alarm guarantees catastrophic data loss later."
       }
     ]
   }

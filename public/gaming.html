@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>Video Games & Esports — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="gaming">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="duel" type="button">📊 Sales &amp; Score Duel</button>
+      <button class="mode-tab" data-mode="id" type="button">🗺️ Map / Weapon / Boss</button>
+      <button class="mode-tab" data-mode="studio" type="button">🏢 Studio Match</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="duel">
+      <div class="game-header">
+        <div><span class="game-tag">36 Blockbuster Titles</span><h2>Sales &amp; Score Showdown</h2></div>
+        <span class="points-chip">Run: <strong id="gm-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <div class="seg-toggle">
+          <button class="seg-btn active" data-gmmetric="sales" type="button">Copies Sold (M)</button>
+          <button class="seg-btn" data-gmmetric="score" type="button">Critic Score</button>
+          <button class="seg-btn" data-gmmetric="year" type="button">Launch Year</button>
+        </div>
+      </div>
+      <p id="gm-tip" class="game-tip">Did the right-hand game sell MORE or FEWER copies worldwide?</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="gm-l-emoji" class="emoji-big">🎮</div><h3 id="gm-l-name">---</h3><p id="gm-l-meta" class="sub"></p></div>
+          <div class="score-box"><span id="gm-l-label" class="score-label">SOLD</span><span id="gm-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="gm-r-emoji" class="emoji-big">🎮</div><h3 id="gm-r-name">---</h3><p id="gm-r-meta" class="sub"></p></div>
+          <div class="score-box"><span id="gm-r-label" class="score-label">SOLD</span><span id="gm-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="gm-controls" class="duel-controls">
+        <button id="gm-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="gm-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="gm-status" class="feedback hidden"></div>
+      <button id="gm-restart" class="btn btn-primary full-width hidden" type="button">New Gaming Run ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="id">
+      <div class="game-header">
+        <div><span class="game-tag">32 Iconic Relics</span><h2>Map, Weapon &amp; Boss ID</h2></div>
+        <span id="gi-pts" class="points-chip">+220 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="gi-kind" class="gen-select" aria-label="Clue Type">
+          <option value="all">All (32)</option>
+          <option value="Map">Maps Only</option>
+          <option value="Weapon">Weapons Only</option>
+          <option value="Boss">Bosses Only</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="gi-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="gi-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Identify the game from this iconic map, weapon, or boss.</p>
+
+      <div class="stage-card clue-stage" style="text-align:center;">
+        <span id="gi-badge" class="hub-badge">MAP</span>
+        <h3 id="gi-clue" style="margin:12px 0 0; font-size:1.4rem; font-family:'Space Grotesk',sans-serif;">---</h3>
+      </div>
+
+      <div class="action-bar">
+        <button id="gi-hint-btn" class="btn btn-secondary" type="button">💡 Description Clue (-60 pts)</button>
+        <div id="gi-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="gi-options" class="options-grid"></div>
+      <div id="gi-feedback" class="feedback hidden"></div>
+      <button id="gi-next" class="btn btn-primary full-width hidden" type="button">Next Clue →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="studio">
+      <div class="game-header">
+        <div><span class="game-tag">34 Blockbusters</span><h2>Studio Match</h2></div>
+        <div class="seg-toggle">
+          <button id="gs-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="gs-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Which developer studio created this title?</p>
+
+      <div class="stage-card clue-stage" style="text-align:center;">
+        <div style="font-size:0.75rem; color:var(--muted); margin-bottom:4px;">DEVELOPED BY</div>
+        <h3 id="gs-game" style="margin:0; font-size:1.38rem; font-family:'Space Grotesk',sans-serif;">---</h3>
+      </div>
+
+      <div id="gs-options" class="options-grid"></div>
+      <div id="gs-feedback" class="feedback hidden"></div>
+      <button id="gs-next" class="btn btn-primary full-width hidden" type="button">Next Title →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/gaming.js"></script>
+</body>
+</html>

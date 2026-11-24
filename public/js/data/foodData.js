@@ -702,6 +702,182 @@ export const MACRO_FOODS = [
     "fat": 0.0,
     "sugar": 0.0,
     "desc": "Unsweetened brewed black coffee (per 100ml)"
+  },
+  {
+    "name": "Curd Rice (Thayir Sadam)",
+    "emoji": "\ud83c\udf5a",
+    "cat": "indian",
+    "calories": 125,
+    "protein": 3.6,
+    "carbs": 19.5,
+    "fat": 3.5,
+    "sugar": 2.4,
+    "desc": "Tempered cooling yogurt & soft rice (per 100g)"
+  },
+  {
+    "name": "Uttapam (Onion)",
+    "emoji": "\ud83e\udd5e",
+    "cat": "indian",
+    "calories": 162,
+    "protein": 4.3,
+    "carbs": 28.5,
+    "fat": 3.2,
+    "sugar": 2.1,
+    "desc": "Thick fermented rice-lentil pancake with onions (per 100g)"
+  },
+  {
+    "name": "Ragi Mudde",
+    "emoji": "\ud83d\udfe4",
+    "cat": "indian",
+    "calories": 110,
+    "protein": 2.8,
+    "carbs": 23.0,
+    "fat": 0.5,
+    "sugar": 0.3,
+    "desc": "Karnataka finger-millet steamed ball (per 100g)"
+  },
+  {
+    "name": "Palak Paneer",
+    "emoji": "\ud83e\udd6c",
+    "cat": "indian",
+    "calories": 178,
+    "protein": 10.5,
+    "carbs": 6.2,
+    "fat": 12.8,
+    "sugar": 1.8,
+    "desc": "Spinach puree simmered with soft paneer cubes (per 100g)"
+  },
+  {
+    "name": "Chicken Tikka Masala",
+    "emoji": "\ud83c\udf5b",
+    "cat": "indian",
+    "calories": 190,
+    "protein": 14.5,
+    "carbs": 9.0,
+    "fat": 10.5,
+    "sugar": 3.9,
+    "desc": "Roasted chicken pieces in spiced tomato sauce (per 100g)"
+  },
+  {
+    "name": "Garlic Naan",
+    "emoji": "\ud83e\uded3",
+    "cat": "indian",
+    "calories": 295,
+    "protein": 8.8,
+    "carbs": 49.0,
+    "fat": 7.2,
+    "sugar": 3.4,
+    "desc": "Tandoor-baked leavened flatbread with garlic butter (per 100g)"
+  },
+  {
+    "name": "Chia Seeds (Dry)",
+    "emoji": "\ud83c\udf31",
+    "cat": "fitness",
+    "calories": 486,
+    "protein": 16.5,
+    "carbs": 42.1,
+    "fat": 30.7,
+    "sugar": 0.0,
+    "desc": "Omega-3 & fiber-packed seeds (per 100g)"
+  },
+  {
+    "name": "Cottage Cheese / Dahi",
+    "emoji": "\ud83e\udd63",
+    "cat": "fitness",
+    "calories": 98,
+    "protein": 11.1,
+    "carbs": 3.4,
+    "fat": 4.3,
+    "sugar": 2.7,
+    "desc": "Fresh high-protein curds (per 100g)"
+  },
+  {
+    "name": "Grilled Prawns",
+    "emoji": "\ud83e\udd90",
+    "cat": "fitness",
+    "calories": 99,
+    "protein": 24.0,
+    "carbs": 0.2,
+    "fat": 0.3,
+    "sugar": 0.0,
+    "desc": "Ultra-lean high-protein shrimp/prawns (per 100g)"
+  },
+  {
+    "name": "Tuna (Canned in Water)",
+    "emoji": "\ud83d\udc1f",
+    "cat": "fitness",
+    "calories": 116,
+    "protein": 25.5,
+    "carbs": 0.0,
+    "fat": 0.8,
+    "sugar": 0.0,
+    "desc": "Drained lean skipjack tuna (per 100g)"
+  },
+  {
+    "name": "Broccoli (Steamed)",
+    "emoji": "\ud83e\udd66",
+    "cat": "fitness",
+    "calories": 35,
+    "protein": 2.4,
+    "carbs": 7.2,
+    "fat": 0.4,
+    "sugar": 1.4,
+    "desc": "Crisp steamed green florets (per 100g)"
+  },
+  {
+    "name": "Walnuts (Raw)",
+    "emoji": "\ud83c\udf30",
+    "cat": "fitness",
+    "calories": 654,
+    "protein": 15.2,
+    "carbs": 13.7,
+    "fat": 65.2,
+    "sugar": 2.6,
+    "desc": "Calorie-dense omega-3 tree nuts (per 100g)"
+  },
+  {
+    "name": "Falafel (Fried)",
+    "emoji": "\ud83e\uddc6",
+    "cat": "global",
+    "calories": 333,
+    "protein": 13.3,
+    "carbs": 31.8,
+    "fat": 17.8,
+    "sugar": 1.6,
+    "desc": "Crispy herbed chickpea fritters (per 100g)"
+  },
+  {
+    "name": "Bibimbap Bowl",
+    "emoji": "\ud83c\udf5a",
+    "cat": "global",
+    "calories": 140,
+    "protein": 7.5,
+    "carbs": 19.0,
+    "fat": 3.8,
+    "sugar": 2.8,
+    "desc": "Korean mixed rice, veggies, egg & gochujang (per 100g)"
+  },
+  {
+    "name": "Cheesecake (NY Style)",
+    "emoji": "\ud83c\udf70",
+    "cat": "dessert",
+    "calories": 321,
+    "protein": 5.5,
+    "carbs": 25.5,
+    "fat": 22.5,
+    "sugar": 21.0,
+    "desc": "Rich baked cream cheese slice (per 100g)"
+  },
+  {
+    "name": "Mango Lassi",
+    "emoji": "\ud83e\udd6d",
+    "cat": "dessert",
+    "calories": 92,
+    "protein": 2.8,
+    "carbs": 16.5,
+    "fat": 1.8,
+    "sugar": 14.5,
+    "desc": "Sweet blended yogurt & Alphonso mango drink (per 100ml)"
   }
 ];
 

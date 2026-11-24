@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0c10" />
+  <meta name="theme-color" content="#07090d" />
   <title>Home — Fandom Arcade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,15 +30,16 @@
   <main class="container">
     <section class="welcome-card">
       <div class="welcome-meta">
-        <span class="welcome-kicker">9 ARENAS • 26 MINI-GAMES</span>
+        <span class="welcome-kicker">16 ARENAS • 47 MINI-GAMES</span>
         <span id="arcade-rank" class="rank-badge">Rank: Newcomer</span>
       </div>
       <h1 id="welcome-greeting">Welcome to Fandom Arcade</h1>
-      <p>Every category runs on its own clean, fast page with filters, difficulty options, and massive datasets. Your streak follows you across arenas and best scores save automatically.</p>
+      <p>Every category runs on its own fast, smooth 60 FPS page with a unique dark animated blurred backdrop. Pick any arena below—streaks follow you across pages and best scores save automatically.</p>
       <div class="welcome-chips">
-        <span>📱 Mobile-First</span>
+        <span>✨ 60 FPS Engine</span>
+        <span>📱 One-Thumb Mobile</span>
         <span>🔒 Hidden TMDB Key</span>
-        <span>🎛️ Filters &amp; Difficulty Modes</span>
+        <span>🎛️ Dynamic Category Backdrops</span>
       </div>
     </section>
 
@@ -47,9 +48,18 @@
         <div class="hub-card-top"><span class="hub-badge">MOVIES</span><span class="hub-best">Best: <strong id="best-cat-movies">0</strong></span></div>
         <div class="hub-emoji">🎬</div>
         <h2>Movies Arena</h2>
-        <p>Scene Unblur &amp; Cast Match with Hollywood, Indian &amp; International filters, Era picks, and 4/6 options.</p>
-        <div class="hub-tags"><span>Scene Unblur</span><span>Cast Match</span><span>Region &amp; Era</span></div>
+        <p>Scene Unblur &amp; Cast Match with Hollywood, Indian &amp; World filters, Era picks, and 4/6 options.</p>
+        <div class="hub-tags"><span>Scene Unblur</span><span>Cast Match</span></div>
         <span class="play-cta">Open Movies →</span>
+      </a>
+
+      <a class="hub-card card-tv" href="tv.html">
+        <div class="hub-card-top"><span class="hub-badge">TV SERIES</span><span class="hub-best">Best: <strong id="best-cat-tv">0</strong></span></div>
+        <div class="hub-emoji">📺</div>
+        <h2>TV &amp; Streaming</h2>
+        <p>Series Frame Unblur, Binge Duel (Ratings, Seasons, Episodes, Year), and TV Cast Match via TMDB.</p>
+        <div class="hub-tags"><span>Frame Unblur</span><span>Binge Duel</span><span>TV Cast</span></div>
+        <span class="play-cta">Open TV →</span>
       </a>
 
       <a class="hub-card card-anime" href="anime.html">
@@ -57,7 +67,7 @@
         <div class="hub-emoji">⚡</div>
         <h2>Anime Arena</h2>
         <p>Duel Score, Popularity, or Release Year on AniList, or match iconic characters with genre filters.</p>
-        <div class="hub-tags"><span>Score/Pop/Era Duel</span><span>Character Match</span></div>
+        <div class="hub-tags"><span>Score/Pop/Era</span><span>Character Match</span></div>
         <span class="play-cta">Open Anime →</span>
       </a>
 
@@ -66,25 +76,79 @@
         <div class="hub-emoji">◓</div>
         <h2>Pokémon Arena</h2>
         <p>Who's That Pokémon (Easy 4, Medium 6, Hard text-only dropdown), Gen 1–9 filters, cries &amp; Stat Clash.</p>
-        <div class="hub-tags"><span>Easy/Med/Hard</span><span>All Gens</span><span>Stat Clash</span></div>
+        <div class="hub-tags"><span>Easy/Med/Hard</span><span>Stat Clash</span></div>
         <span class="play-cta">Open Pokémon →</span>
+      </a>
+
+      <a class="hub-card card-sports" href="sports.html">
+        <div class="hub-card-top"><span class="hub-badge">SPORTS</span><span class="hub-best">Best: <strong id="best-cat-sports">0</strong></span></div>
+        <div class="hub-emoji">🏏</div>
+        <h2>Cricket &amp; Football</h2>
+        <p>Intl Cricket, IPL &amp; Football Stat Clash, Career Path / Jersey Guess (Easy &amp; Hard), plus 60 FPS Super Over &amp; Penalties.</p>
+        <div class="hub-tags"><span>Stat Clash</span><span>Career Path</span><span>Super Over / PK</span></div>
+        <span class="play-cta">Open Sports →</span>
+      </a>
+
+      <a class="hub-card card-music" href="music.html">
+        <div class="hub-card-top"><span class="hub-badge">MUSIC</span><span class="hub-best">Best: <strong id="best-cat-music">0</strong></span></div>
+        <div class="hub-emoji">🎵</div>
+        <h2>Music &amp; Soundtracks</h2>
+        <p>5-Second Audio Hook previews, Album &amp; OST Cover Unblur, and Finish the Lyric across Bollywood, South, Global &amp; Anime.</p>
+        <div class="hub-tags"><span>5s Audio Hook</span><span>Cover Unblur</span><span>Lyrics</span></div>
+        <span class="play-cta">Open Music →</span>
+      </a>
+
+      <a class="hub-card card-gaming" href="gaming.html">
+        <div class="hub-card-top"><span class="hub-badge">GAMING</span><span class="hub-best">Best: <strong id="best-cat-gaming">0</strong></span></div>
+        <div class="hub-emoji">🎮</div>
+        <h2>Video Games Arena</h2>
+        <p>Sales &amp; Critic Score Showdown (36 classics), Map/Weapon/Boss ID (32 clues), and Studio Match (34 titles).</p>
+        <div class="hub-tags"><span>Sales &amp; Score</span><span>Map/Boss ID</span><span>Studio Match</span></div>
+        <span class="play-cta">Open Gaming →</span>
+      </a>
+
+      <a class="hub-card card-chess" href="chess.html">
+        <div class="hub-card-top"><span class="hub-badge">CHESS</span><span class="hub-best">Best: <strong id="best-cat-chess">0</strong></span></div>
+        <div class="hub-emoji">♟️</div>
+        <h2>Chess &amp; Tactics</h2>
+        <p>Interactive 8×8 Mate-in-1 &amp; Fork puzzles, Coordinate &amp; Knight Sprint, and Grandmaster Rating Duel (Chess.com API).</p>
+        <div class="hub-tags"><span>8×8 Tactics</span><span>Knight Sprint</span><span>GM Duel</span></div>
+        <span class="play-cta">Open Chess →</span>
+      </a>
+
+      <a class="hub-card card-cosmos" href="cosmos.html">
+        <div class="hub-card-top"><span class="hub-badge">BATTLES &amp; SPACE</span><span class="hub-best">Best: <strong id="best-cat-cosmos">0</strong></span></div>
+        <div class="hub-emoji">🌌</div>
+        <h2>Battles &amp; Space</h2>
+        <p>Jutsu &amp; Superpower Match (Naruto/Shonen/Comics), Power Scale Clash, and Space, Planets &amp; Rockets Showdown.</p>
+        <div class="hub-tags"><span>Jutsu Match</span><span>Power Clash</span><span>Space &amp; Rockets</span></div>
+        <span class="play-cta">Open Battles &amp; Space →</span>
+      </a>
+
+      <a class="hub-card card-arcade" href="arcade.html">
+        <div class="hub-card-top"><span class="hub-badge">60 FPS CANVAS</span><span class="hub-best">Best: <strong id="best-cat-arcade">0</strong></span></div>
+        <div class="hub-emoji">🕹️</div>
+        <h2>60 FPS Arcade</h2>
+        <p>Pure one-thumb canvas reflex games: Stack Tower with slice physics, Asteroid Drift, and Gravity Dash.</p>
+        <div class="hub-tags"><span>Stack Tower</span><span>Asteroid Drift</span><span>Gravity Dash</span></div>
+        <span class="play-cta">Open Arcade →</span>
       </a>
 
       <a class="hub-card card-food" href="food.html">
         <div class="hub-card-top"><span class="hub-badge">FOOD</span><span class="hub-best">Best: <strong id="best-cat-food">0</strong></span></div>
         <div class="hub-emoji">🍜</div>
         <h2>Food Arena</h2>
-        <p>Cuisine Compass, Ingredient Detective, 64-food Macro Duel (Kcal/Protein/Carbs/Fat/Sugar) &amp; 5 Brackets.</p>
-        <div class="hub-tags"><span>Cuisine Compass</span><span>Ingredients</span><span>Macro Duel</span><span>5 Brackets</span></div>
+        <p>Cuisine Compass, Ingredient Detective, 80-food Macro Duel (Kcal/Protein/Carbs/Fat/Sugar) &amp; 5 Brackets.</p>
+        <div class="hub-tags"><span>Cuisine Compass</span><span>80 Foods</span><span>5 Brackets</span></div>
         <span class="play-cta">Open Food →</span>
       </a>
 
       <a class="hub-card card-cartoons" href="cartoons.html">
         <div class="hub-card-top"><span class="hub-badge">CARTOONS</span><span class="hub-best">Best: <strong id="best-cat-cartoons">0</strong></span></div>
-        <div class="hub-emoji">📺</div>
+        <div class="hub-emoji">🎨</div>
         <h2>Cartoons Arena</h2>
         <p>Unblur classic &amp; modern animated show frames or duel ratings, premiere years, and popularity.</p>
-        <div class="hub-tags"><span>Frame Unblur</span><span>Score/Era Duel</span><span>Classic/Modern</span></div>
+        <div class="hub-tags"><span>Frame Unblur</span><span>Score/Era Duel</span></div>
         <span class="play-cta">Open Cartoons →</span>
       </a>
 
@@ -92,8 +156,8 @@
         <div class="hub-card-top"><span class="hub-badge">SOFTWARE ENG</span><span class="hub-best">Best: <strong id="best-cat-dev">0</strong></span></div>
         <div class="hub-emoji">💻</div>
         <h2>Dev Arena</h2>
-        <p>160+ dev challenges across GitHub Stars, Spot the Bug, Output, 20 Languages, Big-O, HTTP/Git/Docker &amp; Outages.</p>
-        <div class="hub-tags"><span>42 Repos</span><span>22 Bugs</span><span>30 HTTP/Git</span><span>14 Outages</span></div>
+        <p>220+ dev challenges across GitHub Stars, 32 Bugs, 32 Outputs, 26 Languages, 30 Big-O, 40 HTTP/Git &amp; 18 Outages.</p>
+        <div class="hub-tags"><span>32 Bugs</span><span>32 Outputs</span><span>40 HTTP/Git</span><span>18 Outages</span></div>
         <span class="play-cta">Open Dev →</span>
       </a>
 
@@ -101,8 +165,8 @@
         <div class="hub-card-top"><span class="hub-badge">WORLD</span><span class="hub-best">Best: <strong id="best-cat-geography">0</strong></span></div>
         <div class="hub-emoji">🌍</div>
         <h2>Geography &amp; World</h2>
-        <p>103 countries &amp; 52 global cities — Flags, Capitals, Currencies, Population/Area/Borders Duel &amp; Live Weather.</p>
-        <div class="hub-tags"><span>Flags/Capitals/Currency</span><span>World Duel</span><span>Live Weather</span></div>
+        <p>115 countries &amp; 52 global cities — Flags, Capitals, Currencies, Population/Area/Borders Duel &amp; Live Weather.</p>
+        <div class="hub-tags"><span>115 Countries</span><span>World Duel</span><span>Live Weather</span></div>
         <span class="play-cta">Open World →</span>
       </a>
 
@@ -110,8 +174,8 @@
         <div class="hub-card-top"><span class="hub-badge">MOTORSPORT</span><span class="hub-best">Best: <strong id="best-cat-auto">0</strong></span></div>
         <div class="hub-emoji">🏍️</div>
         <h2>Bikes &amp; Cars Arena</h2>
-        <p>66 machines across 4 packs (BHP, Torque, 0–100, Weight, Price), 16 Headlights &amp; 10 Exhaust synth notes.</p>
-        <div class="hub-tags"><span>4 Packs</span><span>16 Headlights</span><span>10 Engine Notes</span></div>
+        <p>78 machines across 4 packs (BHP, Torque, 0–100, Weight, Price), 16 Headlights &amp; 10 Exhaust synth notes.</p>
+        <div class="hub-tags"><span>78 Machines</span><span>16 Headlights</span><span>10 Exhausts</span></div>
         <span class="play-cta">Open Auto →</span>
       </a>
 
@@ -119,8 +183,8 @@
         <div class="hub-card-top"><span class="hub-badge">CROSS-ARCADE</span><span class="hub-best">Best: <strong id="best-cat-blitz">0</strong></span></div>
         <div class="hub-emoji">⏱️</div>
         <h2>Blitz &amp; Friend Challenges</h2>
-        <p>200+ mixed questions with category toggles, 30s/60s/90s Blitz clocks, and 5/10/15-round shareable links.</p>
-        <div class="hub-tags"><span>30s / 60s / 90s Blitz</span><span>5 / 10 / 15 Challenge</span></div>
+        <p>400+ mixed questions with 8 category toggles, 30s/60s/90s Blitz clocks, and 5/10/15-round shareable links.</p>
+        <div class="hub-tags"><span>400+ Questions</span><span>8 Categories</span><span>Shareable Seed</span></div>
         <span class="play-cta">Open Blitz →</span>
       </a>
     </div>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>Music & Soundtracks Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="music">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="hook" type="button">🎧 5-Second Hook</button>
+      <button class="mode-tab" data-mode="cover" type="button">💿 Album Cover Unblur</button>
+      <button class="mode-tab" data-mode="lyric" type="button">🎤 Finish the Lyric</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="hook">
+      <div class="game-header">
+        <div><span class="game-tag">44 Tracks • iTunes Preview Proxy</span><h2>5-Second Audio Hook</h2></div>
+        <span id="mh-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="mh-cat" class="gen-select" aria-label="Music Category">
+          <option value="all">All Genres (44)</option>
+          <option value="bollywood">Bollywood Hits</option>
+          <option value="south">South Indian Hits</option>
+          <option value="global">Global Pop / Rock</option>
+          <option value="anime">Anime Openings</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="mh-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="mh-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Play a 5-second clip and name the song. Expand to 10s or 15s for fewer points.</p>
+
+      <div class="stage-card audio-stage" style="min-height:165px;">
+        <div id="mh-loader" class="loader">Cueing track preview...</div>
+        <div id="mh-bars" class="eq-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <button id="mh-play-btn" class="btn btn-primary" type="button">▶ Play 5s Clip</button>
+        <span id="mh-clip-info" style="font-size:0.78rem; color:var(--muted);">Clip length: 5 seconds</span>
+      </div>
+
+      <div class="action-bar">
+        <button id="mh-extend-btn" class="btn btn-secondary" type="button">⏱️ Extend Clip to 10s + Artist Clue (-75 pts)</button>
+        <div id="mh-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="mh-options" class="options-grid"></div>
+      <div id="mh-feedback" class="feedback hidden"></div>
+      <button id="mh-next" class="btn btn-primary full-width hidden" type="button">Next Track →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="cover">
+      <div class="game-header">
+        <div><span class="game-tag">HD Album &amp; OST Artwork</span><h2>Album Cover Unblur</h2></div>
+        <span id="mc-pts" class="points-chip">+300 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="mc-cat" class="gen-select" aria-label="Cover Category">
+          <option value="all">All Genres (44)</option>
+          <option value="bollywood">Bollywood</option>
+          <option value="south">South Indian</option>
+          <option value="global">Global Pop / Rock</option>
+          <option value="anime">Anime OSTs</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="mc-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="mc-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Identify the song/album from its blurred cover art.</p>
+
+      <div class="stage-card album-stage">
+        <div id="mc-loader" class="loader">Loading cover art...</div>
+        <img id="mc-img" class="blur-3" alt="Blurred album cover" />
+      </div>
+
+      <div class="action-bar">
+        <button id="mc-hint-btn" class="btn btn-secondary" type="button">💡 Unblur &amp; Artist Clue (-75 pts)</button>
+        <div id="mc-hint-box" class="hints-box hidden"></div>
+      </div>
+
+      <div id="mc-options" class="options-grid"></div>
+      <div id="mc-feedback" class="feedback hidden"></div>
+      <button id="mc-next" class="btn btn-primary full-width hidden" type="button">Next Cover →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="lyric">
+      <div class="game-header">
+        <div><span class="game-tag">26 Iconic Choruses</span><h2>Finish the Lyric</h2></div>
+        <span class="points-chip">+200 PTS</span>
+      </div>
+      <div class="filter-row">
+        <select id="ml-cat" class="gen-select" aria-label="Lyric Category">
+          <option value="all">All Lyrics (26)</option>
+          <option value="global">Global Hits</option>
+          <option value="bollywood">Bollywood</option>
+          <option value="south">South Indian</option>
+          <option value="anime">Anime</option>
+        </select>
+      </div>
+      <p class="game-tip">Tap the exact next line to keep your streak alive.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="ml-song" class="game-tag" style="margin-bottom:8px;">---</div>
+        <div id="ml-line" class="quote-block" style="font-size:1.05rem; font-weight:600;">---</div>
+      </div>
+
+      <div id="ml-options" class="options-grid"></div>
+      <div id="ml-feedback" class="feedback hidden"></div>
+      <button id="ml-next" class="btn btn-primary full-width hidden" type="button">Next Lyric →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/music.js"></script>
+</body>
+</html>

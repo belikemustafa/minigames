@@ -1028,6 +1028,126 @@ export const WORLD_COUNTRIES = [
     "area": 2842,
     "borders": 0,
     "currency": "Samoan T\u0101l\u0101 (WST)"
+  },
+  {
+    "code": "cy",
+    "name": "Cyprus",
+    "capital": "Nicosia",
+    "region": "Europe",
+    "pop": 1260138,
+    "area": 9251,
+    "borders": 0,
+    "currency": "Euro (EUR)"
+  },
+  {
+    "code": "mt",
+    "name": "Malta",
+    "capital": "Valletta",
+    "region": "Europe",
+    "pop": 536740,
+    "area": 316,
+    "borders": 0,
+    "currency": "Euro (EUR)"
+  },
+  {
+    "code": "lu",
+    "name": "Luxembourg",
+    "capital": "Luxembourg City",
+    "region": "Europe",
+    "pop": 660809,
+    "area": 2586,
+    "borders": 3,
+    "currency": "Euro (EUR)"
+  },
+  {
+    "code": "ge",
+    "name": "Georgia",
+    "capital": "Tbilisi",
+    "region": "Asia",
+    "pop": 3717425,
+    "area": 69700,
+    "borders": 4,
+    "currency": "Georgian Lari (GEL)"
+  },
+  {
+    "code": "am",
+    "name": "Armenia",
+    "capital": "Yerevan",
+    "region": "Asia",
+    "pop": 2777970,
+    "area": 29743,
+    "borders": 4,
+    "currency": "Armenian Dram (AMD)"
+  },
+  {
+    "code": "az",
+    "name": "Azerbaijan",
+    "capital": "Baku",
+    "region": "Asia",
+    "pop": 10412651,
+    "area": 86600,
+    "borders": 5,
+    "currency": "Azerbaijani Manat (AZN)"
+  },
+  {
+    "code": "kw",
+    "name": "Kuwait",
+    "capital": "Kuwait City",
+    "region": "Asia",
+    "pop": 4310108,
+    "area": 17818,
+    "borders": 2,
+    "currency": "Kuwaiti Dinar (KWD)"
+  },
+  {
+    "code": "bh",
+    "name": "Bahrain",
+    "capital": "Manama",
+    "region": "Asia",
+    "pop": 1485509,
+    "area": 765,
+    "borders": 0,
+    "currency": "Bahraini Dinar (BHD)"
+  },
+  {
+    "code": "mv",
+    "name": "Maldives",
+    "capital": "Mal\u00e9",
+    "region": "Asia",
+    "pop": 521021,
+    "area": 298,
+    "borders": 0,
+    "currency": "Maldivian Rufiyaa (MVR)"
+  },
+  {
+    "code": "la",
+    "name": "Laos",
+    "capital": "Vientiane",
+    "region": "Asia",
+    "pop": 7633779,
+    "area": 236800,
+    "borders": 5,
+    "currency": "Lao Kip (LAK)"
+  },
+  {
+    "code": "rw",
+    "name": "Rwanda",
+    "capital": "Kigali",
+    "region": "Africa",
+    "pop": 14094683,
+    "area": 26338,
+    "borders": 4,
+    "currency": "Rwandan Franc (RWF)"
+  },
+  {
+    "code": "mu",
+    "name": "Mauritius",
+    "capital": "Port Louis",
+    "region": "Africa",
+    "pop": 1261041,
+    "area": 2040,
+    "borders": 0,
+    "currency": "Mauritian Rupee (MUR)"
   }
 ];
 

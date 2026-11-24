@@ -406,6 +406,15 @@ export function initFx() {
   if (canvas) return;
   document.body.classList.toggle('reduced-fx', !fxEnabled);
 
+  // Inject dark, animated, smooth, lightly blurred category background stage
+  if (!document.getElementById('bg-stage')) {
+    const bgStage = document.createElement('div');
+    bgStage.id = 'bg-stage';
+    bgStage.setAttribute('aria-hidden', 'true');
+    bgStage.innerHTML = '<div class="bg-orb bg-orb-1"></div><div class="bg-orb bg-orb-2"></div><div class="bg-orb bg-orb-3"></div><div id="bg-pattern"></div><div id="bg-scrim"></div>';
+    document.body.prepend(bgStage);
+  }
+
   // Inject edge-vignette layer
   const vig = document.createElement('div');
   vig.id = 'fx-vignette';

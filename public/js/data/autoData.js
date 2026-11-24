@@ -209,6 +209,46 @@ export const AUTO_SPECS = {
       "weight": 197,
       "price": 20.75,
       "zeroTo100": 2.9
+    },
+    {
+      "name": "Hero Destini 125",
+      "brand": "India",
+      "emoji": "\ud83d\udef5",
+      "bhp": 9.0,
+      "torque": 10.4,
+      "weight": 115,
+      "price": 0.84,
+      "zeroTo100": 23.0
+    },
+    {
+      "name": "Ather Rizta Z (3.7 kWh)",
+      "brand": "India (EV)",
+      "emoji": "\u26a1",
+      "bhp": 5.8,
+      "torque": 22.0,
+      "weight": 119,
+      "price": 1.45,
+      "zeroTo100": 17.5
+    },
+    {
+      "name": "Yamaha MT-15 V2",
+      "brand": "Japan / India",
+      "emoji": "\ud83c\udfcd\ufe0f",
+      "bhp": 18.1,
+      "torque": 14.1,
+      "weight": 141,
+      "price": 1.7,
+      "zeroTo100": 11.8
+    },
+    {
+      "name": "Triumph Street Triple 765 RS",
+      "brand": "UK",
+      "emoji": "\ud83c\udfcd\ufe0f",
+      "bhp": 128.2,
+      "torque": 80.0,
+      "weight": 188,
+      "price": 11.81,
+      "zeroTo100": 3.1
     }
   ],
   "suvs": [
@@ -391,6 +431,46 @@ export const AUTO_SPECS = {
       "weight": 2360,
       "price": 104.0,
       "zeroTo100": 7.0
+    },
+    {
+      "name": "Skoda Kodiaq (2.0 TSI)",
+      "brand": "Czechia",
+      "emoji": "\ud83d\ude99",
+      "bhp": 188,
+      "torque": 320,
+      "weight": 1795,
+      "price": 40.0,
+      "zeroTo100": 7.8
+    },
+    {
+      "name": "MG Hector (1.5 Turbo)",
+      "brand": "UK / China",
+      "emoji": "\ud83d\ude99",
+      "bhp": 141,
+      "torque": 250,
+      "weight": 1620,
+      "price": 17.5,
+      "zeroTo100": 11.4
+    },
+    {
+      "name": "Maruti Suzuki Jimny",
+      "brand": "Japan / India",
+      "emoji": "\ud83d\ude99",
+      "bhp": 103,
+      "torque": 134,
+      "weight": 1210,
+      "price": 12.7,
+      "zeroTo100": 14.8
+    },
+    {
+      "name": "Toyota Hilux 4x4",
+      "brand": "Japan",
+      "emoji": "\ud83d\udefb",
+      "bhp": 201,
+      "torque": 500,
+      "weight": 2150,
+      "price": 34.0,
+      "zeroTo100": 10.4
     }
   ],
   "supercars": [
@@ -552,6 +632,46 @@ export const AUTO_SPECS = {
       "torque": 800,
       "weight": 1540,
       "price": 550,
+      "zeroTo100": 3.2
+    },
+    {
+      "name": "Aston Martin Valkyrie",
+      "brand": "UK",
+      "emoji": "\ud83c\udfce\ufe0f",
+      "bhp": 1140,
+      "torque": 900,
+      "weight": 1270,
+      "price": 2600,
+      "zeroTo100": 2.5
+    },
+    {
+      "name": "Ford GT (EcoBoost V6)",
+      "brand": "USA",
+      "emoji": "\ud83c\udfce\ufe0f",
+      "bhp": 660,
+      "torque": 746,
+      "weight": 1385,
+      "price": 450,
+      "zeroTo100": 2.9
+    },
+    {
+      "name": "Ferrari F40",
+      "brand": "Italy",
+      "emoji": "\ud83c\udfce\ufe0f",
+      "bhp": 471,
+      "torque": 577,
+      "weight": 1250,
+      "price": 2200,
+      "zeroTo100": 4.1
+    },
+    {
+      "name": "McLaren F1",
+      "brand": "UK",
+      "emoji": "\ud83c\udfce\ufe0f",
+      "bhp": 618,
+      "torque": 650,
+      "weight": 1138,
+      "price": 16500,
       "zeroTo100": 3.2
     }
   ],
