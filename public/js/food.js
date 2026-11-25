@@ -1,8 +1,8 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
-  resetStreak, shuffle, escapeHtml, preloadImage, animateNumber, triggerFlash, burstMilestone,
+  resetStreak, shuffle, escapeHtml, preloadImage, animateNumber, triggerFlash, burstMilestone, loadJson,
 } from './core.js';
-import { MACRO_FOODS, BRACKET_PACKS } from './data/foodData.js';
+const { MACRO_FOODS, BRACKET_PACKS } = await loadJson('./data/food/food.json');
 
 initChrome('food');
 

@@ -1,0 +1,3400 @@
+{
+  "CRICKET_INTL": [
+    {
+      "name": "Sachin Tendulkar",
+      "country": "India",
+      "role": "Batter",
+      "runs": 34357,
+      "wickets": 201,
+      "centuries": 100,
+      "sr": 86.2,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Virat Kohli",
+      "country": "India",
+      "role": "Batter",
+      "runs": 27500,
+      "wickets": 9,
+      "centuries": 81,
+      "sr": 93.4,
+      "trophies": 4,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ricky Ponting",
+      "country": "Australia",
+      "role": "Batter",
+      "runs": 27483,
+      "wickets": 8,
+      "centuries": 71,
+      "sr": 80.4,
+      "trophies": 5,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Kumar Sangakkara",
+      "country": "Sri Lanka",
+      "role": "WK-Batter",
+      "runs": 28016,
+      "wickets": 0,
+      "centuries": 63,
+      "sr": 78.9,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Jacques Kallis",
+      "country": "South Africa",
+      "role": "All-Rounder",
+      "runs": 25534,
+      "wickets": 577,
+      "centuries": 62,
+      "sr": 72.9,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Rahul Dravid",
+      "country": "India",
+      "role": "Batter",
+      "runs": 24208,
+      "wickets": 5,
+      "centuries": 48,
+      "sr": 71.2,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Brian Lara",
+      "country": "West Indies",
+      "role": "Batter",
+      "runs": 22358,
+      "wickets": 4,
+      "centuries": 53,
+      "sr": 79.5,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "MS Dhoni",
+      "country": "India",
+      "role": "WK-Captain",
+      "runs": 17266,
+      "wickets": 1,
+      "centuries": 16,
+      "sr": 87.6,
+      "trophies": 3,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Rohit Sharma",
+      "country": "India",
+      "role": "Opener",
+      "runs": 19500,
+      "wickets": 11,
+      "centuries": 49,
+      "sr": 92.4,
+      "trophies": 4,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "AB de Villiers",
+      "country": "South Africa",
+      "role": "Batter",
+      "runs": 20014,
+      "wickets": 9,
+      "centuries": 47,
+      "sr": 101.1,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Chris Gayle",
+      "country": "West Indies",
+      "role": "Opener",
+      "runs": 19593,
+      "wickets": 260,
+      "centuries": 42,
+      "sr": 87.2,
+      "trophies": 3,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Joe Root",
+      "country": "England",
+      "role": "Batter",
+      "runs": 20600,
+      "wickets": 98,
+      "centuries": 53,
+      "sr": 87.0,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Steve Smith",
+      "country": "Australia",
+      "role": "Batter",
+      "runs": 16800,
+      "wickets": 64,
+      "centuries": 48,
+      "sr": 86.9,
+      "trophies": 4,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Kane Williamson",
+      "country": "New Zealand",
+      "role": "Batter",
+      "runs": 18800,
+      "wickets": 73,
+      "centuries": 46,
+      "sr": 81.5,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "David Warner",
+      "country": "Australia",
+      "role": "Opener",
+      "runs": 18995,
+      "wickets": 4,
+      "centuries": 49,
+      "sr": 97.3,
+      "trophies": 4,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Babar Azam",
+      "country": "Pakistan",
+      "role": "Batter",
+      "runs": 14400,
+      "wickets": 2,
+      "centuries": 31,
+      "sr": 88.7,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ben Stokes",
+      "country": "England",
+      "role": "All-Rounder",
+      "runs": 10600,
+      "wickets": 305,
+      "centuries": 18,
+      "sr": 95.1,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Muttiah Muralitharan",
+      "country": "Sri Lanka",
+      "role": "Off-Spinner",
+      "runs": 1936,
+      "wickets": 1347,
+      "centuries": 0,
+      "sr": 72.0,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Shane Warne",
+      "country": "Australia",
+      "role": "Leg-Spinner",
+      "runs": 4172,
+      "wickets": 1001,
+      "centuries": 0,
+      "sr": 72.0,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "James Anderson",
+      "country": "England",
+      "role": "Fast Bowler",
+      "runs": 1626,
+      "wickets": 991,
+      "centuries": 0,
+      "sr": 48.0,
+      "trophies": 0,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Anil Kumble",
+      "country": "India",
+      "role": "Leg-Spinner",
+      "runs": 3444,
+      "wickets": 956,
+      "centuries": 1,
+      "sr": 61.0,
+      "trophies": 0,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Glenn McGrath",
+      "country": "Australia",
+      "role": "Fast Bowler",
+      "runs": 756,
+      "wickets": 949,
+      "centuries": 0,
+      "sr": 48.5,
+      "trophies": 3,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Wasim Akram",
+      "country": "Pakistan",
+      "role": "Fast Bowler",
+      "runs": 6615,
+      "wickets": 916,
+      "centuries": 3,
+      "sr": 88.3,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Jasprit Bumrah",
+      "country": "India",
+      "role": "Fast Bowler",
+      "runs": 450,
+      "wickets": 440,
+      "centuries": 0,
+      "sr": 62.0,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Ravichandran Ashwin",
+      "country": "India",
+      "role": "Off-Spinner",
+      "runs": 4394,
+      "wickets": 765,
+      "centuries": 6,
+      "sr": 78.0,
+      "trophies": 2,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Mitchell Starc",
+      "country": "Australia",
+      "role": "Fast Bowler",
+      "runs": 2850,
+      "wickets": 700,
+      "centuries": 0,
+      "sr": 79.0,
+      "trophies": 4,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Mahela Jayawardene",
+      "country": "Sri Lanka",
+      "role": "Batter",
+      "runs": 25957,
+      "wickets": 14,
+      "centuries": 54,
+      "sr": 78.9,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Hashim Amla",
+      "country": "South Africa",
+      "role": "Opener",
+      "runs": 18672,
+      "wickets": 0,
+      "centuries": 55,
+      "sr": 88.4,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Sourav Ganguly",
+      "country": "India",
+      "role": "Batter",
+      "runs": 18575,
+      "wickets": 132,
+      "centuries": 38,
+      "sr": 73.7,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Virender Sehwag",
+      "country": "India",
+      "role": "Opener",
+      "runs": 17253,
+      "wickets": 136,
+      "centuries": 38,
+      "sr": 104.3,
+      "trophies": 2,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Yuvraj Singh",
+      "country": "India",
+      "role": "All-Rounder",
+      "runs": 11778,
+      "wickets": 148,
+      "centuries": 17,
+      "sr": 87.7,
+      "trophies": 3,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Adam Gilchrist",
+      "country": "Australia",
+      "role": "WK-Opener",
+      "runs": 15461,
+      "wickets": 0,
+      "centuries": 33,
+      "sr": 96.9,
+      "trophies": 3,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Sanath Jayasuriya",
+      "country": "Sri Lanka",
+      "role": "All-Rounder",
+      "runs": 21032,
+      "wickets": 440,
+      "centuries": 42,
+      "sr": 91.2,
+      "trophies": 2,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Inzamam-ul-Haq",
+      "country": "Pakistan",
+      "role": "Batter",
+      "runs": 20580,
+      "wickets": 3,
+      "centuries": 35,
+      "sr": 74.2,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Shivnarine Chanderpaul",
+      "country": "West Indies",
+      "role": "Batter",
+      "runs": 20988,
+      "wickets": 23,
+      "centuries": 41,
+      "sr": 70.7,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ross Taylor",
+      "country": "New Zealand",
+      "role": "Batter",
+      "runs": 18199,
+      "wickets": 2,
+      "centuries": 40,
+      "sr": 83.3,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Shaun Pollock",
+      "country": "South Africa",
+      "role": "All-Rounder",
+      "runs": 7386,
+      "wickets": 829,
+      "centuries": 3,
+      "sr": 86.7,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Dale Steyn",
+      "country": "South Africa",
+      "role": "Fast Bowler",
+      "runs": 1577,
+      "wickets": 699,
+      "centuries": 0,
+      "sr": 75.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Stuart Broad",
+      "country": "England",
+      "role": "Fast Bowler",
+      "runs": 4258,
+      "wickets": 847,
+      "centuries": 1,
+      "sr": 64.0,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Brett Lee",
+      "country": "Australia",
+      "role": "Fast Bowler",
+      "runs": 2729,
+      "wickets": 718,
+      "centuries": 0,
+      "sr": 83.0,
+      "trophies": 2,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Sunil Gavaskar",
+      "country": "India",
+      "role": "Opener",
+      "runs": 13214,
+      "wickets": 2,
+      "centuries": 35,
+      "sr": 62.3,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Kapil Dev",
+      "country": "India",
+      "role": "All-Rounder",
+      "runs": 9031,
+      "wickets": 687,
+      "centuries": 9,
+      "sr": 95.1,
+      "trophies": 1,
+      "emoji": "\ud83c\udfc6"
+    },
+    {
+      "name": "VVS Laxman",
+      "country": "India",
+      "role": "Batter",
+      "runs": 11119,
+      "wickets": 2,
+      "centuries": 23,
+      "sr": 71.2,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Gautam Gambhir",
+      "country": "India",
+      "role": "Opener",
+      "runs": 10324,
+      "wickets": 0,
+      "centuries": 20,
+      "sr": 85.2,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Zaheer Khan",
+      "country": "India",
+      "role": "Fast Bowler",
+      "runs": 2022,
+      "wickets": 610,
+      "centuries": 0,
+      "sr": 73.6,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Harbhajan Singh",
+      "country": "India",
+      "role": "Off-Spinner",
+      "runs": 3569,
+      "wickets": 711,
+      "centuries": 2,
+      "sr": 81.2,
+      "trophies": 2,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Ravindra Jadeja",
+      "country": "India",
+      "role": "All-Rounder",
+      "runs": 6650,
+      "wickets": 600,
+      "centuries": 4,
+      "sr": 86.5,
+      "trophies": 3,
+      "emoji": "\u2694\ufe0f"
+    },
+    {
+      "name": "KL Rahul",
+      "country": "India",
+      "role": "WK-Batter",
+      "runs": 8350,
+      "wickets": 0,
+      "centuries": 17,
+      "sr": 88.1,
+      "trophies": 1,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Shubman Gill",
+      "country": "India",
+      "role": "Opener",
+      "runs": 5250,
+      "wickets": 0,
+      "centuries": 13,
+      "sr": 99.4,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Rishabh Pant",
+      "country": "India",
+      "role": "WK-Batter",
+      "runs": 5100,
+      "wickets": 0,
+      "centuries": 8,
+      "sr": 106.5,
+      "trophies": 1,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Mohammed Shami",
+      "country": "India",
+      "role": "Fast Bowler",
+      "runs": 970,
+      "wickets": 462,
+      "centuries": 0,
+      "sr": 81.0,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Allan Border",
+      "country": "Australia",
+      "role": "Batter",
+      "runs": 17698,
+      "wickets": 112,
+      "centuries": 30,
+      "sr": 71.4,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Steve Waugh",
+      "country": "Australia",
+      "role": "Batter",
+      "runs": 18496,
+      "wickets": 287,
+      "centuries": 35,
+      "sr": 75.9,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Matthew Hayden",
+      "country": "Australia",
+      "role": "Opener",
+      "runs": 15066,
+      "wickets": 0,
+      "centuries": 40,
+      "sr": 79.0,
+      "trophies": 2,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Michael Clarke",
+      "country": "Australia",
+      "role": "Batter",
+      "runs": 17112,
+      "wickets": 94,
+      "centuries": 36,
+      "sr": 79.0,
+      "trophies": 3,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Pat Cummins",
+      "country": "Australia",
+      "role": "Fast Bowler",
+      "runs": 2050,
+      "wickets": 495,
+      "centuries": 0,
+      "sr": 74.0,
+      "trophies": 3,
+      "emoji": "\ud83c\udfc6"
+    },
+    {
+      "name": "Travis Head",
+      "country": "Australia",
+      "role": "Batter",
+      "runs": 7400,
+      "wickets": 42,
+      "centuries": 16,
+      "sr": 105.2,
+      "trophies": 2,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Alastair Cook",
+      "country": "England",
+      "role": "Opener",
+      "runs": 15737,
+      "wickets": 1,
+      "centuries": 38,
+      "sr": 77.1,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Kevin Pietersen",
+      "country": "England",
+      "role": "Batter",
+      "runs": 13797,
+      "wickets": 18,
+      "centuries": 32,
+      "sr": 86.6,
+      "trophies": 1,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Jos Buttler",
+      "country": "England",
+      "role": "WK-Batter",
+      "runs": 11500,
+      "wickets": 0,
+      "centuries": 14,
+      "sr": 117.1,
+      "trophies": 2,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Viv Richards",
+      "country": "West Indies",
+      "role": "Batter",
+      "runs": 15261,
+      "wickets": 150,
+      "centuries": 35,
+      "sr": 90.2,
+      "trophies": 2,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Curtly Ambrose",
+      "country": "West Indies",
+      "role": "Fast Bowler",
+      "runs": 2135,
+      "wickets": 630,
+      "centuries": 0,
+      "sr": 64.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Courtney Walsh",
+      "country": "West Indies",
+      "role": "Fast Bowler",
+      "runs": 1257,
+      "wickets": 746,
+      "centuries": 0,
+      "sr": 60.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Graeme Smith",
+      "country": "South Africa",
+      "role": "Opener",
+      "runs": 17236,
+      "wickets": 26,
+      "centuries": 37,
+      "sr": 80.8,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Quinton de Kock",
+      "country": "South Africa",
+      "role": "WK-Opener",
+      "runs": 12650,
+      "wickets": 0,
+      "centuries": 28,
+      "sr": 96.6,
+      "trophies": 0,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Kagiso Rabada",
+      "country": "South Africa",
+      "role": "Fast Bowler",
+      "runs": 1380,
+      "wickets": 555,
+      "centuries": 0,
+      "sr": 75.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Younis Khan",
+      "country": "Pakistan",
+      "role": "Batter",
+      "runs": 17790,
+      "wickets": 12,
+      "centuries": 41,
+      "sr": 75.3,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Waqar Younis",
+      "country": "Pakistan",
+      "role": "Fast Bowler",
+      "runs": 1979,
+      "wickets": 789,
+      "centuries": 0,
+      "sr": 66.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Shahid Afridi",
+      "country": "Pakistan",
+      "role": "All-Rounder",
+      "runs": 11196,
+      "wickets": 541,
+      "centuries": 11,
+      "sr": 117.0,
+      "trophies": 1,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Brendon McCullum",
+      "country": "New Zealand",
+      "role": "WK-Opener",
+      "runs": 14676,
+      "wickets": 0,
+      "centuries": 19,
+      "sr": 96.4,
+      "trophies": 0,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Trent Boult",
+      "country": "New Zealand",
+      "role": "Fast Bowler",
+      "runs": 1050,
+      "wickets": 611,
+      "centuries": 0,
+      "sr": 72.0,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Shakib Al Hasan",
+      "country": "Bangladesh",
+      "role": "All-Rounder",
+      "runs": 14730,
+      "wickets": 712,
+      "centuries": 14,
+      "sr": 82.8,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    }
+  ],
+  "CRICKET_IPL": [
+    {
+      "name": "Virat Kohli",
+      "team": "RCB",
+      "role": "Batter",
+      "runs": 8004,
+      "wickets": 4,
+      "centuries": 8,
+      "sr": 132.0,
+      "trophies": 1,
+      "emoji": "\ud83d\udd34"
+    },
+    {
+      "name": "Shikhar Dhawan",
+      "team": "PBKS / SRH / DC",
+      "role": "Opener",
+      "runs": 6769,
+      "wickets": 4,
+      "centuries": 2,
+      "sr": 127.1,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Rohit Sharma",
+      "team": "MI / DC",
+      "role": "Opener",
+      "runs": 6628,
+      "wickets": 15,
+      "centuries": 2,
+      "sr": 131.1,
+      "trophies": 6,
+      "emoji": "\ud83d\udd35"
+    },
+    {
+      "name": "David Warner",
+      "team": "SRH / DC",
+      "role": "Opener",
+      "runs": 6565,
+      "wickets": 0,
+      "centuries": 4,
+      "sr": 139.8,
+      "trophies": 1,
+      "emoji": "\ud83d\udfe0"
+    },
+    {
+      "name": "Suresh Raina",
+      "team": "CSK / GL",
+      "role": "Batter",
+      "runs": 5528,
+      "wickets": 25,
+      "centuries": 1,
+      "sr": 136.8,
+      "trophies": 4,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "MS Dhoni",
+      "team": "CSK / RPS",
+      "role": "WK-Finisher",
+      "runs": 5243,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 137.5,
+      "trophies": 5,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "AB de Villiers",
+      "team": "RCB / DD",
+      "role": "Batter",
+      "runs": 5162,
+      "wickets": 0,
+      "centuries": 3,
+      "sr": 151.7,
+      "trophies": 0,
+      "emoji": "\ud83d\udd34"
+    },
+    {
+      "name": "Chris Gayle",
+      "team": "RCB / PBKS / KKR",
+      "role": "Opener",
+      "runs": 4965,
+      "wickets": 18,
+      "centuries": 6,
+      "sr": 149.0,
+      "trophies": 0,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "KL Rahul",
+      "team": "LSG / PBKS / RCB / DC",
+      "role": "WK-Batter",
+      "runs": 4683,
+      "wickets": 0,
+      "centuries": 4,
+      "sr": 134.6,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Suryakumar Yadav",
+      "team": "MI / KKR",
+      "role": "Batter",
+      "runs": 3594,
+      "wickets": 0,
+      "centuries": 2,
+      "sr": 145.3,
+      "trophies": 3,
+      "emoji": "\ud83d\udd35"
+    },
+    {
+      "name": "Sanju Samson",
+      "team": "RR / DC",
+      "role": "WK-Batter",
+      "runs": 4419,
+      "wickets": 0,
+      "centuries": 3,
+      "sr": 139.0,
+      "trophies": 0,
+      "emoji": "\ud83e\ude77"
+    },
+    {
+      "name": "Jos Buttler",
+      "team": "RR / MI / GT",
+      "role": "WK-Opener",
+      "runs": 3582,
+      "wickets": 0,
+      "centuries": 7,
+      "sr": 147.5,
+      "trophies": 0,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Hardik Pandya",
+      "team": "MI / GT",
+      "role": "All-Rounder",
+      "runs": 2525,
+      "wickets": 64,
+      "centuries": 0,
+      "sr": 145.6,
+      "trophies": 5,
+      "emoji": "\ud83d\udd35"
+    },
+    {
+      "name": "Ravindra Jadeja",
+      "team": "CSK / RR",
+      "role": "All-Rounder",
+      "runs": 2959,
+      "wickets": 160,
+      "centuries": 0,
+      "sr": 129.7,
+      "trophies": 4,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "Andre Russell",
+      "team": "KKR / DD",
+      "role": "All-Rounder",
+      "runs": 2484,
+      "wickets": 115,
+      "centuries": 0,
+      "sr": 174.9,
+      "trophies": 3,
+      "emoji": "\ud83d\udfe3"
+    },
+    {
+      "name": "Sunil Narine",
+      "team": "KKR",
+      "role": "All-Rounder",
+      "runs": 1534,
+      "wickets": 180,
+      "centuries": 1,
+      "sr": 165.8,
+      "trophies": 3,
+      "emoji": "\ud83d\udfe3"
+    },
+    {
+      "name": "Kieron Pollard",
+      "team": "MI",
+      "role": "All-Rounder",
+      "runs": 3412,
+      "wickets": 69,
+      "centuries": 0,
+      "sr": 147.3,
+      "trophies": 5,
+      "emoji": "\ud83d\udd35"
+    },
+    {
+      "name": "Yuzvendra Chahal",
+      "team": "RR / RCB / PBKS",
+      "role": "Leg-Spinner",
+      "runs": 37,
+      "wickets": 205,
+      "centuries": 0,
+      "sr": 43.0,
+      "trophies": 0,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Piyush Chawla",
+      "team": "PBKS / KKR / MI",
+      "role": "Leg-Spinner",
+      "runs": 624,
+      "wickets": 192,
+      "centuries": 0,
+      "sr": 110.0,
+      "trophies": 2,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Dwayne Bravo",
+      "team": "CSK / MI / GL",
+      "role": "All-Rounder",
+      "runs": 1560,
+      "wickets": 183,
+      "centuries": 0,
+      "sr": 129.6,
+      "trophies": 3,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "Bhuvneshwar Kumar",
+      "team": "SRH / RCB",
+      "role": "Swing Bowler",
+      "runs": 306,
+      "wickets": 181,
+      "centuries": 0,
+      "sr": 95.0,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Lasith Malinga",
+      "team": "MI",
+      "role": "Fast Bowler",
+      "runs": 88,
+      "wickets": 170,
+      "centuries": 0,
+      "sr": 88.0,
+      "trophies": 4,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Jasprit Bumrah",
+      "team": "MI",
+      "role": "Fast Bowler",
+      "runs": 69,
+      "wickets": 165,
+      "centuries": 0,
+      "sr": 86.0,
+      "trophies": 5,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Rashid Khan",
+      "team": "GT / SRH",
+      "role": "Leg-Spinner",
+      "runs": 545,
+      "wickets": 149,
+      "centuries": 0,
+      "sr": 161.2,
+      "trophies": 1,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Gautam Gambhir",
+      "team": "KKR / DD",
+      "role": "Opener",
+      "runs": 4217,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 123.9,
+      "trophies": 2,
+      "emoji": "\ud83d\udfe3"
+    },
+    {
+      "name": "Robin Uthappa",
+      "team": "KKR / RCB / CSK",
+      "role": "WK-Batter",
+      "runs": 4952,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 130.4,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Dinesh Karthik",
+      "team": "RCB / KKR / MI",
+      "role": "WK-Finisher",
+      "runs": 4842,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 135.4,
+      "trophies": 1,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Faf du Plessis",
+      "team": "CSK / RCB / DC",
+      "role": "Opener",
+      "runs": 4571,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 136.4,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Shreyas Iyer",
+      "team": "DC / KKR / PBKS",
+      "role": "Batter",
+      "runs": 3127,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 127.5,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Rishabh Pant",
+      "team": "DC / LSG",
+      "role": "WK-Batter",
+      "runs": 3284,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 148.9,
+      "trophies": 0,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Shubman Gill",
+      "team": "GT / KKR",
+      "role": "Opener",
+      "runs": 3216,
+      "wickets": 0,
+      "centuries": 4,
+      "sr": 135.7,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ruturaj Gaikwad",
+      "team": "CSK",
+      "role": "Opener",
+      "runs": 2380,
+      "wickets": 0,
+      "centuries": 2,
+      "sr": 136.9,
+      "trophies": 2,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "Glenn Maxwell",
+      "team": "PBKS / RCB / MI",
+      "role": "All-Rounder",
+      "runs": 2771,
+      "wickets": 37,
+      "centuries": 0,
+      "sr": 156.7,
+      "trophies": 1,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Shane Watson",
+      "team": "RR / RCB / CSK",
+      "role": "All-Rounder",
+      "runs": 3874,
+      "wickets": 92,
+      "centuries": 4,
+      "sr": 137.9,
+      "trophies": 2,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "Amit Mishra",
+      "team": "DC / SRH / LSG",
+      "role": "Leg-Spinner",
+      "runs": 381,
+      "wickets": 174,
+      "centuries": 0,
+      "sr": 88.0,
+      "trophies": 0,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Mohammed Shami",
+      "team": "GT / PBKS / SRH",
+      "role": "Fast Bowler",
+      "runs": 74,
+      "wickets": 127,
+      "centuries": 0,
+      "sr": 80.0,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Ajinkya Rahane",
+      "team": "RR / CSK / KKR",
+      "role": "Batter",
+      "runs": 4642,
+      "wickets": 1,
+      "centuries": 2,
+      "sr": 123.4,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ambati Rayudu",
+      "team": "MI / CSK",
+      "role": "Batter",
+      "runs": 4348,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 127.5,
+      "trophies": 6,
+      "emoji": "\ud83c\udfc6"
+    },
+    {
+      "name": "Manish Pandey",
+      "team": "KKR / SRH / RCB",
+      "role": "Batter",
+      "runs": 3850,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 121.1,
+      "trophies": 2,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ishan Kishan",
+      "team": "MI / SRH",
+      "role": "WK-Opener",
+      "runs": 2644,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 135.9,
+      "trophies": 2,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Yashasvi Jaiswal",
+      "team": "RR",
+      "role": "Opener",
+      "runs": 1607,
+      "wickets": 0,
+      "centuries": 2,
+      "sr": 150.6,
+      "trophies": 0,
+      "emoji": "\ud83e\ude77"
+    },
+    {
+      "name": "Travis Head",
+      "team": "SRH / RCB",
+      "role": "Opener",
+      "runs": 772,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 173.9,
+      "trophies": 0,
+      "emoji": "\ud83d\udfe0"
+    },
+    {
+      "name": "Heinrich Klaasen",
+      "team": "SRH / RR",
+      "role": "WK-Finisher",
+      "runs": 993,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 168.3,
+      "trophies": 0,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Nicholas Pooran",
+      "team": "LSG / SRH / PBKS",
+      "role": "WK-Finisher",
+      "runs": 1769,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 162.3,
+      "trophies": 0,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "David Miller",
+      "team": "GT / PBKS / LSG",
+      "role": "Finisher",
+      "runs": 2924,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 139.2,
+      "trophies": 1,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Mayank Agarwal",
+      "team": "PBKS / SRH / RCB",
+      "role": "Opener",
+      "runs": 2661,
+      "wickets": 0,
+      "centuries": 1,
+      "sr": 133.1,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Nitish Rana",
+      "team": "KKR / MI / RR",
+      "role": "Batter",
+      "runs": 2636,
+      "wickets": 10,
+      "centuries": 0,
+      "sr": 135.0,
+      "trophies": 1,
+      "emoji": "\ud83d\udfe3"
+    },
+    {
+      "name": "Rinku Singh",
+      "team": "KKR",
+      "role": "Finisher",
+      "runs": 893,
+      "wickets": 0,
+      "centuries": 0,
+      "sr": 143.3,
+      "trophies": 1,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Shivam Dube",
+      "team": "CSK / RR / RCB",
+      "role": "All-Rounder",
+      "runs": 1502,
+      "wickets": 5,
+      "centuries": 0,
+      "sr": 146.7,
+      "trophies": 1,
+      "emoji": "\ud83d\udfe1"
+    },
+    {
+      "name": "Axar Patel",
+      "team": "DC / PBKS",
+      "role": "All-Rounder",
+      "runs": 1653,
+      "wickets": 123,
+      "centuries": 0,
+      "sr": 130.9,
+      "trophies": 0,
+      "emoji": "\ud83c\udfcf"
+    },
+    {
+      "name": "Ravichandran Ashwin",
+      "team": "CSK / RR / PBKS",
+      "role": "Off-Spinner",
+      "runs": 800,
+      "wickets": 180,
+      "centuries": 0,
+      "sr": 118.2,
+      "trophies": 2,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Harbhajan Singh",
+      "team": "MI / CSK / KKR",
+      "role": "Off-Spinner",
+      "runs": 833,
+      "wickets": 150,
+      "centuries": 0,
+      "sr": 137.7,
+      "trophies": 4,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Trent Boult",
+      "team": "MI / RR / SRH",
+      "role": "Fast Bowler",
+      "runs": 83,
+      "wickets": 121,
+      "centuries": 0,
+      "sr": 108.0,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Kagiso Rabada",
+      "team": "DC / PBKS / GT",
+      "role": "Fast Bowler",
+      "runs": 206,
+      "wickets": 117,
+      "centuries": 0,
+      "sr": 103.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Arshdeep Singh",
+      "team": "PBKS",
+      "role": "Fast Bowler",
+      "runs": 29,
+      "wickets": 76,
+      "centuries": 0,
+      "sr": 72.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Mohammed Siraj",
+      "team": "RCB / SRH / GT",
+      "role": "Fast Bowler",
+      "runs": 109,
+      "wickets": 93,
+      "centuries": 0,
+      "sr": 88.0,
+      "trophies": 0,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Kuldeep Yadav",
+      "team": "DC / KKR",
+      "role": "Wrist-Spinner",
+      "runs": 183,
+      "wickets": 87,
+      "centuries": 0,
+      "sr": 88.0,
+      "trophies": 0,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Varun Chakaravarthy",
+      "team": "KKR / PBKS",
+      "role": "Mystery Spinner",
+      "runs": 24,
+      "wickets": 83,
+      "centuries": 0,
+      "sr": 55.0,
+      "trophies": 1,
+      "emoji": "\ud83d\udfe3"
+    },
+    {
+      "name": "Harshal Patel",
+      "team": "RCB / PBKS / SRH",
+      "role": "Fast Bowler",
+      "runs": 265,
+      "wickets": 135,
+      "centuries": 0,
+      "sr": 126.0,
+      "trophies": 0,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Mitchell Starc",
+      "team": "KKR / RCB / DC",
+      "role": "Fast Bowler",
+      "runs": 105,
+      "wickets": 51,
+      "centuries": 0,
+      "sr": 101.0,
+      "trophies": 1,
+      "emoji": "\u26a1"
+    }
+  ],
+  "FOOTBALL_STARS": [
+    {
+      "name": "Cristiano Ronaldo",
+      "country": "Portugal",
+      "role": "Forward",
+      "goals": 925,
+      "assists": 257,
+      "trophies": 35,
+      "caps": 217,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Lionel Messi",
+      "country": "Argentina",
+      "role": "Forward",
+      "goals": 852,
+      "assists": 381,
+      "trophies": 46,
+      "caps": 191,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Pel\u00e9",
+      "country": "Brazil",
+      "role": "Forward",
+      "goals": 762,
+      "assists": 369,
+      "trophies": 29,
+      "caps": 92,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Robert Lewandowski",
+      "country": "Poland",
+      "role": "Striker",
+      "goals": 685,
+      "assists": 170,
+      "trophies": 29,
+      "caps": 156,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Luis Su\u00e1rez",
+      "country": "Uruguay",
+      "role": "Striker",
+      "goals": 585,
+      "assists": 295,
+      "trophies": 23,
+      "caps": 143,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Zlatan Ibrahimovi\u0107",
+      "country": "Sweden",
+      "role": "Striker",
+      "goals": 573,
+      "assists": 219,
+      "trophies": 32,
+      "caps": 122,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Karim Benzema",
+      "country": "France",
+      "role": "Striker",
+      "goals": 488,
+      "assists": 208,
+      "trophies": 34,
+      "caps": 97,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Neymar Jr.",
+      "country": "Brazil",
+      "role": "Winger",
+      "goals": 442,
+      "assists": 255,
+      "trophies": 29,
+      "caps": 128,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Harry Kane",
+      "country": "England",
+      "role": "Striker",
+      "goals": 440,
+      "assists": 115,
+      "trophies": 1,
+      "caps": 103,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Mohamed Salah",
+      "country": "Egypt",
+      "role": "Winger",
+      "goals": 385,
+      "assists": 172,
+      "trophies": 11,
+      "caps": 101,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Kylian Mbapp\u00e9",
+      "country": "France",
+      "role": "Forward",
+      "goals": 365,
+      "assists": 145,
+      "trophies": 19,
+      "caps": 86,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Erling Haaland",
+      "country": "Norway",
+      "role": "Striker",
+      "goals": 285,
+      "assists": 56,
+      "trophies": 11,
+      "caps": 39,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Thierry Henry",
+      "country": "France",
+      "role": "Forward",
+      "goals": 411,
+      "assists": 207,
+      "trophies": 22,
+      "caps": 123,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Ronaldo Naz\u00e1rio",
+      "country": "Brazil",
+      "role": "Striker",
+      "goals": 414,
+      "assists": 105,
+      "trophies": 19,
+      "caps": 98,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Ronaldinho",
+      "country": "Brazil",
+      "role": "Attacking Mid",
+      "goals": 313,
+      "assists": 235,
+      "trophies": 14,
+      "caps": 97,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Diego Maradona",
+      "country": "Argentina",
+      "role": "Attacking Mid",
+      "goals": 346,
+      "assists": 210,
+      "trophies": 12,
+      "caps": 91,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Zinedine Zidane",
+      "country": "France",
+      "role": "Midfielder",
+      "goals": 156,
+      "assists": 162,
+      "trophies": 15,
+      "caps": 108,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Luka Modri\u0107",
+      "country": "Croatia",
+      "role": "Midfielder",
+      "goals": 126,
+      "assists": 178,
+      "trophies": 34,
+      "caps": 184,
+      "emoji": "\ud83c\udf96\ufe0f"
+    },
+    {
+      "name": "Toni Kroos",
+      "country": "Germany",
+      "role": "Midfielder",
+      "goals": 94,
+      "assists": 187,
+      "trophies": 34,
+      "caps": 114,
+      "emoji": "\ud83c\udf96\ufe0f"
+    },
+    {
+      "name": "Kevin De Bruyne",
+      "country": "Belgium",
+      "role": "Midfielder",
+      "goals": 184,
+      "assists": 275,
+      "trophies": 22,
+      "caps": 107,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Andr\u00e9s Iniesta",
+      "country": "Spain",
+      "role": "Midfielder",
+      "goals": 107,
+      "assists": 192,
+      "trophies": 39,
+      "caps": 131,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Xavi Hern\u00e1ndez",
+      "country": "Spain",
+      "role": "Midfielder",
+      "goals": 119,
+      "assists": 238,
+      "trophies": 32,
+      "caps": 133,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Sergio Ramos",
+      "country": "Spain",
+      "role": "Defender",
+      "goals": 140,
+      "assists": 42,
+      "trophies": 29,
+      "caps": 180,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "Dani Alves",
+      "country": "Brazil",
+      "role": "Full-Back",
+      "goals": 75,
+      "assists": 205,
+      "trophies": 43,
+      "caps": 126,
+      "emoji": "\ud83c\udfc6"
+    },
+    {
+      "name": "Wayne Rooney",
+      "country": "England",
+      "role": "Forward",
+      "goals": 366,
+      "assists": 187,
+      "trophies": 17,
+      "caps": 120,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Didier Drogba",
+      "country": "Ivory Coast",
+      "role": "Striker",
+      "goals": 367,
+      "assists": 129,
+      "trophies": 19,
+      "caps": 105,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Sunil Chhetri",
+      "country": "India",
+      "role": "Striker",
+      "goals": 255,
+      "assists": 40,
+      "trophies": 14,
+      "caps": 151,
+      "emoji": "\ud83c\uddee\ud83c\uddf3"
+    },
+    {
+      "name": "Vin\u00edcius J\u00fanior",
+      "country": "Brazil",
+      "role": "Winger",
+      "goals": 122,
+      "assists": 95,
+      "trophies": 14,
+      "caps": 37,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Gerd M\u00fcller",
+      "country": "Germany",
+      "role": "Striker",
+      "goals": 735,
+      "assists": 106,
+      "trophies": 15,
+      "caps": 62,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Ferenc Pusk\u00e1s",
+      "country": "Hungary",
+      "role": "Forward",
+      "goals": 725,
+      "assists": 404,
+      "trophies": 15,
+      "caps": 85,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Rom\u00e1rio",
+      "country": "Brazil",
+      "role": "Striker",
+      "goals": 755,
+      "assists": 145,
+      "trophies": 16,
+      "caps": 70,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Eus\u00e9bio",
+      "country": "Portugal",
+      "role": "Forward",
+      "goals": 623,
+      "assists": 95,
+      "trophies": 17,
+      "caps": 64,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Sergio Ag\u00fcero",
+      "country": "Argentina",
+      "role": "Striker",
+      "goals": 426,
+      "assists": 118,
+      "trophies": 21,
+      "caps": 101,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Edinson Cavani",
+      "country": "Uruguay",
+      "role": "Striker",
+      "goals": 458,
+      "assists": 94,
+      "trophies": 25,
+      "caps": 136,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Samuel Eto'o",
+      "country": "Cameroon",
+      "role": "Striker",
+      "goals": 426,
+      "assists": 116,
+      "trophies": 21,
+      "caps": 118,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Ra\u00fal Gonz\u00e1lez",
+      "country": "Spain",
+      "role": "Forward",
+      "goals": 432,
+      "assists": 135,
+      "trophies": 22,
+      "caps": 102,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Alessandro Del Piero",
+      "country": "Italy",
+      "role": "Forward",
+      "goals": 346,
+      "assists": 140,
+      "trophies": 18,
+      "caps": 91,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Francesco Totti",
+      "country": "Italy",
+      "role": "Attacking Mid",
+      "goals": 316,
+      "assists": 207,
+      "trophies": 6,
+      "caps": 58,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Steven Gerrard",
+      "country": "England",
+      "role": "Midfielder",
+      "goals": 212,
+      "assists": 174,
+      "trophies": 11,
+      "caps": 114,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Frank Lampard",
+      "country": "England",
+      "role": "Midfielder",
+      "goals": 303,
+      "assists": 184,
+      "trophies": 13,
+      "caps": 106,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Gareth Bale",
+      "country": "Wales",
+      "role": "Winger",
+      "goals": 226,
+      "assists": 161,
+      "trophies": 22,
+      "caps": 111,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Son Heung-min",
+      "country": "South Korea",
+      "role": "Forward",
+      "goals": 265,
+      "assists": 110,
+      "trophies": 1,
+      "caps": 131,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Sadio Man\u00e9",
+      "country": "Senegal",
+      "role": "Winger",
+      "goals": 260,
+      "assists": 115,
+      "trophies": 10,
+      "caps": 111,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Jude Bellingham",
+      "country": "England",
+      "role": "Midfielder",
+      "goals": 72,
+      "assists": 58,
+      "trophies": 5,
+      "caps": 40,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Lamine Yamal",
+      "country": "Spain",
+      "role": "Winger",
+      "goals": 22,
+      "assists": 32,
+      "trophies": 3,
+      "caps": 17,
+      "emoji": "\ud83c\udf1f"
+    },
+    {
+      "name": "Johan Cruyff",
+      "country": "Netherlands",
+      "role": "Forward",
+      "goals": 401,
+      "assists": 358,
+      "trophies": 22,
+      "caps": 48,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Marco van Basten",
+      "country": "Netherlands",
+      "role": "Striker",
+      "goals": 301,
+      "assists": 92,
+      "trophies": 19,
+      "caps": 58,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Ruud Gullit",
+      "country": "Netherlands",
+      "role": "Midfielder",
+      "goals": 235,
+      "assists": 115,
+      "trophies": 18,
+      "caps": 66,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Paolo Maldini",
+      "country": "Italy",
+      "role": "Defender",
+      "goals": 40,
+      "assists": 43,
+      "trophies": 26,
+      "caps": 126,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "Gianluigi Buffon",
+      "country": "Italy",
+      "role": "Goalkeeper",
+      "goals": 0,
+      "assists": 2,
+      "trophies": 29,
+      "caps": 176,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Manuel Neuer",
+      "country": "Germany",
+      "role": "Goalkeeper",
+      "goals": 0,
+      "assists": 5,
+      "trophies": 33,
+      "caps": 124,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Iker Casillas",
+      "country": "Spain",
+      "role": "Goalkeeper",
+      "goals": 0,
+      "assists": 1,
+      "trophies": 27,
+      "caps": 167,
+      "emoji": "\ud83e\udde4"
+    },
+    {
+      "name": "Franz Beckenbauer",
+      "country": "Germany",
+      "role": "Sweeper",
+      "goals": 109,
+      "assists": 75,
+      "trophies": 19,
+      "caps": 103,
+      "emoji": "\ud83d\udc51"
+    },
+    {
+      "name": "Lothar Matth\u00e4us",
+      "country": "Germany",
+      "role": "Midfielder",
+      "goals": 227,
+      "assists": 120,
+      "trophies": 17,
+      "caps": 150,
+      "emoji": "\ud83c\udf96\ufe0f"
+    },
+    {
+      "name": "Thomas M\u00fcller",
+      "country": "Germany",
+      "role": "Forward",
+      "goals": 292,
+      "assists": 305,
+      "trophies": 33,
+      "caps": 131,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Andrea Pirlo",
+      "country": "Italy",
+      "role": "Deep Playmaker",
+      "goals": 86,
+      "assists": 136,
+      "trophies": 17,
+      "caps": 116,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Kak\u00e1",
+      "country": "Brazil",
+      "role": "Attacking Mid",
+      "goals": 237,
+      "assists": 192,
+      "trophies": 12,
+      "caps": 92,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Roberto Carlos",
+      "country": "Brazil",
+      "role": "Left-Back",
+      "goals": 113,
+      "assists": 125,
+      "trophies": 21,
+      "caps": 125,
+      "emoji": "\ud83d\udca5"
+    },
+    {
+      "name": "Cafu",
+      "country": "Brazil",
+      "role": "Right-Back",
+      "goals": 28,
+      "assists": 72,
+      "trophies": 22,
+      "caps": 142,
+      "emoji": "\ud83c\udfc6"
+    },
+    {
+      "name": "David Beckham",
+      "country": "England",
+      "role": "Midfielder",
+      "goals": 146,
+      "assists": 213,
+      "trophies": 19,
+      "caps": 115,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Paul Scholes",
+      "country": "England",
+      "role": "Midfielder",
+      "goals": 169,
+      "assists": 82,
+      "trophies": 25,
+      "caps": 66,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Ryan Giggs",
+      "country": "Wales",
+      "role": "Winger",
+      "goals": 180,
+      "assists": 265,
+      "trophies": 35,
+      "caps": 64,
+      "emoji": "\ud83c\udfc6"
+    },
+    {
+      "name": "Alan Shearer",
+      "country": "England",
+      "role": "Striker",
+      "goals": 409,
+      "assists": 88,
+      "trophies": 1,
+      "caps": 63,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Dennis Bergkamp",
+      "country": "Netherlands",
+      "role": "Forward",
+      "goals": 276,
+      "assists": 165,
+      "trophies": 14,
+      "caps": 79,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Arjen Robben",
+      "country": "Netherlands",
+      "role": "Winger",
+      "goals": 246,
+      "assists": 192,
+      "trophies": 30,
+      "caps": 96,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Franck Rib\u00e9ry",
+      "country": "France",
+      "role": "Winger",
+      "goals": 167,
+      "assists": 245,
+      "trophies": 24,
+      "caps": 81,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Antoine Griezmann",
+      "country": "France",
+      "role": "Forward",
+      "goals": 315,
+      "assists": 145,
+      "trophies": 7,
+      "caps": 137,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "N'Golo Kant\u00e9",
+      "country": "France",
+      "role": "Midfielder",
+      "goals": 26,
+      "assists": 32,
+      "trophies": 10,
+      "caps": 64,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "country": "Netherlands",
+      "role": "Defender",
+      "goals": 56,
+      "assists": 26,
+      "trophies": 10,
+      "caps": 78,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "Sergio Busquets",
+      "country": "Spain",
+      "role": "Defensive Mid",
+      "goals": 21,
+      "assists": 54,
+      "trophies": 36,
+      "caps": 143,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Gerard Piqu\u00e9",
+      "country": "Spain",
+      "role": "Defender",
+      "goals": 62,
+      "assists": 18,
+      "trophies": 37,
+      "caps": 102,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "David Villa",
+      "country": "Spain",
+      "role": "Striker",
+      "goals": 426,
+      "assists": 105,
+      "trophies": 15,
+      "caps": 98,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Fernando Torres",
+      "country": "Spain",
+      "role": "Striker",
+      "goals": 301,
+      "assists": 85,
+      "trophies": 9,
+      "caps": 110,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Mesut \u00d6zil",
+      "country": "Germany",
+      "role": "Playmaker",
+      "goals": 114,
+      "assists": 258,
+      "trophies": 14,
+      "caps": 92,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "\u00c1ngel Di Mar\u00eda",
+      "country": "Argentina",
+      "role": "Winger",
+      "goals": 206,
+      "assists": 290,
+      "trophies": 36,
+      "caps": 145,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Rodri",
+      "country": "Spain",
+      "role": "Defensive Mid",
+      "goals": 42,
+      "assists": 38,
+      "trophies": 14,
+      "caps": 57,
+      "emoji": "\ud83c\udf96\ufe0f"
+    },
+    {
+      "name": "Bukayo Saka",
+      "country": "England",
+      "role": "Winger",
+      "goals": 74,
+      "assists": 70,
+      "trophies": 2,
+      "caps": 43,
+      "emoji": "\u26a1"
+    },
+    {
+      "name": "Phil Foden",
+      "country": "England",
+      "role": "Midfielder",
+      "goals": 96,
+      "assists": 62,
+      "trophies": 17,
+      "caps": 43,
+      "emoji": "\u2728"
+    },
+    {
+      "name": "Cole Palmer",
+      "country": "England",
+      "role": "Attacking Mid",
+      "goals": 52,
+      "assists": 26,
+      "trophies": 6,
+      "caps": 11,
+      "emoji": "\u2744\ufe0f"
+    },
+    {
+      "name": "Bhaichung Bhutia",
+      "country": "India",
+      "role": "Striker",
+      "goals": 145,
+      "assists": 35,
+      "trophies": 12,
+      "caps": 84,
+      "emoji": "\ud83c\uddee\ud83c\uddf3"
+    }
+  ],
+  "CAREER_PATHS": [
+    {
+      "name": "Rohit Sharma",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Opener",
+      "jersey": "#45",
+      "clubs": [
+        "Deccan Chargers",
+        "Mumbai Indians"
+      ]
+    },
+    {
+      "name": "Virat Kohli",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Batter",
+      "jersey": "#18",
+      "clubs": [
+        "Royal Challengers Bengaluru (2008\u2013Present)"
+      ]
+    },
+    {
+      "name": "MS Dhoni",
+      "sport": "ipl",
+      "country": "India",
+      "role": "WK-Captain",
+      "jersey": "#7",
+      "clubs": [
+        "Chennai Super Kings",
+        "Rising Pune Supergiant",
+        "Chennai Super Kings"
+      ]
+    },
+    {
+      "name": "KL Rahul",
+      "sport": "ipl",
+      "country": "India",
+      "role": "WK-Batter",
+      "jersey": "#1",
+      "clubs": [
+        "RCB",
+        "Sunrisers Hyderabad",
+        "RCB",
+        "Punjab Kings",
+        "Lucknow Super Giants",
+        "Delhi Capitals"
+      ]
+    },
+    {
+      "name": "Chris Gayle",
+      "sport": "ipl",
+      "country": "West Indies",
+      "role": "Opener",
+      "jersey": "#333",
+      "clubs": [
+        "Kolkata Knight Riders",
+        "Royal Challengers Bengaluru",
+        "Punjab Kings"
+      ]
+    },
+    {
+      "name": "AB de Villiers",
+      "sport": "ipl",
+      "country": "South Africa",
+      "role": "Batter",
+      "jersey": "#17",
+      "clubs": [
+        "Delhi Daredevils",
+        "Royal Challengers Bengaluru"
+      ]
+    },
+    {
+      "name": "Hardik Pandya",
+      "sport": "ipl",
+      "country": "India",
+      "role": "All-Rounder",
+      "jersey": "#33",
+      "clubs": [
+        "Mumbai Indians",
+        "Gujarat Titans",
+        "Mumbai Indians"
+      ]
+    },
+    {
+      "name": "Ravindra Jadeja",
+      "sport": "ipl",
+      "country": "India",
+      "role": "All-Rounder",
+      "jersey": "#8",
+      "clubs": [
+        "Rajasthan Royals",
+        "Kochi Tuskers Kerala",
+        "Chennai Super Kings",
+        "Gujarat Lions",
+        "CSK"
+      ]
+    },
+    {
+      "name": "David Warner",
+      "sport": "ipl",
+      "country": "Australia",
+      "role": "Opener",
+      "jersey": "#31",
+      "clubs": [
+        "Delhi Daredevils",
+        "Sunrisers Hyderabad",
+        "Delhi Capitals"
+      ]
+    },
+    {
+      "name": "Shikhar Dhawan",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Opener",
+      "jersey": "#42",
+      "clubs": [
+        "Delhi Daredevils",
+        "Mumbai Indians",
+        "Deccan Chargers",
+        "SRH",
+        "Delhi Capitals",
+        "Punjab Kings"
+      ]
+    },
+    {
+      "name": "Yuzvendra Chahal",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Leg-Spinner",
+      "jersey": "#3",
+      "clubs": [
+        "Mumbai Indians",
+        "Royal Challengers Bengaluru",
+        "Rajasthan Royals",
+        "Punjab Kings"
+      ]
+    },
+    {
+      "name": "Suryakumar Yadav",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Batter",
+      "jersey": "#63",
+      "clubs": [
+        "Mumbai Indians",
+        "Kolkata Knight Riders",
+        "Mumbai Indians"
+      ]
+    },
+    {
+      "name": "Jos Buttler",
+      "sport": "ipl",
+      "country": "England",
+      "role": "WK-Opener",
+      "jersey": "#63",
+      "clubs": [
+        "Mumbai Indians",
+        "Rajasthan Royals",
+        "Gujarat Titans"
+      ]
+    },
+    {
+      "name": "Shreyas Iyer",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Batter",
+      "jersey": "#96",
+      "clubs": [
+        "Delhi Capitals",
+        "Kolkata Knight Riders",
+        "Punjab Kings"
+      ]
+    },
+    {
+      "name": "Gautam Gambhir",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Opener",
+      "jersey": "#5",
+      "clubs": [
+        "Delhi Daredevils",
+        "Kolkata Knight Riders",
+        "Delhi Daredevils"
+      ]
+    },
+    {
+      "name": "Shane Watson",
+      "sport": "ipl",
+      "country": "Australia",
+      "role": "All-Rounder",
+      "jersey": "#33",
+      "clubs": [
+        "Rajasthan Royals",
+        "Royal Challengers Bengaluru",
+        "Chennai Super Kings"
+      ]
+    },
+    {
+      "name": "Faf du Plessis",
+      "sport": "ipl",
+      "country": "South Africa",
+      "role": "Opener",
+      "jersey": "#18",
+      "clubs": [
+        "CSK",
+        "Rising Pune Supergiant",
+        "CSK",
+        "RCB",
+        "Delhi Capitals"
+      ]
+    },
+    {
+      "name": "Rashid Khan",
+      "sport": "ipl",
+      "country": "Afghanistan",
+      "role": "Leg-Spinner",
+      "jersey": "#19",
+      "clubs": [
+        "Sunrisers Hyderabad",
+        "Gujarat Titans"
+      ]
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "sport": "football",
+      "country": "Portugal",
+      "role": "Forward",
+      "jersey": "#7",
+      "clubs": [
+        "Sporting CP",
+        "Manchester United",
+        "Real Madrid",
+        "Juventus",
+        "Manchester United",
+        "Al-Nassr"
+      ]
+    },
+    {
+      "name": "Lionel Messi",
+      "sport": "football",
+      "country": "Argentina",
+      "role": "Forward",
+      "jersey": "#10",
+      "clubs": [
+        "FC Barcelona",
+        "Paris Saint-Germain",
+        "Inter Miami"
+      ]
+    },
+    {
+      "name": "Zlatan Ibrahimovi\u0107",
+      "sport": "football",
+      "country": "Sweden",
+      "role": "Striker",
+      "jersey": "#11",
+      "clubs": [
+        "Ajax",
+        "Juventus",
+        "Inter Milan",
+        "Barcelona",
+        "AC Milan",
+        "PSG",
+        "Man United",
+        "LA Galaxy",
+        "AC Milan"
+      ]
+    },
+    {
+      "name": "Neymar Jr.",
+      "sport": "football",
+      "country": "Brazil",
+      "role": "Winger",
+      "jersey": "#10",
+      "clubs": [
+        "Santos",
+        "FC Barcelona",
+        "Paris Saint-Germain",
+        "Al-Hilal",
+        "Santos"
+      ]
+    },
+    {
+      "name": "Kylian Mbapp\u00e9",
+      "sport": "football",
+      "country": "France",
+      "role": "Forward",
+      "jersey": "#9",
+      "clubs": [
+        "AS Monaco",
+        "Paris Saint-Germain",
+        "Real Madrid"
+      ]
+    },
+    {
+      "name": "Erling Haaland",
+      "sport": "football",
+      "country": "Norway",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Molde",
+        "RB Salzburg",
+        "Borussia Dortmund",
+        "Manchester City"
+      ]
+    },
+    {
+      "name": "Robert Lewandowski",
+      "sport": "football",
+      "country": "Poland",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Lech Pozna\u0144",
+        "Borussia Dortmund",
+        "Bayern Munich",
+        "FC Barcelona"
+      ]
+    },
+    {
+      "name": "Mohamed Salah",
+      "sport": "football",
+      "country": "Egypt",
+      "role": "Winger",
+      "jersey": "#11",
+      "clubs": [
+        "FC Basel",
+        "Chelsea",
+        "Fiorentina",
+        "AS Roma",
+        "Liverpool"
+      ]
+    },
+    {
+      "name": "Kevin De Bruyne",
+      "sport": "football",
+      "country": "Belgium",
+      "role": "Midfielder",
+      "jersey": "#17",
+      "clubs": [
+        "Genk",
+        "Chelsea",
+        "Werder Bremen",
+        "Wolfsburg",
+        "Manchester City"
+      ]
+    },
+    {
+      "name": "Luka Modri\u0107",
+      "sport": "football",
+      "country": "Croatia",
+      "role": "Midfielder",
+      "jersey": "#10",
+      "clubs": [
+        "Dinamo Zagreb",
+        "Tottenham Hotspur",
+        "Real Madrid"
+      ]
+    },
+    {
+      "name": "Luis Su\u00e1rez",
+      "sport": "football",
+      "country": "Uruguay",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Ajax",
+        "Liverpool",
+        "FC Barcelona",
+        "Atl\u00e9tico Madrid",
+        "Gr\u00eamio",
+        "Inter Miami"
+      ]
+    },
+    {
+      "name": "Karim Benzema",
+      "sport": "football",
+      "country": "France",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Olympique Lyonnais",
+        "Real Madrid",
+        "Al-Ittihad"
+      ]
+    },
+    {
+      "name": "Harry Kane",
+      "sport": "football",
+      "country": "England",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Tottenham Hotspur",
+        "Leicester (loan)",
+        "Tottenham Hotspur",
+        "Bayern Munich"
+      ]
+    },
+    {
+      "name": "Thierry Henry",
+      "sport": "football",
+      "country": "France",
+      "role": "Forward",
+      "jersey": "#14",
+      "clubs": [
+        "AS Monaco",
+        "Juventus",
+        "Arsenal",
+        "FC Barcelona",
+        "New York Red Bulls"
+      ]
+    },
+    {
+      "name": "Ronaldinho",
+      "sport": "football",
+      "country": "Brazil",
+      "role": "Attacking Mid",
+      "jersey": "#10",
+      "clubs": [
+        "Gr\u00eamio",
+        "Paris Saint-Germain",
+        "FC Barcelona",
+        "AC Milan",
+        "Flamengo"
+      ]
+    },
+    {
+      "name": "Jude Bellingham",
+      "sport": "football",
+      "country": "England",
+      "role": "Midfielder",
+      "jersey": "#5",
+      "clubs": [
+        "Birmingham City",
+        "Borussia Dortmund",
+        "Real Madrid"
+      ]
+    },
+    {
+      "name": "Sergio Ramos",
+      "sport": "football",
+      "country": "Spain",
+      "role": "Defender",
+      "jersey": "#4",
+      "clubs": [
+        "Sevilla",
+        "Real Madrid",
+        "Paris Saint-Germain",
+        "Sevilla"
+      ]
+    },
+    {
+      "name": "David Beckham",
+      "sport": "football",
+      "country": "England",
+      "role": "Midfielder",
+      "jersey": "#7",
+      "clubs": [
+        "Manchester United",
+        "Real Madrid",
+        "LA Galaxy",
+        "AC Milan",
+        "Paris Saint-Germain"
+      ]
+    },
+    {
+      "name": "Jasprit Bumrah",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Fast Bowler",
+      "jersey": "#93",
+      "clubs": [
+        "Mumbai Indians (2013\u2013Present)"
+      ]
+    },
+    {
+      "name": "Andre Russell",
+      "sport": "ipl",
+      "country": "West Indies",
+      "role": "All-Rounder",
+      "jersey": "#12",
+      "clubs": [
+        "Delhi Daredevils",
+        "Kolkata Knight Riders"
+      ]
+    },
+    {
+      "name": "Sunil Narine",
+      "sport": "ipl",
+      "country": "West Indies",
+      "role": "All-Rounder",
+      "jersey": "#74",
+      "clubs": [
+        "Kolkata Knight Riders (2012\u2013Present)"
+      ]
+    },
+    {
+      "name": "Bhuvneshwar Kumar",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Swing Bowler",
+      "jersey": "#15",
+      "clubs": [
+        "RCB",
+        "Pune Warriors India",
+        "Sunrisers Hyderabad",
+        "RCB"
+      ]
+    },
+    {
+      "name": "Sanju Samson",
+      "sport": "ipl",
+      "country": "India",
+      "role": "WK-Batter",
+      "jersey": "#11",
+      "clubs": [
+        "KKR",
+        "Rajasthan Royals",
+        "Delhi Daredevils",
+        "Rajasthan Royals"
+      ]
+    },
+    {
+      "name": "Rishabh Pant",
+      "sport": "ipl",
+      "country": "India",
+      "role": "WK-Batter",
+      "jersey": "#17",
+      "clubs": [
+        "Delhi Capitals",
+        "Lucknow Super Giants"
+      ]
+    },
+    {
+      "name": "Shubman Gill",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Opener",
+      "jersey": "#77",
+      "clubs": [
+        "Kolkata Knight Riders",
+        "Gujarat Titans"
+      ]
+    },
+    {
+      "name": "Glenn Maxwell",
+      "sport": "ipl",
+      "country": "Australia",
+      "role": "All-Rounder",
+      "jersey": "#32",
+      "clubs": [
+        "Delhi Daredevils",
+        "Mumbai Indians",
+        "Punjab Kings",
+        "RCB",
+        "Punjab Kings"
+      ]
+    },
+    {
+      "name": "Dinesh Karthik",
+      "sport": "ipl",
+      "country": "India",
+      "role": "WK-Finisher",
+      "jersey": "#19",
+      "clubs": [
+        "DD",
+        "PBKS",
+        "MI",
+        "RCB",
+        "GL",
+        "KKR",
+        "RCB"
+      ]
+    },
+    {
+      "name": "Trent Boult",
+      "sport": "ipl",
+      "country": "New Zealand",
+      "role": "Fast Bowler",
+      "jersey": "#18",
+      "clubs": [
+        "SRH",
+        "KKR",
+        "DC",
+        "MI",
+        "RR",
+        "MI"
+      ]
+    },
+    {
+      "name": "Toni Kroos",
+      "sport": "football",
+      "country": "Germany",
+      "role": "Midfielder",
+      "jersey": "#8",
+      "clubs": [
+        "Bayern Munich",
+        "Bayer Leverkusen (loan)",
+        "Bayern Munich",
+        "Real Madrid"
+      ]
+    },
+    {
+      "name": "Andr\u00e9s Iniesta",
+      "sport": "football",
+      "country": "Spain",
+      "role": "Midfielder",
+      "jersey": "#8",
+      "clubs": [
+        "FC Barcelona",
+        "Vissel Kobe",
+        "Emirates Club"
+      ]
+    },
+    {
+      "name": "Wayne Rooney",
+      "sport": "football",
+      "country": "England",
+      "role": "Forward",
+      "jersey": "#10",
+      "clubs": [
+        "Everton",
+        "Manchester United",
+        "Everton",
+        "D.C. United",
+        "Derby County"
+      ]
+    },
+    {
+      "name": "Gareth Bale",
+      "sport": "football",
+      "country": "Wales",
+      "role": "Winger",
+      "jersey": "#11",
+      "clubs": [
+        "Southampton",
+        "Tottenham Hotspur",
+        "Real Madrid",
+        "Tottenham (loan)",
+        "LAFC"
+      ]
+    },
+    {
+      "name": "Sadio Man\u00e9",
+      "sport": "football",
+      "country": "Senegal",
+      "role": "Winger",
+      "jersey": "#10",
+      "clubs": [
+        "Metz",
+        "RB Salzburg",
+        "Southampton",
+        "Liverpool",
+        "Bayern Munich",
+        "Al-Nassr"
+      ]
+    },
+    {
+      "name": "\u00c1ngel Di Mar\u00eda",
+      "sport": "football",
+      "country": "Argentina",
+      "role": "Winger",
+      "jersey": "#11",
+      "clubs": [
+        "Rosario Central",
+        "Benfica",
+        "Real Madrid",
+        "Man United",
+        "PSG",
+        "Juventus",
+        "Benfica"
+      ]
+    },
+    {
+      "name": "Eden Hazard",
+      "sport": "football",
+      "country": "Belgium",
+      "role": "Winger",
+      "jersey": "#10",
+      "clubs": [
+        "Lille",
+        "Chelsea",
+        "Real Madrid"
+      ]
+    },
+    {
+      "name": "Virgil van Dijk",
+      "sport": "football",
+      "country": "Netherlands",
+      "role": "Defender",
+      "jersey": "#4",
+      "clubs": [
+        "Groningen",
+        "Celtic",
+        "Southampton",
+        "Liverpool"
+      ]
+    },
+    {
+      "name": "Son Heung-min",
+      "sport": "football",
+      "country": "South Korea",
+      "role": "Forward",
+      "jersey": "#7",
+      "clubs": [
+        "Hamburger SV",
+        "Bayer Leverkusen",
+        "Tottenham Hotspur"
+      ]
+    },
+    {
+      "name": "N'Golo Kant\u00e9",
+      "sport": "football",
+      "country": "France",
+      "role": "Midfielder",
+      "jersey": "#7",
+      "clubs": [
+        "Boulogne",
+        "Caen",
+        "Leicester City",
+        "Chelsea",
+        "Al-Ittihad"
+      ]
+    },
+    {
+      "name": "Yuvraj Singh",
+      "sport": "ipl",
+      "country": "India",
+      "role": "All-Rounder",
+      "jersey": "#12",
+      "clubs": [
+        "PBKS",
+        "Pune Warriors",
+        "RCB",
+        "DD",
+        "SRH",
+        "PBKS",
+        "MI"
+      ]
+    },
+    {
+      "name": "Suresh Raina",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Batter",
+      "jersey": "#3",
+      "clubs": [
+        "CSK",
+        "Gujarat Lions",
+        "CSK"
+      ]
+    },
+    {
+      "name": "Ambati Rayudu",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Batter",
+      "jersey": "#9",
+      "clubs": [
+        "Mumbai Indians",
+        "Chennai Super Kings"
+      ]
+    },
+    {
+      "name": "Ajinkya Rahane",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Batter",
+      "jersey": "#27",
+      "clubs": [
+        "MI",
+        "RR",
+        "RPS",
+        "RR",
+        "DC",
+        "KKR",
+        "CSK",
+        "KKR"
+      ]
+    },
+    {
+      "name": "Ravichandran Ashwin",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Off-Spinner",
+      "jersey": "#99",
+      "clubs": [
+        "CSK",
+        "RPS",
+        "PBKS",
+        "DC",
+        "RR",
+        "CSK"
+      ]
+    },
+    {
+      "name": "Harbhajan Singh",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Off-Spinner",
+      "jersey": "#3",
+      "clubs": [
+        "Mumbai Indians",
+        "Chennai Super Kings",
+        "Kolkata Knight Riders"
+      ]
+    },
+    {
+      "name": "Lasith Malinga",
+      "sport": "ipl",
+      "country": "Sri Lanka",
+      "role": "Fast Bowler",
+      "jersey": "#99",
+      "clubs": [
+        "Mumbai Indians (2009\u20132019)"
+      ]
+    },
+    {
+      "name": "Kieron Pollard",
+      "sport": "ipl",
+      "country": "West Indies",
+      "role": "All-Rounder",
+      "jersey": "#55",
+      "clubs": [
+        "Mumbai Indians (2010\u20132022)"
+      ]
+    },
+    {
+      "name": "Dwayne Bravo",
+      "sport": "ipl",
+      "country": "West Indies",
+      "role": "All-Rounder",
+      "jersey": "#47",
+      "clubs": [
+        "MI",
+        "CSK",
+        "Gujarat Lions",
+        "CSK"
+      ]
+    },
+    {
+      "name": "Brendon McCullum",
+      "sport": "ipl",
+      "country": "New Zealand",
+      "role": "WK-Opener",
+      "jersey": "#42",
+      "clubs": [
+        "KKR",
+        "Kochi Tuskers",
+        "KKR",
+        "CSK",
+        "Gujarat Lions",
+        "RCB"
+      ]
+    },
+    {
+      "name": "Mitchell Starc",
+      "sport": "ipl",
+      "country": "Australia",
+      "role": "Fast Bowler",
+      "jersey": "#56",
+      "clubs": [
+        "RCB",
+        "Kolkata Knight Riders",
+        "Delhi Capitals"
+      ]
+    },
+    {
+      "name": "Pat Cummins",
+      "sport": "ipl",
+      "country": "Australia",
+      "role": "Fast Bowler",
+      "jersey": "#30",
+      "clubs": [
+        "KKR",
+        "DD",
+        "KKR",
+        "Sunrisers Hyderabad"
+      ]
+    },
+    {
+      "name": "Kagiso Rabada",
+      "sport": "ipl",
+      "country": "South Africa",
+      "role": "Fast Bowler",
+      "jersey": "#25",
+      "clubs": [
+        "Delhi Capitals",
+        "Punjab Kings",
+        "Gujarat Titans"
+      ]
+    },
+    {
+      "name": "Quinton de Kock",
+      "sport": "ipl",
+      "country": "South Africa",
+      "role": "WK-Opener",
+      "jersey": "#12",
+      "clubs": [
+        "SRH",
+        "DD",
+        "RCB",
+        "MI",
+        "LSG",
+        "KKR"
+      ]
+    },
+    {
+      "name": "Mohammed Siraj",
+      "sport": "ipl",
+      "country": "India",
+      "role": "Fast Bowler",
+      "jersey": "#73",
+      "clubs": [
+        "Sunrisers Hyderabad",
+        "Royal Challengers Bengaluru",
+        "Gujarat Titans"
+      ]
+    },
+    {
+      "name": "Zinedine Zidane",
+      "sport": "football",
+      "country": "France",
+      "role": "Midfielder",
+      "jersey": "#5",
+      "clubs": [
+        "Cannes",
+        "Bordeaux",
+        "Juventus",
+        "Real Madrid"
+      ]
+    },
+    {
+      "name": "Ronaldo Naz\u00e1rio",
+      "sport": "football",
+      "country": "Brazil",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Cruzeiro",
+        "PSV",
+        "Barcelona",
+        "Inter Milan",
+        "Real Madrid",
+        "AC Milan",
+        "Corinthians"
+      ]
+    },
+    {
+      "name": "Andrea Pirlo",
+      "sport": "football",
+      "country": "Italy",
+      "role": "Midfielder",
+      "jersey": "#21",
+      "clubs": [
+        "Brescia",
+        "Inter Milan",
+        "AC Milan",
+        "Juventus",
+        "NYCFC"
+      ]
+    },
+    {
+      "name": "Kak\u00e1",
+      "sport": "football",
+      "country": "Brazil",
+      "role": "Attacking Mid",
+      "jersey": "#22",
+      "clubs": [
+        "S\u00e3o Paulo",
+        "AC Milan",
+        "Real Madrid",
+        "AC Milan",
+        "Orlando City"
+      ]
+    },
+    {
+      "name": "Arjen Robben",
+      "sport": "football",
+      "country": "Netherlands",
+      "role": "Winger",
+      "jersey": "#10",
+      "clubs": [
+        "Groningen",
+        "PSV",
+        "Chelsea",
+        "Real Madrid",
+        "Bayern Munich"
+      ]
+    },
+    {
+      "name": "Mesut \u00d6zil",
+      "sport": "football",
+      "country": "Germany",
+      "role": "Playmaker",
+      "jersey": "#10",
+      "clubs": [
+        "Schalke 04",
+        "Werder Bremen",
+        "Real Madrid",
+        "Arsenal",
+        "Fenerbah\u00e7e"
+      ]
+    },
+    {
+      "name": "Didier Drogba",
+      "sport": "football",
+      "country": "Ivory Coast",
+      "role": "Striker",
+      "jersey": "#11",
+      "clubs": [
+        "Le Mans",
+        "Guingamp",
+        "Marseille",
+        "Chelsea",
+        "Galatasaray",
+        "Chelsea"
+      ]
+    },
+    {
+      "name": "Sergio Ag\u00fcero",
+      "sport": "football",
+      "country": "Argentina",
+      "role": "Striker",
+      "jersey": "#10",
+      "clubs": [
+        "Independiente",
+        "Atl\u00e9tico Madrid",
+        "Manchester City",
+        "FC Barcelona"
+      ]
+    },
+    {
+      "name": "Fernando Torres",
+      "sport": "football",
+      "country": "Spain",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Atl\u00e9tico Madrid",
+        "Liverpool",
+        "Chelsea",
+        "AC Milan",
+        "Atl\u00e9tico Madrid",
+        "Sagan Tosu"
+      ]
+    },
+    {
+      "name": "Cesc F\u00e0bregas",
+      "sport": "football",
+      "country": "Spain",
+      "role": "Midfielder",
+      "jersey": "#4",
+      "clubs": [
+        "Arsenal",
+        "FC Barcelona",
+        "Chelsea",
+        "AS Monaco",
+        "Como"
+      ]
+    },
+    {
+      "name": "Samuel Eto'o",
+      "sport": "football",
+      "country": "Cameroon",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Real Madrid",
+        "Mallorca",
+        "Barcelona",
+        "Inter Milan",
+        "Anzhi",
+        "Chelsea",
+        "Everton"
+      ]
+    },
+    {
+      "name": "Edinson Cavani",
+      "sport": "football",
+      "country": "Uruguay",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Danubio",
+        "Palermo",
+        "Napoli",
+        "PSG",
+        "Man United",
+        "Valencia",
+        "Boca Juniors"
+      ]
+    },
+    {
+      "name": "Romelu Lukaku",
+      "sport": "football",
+      "country": "Belgium",
+      "role": "Striker",
+      "jersey": "#9",
+      "clubs": [
+        "Anderlecht",
+        "Chelsea",
+        "Everton",
+        "Man United",
+        "Inter",
+        "Chelsea",
+        "Roma",
+        "Napoli"
+      ]
+    },
+    {
+      "name": "Xabi Alonso",
+      "sport": "football",
+      "country": "Spain",
+      "role": "Midfielder",
+      "jersey": "#14",
+      "clubs": [
+        "Real Sociedad",
+        "Liverpool",
+        "Real Madrid",
+        "Bayern Munich"
+      ]
+    },
+    {
+      "name": "Casemiro",
+      "sport": "football",
+      "country": "Brazil",
+      "role": "Defensive Mid",
+      "jersey": "#18",
+      "clubs": [
+        "S\u00e3o Paulo",
+        "Real Madrid",
+        "Porto (loan)",
+        "Real Madrid",
+        "Manchester United"
+      ]
+    }
+  ]
+}

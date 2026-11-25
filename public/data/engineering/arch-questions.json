@@ -1,0 +1,866 @@
+[
+  {
+    "topic": "Styles",
+    "q": "Which medieval European style is defined by pointed arches, ribbed vaults, and external flying buttresses?",
+    "answer": "Gothic Architecture",
+    "options": [
+      "Gothic Architecture",
+      "Romanesque",
+      "Brutalism",
+      "Art Deco"
+    ],
+    "note": "Flying buttresses transferred roof thrust outward, enabling towering stained-glass walls."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which 20th-century movement celebrates raw, exposed poured-in-place concrete ('b\u00e9ton brut') and bold monolithic geometry?",
+    "answer": "Brutalism",
+    "options": [
+      "Brutalism",
+      "Rococo",
+      "Art Nouveau",
+      "Neoclassical"
+    ],
+    "note": "Coined from Le Corbusier's term 'b\u00e9ton brut' (raw concrete)."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which classical Greek order features scroll-like volutes on its column capitals?",
+    "answer": "Ionic Order",
+    "options": [
+      "Ionic Order",
+      "Doric Order",
+      "Corinthian Order",
+      "Tuscan Order"
+    ],
+    "note": "Doric is plain, Ionic has twin scrolls (volutes), and Corinthian has ornate acanthus leaves."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which style of the 1920s\u201330s is famous for stepped setbacks, geometric zigzags, and metallic sunburst crowns (like the Chrysler Building)?",
+    "answer": "Art Deco",
+    "options": [
+      "Art Deco",
+      "Bauhaus",
+      "Baroque",
+      "Deconstructivism"
+    ],
+    "note": "Art Deco blended luxury craftsmanship with machine-age symmetry."
+  },
+  {
+    "topic": "Styles",
+    "q": "What famous maxim is attributed to modernist pioneer Ludwig Mies van der Rohe?",
+    "answer": "'Less is more'",
+    "options": [
+      "'Less is more'",
+      "'Less is a bore'",
+      "'Form follows profit'",
+      "'Ornament is supreme'"
+    ],
+    "note": "Robert Venturi later quipped 'Less is a bore' in defense of Postmodernism."
+  },
+  {
+    "topic": "Styles",
+    "q": "Who coined the famous architectural principle 'Form ever follows function'?",
+    "answer": "Louis Sullivan",
+    "options": [
+      "Louis Sullivan",
+      "Frank Gehry",
+      "Vitruvius",
+      "Zaha Hadid"
+    ],
+    "note": "Sullivan was the 'father of skyscrapers' in the Chicago School and mentored Frank Lloyd Wright."
+  },
+  {
+    "topic": "Styles",
+    "q": "According to Roman architect Vitruvius, the three essential qualities of great architecture are Firmitas, Utilitas, and:",
+    "answer": "Venustas (Beauty / Delight)",
+    "options": [
+      "Venustas (Beauty / Delight)",
+      "Velocitas (Speed)",
+      "Costas (Low Cost)",
+      "Altitas (Height)"
+    ],
+    "note": "Strength (Firmitas), Utility (Utilitas), and Beauty (Venustas)."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which movement founded by Walter Gropius in Germany (1919) unified art, craft, and industrial mass-production?",
+    "answer": "Bauhaus",
+    "options": [
+      "Bauhaus",
+      "Beaux-Arts",
+      "Victorian",
+      "Metabolism"
+    ],
+    "note": "Bauhaus shaped modern glass curtain walls, tubular steel furniture, and clean typography."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which architectural style intentionally fragments geometry into non-rectilinear, tilted, dynamic planes (e.g., Guggenheim Bilbao)?",
+    "answer": "Deconstructivism",
+    "options": [
+      "Deconstructivism",
+      "International Style",
+      "Palladianism",
+      "Minimalism"
+    ],
+    "note": "Championed by Frank Gehry, Zaha Hadid, Daniel Libeskind, and Rem Koolhaas."
+  },
+  {
+    "topic": "Styles",
+    "q": "What distinguishes a 'Parametric' architectural facade?",
+    "answer": "Algorithmically generated curves & panels driven by mathematical/environmental parameters",
+    "options": [
+      "Algorithmically generated curves & panels driven by mathematical/environmental parameters",
+      "Hand-carved sandstone columns",
+      "Strict 90-degree brick grids",
+      "Zero windows"
+    ],
+    "note": "Tools like Rhino + Grasshopper optimize shading, airflow, and double-curved panels."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which post-war Japanese movement envisioned megastructures with replaceable capsule units (e.g., Nakagin Capsule Tower)?",
+    "answer": "Metabolism",
+    "options": [
+      "Metabolism",
+      "Brutalism",
+      "Futurism",
+      "Art Nouveau"
+    ],
+    "note": "Founded by Kenzo Tange, Kisho Kurokawa, and Fumihiko Maki in 1960."
+  },
+  {
+    "topic": "Styles",
+    "q": "In Islamic & Mughal architecture, what is a 'Muqarnas'?",
+    "answer": "Honeycomb-like tiered ornamental vaulting transitioning walls to domes",
+    "options": [
+      "Honeycomb-like tiered ornamental vaulting transitioning walls to domes",
+      "A central water fountain",
+      "A freestanding minaret",
+      "A carved wooden door"
+    ],
+    "note": "Also called stalactite vaulting, seen in the Alhambra and Persian mosques."
+  },
+  {
+    "topic": "Styles",
+    "q": "What is 'High-Tech Architecture' (Structural Expressionism), exemplified by the Centre Pompidou in Paris?",
+    "answer": "Exposing structural steel, ducts, escalators, and MEP services on the exterior",
+    "options": [
+      "Exposing structural steel, ducts, escalators, and MEP services on the exterior",
+      "Hiding all steel behind marble",
+      "Building solely with rammed earth",
+      "Using only thatch roofs"
+    ],
+    "note": "Pioneered by Renzo Piano, Richard Rogers, and Norman Foster."
+  },
+  {
+    "topic": "Styles",
+    "q": "Which 19th\u2013early 20th century style features flowing organic whiplash curves inspired by plants and flowers?",
+    "answer": "Art Nouveau",
+    "options": [
+      "Art Nouveau",
+      "Brutalism",
+      "Minimalism",
+      "Romanesque"
+    ],
+    "note": "Seen in Hector Guimard's Paris Metro entrances and Victor Horta's townhouses."
+  },
+  {
+    "topic": "Architects",
+    "q": "Who was the first Indian architect to win the Pritzker Architecture Prize (2018)?",
+    "answer": "Balkrishna V. Doshi",
+    "options": [
+      "Balkrishna V. Doshi",
+      "Charles Correa",
+      "Laurie Baker",
+      "Hafeez Contractor"
+    ],
+    "note": "Doshi designed IIM Bangalore, Aranya Low-Cost Housing, and Sangath in Ahmedabad."
+  },
+  {
+    "topic": "Architects",
+    "q": "Who was the first woman to win the Pritzker Architecture Prize (2004), known as the 'Queen of the Curve'?",
+    "answer": "Zaha Hadid",
+    "options": [
+      "Zaha Hadid",
+      "Kazuyo Sejima",
+      "Jeanne Gang",
+      "Maya Lin"
+    ],
+    "note": "Designed the Heydar Aliyev Center, London Aquatics Centre, and Guangzhou Opera House."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which architect designed the master plan of Chandigarh and the Palace of Assembly in India?",
+    "answer": "Le Corbusier",
+    "options": [
+      "Le Corbusier",
+      "Louis Kahn",
+      "Edwin Lutyens",
+      "Frank Lloyd Wright"
+    ],
+    "note": "Le Corbusier also formulated the Five Points of Architecture."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which American architect designed the Indian Institute of Management Ahmedabad (IIMA) using monumental exposed brick arches?",
+    "answer": "Louis Kahn",
+    "options": [
+      "Louis Kahn",
+      "Frank Lloyd Wright",
+      "I.M. Pei",
+      "Philip Johnson"
+    ],
+    "note": "Kahn famously asked 'What does a brick want to be?' \u2014 'It says, I like an arch.'"
+  },
+  {
+    "topic": "Architects",
+    "q": "Which British-born Indian architect is celebrated as the 'Gandhi of Architecture' for low-cost, vernacular brick rat-trap bond buildings in Kerala?",
+    "answer": "Laurie Baker",
+    "options": [
+      "Laurie Baker",
+      "Charles Correa",
+      "B.V. Doshi",
+      "Achyut Kanvinde"
+    ],
+    "note": "Baker pioneered passive cooling jali brick walls and sustainable local construction."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which visionary Indian architect designed the Sabarmati Ashram Museum, Kanchanjunga Apartments, and Jawahar Kala Kendra?",
+    "answer": "Charles Correa",
+    "options": [
+      "Charles Correa",
+      "B.V. Doshi",
+      "Raj Rewal",
+      "Christopher Benninger"
+    ],
+    "note": "Correa championed 'open-to-sky' spaces adapted to India's tropical climate."
+  },
+  {
+    "topic": "Architects",
+    "q": "Who designed Fallingwater (Pennsylvania) and the spiral Guggenheim Museum in New York?",
+    "answer": "Frank Lloyd Wright",
+    "options": [
+      "Frank Lloyd Wright",
+      "Mies van der Rohe",
+      "Walter Gropius",
+      "Eero Saarinen"
+    ],
+    "note": "Pioneer of Organic Architecture and the Prairie School."
+  },
+  {
+    "topic": "Architects",
+    "q": "Who designed the glass pyramid entrance to the Louvre Museum in Paris?",
+    "answer": "I.M. Pei",
+    "options": [
+      "I.M. Pei",
+      "Renzo Piano",
+      "Norman Foster",
+      "Tadao Ando"
+    ],
+    "note": "Pei also designed the Bank of China Tower in Hong Kong and Museum of Islamic Art in Doha."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which self-taught Japanese Pritzker winner is famous for poetic, silk-smooth exposed concrete and light slits (Church of the Light)?",
+    "answer": "Tadao Ando",
+    "options": [
+      "Tadao Ando",
+      "Kengo Kuma",
+      "Shigeru Ban",
+      "Toyo Ito"
+    ],
+    "note": "Ando started as a truck driver and boxer before becoming a master of concrete minimalism."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which architect is renowned for emergency disaster shelters built from recycled paper tubes?",
+    "answer": "Shigeru Ban",
+    "options": [
+      "Shigeru Ban",
+      "Tadao Ando",
+      "Bjarke Ingels",
+      "Santiago Calatrava"
+    ],
+    "note": "Won the 2014 Pritzker Prize for humanitarian structural innovation."
+  },
+  {
+    "topic": "Architects",
+    "q": "Who designed the Sagrada Fam\u00edlia, Casa Batll\u00f3, and Park G\u00fcell in Barcelona?",
+    "answer": "Antoni Gaud\u00ed",
+    "options": [
+      "Antoni Gaud\u00ed",
+      "Santiago Calatrava",
+      "Ricardo Bofill",
+      "Rafael Moneo"
+    ],
+    "note": "Gaud\u00ed used upside-down hanging chain models to calculate pure compression arches."
+  },
+  {
+    "topic": "Architects",
+    "q": "Who designed New Delhi's Rashtrapati Bhavan and India Gate?",
+    "answer": "Edwin Lutyens",
+    "options": [
+      "Edwin Lutyens",
+      "Le Corbusier",
+      "Herbert Baker",
+      "Charles Correa"
+    ],
+    "note": "Blended Classical European geometry with Indian chhatris, chhajjas, and red sandstone."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which Spanish architect-engineer is famous for sculptural white skeletal bridges and the World Trade Center Oculus?",
+    "answer": "Santiago Calatrava",
+    "options": [
+      "Santiago Calatrava",
+      "Norman Foster",
+      "Frank Gehry",
+      "Rem Koolhaas"
+    ],
+    "note": "Combines structural engineering with biomimetic bird-wing and ribcage forms."
+  },
+  {
+    "topic": "Architects",
+    "q": "Which Danish architect founded BIG (Bjarke Ingels Group) and designed CopenHill \u2014 a waste-to-energy plant with a ski slope on its roof?",
+    "answer": "Bjarke Ingels",
+    "options": [
+      "Bjarke Ingels",
+      "J\u00f8rn Utzon",
+      "Arne Jacobsen",
+      "Henning Larsen"
+    ],
+    "note": "Known for 'Hedonistic Sustainability' blending playful form with green engineering."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is a 'Diagrid' structural system (used in London's Gherkin and Hearst Tower)?",
+    "answer": "A triangulated perimeter grid of diagonal steel/concrete members eliminating vertical perimeter columns",
+    "options": [
+      "A triangulated perimeter grid of diagonal steel/concrete members eliminating vertical perimeter columns",
+      "A solid unreinforced brick wall",
+      "A floating timber raft",
+      "A flat waffle slab"
+    ],
+    "note": "Carries both gravity and lateral wind loads efficiently using ~20% less steel."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is the purpose of a Tuned Mass Damper (TMD) suspended near the top of supertall towers like Taipei 101?",
+    "answer": "Counteracts wind- and earthquake-induced building sway",
+    "options": [
+      "Counteracts wind- and earthquake-induced building sway",
+      "Generates backup hydroelectricity",
+      "Stores emergency firefighting water",
+      "Heats the penthouse floor"
+    ],
+    "note": "Taipei 101's 660-tonne steel sphere cuts peak wind acceleration by up to 40%."
+  },
+  {
+    "topic": "Structures",
+    "q": "In a reinforced concrete beam supported at both ends, where is the main tensile steel rebar placed?",
+    "answer": "Near the bottom face (tension zone)",
+    "options": [
+      "Near the bottom face (tension zone)",
+      "Only at the exact top edge",
+      "Only along the middle neutral axis",
+      "Outside the concrete cover"
+    ],
+    "note": "Concrete handles compression at the top while steel rebar carries tension at the bottom."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is a 'Cantilever' in architecture and structural engineering?",
+    "answer": "A rigid structural element anchored at only one end projecting freely into space",
+    "options": [
+      "A rigid structural element anchored at only one end projecting freely into space",
+      "A dome resting on 8 columns",
+      "A cable tied to the ground on both ends",
+      "A subterranean pile foundation"
+    ],
+    "note": "In a cantilever, tension occurs at the TOP face and compression at the BOTTOM."
+  },
+  {
+    "topic": "Structures",
+    "q": "What structural shape naturally carries its own uniform weight purely in compression with zero bending moment?",
+    "answer": "Inverted Catenary Arch",
+    "options": [
+      "Inverted Catenary Arch",
+      "Flat horizontal lintel",
+      "Triangular gable",
+      "Square box frame"
+    ],
+    "note": "Robert Hooke's law of arches: 'As hangs the flexible chain, so but inverted will stand the rigid arch.'"
+  },
+  {
+    "topic": "Structures",
+    "q": "What is 'Base Isolation' in seismic building design?",
+    "answer": "Separating the superstructure from ground shaking using flexible rubber/lead bearings",
+    "options": [
+      "Separating the superstructure from ground shaking using flexible rubber/lead bearings",
+      "Welding the building directly to bedrock",
+      "Making the roof heavier",
+      "Removing all elevator shafts"
+    ],
+    "note": "Lengthens the building's natural period so seismic energy is dramatically reduced."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is a 'Shear Wall' in a multi-story building?",
+    "answer": "A stiff vertical wall engineered to resist lateral wind and earthquake forces",
+    "options": [
+      "A stiff vertical wall engineered to resist lateral wind and earthquake forces",
+      "A thin drywall bedroom partition",
+      "A glass curtain wall",
+      "A decorative garden fence"
+    ],
+    "note": "Often arranged around elevator and staircase cores."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is a 'Curtain Wall' on a modern skyscraper?",
+    "answer": "A non-structural exterior glass/metal cladding hung from the building's structural frame",
+    "options": [
+      "A non-structural exterior glass/metal cladding hung from the building's structural frame",
+      "A load-bearing masonry wall",
+      "An interior blackout blind",
+      "A concrete retaining wall"
+    ],
+    "note": "Supports only its own dead weight and transfers wind loads back to the floor slabs."
+  },
+  {
+    "topic": "Structures",
+    "q": "Which foundation type is used when strong load-bearing soil lies very deep below soft clay or water?",
+    "answer": "Deep Pile Foundation",
+    "options": [
+      "Deep Pile Foundation",
+      "Shallow Strip Footing",
+      "Isolated Pad Footing",
+      "Mud Plinth"
+    ],
+    "note": "Piles transfer heavy structural loads via end-bearing on rock or skin friction."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is 'Post-Tensioned Concrete'?",
+    "answer": "Concrete slabs where high-strength steel tendons are stretched AFTER the concrete hardens",
+    "options": [
+      "Concrete slabs where high-strength steel tendons are stretched AFTER the concrete hardens",
+      "Concrete mixed with plastic beads",
+      "Concrete poured underwater",
+      "Concrete cured in a kiln"
+    ],
+    "note": "Allows thinner, longer column-free floor spans with far less cracking."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is a 'Geodesic Dome' (popularized by Buckminster Fuller)?",
+    "answer": "A lightweight spherical shell composed of interconnected triangular trusses",
+    "options": [
+      "A lightweight spherical shell composed of interconnected triangular trusses",
+      "A carved stone vault",
+      "An inflatable rubber tent",
+      "A flat concrete roof"
+    ],
+    "note": "Encloses maximum interior volume with minimum surface material."
+  },
+  {
+    "topic": "Structures",
+    "q": "Why do high-rise towers like the Burj Khalifa and Shanghai Tower taper or twist as they rise?",
+    "answer": "To 'confuse the wind' and disrupt periodic vortex shedding",
+    "options": [
+      "To 'confuse the wind' and disrupt periodic vortex shedding",
+      "Only to save glass cleaner time",
+      "To make elevators slower",
+      "To increase roof snow load"
+    ],
+    "note": "Breaking up organized wind vortices prevents dangerous cross-wind resonance."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is 'Concrete Cover' in RCC design?",
+    "answer": "Minimum thickness of concrete protecting steel rebar from moisture, corrosion, and fire",
+    "options": [
+      "Minimum thickness of concrete protecting steel rebar from moisture, corrosion, and fire",
+      "A plastic tarp laid over wet concrete",
+      "The top marble floor tile",
+      "Roof waterproofing paint"
+    ],
+    "note": "IS 456 specifies nominal cover (e.g., 20mm slabs, 40mm columns, 50mm footings)."
+  },
+  {
+    "topic": "Structures",
+    "q": "What is a 'Waffle Slab' (two-way joist slab)?",
+    "answer": "A concrete slab with a grid of deep ribs underneath to span large spaces with less dead weight",
+    "options": [
+      "A concrete slab with a grid of deep ribs underneath to span large spaces with less dead weight",
+      "A brick arch roof",
+      "A corrugated metal sheet",
+      "A solid 2-meter foundation mat"
+    ],
+    "note": "Common in auditoriums, airports, and parking structures."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "In South Indian Dravidian temple architecture, what is the towering, richly sculpted entrance gateway called?",
+    "answer": "Gopuram",
+    "options": [
+      "Gopuram",
+      "Shikhara",
+      "Minaret",
+      "Torana"
+    ],
+    "note": "The Vimana sits above the sanctum (garbhagriha), while Gopurams mark the enclosure gateways."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "What traditional Indian architectural element is a perforated stone or brick lattice screen that filters harsh sun and accelerates cooling breezes?",
+    "answer": "Jaali",
+    "options": [
+      "Jaali",
+      "Chhatri",
+      "Pillar",
+      "Plinth"
+    ],
+    "note": "Uses the Venturi effect \u2014 air speeds up and cools as it squeezes through small apertures."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "What is a 'Stepwell' (Baori / Vav) like Rani ki Vav in Gujarat engineered to do?",
+    "answer": "Harvest monsoon groundwater and create a cool shaded subterranean microclimate",
+    "options": [
+      "Harvest monsoon groundwater and create a cool shaded subterranean microclimate",
+      "Serve as a military watchtower",
+      "Generate wind power",
+      "Store grain"
+    ],
+    "note": "Temperatures at the bottom of a stepwell can be 5\u20138\u00b0C cooler than street level."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "In traditional Kerala and Karnataka coastal architecture (Nalukettu), what is the central open-to-sky courtyard called?",
+    "answer": "Nadumuttam (Angana)",
+    "options": [
+      "Nadumuttam (Angana)",
+      "Gopuram",
+      "Jharokha",
+      "Veranda"
+    ],
+    "note": "Drives natural stack ventilation and collects rainwater inside the home."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "What is the 'Rat-Trap Bond' brickwork popularized by Laurie Baker in India?",
+    "answer": "Bricks laid on edge creating an internal air cavity for thermal insulation & 25% brick savings",
+    "options": [
+      "Bricks laid on edge creating an internal air cavity for thermal insulation & 25% brick savings",
+      "Solid triple-thick stone masonry",
+      "Concrete blocks glued with epoxy",
+      "Bamboo walls plastered with lime"
+    ],
+    "note": "Improves indoor comfort while cutting embodied carbon and material cost."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "Which temple architecture style of North India features a curvilinear beehive-shaped tower called a Shikhara?",
+    "answer": "Nagara Style",
+    "options": [
+      "Nagara Style",
+      "Dravidian Style",
+      "Gothic Style",
+      "Indo-Saracenic"
+    ],
+    "note": "Seen at Khajuraho and Konark; Vesara (Karnataka's Hoysala/Chalukya) blends Nagara and Dravidian."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "The star-shaped (stellate) temple plans of Belur and Halebidu in Karnataka belong to which dynasty's architecture?",
+    "answer": "Hoysala Architecture",
+    "options": [
+      "Hoysala Architecture",
+      "Mughal Architecture",
+      "Chola Architecture",
+      "Mauryan Architecture"
+    ],
+    "note": "Built in soapstone (chloritic schist), allowing intricate lathe-turned pillars and carvings."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "What is a 'Chhajja' in traditional Indian buildings?",
+    "answer": "A deep projecting overhanging eave that shades walls from high sun and monsoon rain",
+    "options": [
+      "A deep projecting overhanging eave that shades walls from high sun and monsoon rain",
+      "An underground basement",
+      "A dome finial",
+      "A staircase landing"
+    ],
+    "note": "Essential passive shading element across Rajasthani, Mughal, and Deccan architecture."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "What is a 'Jharokha' in Rajput and Mughal architecture?",
+    "answer": "An overhanging enclosed balcony window projecting from an upper facade",
+    "options": [
+      "An overhanging enclosed balcony window projecting from an upper facade",
+      "A stepped water tank",
+      "A courtyard colonnade",
+      "A temple spire"
+    ],
+    "note": "Allowed airflow and street views while providing privacy and shade."
+  },
+  {
+    "topic": "Indian Arch",
+    "q": "Which massive 17th-century monument in Vijayapura (Bijapur), Karnataka has one of the world's largest unsupported domes and a famous whispering gallery?",
+    "answer": "Gol Gumbaz",
+    "options": [
+      "Gol Gumbaz",
+      "Hawa Mahal",
+      "Charminar",
+      "Victoria Memorial"
+    ],
+    "note": "Its 44m diameter dome rests on intersecting arches without internal pillars."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What is 'Stack Ventilation' in passive building design?",
+    "answer": "Warm indoor air rises and exits high vents, drawing cooler outside air in from low openings",
+    "options": [
+      "Warm indoor air rises and exits high vents, drawing cooler outside air in from low openings",
+      "Running ceiling fans at max RPM",
+      "Stacking concrete blocks",
+      "Sealing all windows shut"
+    ],
+    "note": "Drives zero-energy airflow through atriums, windcatchers, and clerestory windows."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "In India, which national green building rating system was developed by TERI and MNRE?",
+    "answer": "GRIHA (Green Rating for Integrated Habitat Assessment)",
+    "options": [
+      "GRIHA (Green Rating for Integrated Habitat Assessment)",
+      "BREEAM",
+      "Passive House",
+      "WELL"
+    ],
+    "note": "India also widely uses IGBC and LEED ratings."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What does 'SHGC' measure when specifying architectural window glazing?",
+    "answer": "Solar Heat Gain Coefficient (fraction of solar radiation admitted as heat)",
+    "options": [
+      "Solar Heat Gain Coefficient (fraction of solar radiation admitted as heat)",
+      "Sound Hardness Grade Code",
+      "Steel Height Gravity Constant",
+      "Structural Hinge Grip Capacity"
+    ],
+    "note": "Lower SHGC glass keeps tropical buildings much cooler and cuts AC chiller loads."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "In the Northern Hemisphere (including India), which building facade receives the most intense low-angle afternoon solar heat?",
+    "answer": "West facade",
+    "options": [
+      "West facade",
+      "North facade",
+      "Basement slab",
+      "East courtyard"
+    ],
+    "note": "West facades need vertical fins, deep shading, or minimal glazing to avoid evening heat spikes."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What is a 'Brise-Soleil' (popularized by Le Corbusier)?",
+    "answer": "Fixed or operable exterior architectural sun-shading fins/louvers",
+    "options": [
+      "Fixed or operable exterior architectural sun-shading fins/louvers",
+      "A skylight dome",
+      "A heated marble floor",
+      "A basement sump pump"
+    ],
+    "note": "Blocks solar heat BEFORE it hits the glass \u2014 far more effective than interior blinds."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What does 'Embodied Carbon' of a building refer to?",
+    "answer": "Total greenhouse emissions from extracting, manufacturing, transporting, and assembling its materials",
+    "options": [
+      "Total greenhouse emissions from extracting, manufacturing, transporting, and assembling its materials",
+      "Electricity used by ACs after occupancy",
+      "Carbon monoxide from cars outside",
+      "Paint VOCs only"
+    ],
+    "note": "Cement and steel account for the majority of upfront embodied carbon."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What is 'Thermal Mass' in passive architecture?",
+    "answer": "A material's ability to absorb, store, and slowly release heat (like stone, earth, or concrete)",
+    "options": [
+      "A material's ability to absorb, store, and slowly release heat (like stone, earth, or concrete)",
+      "The total weight of an HVAC chiller",
+      "Mirror reflectivity",
+      "Roof slope angle"
+    ],
+    "note": "Dampens indoor temperature swings in hot-dry climates with cool nights."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What is 'Net-Zero Energy Building' (NZEB)?",
+    "answer": "A highly efficient building that generates as much renewable energy on-site as it consumes annually",
+    "options": [
+      "A highly efficient building that generates as much renewable energy on-site as it consumes annually",
+      "A building with no electricity wiring",
+      "A building with zero windows",
+      "An abandoned structure"
+    ],
+    "note": "Combines passive architecture, efficient MEP/HVAC, and rooftop solar PV."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What does a 'Double-Skin Facade' consist of?",
+    "answer": "Two glass layers separated by a ventilated air cavity that buffers heat and noise",
+    "options": [
+      "Two glass layers separated by a ventilated air cavity that buffers heat and noise",
+      "Two coats of exterior paint",
+      "Brick covered in wallpaper",
+      "A steel roof over wood rafters"
+    ],
+    "note": "Used on towers like Shanghai Tower and 30 St Mary Axe to slash HVAC demand."
+  },
+  {
+    "topic": "Green Arch",
+    "q": "What is the primary benefit of 'Green Roofs' (vegetated roofs) in dense cities?",
+    "answer": "Mitigates Urban Heat Island effect, slows stormwater runoff, and insulates top floors",
+    "options": [
+      "Mitigates Urban Heat Island effect, slows stormwater runoff, and insulates top floors",
+      "Eliminates need for waterproofing",
+      "Makes structural columns thinner",
+      "Increases roof wind uplift"
+    ],
+    "note": "Requires a proper root barrier, drainage layer, and structural dead-load allowance."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "In urban zoning, what does FAR (Floor Area Ratio) or FSI (Floor Space Index) equal?",
+    "answer": "Total Built-up Floor Area / Total Plot Area",
+    "options": [
+      "Total Built-up Floor Area / Total Plot Area",
+      "Building Height / Road Width",
+      "Number of Floors \u00d7 Plot Width",
+      "Parking Area / Green Area"
+    ],
+    "note": "An FAR of 2.5 on a 1,000 m\u00b2 plot permits up to 2,500 m\u00b2 of total built-up floor area."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "What is an 'Axonometric' (or Isometric) architectural drawing?",
+    "answer": "A parallel-projection 3D view with no perspective foreshortening so lines remain to scale",
+    "options": [
+      "A parallel-projection 3D view with no perspective foreshortening so lines remain to scale",
+      "A flat 2D floor plan",
+      "A one-point street photograph",
+      "A soil borehole log"
+    ],
+    "note": "Ideal for exploded structural diagrams and MEP service coordination."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "In BIM (Building Information Modeling), what does 'Clash Detection' in Navisworks catch?",
+    "answer": "Physical spatial conflicts (e.g., an HVAC duct colliding with a structural beam) before site construction",
+    "options": [
+      "Physical spatial conflicts (e.g., an HVAC duct colliding with a structural beam) before site construction",
+      "Spelling errors in emails",
+      "Color palette mismatches",
+      "Wi-Fi dead zones"
+    ],
+    "note": "Saves massive rework costs during MEP and structural site execution."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "What does 'LOD 400' mean in a BIM Execution Plan?",
+    "answer": "Fabrication-level model detail ready for shop drawings and site assembly",
+    "options": [
+      "Fabrication-level model detail ready for shop drawings and site assembly",
+      "Conceptual massing only",
+      "A 2D hand sketch",
+      "Demolition documentation"
+    ],
+    "note": "LOD progresses from 100 (Concept) \u2192 200 (Schematic) \u2192 300 (Design) \u2192 400 (Fabrication) \u2192 500 (As-Built)."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "What is a 'Clerestory' window?",
+    "answer": "A high band of windows placed above eye level to bring natural daylight deep into a room",
+    "options": [
+      "A high band of windows placed above eye level to bring natural daylight deep into a room",
+      "A basement escape hatch",
+      "A curved bay window",
+      "A glass floor panel"
+    ],
+    "note": "Provides glare-free daylighting and hot-air exhaust without losing lower wall space."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "In stair design, Blondel's comfort formula (2R + T \u2248 600\u2013640 mm) relates which two dimensions?",
+    "answer": "Riser height (R) and Tread depth (T)",
+    "options": [
+      "Riser height (R) and Tread depth (T)",
+      "Radius and Thickness",
+      "Roof height and Terrace width",
+      "Rebar size and Tile spacing"
+    ],
+    "note": "Ensures a natural, safe human stride \u2014 typically ~150mm riser and ~300mm tread."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "What is a 'Section Drawing' in architectural documentation?",
+    "answer": "A vertical slice cut straight through a building showing floor heights, slabs, and spatial volumes",
+    "options": [
+      "A vertical slice cut straight through a building showing floor heights, slabs, and spatial volumes",
+      "A top-down roof view",
+      "An exterior front facade view",
+      "A site boundary survey"
+    ],
+    "note": "Crucial for coordinating ceiling plenums, ductwork, and vertical circulation."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "What does 'Universal Design' (Barrier-Free Architecture) require for wheelchair ramps?",
+    "answer": "Gentle slope (typically 1:12 max gradient) with handrails and level landings",
+    "options": [
+      "Gentle slope (typically 1:12 max gradient) with handrails and level landings",
+      "Steep 1:4 concrete ramp",
+      "Spiral staircases only",
+      "Narrow 600mm doorways"
+    ],
+    "note": "Ensures dignified, independent access for all ages and abilities."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "In acoustic architecture, what does 'Reverberation Time' (RT60) measure?",
+    "answer": "Time taken for sound level in a room to decay by 60 dB after the source stops",
+    "options": [
+      "Time taken for sound level in a room to decay by 60 dB after the source stops",
+      "Maximum speaker volume",
+      "Sound speed in steel",
+      "Outside traffic decibels"
+    ],
+    "note": "Speech halls need short RT60 (~0.8s); symphony halls thrive at ~1.8\u20132.1s."
+  },
+  {
+    "topic": "Urban/BIM",
+    "q": "What is 'Transit-Oriented Development' (TOD) in modern urban planning?",
+    "answer": "High-density, walkable mixed-use neighborhoods centered around Metro/rail stations",
+    "options": [
+      "High-density, walkable mixed-use neighborhoods centered around Metro/rail stations",
+      "Building 12-lane highways through downtown",
+      "Suburban car-only cul-de-sacs",
+      "Industrial warehouse zoning"
+    ],
+    "note": "Cuts car dependency, traffic congestion, and urban emissions."
+  }
+]

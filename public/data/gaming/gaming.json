@@ -1,0 +1,1668 @@
+{
+  "VIDEO_GAMES": [
+    {
+      "name": "Minecraft",
+      "studio": "Mojang",
+      "platform": "Multi",
+      "sales": 300,
+      "score": 93,
+      "year": 2011,
+      "emoji": "\u26cf\ufe0f"
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "studio": "Rockstar Games",
+      "platform": "Multi",
+      "sales": 210,
+      "score": 97,
+      "year": 2013,
+      "emoji": "\ud83d\ude97"
+    },
+    {
+      "name": "Tetris (EA / Modern)",
+      "studio": "Alexey Pajitnov / TPC",
+      "platform": "Multi",
+      "sales": 100,
+      "score": 94,
+      "year": 1984,
+      "emoji": "\ud83e\uddf1"
+    },
+    {
+      "name": "Wii Sports",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 82.9,
+      "score": 76,
+      "year": 2006,
+      "emoji": "\ud83c\udfbe"
+    },
+    {
+      "name": "PUBG: Battlegrounds",
+      "studio": "PUBG Studios",
+      "platform": "PC/Mobile",
+      "sales": 75,
+      "score": 86,
+      "year": 2017,
+      "emoji": "\ud83e\ude82"
+    },
+    {
+      "name": "Mario Kart 8 Deluxe",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 75.8,
+      "score": 92,
+      "year": 2017,
+      "emoji": "\ud83c\udfce\ufe0f"
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "studio": "Rockstar Games",
+      "platform": "Multi",
+      "sales": 70,
+      "score": 97,
+      "year": 2018,
+      "emoji": "\ud83e\udd20"
+    },
+    {
+      "name": "The Elder Scrolls V: Skyrim",
+      "studio": "Bethesda Game Studios",
+      "platform": "Multi",
+      "sales": 60,
+      "score": 96,
+      "year": 2011,
+      "emoji": "\ud83d\udc09"
+    },
+    {
+      "name": "The Witcher 3: Wild Hunt",
+      "studio": "CD Projekt Red",
+      "platform": "Multi",
+      "sales": 50,
+      "score": 93,
+      "year": 2015,
+      "emoji": "\u2694\ufe0f"
+    },
+    {
+      "name": "Terraria",
+      "studio": "Re-Logic",
+      "platform": "Multi",
+      "sales": 60.7,
+      "score": 88,
+      "year": 2011,
+      "emoji": "\ud83c\udf33"
+    },
+    {
+      "name": "Stardew Valley",
+      "studio": "ConcernedApe",
+      "platform": "Multi",
+      "sales": 41,
+      "score": 89,
+      "year": 2016,
+      "emoji": "\ud83c\udf3e"
+    },
+    {
+      "name": "Animal Crossing: New Horizons",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 47.4,
+      "score": 90,
+      "year": 2020,
+      "emoji": "\ud83c\udfdd\ufe0f"
+    },
+    {
+      "name": "Pok\u00e9mon Red / Green / Blue",
+      "studio": "Game Freak",
+      "platform": "Nintendo",
+      "sales": 31.4,
+      "score": 88,
+      "year": 1996,
+      "emoji": "\u25d3"
+    },
+    {
+      "name": "Zelda: Breath of the Wild",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 34.2,
+      "score": 97,
+      "year": 2017,
+      "emoji": "\ud83d\udde1\ufe0f"
+    },
+    {
+      "name": "Zelda: Tears of the Kingdom",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 21.5,
+      "score": 96,
+      "year": 2023,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "Elden Ring",
+      "studio": "FromSoftware",
+      "platform": "Multi",
+      "sales": 28.6,
+      "score": 96,
+      "year": 2022,
+      "emoji": "\ud83d\udc8d"
+    },
+    {
+      "name": "Cyberpunk 2077",
+      "studio": "CD Projekt Red",
+      "platform": "Multi",
+      "sales": 30,
+      "score": 86,
+      "year": 2020,
+      "emoji": "\ud83e\uddbe"
+    },
+    {
+      "name": "Hogwarts Legacy",
+      "studio": "Avalanche Software",
+      "platform": "Multi",
+      "sales": 30,
+      "score": 84,
+      "year": 2023,
+      "emoji": "\ud83e\ude84"
+    },
+    {
+      "name": "God of War (2018)",
+      "studio": "Santa Monica Studio",
+      "platform": "PlayStation",
+      "sales": 23,
+      "score": 94,
+      "year": 2018,
+      "emoji": "\ud83e\ude93"
+    },
+    {
+      "name": "God of War Ragnar\u00f6k",
+      "studio": "Santa Monica Studio",
+      "platform": "PlayStation",
+      "sales": 15,
+      "score": 94,
+      "year": 2022,
+      "emoji": "\ud83e\ude93"
+    },
+    {
+      "name": "Marvel's Spider-Man (2018)",
+      "studio": "Insomniac Games",
+      "platform": "PlayStation",
+      "sales": 22,
+      "score": 87,
+      "year": 2018,
+      "emoji": "\ud83d\udd77\ufe0f"
+    },
+    {
+      "name": "The Last of Us",
+      "studio": "Naughty Dog",
+      "platform": "PlayStation",
+      "sales": 20,
+      "score": 95,
+      "year": 2013,
+      "emoji": "\ud83c\udf44"
+    },
+    {
+      "name": "Uncharted 4",
+      "studio": "Naughty Dog",
+      "platform": "PlayStation",
+      "sales": 18,
+      "score": 93,
+      "year": 2016,
+      "emoji": "\ud83e\udded"
+    },
+    {
+      "name": "Ghost of Tsushima",
+      "studio": "Sucker Punch",
+      "platform": "PlayStation",
+      "sales": 13,
+      "score": 83,
+      "year": 2020,
+      "emoji": "\u26e9\ufe0f"
+    },
+    {
+      "name": "Baldur's Gate 3",
+      "studio": "Larian Studios",
+      "platform": "Multi",
+      "sales": 15,
+      "score": 96,
+      "year": 2023,
+      "emoji": "\ud83c\udfb2"
+    },
+    {
+      "name": "Half-Life 2",
+      "studio": "Valve",
+      "platform": "PC",
+      "sales": 12,
+      "score": 96,
+      "year": 2004,
+      "emoji": "\ud83e\uddea"
+    },
+    {
+      "name": "Portal 2",
+      "studio": "Valve",
+      "platform": "PC",
+      "sales": 13,
+      "score": 95,
+      "year": 2011,
+      "emoji": "\ud83c\udf00"
+    },
+    {
+      "name": "Counter-Strike: Global Offensive",
+      "studio": "Valve",
+      "platform": "PC",
+      "sales": 40,
+      "score": 83,
+      "year": 2012,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Black Myth: Wukong",
+      "studio": "Game Science",
+      "platform": "Multi",
+      "sales": 25,
+      "score": 81,
+      "year": 2024,
+      "emoji": "\ud83d\udc12"
+    },
+    {
+      "name": "Sekiro: Shadows Die Twice",
+      "studio": "FromSoftware",
+      "platform": "Multi",
+      "sales": 10,
+      "score": 90,
+      "year": 2019,
+      "emoji": "\ud83e\udd77"
+    },
+    {
+      "name": "Dark Souls III",
+      "studio": "FromSoftware",
+      "platform": "Multi",
+      "sales": 10,
+      "score": 89,
+      "year": 2016,
+      "emoji": "\ud83d\udd25"
+    },
+    {
+      "name": "Hollow Knight",
+      "studio": "Team Cherry",
+      "platform": "Multi",
+      "sales": 15,
+      "score": 90,
+      "year": 2017,
+      "emoji": "\ud83e\udd8b"
+    },
+    {
+      "name": "Hades",
+      "studio": "Supergiant Games",
+      "platform": "Multi",
+      "sales": 8,
+      "score": 93,
+      "year": 2020,
+      "emoji": "\ud83d\udd25"
+    },
+    {
+      "name": "Super Mario Odyssey",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 29,
+      "score": 97,
+      "year": 2017,
+      "emoji": "\ud83e\udde2"
+    },
+    {
+      "name": "GTA: San Andreas",
+      "studio": "Rockstar Games",
+      "platform": "Multi",
+      "sales": 27.5,
+      "score": 95,
+      "year": 2004,
+      "emoji": "\ud83d\udeb2"
+    },
+    {
+      "name": "Call of Duty: Modern Warfare (2019)",
+      "studio": "Infinity Ward",
+      "platform": "Multi",
+      "sales": 30,
+      "score": 80,
+      "year": 2019,
+      "emoji": "\ud83e\ude96"
+    },
+    {
+      "name": "Overwatch",
+      "studio": "Blizzard",
+      "platform": "Multi",
+      "sales": 50,
+      "score": 91,
+      "year": 2016,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "Human: Fall Flat",
+      "studio": "No Brakes Games",
+      "platform": "Multi",
+      "sales": 50,
+      "score": 70,
+      "year": 2016,
+      "emoji": "\ud83e\udd38"
+    },
+    {
+      "name": "Super Mario Bros.",
+      "studio": "Nintendo",
+      "platform": "Nintendo",
+      "sales": 58,
+      "score": 94,
+      "year": 1985,
+      "emoji": "\ud83c\udf44"
+    },
+    {
+      "name": "Super Smash Bros. Ultimate",
+      "studio": "Bandai Namco / Sora",
+      "platform": "Nintendo",
+      "sales": 35.1,
+      "score": 93,
+      "year": 2018,
+      "emoji": "\ud83e\udd4a"
+    },
+    {
+      "name": "Pok\u00e9mon Sword & Shield",
+      "studio": "Game Freak",
+      "platform": "Nintendo",
+      "sales": 26.4,
+      "score": 80,
+      "year": 2019,
+      "emoji": "\u2694\ufe0f"
+    },
+    {
+      "name": "Pok\u00e9mon Scarlet & Violet",
+      "studio": "Game Freak",
+      "platform": "Nintendo",
+      "sales": 25.6,
+      "score": 72,
+      "year": 2022,
+      "emoji": "\u25d3"
+    },
+    {
+      "name": "Monster Hunter: World",
+      "studio": "Capcom",
+      "platform": "Multi",
+      "sales": 27,
+      "score": 90,
+      "year": 2018,
+      "emoji": "\ud83e\udd96"
+    },
+    {
+      "name": "Borderlands 2",
+      "studio": "Gearbox",
+      "platform": "Multi",
+      "sales": 28,
+      "score": 89,
+      "year": 2012,
+      "emoji": "\ud83d\udd2b"
+    },
+    {
+      "name": "Diablo III",
+      "studio": "Blizzard",
+      "platform": "Multi",
+      "sales": 30,
+      "score": 88,
+      "year": 2012,
+      "emoji": "\ud83d\ude08"
+    },
+    {
+      "name": "Fallout 4",
+      "studio": "Bethesda Game Studios",
+      "platform": "Multi",
+      "sales": 25,
+      "score": 87,
+      "year": 2015,
+      "emoji": "\u2622\ufe0f"
+    },
+    {
+      "name": "GTA IV",
+      "studio": "Rockstar Games",
+      "platform": "Multi",
+      "sales": 25,
+      "score": 98,
+      "year": 2008,
+      "emoji": "\ud83d\ude95"
+    },
+    {
+      "name": "GTA: Vice City",
+      "studio": "Rockstar Games",
+      "platform": "Multi",
+      "sales": 17.5,
+      "score": 95,
+      "year": 2002,
+      "emoji": "\ud83c\udf34"
+    },
+    {
+      "name": "Resident Evil 2 Remake",
+      "studio": "Capcom",
+      "platform": "Multi",
+      "sales": 14.5,
+      "score": 91,
+      "year": 2019,
+      "emoji": "\ud83e\udddf"
+    },
+    {
+      "name": "Resident Evil 4 (2023)",
+      "studio": "Capcom",
+      "platform": "Multi",
+      "sales": 9,
+      "score": 93,
+      "year": 2023,
+      "emoji": "\ud83e\udddf"
+    },
+    {
+      "name": "Bloodborne",
+      "studio": "FromSoftware",
+      "platform": "PlayStation",
+      "sales": 7.5,
+      "score": 92,
+      "year": 2015,
+      "emoji": "\ud83e\ude78"
+    },
+    {
+      "name": "Persona 5 Royal",
+      "studio": "Atlus",
+      "platform": "Multi",
+      "sales": 7.2,
+      "score": 95,
+      "year": 2019,
+      "emoji": "\ud83c\udfad"
+    },
+    {
+      "name": "Metal Gear Solid V",
+      "studio": "Kojima Productions",
+      "platform": "Multi",
+      "sales": 7,
+      "score": 93,
+      "year": 2015,
+      "emoji": "\ud83d\udce6"
+    },
+    {
+      "name": "DOOM Eternal",
+      "studio": "id Software",
+      "platform": "Multi",
+      "sales": 6,
+      "score": 88,
+      "year": 2020,
+      "emoji": "\ud83d\udd25"
+    },
+    {
+      "name": "It Takes Two",
+      "studio": "Hazelight Studios",
+      "platform": "Multi",
+      "sales": 20,
+      "score": 88,
+      "year": 2021,
+      "emoji": "\ud83e\udd1d"
+    },
+    {
+      "name": "Palworld",
+      "studio": "Pocketpair",
+      "platform": "PC/Console",
+      "sales": 15,
+      "score": 80,
+      "year": 2024,
+      "emoji": "\ud83d\udd2b"
+    },
+    {
+      "name": "Grand Theft Auto: Vice City Stories",
+      "studio": "Rockstar Leeds",
+      "platform": "PlayStation",
+      "sales": 7.0,
+      "score": 86,
+      "year": 2006,
+      "emoji": "\ud83c\udf34"
+    },
+    {
+      "name": "Assassin's Creed Valhalla",
+      "studio": "Ubisoft",
+      "platform": "Multi",
+      "sales": 20.0,
+      "score": 84,
+      "year": 2020,
+      "emoji": "\ud83e\ude93"
+    },
+    {
+      "name": "Assassin's Creed IV: Black Flag",
+      "studio": "Ubisoft",
+      "platform": "Multi",
+      "sales": 15.0,
+      "score": 88,
+      "year": 2013,
+      "emoji": "\ud83c\udff4\u200d\u2620\ufe0f"
+    },
+    {
+      "name": "Far Cry 5",
+      "studio": "Ubisoft",
+      "platform": "Multi",
+      "sales": 15.0,
+      "score": 81,
+      "year": 2018,
+      "emoji": "\ud83e\udd85"
+    },
+    {
+      "name": "Halo 3",
+      "studio": "Bungie",
+      "platform": "Xbox",
+      "sales": 14.5,
+      "score": 94,
+      "year": 2007,
+      "emoji": "\ud83e\ude96"
+    },
+    {
+      "name": "Halo: Reach",
+      "studio": "Bungie",
+      "platform": "Xbox",
+      "sales": 9.8,
+      "score": 91,
+      "year": 2010,
+      "emoji": "\ud83e\ude96"
+    },
+    {
+      "name": "Forza Horizon 5",
+      "studio": "Playground Games",
+      "platform": "Multi",
+      "sales": 40.0,
+      "score": 92,
+      "year": 2021,
+      "emoji": "\ud83c\udfce\ufe0f"
+    },
+    {
+      "name": "Gran Turismo 7",
+      "studio": "Polyphony Digital",
+      "platform": "PlayStation",
+      "sales": 14.0,
+      "score": 87,
+      "year": 2022,
+      "emoji": "\ud83c\udfc1"
+    },
+    {
+      "name": "FIFA 23 / EA FC 24",
+      "studio": "EA Sports",
+      "platform": "Multi",
+      "sales": 25.0,
+      "score": 77,
+      "year": 2023,
+      "emoji": "\u26bd"
+    },
+    {
+      "name": "Rocket League",
+      "studio": "Psyonix",
+      "platform": "Multi",
+      "sales": 10.5,
+      "score": 86,
+      "year": 2015,
+      "emoji": "\ud83d\ude97"
+    },
+    {
+      "name": "Among Us",
+      "studio": "Innersloth",
+      "platform": "Multi",
+      "sales": 50.0,
+      "score": 85,
+      "year": 2018,
+      "emoji": "\ud83d\udef8"
+    },
+    {
+      "name": "Fall Guys",
+      "studio": "Mediatonic",
+      "platform": "Multi",
+      "sales": 11.0,
+      "score": 81,
+      "year": 2020,
+      "emoji": "\ud83e\uded8"
+    },
+    {
+      "name": "Helldivers 2",
+      "studio": "Arrowhead",
+      "platform": "PC/PS5",
+      "sales": 15.0,
+      "score": 82,
+      "year": 2024,
+      "emoji": "\ud83e\udee1"
+    },
+    {
+      "name": "Lethal Company",
+      "studio": "Zeekerss",
+      "platform": "PC",
+      "sales": 10.0,
+      "score": 88,
+      "year": 2023,
+      "emoji": "\ud83d\udd26"
+    },
+    {
+      "name": "Phasmophobia",
+      "studio": "Kinetic Games",
+      "platform": "Multi",
+      "sales": 20.0,
+      "score": 84,
+      "year": 2020,
+      "emoji": "\ud83d\udc7b"
+    },
+    {
+      "name": "Dead by Daylight",
+      "studio": "Behaviour",
+      "platform": "Multi",
+      "sales": 12.0,
+      "score": 71,
+      "year": 2016,
+      "emoji": "\ud83d\udd2a"
+    },
+    {
+      "name": "Rainbow Six Siege",
+      "studio": "Ubisoft",
+      "platform": "Multi",
+      "sales": 30.0,
+      "score": 79,
+      "year": 2015,
+      "emoji": "\ud83c\udfaf"
+    },
+    {
+      "name": "Rust",
+      "studio": "Facepunch",
+      "platform": "PC/Console",
+      "sales": 16.0,
+      "score": 69,
+      "year": 2018,
+      "emoji": "\ud83e\udea8"
+    },
+    {
+      "name": "Valheim",
+      "studio": "Iron Gate",
+      "platform": "PC/Xbox",
+      "sales": 12.0,
+      "score": 89,
+      "year": 2021,
+      "emoji": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "name": "No Man's Sky",
+      "studio": "Hello Games",
+      "platform": "Multi",
+      "sales": 10.0,
+      "score": 83,
+      "year": 2016,
+      "emoji": "\ud83d\ude80"
+    },
+    {
+      "name": "Subnautica",
+      "studio": "Unknown Worlds",
+      "platform": "Multi",
+      "sales": 6.0,
+      "score": 87,
+      "year": 2018,
+      "emoji": "\ud83c\udf0a"
+    },
+    {
+      "name": "Celeste",
+      "studio": "Maddy Makes Games",
+      "platform": "Multi",
+      "sales": 5.0,
+      "score": 94,
+      "year": 2018,
+      "emoji": "\ud83c\udf53"
+    },
+    {
+      "name": "Cuphead",
+      "studio": "Studio MDHR",
+      "platform": "Multi",
+      "sales": 8.0,
+      "score": 88,
+      "year": 2017,
+      "emoji": "\u2615"
+    },
+    {
+      "name": "Undertale",
+      "studio": "Toby Fox",
+      "platform": "Multi",
+      "sales": 6.5,
+      "score": 92,
+      "year": 2015,
+      "emoji": "\u2764\ufe0f"
+    },
+    {
+      "name": "Disco Elysium",
+      "studio": "ZA/UM",
+      "platform": "Multi",
+      "sales": 4.0,
+      "score": 97,
+      "year": 2019,
+      "emoji": "\ud83d\udd75\ufe0f"
+    },
+    {
+      "name": "Mass Effect 2",
+      "studio": "BioWare",
+      "platform": "Multi",
+      "sales": 7.5,
+      "score": 96,
+      "year": 2010,
+      "emoji": "\ud83d\ude80"
+    },
+    {
+      "name": "BioShock",
+      "studio": "Irrational Games",
+      "platform": "Multi",
+      "sales": 8.0,
+      "score": 96,
+      "year": 2007,
+      "emoji": "\ud83c\udf0a"
+    },
+    {
+      "name": "Horizon Zero Dawn",
+      "studio": "Guerrilla Games",
+      "platform": "Multi",
+      "sales": 24.3,
+      "score": 89,
+      "year": 2017,
+      "emoji": "\ud83c\udff9"
+    },
+    {
+      "name": "Marvel's Spider-Man 2",
+      "studio": "Insomniac Games",
+      "platform": "PS5/PC",
+      "sales": 11.0,
+      "score": 90,
+      "year": 2023,
+      "emoji": "\ud83d\udd77\ufe0f"
+    },
+    {
+      "name": "The Last of Us Part II",
+      "studio": "Naughty Dog",
+      "platform": "PS4/PS5",
+      "sales": 10.0,
+      "score": 93,
+      "year": 2020,
+      "emoji": "\ud83c\udfb8"
+    },
+    {
+      "name": "Final Fantasy VII (1997)",
+      "studio": "Square",
+      "platform": "PlayStation",
+      "sales": 14.4,
+      "score": 92,
+      "year": 1997,
+      "emoji": "\ud83d\udde1\ufe0f"
+    },
+    {
+      "name": "Chrono Trigger",
+      "studio": "Square",
+      "platform": "Nintendo",
+      "sales": 5.0,
+      "score": 96,
+      "year": 1995,
+      "emoji": "\u23f3"
+    },
+    {
+      "name": "Street Fighter II",
+      "studio": "Capcom",
+      "platform": "Arcade/Multi",
+      "sales": 15.5,
+      "score": 93,
+      "year": 1991,
+      "emoji": "\ud83e\udd4b"
+    },
+    {
+      "name": "Mortal Kombat 11",
+      "studio": "NetherRealm",
+      "platform": "Multi",
+      "sales": 15.0,
+      "score": 82,
+      "year": 2019,
+      "emoji": "\ud83d\udc09"
+    }
+  ],
+  "GAME_IDS": [
+    {
+      "clue": "Dust II",
+      "kind": "Map",
+      "answer": "Counter-Strike",
+      "hint": "Bomb-defusal desert map with Mid Doors and A Long."
+    },
+    {
+      "clue": "Erangel",
+      "kind": "Map",
+      "answer": "PUBG / BGMI",
+      "hint": "8\u00d78 km island featuring Pochinki, Georgopol, and Sosnovka Military Base."
+    },
+    {
+      "clue": "Summoner's Rift",
+      "kind": "Map",
+      "answer": "League of Legends",
+      "hint": "Three-lane 5v5 MOBA arena with Baron Nashor and Dragon pit."
+    },
+    {
+      "clue": "Tilted Towers",
+      "kind": "Map",
+      "answer": "Fortnite",
+      "hint": "Chaotic urban hot-drop POI where half the lobby lands."
+    },
+    {
+      "clue": "Los Santos",
+      "kind": "Map",
+      "answer": "Grand Theft Auto V",
+      "hint": "Sun-soaked fictional city based on Los Angeles."
+    },
+    {
+      "clue": "Nuketown",
+      "kind": "Map",
+      "answer": "Call of Duty: Black Ops",
+      "hint": "Tiny 1950s nuclear test suburb packed with mannequins."
+    },
+    {
+      "clue": "2Fort",
+      "kind": "Map",
+      "answer": "Team Fortress 2",
+      "hint": "Symmetrical wooden bridge connecting RED and BLU bases."
+    },
+    {
+      "clue": "Ascent",
+      "kind": "Map",
+      "answer": "Valorant",
+      "hint": "Italian floating city map with closable mechanical doors on sites."
+    },
+    {
+      "clue": "Hyrule",
+      "kind": "Map",
+      "answer": "The Legend of Zelda",
+      "hint": "Vast kingdom featuring Death Mountain and Korok Forest."
+    },
+    {
+      "clue": "The Lands Between",
+      "kind": "Map",
+      "answer": "Elden Ring",
+      "hint": "Open world watched over by the colossal glowing Erdtree."
+    },
+    {
+      "clue": "Night City",
+      "kind": "Map",
+      "answer": "Cyberpunk 2077",
+      "hint": "Neon megacity ruled by megacorporations like Arasaka."
+    },
+    {
+      "clue": "The Skeld",
+      "kind": "Map",
+      "answer": "Among Us",
+      "hint": "Spaceship map with Cafeteria, Electrical, and MedBay."
+    },
+    {
+      "clue": "Blades of Chaos",
+      "kind": "Weapon",
+      "answer": "God of War",
+      "hint": "Fiery chained twin blades seared to Kratos's forearms."
+    },
+    {
+      "clue": "Master Sword",
+      "kind": "Weapon",
+      "answer": "The Legend of Zelda",
+      "hint": "The Blade of Evil's Bane pulled from a pedestal in the forest."
+    },
+    {
+      "clue": "Gravity Gun",
+      "kind": "Weapon",
+      "answer": "Half-Life 2",
+      "hint": "Zero-Point Energy Field Manipulator used to launch sawblades."
+    },
+    {
+      "clue": "Hidden Blade",
+      "kind": "Weapon",
+      "answer": "Assassin's Creed",
+      "hint": "Wrist-mounted retractable dagger of the Brotherhood."
+    },
+    {
+      "clue": "Portal Gun",
+      "kind": "Weapon",
+      "answer": "Portal",
+      "hint": "Fires linked orange and blue wormholes onto moon-rock walls."
+    },
+    {
+      "clue": "Buster Sword",
+      "kind": "Weapon",
+      "answer": "Final Fantasy VII",
+      "hint": "Oversized broadsword wielded by Cloud Strife."
+    },
+    {
+      "clue": "Energy Sword",
+      "kind": "Weapon",
+      "answer": "Halo",
+      "hint": "Glowing twin-pronged Covenant plasma blade."
+    },
+    {
+      "clue": "BFG 9000",
+      "kind": "Weapon",
+      "answer": "DOOM",
+      "hint": "Massive green plasma cannon built to clear rooms of demons."
+    },
+    {
+      "clue": "Leviathan Axe",
+      "kind": "Weapon",
+      "answer": "God of War (2018)",
+      "hint": "Frost-imbued Norse war axe that flies back to your hand."
+    },
+    {
+      "clue": "AWP (Arctic Warfare Police)",
+      "kind": "Weapon",
+      "answer": "Counter-Strike",
+      "hint": "Iconic one-shot bolt-action sniper rifle costing $4,750."
+    },
+    {
+      "clue": "Malenia, Blade of Miquella",
+      "kind": "Boss",
+      "answer": "Elden Ring",
+      "hint": "Infamous optional demigod boss with the Waterfowl Dance."
+    },
+    {
+      "clue": "Ender Dragon",
+      "kind": "Boss",
+      "answer": "Minecraft",
+      "hint": "Final winged boss residing in The End dimension."
+    },
+    {
+      "clue": "Bowser",
+      "kind": "Boss",
+      "answer": "Super Mario",
+      "hint": "Fire-breathing Koopa king who repeatedly kidnaps Princess Peach."
+    },
+    {
+      "clue": "Sephiroth",
+      "kind": "Boss",
+      "answer": "Final Fantasy VII",
+      "hint": "One-Winged Angel wielding the absurdly long Masamune."
+    },
+    {
+      "clue": "GLaDOS",
+      "kind": "Boss",
+      "answer": "Portal",
+      "hint": "Sarcastic Aperture Science AI who promises cake."
+    },
+    {
+      "clue": "Valkyrie Queen Sigrun",
+      "kind": "Boss",
+      "answer": "God of War (2018)",
+      "hint": "Brutal optional endgame boss combining every Valkyrie's moveset."
+    },
+    {
+      "clue": "Isshin, the Sword Saint",
+      "kind": "Boss",
+      "answer": "Sekiro: Shadows Die Twice",
+      "hint": "Four-phase finale boss who famously pulls out a gun."
+    },
+    {
+      "clue": "Alduin, World-Eater",
+      "kind": "Boss",
+      "answer": "Skyrim",
+      "hint": "Ancient black dragon prophesied to devour Nirn."
+    },
+    {
+      "clue": "Nemesis",
+      "kind": "Boss",
+      "answer": "Resident Evil 3",
+      "hint": "Relentless bio-weapon stalking Jill Valentine shouting 'S.T.A.R.S.'"
+    },
+    {
+      "clue": "Radiant Absolute Radiance",
+      "kind": "Boss",
+      "answer": "Hollow Knight",
+      "hint": "Blinding moth goddess at the peak of Pantheon of Hallownest."
+    },
+    {
+      "clue": "Mirage",
+      "kind": "Map",
+      "answer": "Counter-Strike",
+      "hint": "Classic competitive map with Palace, Connector, and Window."
+    },
+    {
+      "clue": "Sanhok",
+      "kind": "Map",
+      "answer": "PUBG / BGMI",
+      "hint": "Compact 4\u00d74 km jungle island featuring Bootcamp and Paradise Resort."
+    },
+    {
+      "clue": "Bind",
+      "kind": "Map",
+      "answer": "Valorant",
+      "hint": "Moroccan map featuring one-way teleporters and no mid lane."
+    },
+    {
+      "clue": "Rust",
+      "kind": "Map",
+      "answer": "Call of Duty: Modern Warfare 2",
+      "hint": "Tiny desert oil yard famous for 1v1 sniper duels."
+    },
+    {
+      "clue": "Vice City",
+      "kind": "Map",
+      "answer": "Grand Theft Auto: Vice City",
+      "hint": "1980s neon Miami-inspired paradise ruled by Tommy Vercetti."
+    },
+    {
+      "clue": "Yharnam",
+      "kind": "Map",
+      "answer": "Bloodborne",
+      "hint": "Gothic Victorian city plagued by a blood-borne beast scourge."
+    },
+    {
+      "clue": "Rapture",
+      "kind": "Map",
+      "answer": "BioShock",
+      "hint": "Art Deco underwater utopia built by Andrew Ryan."
+    },
+    {
+      "clue": "Midgar",
+      "kind": "Map",
+      "answer": "Final Fantasy VII",
+      "hint": "Mako-powered circular metropolis controlled by Shinra."
+    },
+    {
+      "clue": "Keyblade",
+      "kind": "Weapon",
+      "answer": "Kingdom Hearts",
+      "hint": "Key-shaped magical sword wielded by Sora."
+    },
+    {
+      "clue": "Diamond Pickaxe",
+      "kind": "Weapon",
+      "answer": "Minecraft",
+      "hint": "Required tool to mine Obsidian blocks."
+    },
+    {
+      "clue": "Crowbar",
+      "kind": "Weapon",
+      "answer": "Half-Life",
+      "hint": "Gordon Freeman's iconic red melee tool."
+    },
+    {
+      "clue": "Frostmourne",
+      "kind": "Weapon",
+      "answer": "World of Warcraft",
+      "hint": "Cursed runeblade wielded by the Lich King Arthas."
+    },
+    {
+      "clue": "Moonlight Greatsword",
+      "kind": "Weapon",
+      "answer": "FromSoftware / Dark Souls",
+      "hint": "Glowing cyan blade recurring across Dark Souls, Bloodborne & Elden Ring."
+    },
+    {
+      "clue": "Mantis Blades",
+      "kind": "Weapon",
+      "answer": "Cyberpunk 2077",
+      "hint": "Forearm-implanted cyberware scythe blades."
+    },
+    {
+      "clue": "Vaas Montenegro",
+      "kind": "Boss",
+      "answer": "Far Cry 3",
+      "hint": "Unpredictable pirate villain who defines the meaning of insanity."
+    },
+    {
+      "clue": "Ganondorf",
+      "kind": "Boss",
+      "answer": "The Legend of Zelda",
+      "hint": "King of Evil who wields the Triforce of Power."
+    },
+    {
+      "clue": "Orphan of Kos",
+      "kind": "Boss",
+      "answer": "Bloodborne",
+      "hint": "Relentless, screeching final DLC boss on a bleak beach."
+    },
+    {
+      "clue": "Sans",
+      "kind": "Boss",
+      "answer": "Undertale",
+      "hint": "Laid-back skeleton who delivers a brutal Genocide-route fight to Megalovania."
+    },
+    {
+      "clue": "Big Smoke",
+      "kind": "Boss",
+      "answer": "GTA: San Andreas",
+      "hint": "Famous for his drive-thru order and betraying Grove Street."
+    },
+    {
+      "clue": "Dr. Eggman (Robotnik)",
+      "kind": "Boss",
+      "answer": "Sonic the Hedgehog",
+      "hint": "Mustachioed 300-IQ genius hunting the Chaos Emeralds."
+    },
+    {
+      "clue": "Inferno",
+      "kind": "Map",
+      "answer": "Counter-Strike",
+      "hint": "Italian village map famous for Banana control and A Apartments."
+    },
+    {
+      "clue": "Livik",
+      "kind": "Map",
+      "answer": "PUBG / BGMI",
+      "hint": "Fast-paced 2\u00d72 km Nordic map exclusive to mobile."
+    },
+    {
+      "clue": "Haven",
+      "kind": "Map",
+      "answer": "Valorant",
+      "hint": "Bhutanese monastery map unique for having THREE spike sites (A, B, C)."
+    },
+    {
+      "clue": "Shipment",
+      "kind": "Map",
+      "answer": "Call of Duty",
+      "hint": "Chaotic postage-stamp container yard for nonstop respawn mayhem."
+    },
+    {
+      "clue": "Liberty City",
+      "kind": "Map",
+      "answer": "Grand Theft Auto IV",
+      "hint": "Gritty New York City-inspired metropolis starring Niko Bellic."
+    },
+    {
+      "clue": "Novigrad",
+      "kind": "Map",
+      "answer": "The Witcher 3: Wild Hunt",
+      "hint": "Bustling Free City where Geralt searches for Ciri and Dandelion."
+    },
+    {
+      "clue": "Whiterun",
+      "kind": "Map",
+      "answer": "Skyrim",
+      "hint": "Central Nordic hold home to Dragonsreach and the Companions."
+    },
+    {
+      "clue": "Anor Londo",
+      "kind": "Map",
+      "answer": "Dark Souls",
+      "hint": "Sunlit golden city of the gods guarded by Silver Knight archers."
+    },
+    {
+      "clue": "City 17",
+      "kind": "Map",
+      "answer": "Half-Life 2",
+      "hint": "Dystopian Eastern European city towered over by the Combine Citadel."
+    },
+    {
+      "clue": "Raccoon City",
+      "kind": "Map",
+      "answer": "Resident Evil",
+      "hint": "Midwestern town devastated by Umbrella's T-Virus outbreak."
+    },
+    {
+      "clue": "Columbia",
+      "kind": "Map",
+      "answer": "BioShock Infinite",
+      "hint": "Floating sky-city suspended by quantum levitation."
+    },
+    {
+      "clue": "Green Hill Zone",
+      "kind": "Map",
+      "answer": "Sonic the Hedgehog",
+      "hint": "Checkered-soil tropical paradise with loop-de-loops and golden rings."
+    },
+    {
+      "clue": "Rainbow Road",
+      "kind": "Map",
+      "answer": "Mario Kart",
+      "hint": "Guardrail-free cosmic track infamous for last-lap blue shells."
+    },
+    {
+      "clue": "Pelican Town",
+      "kind": "Map",
+      "answer": "Stardew Valley",
+      "hint": "Cozy valley village where you inherit your grandfather's overgrown farm."
+    },
+    {
+      "clue": "Frostbite / Gjallarhorn",
+      "kind": "Weapon",
+      "answer": "Destiny",
+      "hint": "Exotic solar rocket launcher that splits into Wolfpack Rounds."
+    },
+    {
+      "clue": "Yamato",
+      "kind": "Weapon",
+      "answer": "Devil May Cry",
+      "hint": "Dimension-slicing katana wielded by Vergil."
+    },
+    {
+      "clue": "Mortal Blade",
+      "kind": "Weapon",
+      "answer": "Sekiro: Shadows Die Twice",
+      "hint": "Crimson odachi capable of severing immortality."
+    },
+    {
+      "clue": "Rivers of Blood",
+      "kind": "Weapon",
+      "answer": "Elden Ring",
+      "hint": "Bleed-inflicting katana famous for its Corpse Piler skill."
+    },
+    {
+      "clue": "Ray Gun",
+      "kind": "Weapon",
+      "answer": "Call of Duty: Zombies",
+      "hint": "Retro sci-fi Wonder Weapon pulled from the Mystery Box."
+    },
+    {
+      "clue": "Wabbajack",
+      "kind": "Weapon",
+      "answer": "Skyrim",
+      "hint": "Daedric staff of Sheogorath that turns enemies into sweetrolls or chickens."
+    },
+    {
+      "clue": "Lancer Assault Rifle",
+      "kind": "Weapon",
+      "answer": "Gears of War",
+      "hint": "Rifle fitted with an underbarrel chainsaw bayonet."
+    },
+    {
+      "clue": "Blade of Olympus",
+      "kind": "Weapon",
+      "answer": "God of War II",
+      "hint": "Divine sword forged by Zeus to end the Great War."
+    },
+    {
+      "clue": "Vandal",
+      "kind": "Weapon",
+      "answer": "Valorant",
+      "hint": "2,900-credit rifle prized for one-tap headshots at any range."
+    },
+    {
+      "clue": "M416",
+      "kind": "Weapon",
+      "answer": "PUBG / BGMI",
+      "hint": "Versatile 5.56mm assault rifle favored for low-recoil 6x sprays."
+    },
+    {
+      "clue": "Starscourge Radahn",
+      "kind": "Boss",
+      "answer": "Elden Ring",
+      "hint": "Massive gravity-wielding demigod riding a tiny horse named Leonard."
+    },
+    {
+      "clue": "Ornstein & Smough",
+      "kind": "Boss",
+      "answer": "Dark Souls",
+      "hint": "Iconic Anor Londo duo \u2014 agile Dragonslayer and hammer-wielding Executioner."
+    },
+    {
+      "clue": "Lady Dimitrescu",
+      "kind": "Boss",
+      "answer": "Resident Evil Village",
+      "hint": "Nine-foot-tall vampire noblewoman ruling a snowy Romanian castle."
+    },
+    {
+      "clue": "Micah Bell",
+      "kind": "Boss",
+      "answer": "Red Dead Redemption 2",
+      "hint": "Treacherous gunslinger who tore apart the Van der Linde gang."
+    },
+    {
+      "clue": "Kefka Palazzo",
+      "kind": "Boss",
+      "answer": "Final Fantasy VI",
+      "hint": "Nihilistic jester who actually succeeds in ruining the world."
+    },
+    {
+      "clue": "Ridley",
+      "kind": "Boss",
+      "answer": "Metroid",
+      "hint": "Cunning purple space-dragon pirate and Samus Aran's nemesis."
+    },
+    {
+      "clue": "Cynthia",
+      "kind": "Boss",
+      "answer": "Pok\u00e9mon Diamond & Pearl",
+      "hint": "Sinnoh Champion whose Garchomp gave a generation piano-music PTSD."
+    },
+    {
+      "clue": "Arthas (The Lich King)",
+      "kind": "Boss",
+      "answer": "World of Warcraft",
+      "hint": "Fallen paladin seated atop the Frozen Throne in Icecrown Citadel."
+    },
+    {
+      "clue": "Adam Smasher",
+      "kind": "Boss",
+      "answer": "Cyberpunk 2077",
+      "hint": "Full-borg Arasaka enforcer who is 96% cybernetic metal."
+    }
+  ],
+  "STUDIO_MATCHES": [
+    {
+      "game": "Grand Theft Auto VI",
+      "studio": "Rockstar Games"
+    },
+    {
+      "game": "Red Dead Redemption 2",
+      "studio": "Rockstar Games"
+    },
+    {
+      "game": "Elden Ring",
+      "studio": "FromSoftware"
+    },
+    {
+      "game": "Sekiro: Shadows Die Twice",
+      "studio": "FromSoftware"
+    },
+    {
+      "game": "Dark Souls",
+      "studio": "FromSoftware"
+    },
+    {
+      "game": "The Witcher 3: Wild Hunt",
+      "studio": "CD Projekt Red"
+    },
+    {
+      "game": "Cyberpunk 2077",
+      "studio": "CD Projekt Red"
+    },
+    {
+      "game": "Half-Life 2",
+      "studio": "Valve"
+    },
+    {
+      "game": "Counter-Strike 2",
+      "studio": "Valve"
+    },
+    {
+      "game": "Dota 2",
+      "studio": "Valve"
+    },
+    {
+      "game": "Zelda: Breath of the Wild",
+      "studio": "Nintendo"
+    },
+    {
+      "game": "Super Mario Odyssey",
+      "studio": "Nintendo"
+    },
+    {
+      "game": "The Last of Us",
+      "studio": "Naughty Dog"
+    },
+    {
+      "game": "Uncharted 4",
+      "studio": "Naughty Dog"
+    },
+    {
+      "game": "God of War Ragnar\u00f6k",
+      "studio": "Santa Monica Studio"
+    },
+    {
+      "game": "Marvel's Spider-Man 2",
+      "studio": "Insomniac Games"
+    },
+    {
+      "game": "Ratchet & Clank: Rift Apart",
+      "studio": "Insomniac Games"
+    },
+    {
+      "game": "Ghost of Tsushima",
+      "studio": "Sucker Punch"
+    },
+    {
+      "game": "Baldur's Gate 3",
+      "studio": "Larian Studios"
+    },
+    {
+      "game": "Valorant",
+      "studio": "Riot Games"
+    },
+    {
+      "game": "League of Legends",
+      "studio": "Riot Games"
+    },
+    {
+      "game": "Minecraft",
+      "studio": "Mojang"
+    },
+    {
+      "game": "Skyrim",
+      "studio": "Bethesda Game Studios"
+    },
+    {
+      "game": "Fallout 4",
+      "studio": "Bethesda Game Studios"
+    },
+    {
+      "game": "Fortnite",
+      "studio": "Epic Games"
+    },
+    {
+      "game": "Black Myth: Wukong",
+      "studio": "Game Science"
+    },
+    {
+      "game": "Hollow Knight",
+      "studio": "Team Cherry"
+    },
+    {
+      "game": "Hades",
+      "studio": "Supergiant Games"
+    },
+    {
+      "game": "Resident Evil 4 Remake",
+      "studio": "Capcom"
+    },
+    {
+      "game": "Monster Hunter: World",
+      "studio": "Capcom"
+    },
+    {
+      "game": "Assassin's Creed II",
+      "studio": "Ubisoft"
+    },
+    {
+      "game": "DOOM Eternal",
+      "studio": "id Software"
+    },
+    {
+      "game": "Halo: Combat Evolved",
+      "studio": "Bungie"
+    },
+    {
+      "game": "Pok\u00e9mon Scarlet & Violet",
+      "studio": "Game Freak"
+    },
+    {
+      "game": "Bloodborne",
+      "studio": "FromSoftware"
+    },
+    {
+      "game": "Armored Core VI",
+      "studio": "FromSoftware"
+    },
+    {
+      "game": "GTA: San Andreas",
+      "studio": "Rockstar Games"
+    },
+    {
+      "game": "Portal 2",
+      "studio": "Valve"
+    },
+    {
+      "game": "Left 4 Dead 2",
+      "studio": "Valve"
+    },
+    {
+      "game": "Super Smash Bros. Ultimate",
+      "studio": "Nintendo"
+    },
+    {
+      "game": "Mario Kart 8 Deluxe",
+      "studio": "Nintendo"
+    },
+    {
+      "game": "Crash Bandicoot (PS1)",
+      "studio": "Naughty Dog"
+    },
+    {
+      "game": "Death Stranding",
+      "studio": "Kojima Productions"
+    },
+    {
+      "game": "Metal Gear Solid",
+      "studio": "Konami"
+    },
+    {
+      "game": "Persona 5 Royal",
+      "studio": "Atlus"
+    },
+    {
+      "game": "Final Fantasy VII",
+      "studio": "Square Enix"
+    },
+    {
+      "game": "Street Fighter 6",
+      "studio": "Capcom"
+    },
+    {
+      "game": "Devil May Cry 5",
+      "studio": "Capcom"
+    },
+    {
+      "game": "Far Cry 3",
+      "studio": "Ubisoft"
+    },
+    {
+      "game": "World of Warcraft",
+      "studio": "Blizzard"
+    },
+    {
+      "game": "Diablo IV",
+      "studio": "Blizzard"
+    },
+    {
+      "game": "Stardew Valley",
+      "studio": "ConcernedApe"
+    },
+    {
+      "game": "It Takes Two",
+      "studio": "Hazelight Studios"
+    },
+    {
+      "game": "Apex Legends",
+      "studio": "Respawn Entertainment"
+    },
+    {
+      "game": "Horizon Forbidden West",
+      "studio": "Guerrilla Games"
+    },
+    {
+      "game": "Forza Horizon 5",
+      "studio": "Playground Games"
+    },
+    {
+      "game": "Gran Turismo 7",
+      "studio": "Polyphony Digital"
+    },
+    {
+      "game": "Helldivers 2",
+      "studio": "Arrowhead"
+    },
+    {
+      "game": "Among Us",
+      "studio": "Innersloth"
+    },
+    {
+      "game": "BioShock",
+      "studio": "Irrational Games"
+    },
+    {
+      "game": "Mass Effect 2",
+      "studio": "BioWare"
+    },
+    {
+      "game": "Dragon Age: Origins",
+      "studio": "BioWare"
+    },
+    {
+      "game": "Dishonored",
+      "studio": "Arkane Studios"
+    },
+    {
+      "game": "Alan Wake 2",
+      "studio": "Remedy Entertainment"
+    },
+    {
+      "game": "Control",
+      "studio": "Remedy Entertainment"
+    },
+    {
+      "game": "Max Payne",
+      "studio": "Remedy Entertainment"
+    },
+    {
+      "game": "Disco Elysium",
+      "studio": "ZA/UM"
+    },
+    {
+      "game": "Terraria",
+      "studio": "Re-Logic"
+    },
+    {
+      "game": "Undertale",
+      "studio": "Toby Fox"
+    },
+    {
+      "game": "Cuphead",
+      "studio": "Studio MDHR"
+    },
+    {
+      "game": "Celeste",
+      "studio": "Maddy Makes Games"
+    },
+    {
+      "game": "No Man's Sky",
+      "studio": "Hello Games"
+    },
+    {
+      "game": "Subnautica",
+      "studio": "Unknown Worlds"
+    },
+    {
+      "game": "Rocket League",
+      "studio": "Psyonix"
+    },
+    {
+      "game": "Mortal Kombat 1",
+      "studio": "NetherRealm"
+    },
+    {
+      "game": "Tekken 8",
+      "studio": "Bandai Namco"
+    },
+    {
+      "game": "PUBG: Battlegrounds",
+      "studio": "PUBG Studios"
+    },
+    {
+      "game": "Genshin Impact",
+      "studio": "HoYoverse"
+    },
+    {
+      "game": "Honkai: Star Rail",
+      "studio": "HoYoverse"
+    },
+    {
+      "game": "Clash of Clans",
+      "studio": "Supercell"
+    },
+    {
+      "game": "Brawl Stars",
+      "studio": "Supercell"
+    },
+    {
+      "game": "Counter-Strike 1.6",
+      "studio": "Valve"
+    },
+    {
+      "game": "Team Fortress 2",
+      "studio": "Valve"
+    },
+    {
+      "game": "Starfield",
+      "studio": "Bethesda Game Studios"
+    },
+    {
+      "game": "Overwatch 2",
+      "studio": "Blizzard"
+    }
+  ]
+}

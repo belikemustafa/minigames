@@ -15,6 +15,7 @@ if (rankEl) rankEl.textContent = `Rank: ${getArcadeRank()}`;
 
 const b = state.bests;
 const sums = {
+  engineering: (b.engClash || 0) * 100 + (b.engMech || 0) + (b.engArch || 0) + (b.engCodes || 0),
   movies: (b.moviesUnblur || 0) + (b.moviesCast || 0),
   tv: (b.tvUnblur || 0) + (b.tvDuel || 0) * 100 + (b.tvCast || 0),
   anime: (b.animeDuel || 0) * 100 + (b.animeChars || 0),
@@ -22,13 +23,10 @@ const sums = {
   sports: (b.sportsClash || 0) * 100 + (b.sportsPath || 0) + (b.sportsTiming || 0),
   music: (b.musicHook || 0) + (b.musicCover || 0) + (b.musicLyric || 0),
   gaming: (b.gameDuel || 0) * 100 + (b.gameId || 0) + (b.gameStudio || 0),
-  chess: (b.chessTactics || 0) + (b.chessSprint || 0) + (b.chessGm || 0) * 100,
-  cosmos: (b.cosmosJutsu || 0) + (b.cosmosPower || 0) * 100 + (b.cosmosSpace || 0) * 100,
   arcade: (b.arcStack || 0) * 20 + (b.arcDrift || 0) + (b.arcDash || 0),
   food: (b.foodCompass || 0) + (b.foodIng || 0) + (b.foodMacro || 0) * 100 + (b.foodBracket || 0),
   cartoons: (b.cartoonUnblur || 0) + (b.cartoonDuel || 0) * 100,
   dev: (b.devStars || 0) * 100 + (b.devBug || 0) + (b.devOutput || 0) + (b.devLang || 0) + (b.devBigO || 0) + (b.devHttp || 0) + (b.devOutage || 0),
-  geography: (b.geoFlags || 0) + (b.geoDuel || 0) * 100 + (b.geoWeather || 0),
   auto: (b.autoSpecs || 0) * 100 + (b.autoUnblur || 0) + (b.autoSound || 0),
   blitz: b.blitz || 0,
 };

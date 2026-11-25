@@ -1,0 +1,362 @@
+[
+  {
+    "cat": "Dimensionless",
+    "prompt": "Reynolds Number (Re)",
+    "answer": "Ratio of inertial forces to viscous forces in fluid flow",
+    "note": "Predicts laminar vs. turbulent flow regimes."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Mach Number (Ma)",
+    "answer": "Ratio of flow velocity to the local speed of sound",
+    "note": "Ma < 1 subsonic, Ma = 1 sonic, Ma > 1 supersonic, Ma > 5 hypersonic."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Nusselt Number (Nu)",
+    "answer": "Ratio of convective to conductive heat transfer across a boundary",
+    "note": "Nu = h\u00b7L / k; higher Nu means stronger convection."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Prandtl Number (Pr)",
+    "answer": "Ratio of momentum diffusivity (viscosity) to thermal diffusivity",
+    "note": "Pr \u2248 0.71 for air; Pr \u2248 7 for room-temperature water."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Biot Number (Bi)",
+    "answer": "Ratio of internal conduction resistance to external convection resistance",
+    "note": "If Bi < 0.1, lumped capacitance heat-transfer analysis is valid."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Froude Number (Fr)",
+    "answer": "Ratio of flow inertia to gravitational forces (open-channel & ship waves)",
+    "note": "Critical in spillways, hydraulic jumps, and ship hull design."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Grashof Number (Gr)",
+    "answer": "Ratio of buoyancy forces to viscous forces in natural convection",
+    "note": "Drives free convection plumes from hot surfaces."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Weber Number (We)",
+    "answer": "Ratio of fluid inertia to surface tension forces",
+    "note": "Governs droplet breakup in fuel injectors and sprays."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Strouhal Number (St)",
+    "answer": "Describes oscillating vortex-shedding frequency behind bluff bodies",
+    "note": "St \u2248 0.2 for cylinders \u2014 crucial for skyscraper & bridge wind engineering."
+  },
+  {
+    "cat": "Dimensionless",
+    "prompt": "Fourier Number (Fo)",
+    "answer": "Dimensionless time in transient heat conduction",
+    "note": "Fo = \u03b1\u00b7t / L\u00b2 \u2014 tracks how fast heat penetrates a solid."
+  },
+  {
+    "cat": "Units",
+    "prompt": "1 Pascal (Pa)",
+    "answer": "1 Newton per square meter (1 N/m\u00b2)",
+    "note": "1 MPa = 1 N/mm\u00b2, which is why structural engineers love MPa!"
+  },
+  {
+    "cat": "Units",
+    "prompt": "1 Bar",
+    "answer": "100,000 Pascals (100 kPa \u2248 14.5 psi)",
+    "note": "Roughly equal to standard atmospheric pressure (1.01325 bar)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "1 Joule (J)",
+    "answer": "1 Newton-meter (1 N\u00b7m) of work or energy",
+    "note": "Also equals 1 Watt-second."
+  },
+  {
+    "cat": "Units",
+    "prompt": "1 Watt (W)",
+    "answer": "1 Joule per second (1 J/s) of power",
+    "note": "1 mechanical horsepower \u2248 745.7 Watts."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Thermal Conductivity (k) SI Unit",
+    "answer": "W / (m\u00b7K)",
+    "note": "Copper \u2248 400 W/(m\u00b7K); mineral wool insulation \u2248 0.04 W/(m\u00b7K)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Convective Heat Transfer Coefficient (h) SI Unit",
+    "answer": "W / (m\u00b2\u00b7K)",
+    "note": "Natural air \u2248 5\u201325; forced water \u2248 500\u201310,000 W/(m\u00b2\u00b7K)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Dynamic Viscosity (\u03bc) SI Unit",
+    "answer": "Pa\u00b7s (or N\u00b7s/m\u00b2)",
+    "note": "1 Centipoise (cP) = 0.001 Pa\u00b7s (water at 20\u00b0C \u2248 1 cP)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Kinematic Viscosity (\u03bd = \u03bc/\u03c1) SI Unit",
+    "answer": "m\u00b2/s",
+    "note": "Often expressed in Centistokes (cSt) for engine oils."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Area Moment of Inertia (I) Unit",
+    "answer": "m\u2074 (or mm\u2074)",
+    "note": "Governs beam bending stiffness: \u03b4 \u221d 1/(E\u00b7I)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Illuminance (Architectural Lighting) SI Unit",
+    "answer": "Lux (lumens per m\u00b2)",
+    "note": "Offices typically target 300\u2013500 lux at desk height."
+  },
+  {
+    "cat": "Units",
+    "prompt": "U-Value (Building Envelope Glazing/Wall) Unit",
+    "answer": "W / (m\u00b2\u00b7K) \u2014 lower means better insulation",
+    "note": "Inverse of total thermal resistance (R-value)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Specific Heat Capacity (c_p) SI Unit",
+    "answer": "J / (kg\u00b7K)",
+    "note": "Water has a high c_p of ~4,186 J/(kg\u00b7K), ideal for chilled-water loops."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Torque (T) SI Unit",
+    "answer": "Newton-meter (N\u00b7m)",
+    "note": "Shaft Power (W) = Torque (N\u00b7m) \u00d7 Angular Speed (rad/s)."
+  },
+  {
+    "cat": "Units",
+    "prompt": "Sound Pressure Level Unit",
+    "answer": "Decibel (dB) \u2014 logarithmic scale",
+    "note": "Every +10 dB feels roughly twice as loud to the human ear."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "IS 456 : 2000",
+    "answer": "Indian Standard code for Plain and Reinforced Concrete (RCC) design",
+    "note": "The bible for Indian civil & structural engineers."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "IS 800 : 2007",
+    "answer": "Indian Standard code for General Construction in Steel (Limit State)",
+    "note": "Governs bolted/welded steel beams, columns, and trusses."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "IS 1893 (Part 1)",
+    "answer": "Indian Standard criteria for Earthquake-Resistant Design of Structures",
+    "note": "Defines India's Seismic Zones II, III, IV, and V."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "IS 875 (Parts 1\u20135)",
+    "answer": "Indian Standard Design Loads (Dead, Imposed, Wind, Snow) for buildings",
+    "note": "Part 3 governs basic wind speed & wind pressure calculations."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "NBC 2016 (India)",
+    "answer": "National Building Code of India (fire safety, exits, MEP, acoustics & accessibility)",
+    "note": "Published by BIS as the master regulatory reference for Indian buildings."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ASHRAE 90.1",
+    "answer": "International energy efficiency standard for commercial buildings & HVAC",
+    "note": "Benchmark for LEED/ECBC building energy compliance."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ASHRAE 62.1",
+    "answer": "Ventilation standard for Acceptable Indoor Air Quality (fresh air CFM)",
+    "note": "Defines minimum outdoor air rates per person and per floor area."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ASME BPVC Section VIII",
+    "answer": "Rules for construction of Pressure Vessels",
+    "note": "Governs shell thickness, weld efficiency, and hydro-testing worldwide."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ASME Y14.5",
+    "answer": "Master standard for Geometric Dimensioning and Tolerancing (GD&T)",
+    "note": "Defines datums, flatness, true position, and runout callouts."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ASME B31.3",
+    "answer": "Process Piping code for chemical, refinery, and industrial plants",
+    "note": "Specifies pipe wall thickness, stress limits, and inspection."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ISO 9001",
+    "answer": "International standard for Quality Management Systems (QMS)",
+    "note": "Ensures consistent manufacturing and design quality processes."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "NFPA 13",
+    "answer": "Standard for the Installation of Automatic Fire Sprinkler Systems",
+    "note": "Defines hazard occupancy classes, spacing, and hydraulic demand."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "Eurocode 2 (EN 1992)",
+    "answer": "European structural design standard for Concrete Structures",
+    "note": "Part of the unified European structural Eurocodes."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ACI 318",
+    "answer": "American Concrete Institute Building Code Requirements for Structural Concrete",
+    "note": "Widely referenced globally alongside IS 456 and Eurocode 2."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ECBC (India)",
+    "answer": "Energy Conservation Building Code for commercial building envelopes & MEP",
+    "note": "Published by Bureau of Energy Efficiency (BEE)."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "API 610",
+    "answer": "Petroleum & industrial standard for Centrifugal Pumps",
+    "note": "Sets strict reliability, vibration, and seal specs for heavy-duty pumps."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ISO 286",
+    "answer": "System of Limits and Fits for shafts and holes (e.g., H7/g6)",
+    "note": "Defines clearance, transition, and interference mechanical fits."
+  },
+  {
+    "cat": "Codes",
+    "prompt": "ASTM A36 / A992",
+    "answer": "American material specifications for Structural Carbon & Wide-Flange Steel",
+    "note": "Guarantees minimum yield strength and chemical composition."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Autodesk Revit",
+    "answer": "Industry-standard BIM software for Architecture, Structure, and MEP",
+    "note": "Creates intelligent 3D parametric building models and schedules."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "SolidWorks",
+    "answer": "Parametric 3D Mechanical CAD for parts, assemblies, and sheet metal",
+    "note": "Dominant in product design, machinery, and robotics."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "ANSYS Mechanical / Fluent",
+    "answer": "Flagship simulation suite for Finite Element Analysis (FEA) and CFD",
+    "note": "Solves structural stress, vibration, thermal, and airflow physics."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "ETABS",
+    "answer": "Specialized structural analysis & design software for multi-story buildings",
+    "note": "Built by CSI for seismic, wind, concrete, and steel tower frames."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "STAAD.Pro",
+    "answer": "General-purpose 3D structural analysis tool for bridges, trusses & industrial frames",
+    "note": "Hugely popular across Indian and international structural firms."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "CATIA (Dassault Syst\u00e8mes)",
+    "answer": "High-end 3D PLM/CAD used for aerospace fuselages, cars & Frank Gehry's facades",
+    "note": "Handles massive assemblies and Class-A sculpted surfaces."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Rhino 3D + Grasshopper",
+    "answer": "NURBS modeling + visual algorithmic scripting for parametric architecture",
+    "note": "Essential for complex doubly-curved roofs, diagrids, and solar skins."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Carrier HAP (Hourly Analysis Program)",
+    "answer": "HVAC cooling/heating load calculation & annual building energy modeling",
+    "note": "Standard tool for MEP engineers sizing chillers and AHUs."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Autodesk Navisworks",
+    "answer": "BIM model coordination, 4D construction sequencing & MEP clash detection",
+    "note": "Combines architectural, structural, and MEP models before site work."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "AutoCAD",
+    "answer": "Universal 2D/3D CAD drafting standard for floor plans, schematics & shop drawings",
+    "note": "Native DWG format remains the universal exchange language on job sites."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "MATLAB & Simulink",
+    "answer": "Numerical computing & block-diagram modeling for controls, vibrations & aerospace",
+    "note": "Widely used in robotics, automotive ECUs, and mechatronics."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "OpenFOAM",
+    "answer": "Powerful open-source C++ Computational Fluid Dynamics (CFD) toolbox",
+    "note": "Used in F1 aerodynamics, HVAC airflow, and academic fluid research."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Lumion / Enscape / V-Ray",
+    "answer": "Real-time photorealistic architectural rendering & daylight visualization",
+    "note": "Turns Revit/SketchUp models into client walkthroughs in minutes."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "SketchUp",
+    "answer": "Fast, intuitive 3D conceptual massing & interior architecture modeler",
+    "note": "Beloved for early-stage design studies and rapid client iterations."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Autodesk Fusion (360)",
+    "answer": "Cloud-connected CAD, CAM (CNC toolpaths), PCB & generative design platform",
+    "note": "Bridges 3D design directly to CNC milling and 3D printing."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "EnergyPlus / IES VE",
+    "answer": "Physics-based whole-building thermal, daylighting, and HVAC energy simulation",
+    "note": "Used for Net-Zero, LEED, and GRIHA energy compliance modeling."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "DIALux evo",
+    "answer": "Professional architectural lighting design & lux-level simulation software",
+    "note": "Computes indoor/outdoor illumination uniformity and glare (UGR)."
+  },
+  {
+    "cat": "Tools",
+    "prompt": "Abaqus (SIMULIA)",
+    "answer": "Advanced nonlinear FEA solver for crash testing, composites & rubber hyperelasticity",
+    "note": "Preferred for complex contact mechanics and large plastic deformations."
+  }
+]

@@ -1734,3 +1734,26 @@ body[data-theme="cosmos"] #bg-pattern {
   transform-origin: left;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+
+/* Mechanical & Architecture Engineering Blueprint Theme */
+body[data-theme="engineering"] {
+  --accent: #38bdf8;
+  --accent-rgb: 56, 189, 248;
+  --accent-ink: #04131c;
+  --bg-a: 14, 165, 233;
+  --bg-b: 217, 119, 6;
+  --bg-c: 59, 130, 246;
+}
+.card-engineering:hover { border-color: rgba(56, 189, 248, 0.6); }
+.card-engineering .play-cta { color: #7dd3fc; }
+
+body[data-theme="engineering"] #bg-pattern {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 90px 90px, 90px 90px, 18px 18px, 18px 18px;
+  filter: blur(0.7px);
+}

@@ -1,8 +1,8 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
-  resetStreak, shuffle, escapeHtml, showToast, animateNumber, triggerFlash, burstMilestone,
+  resetStreak, shuffle, escapeHtml, showToast, animateNumber, triggerFlash, burstMilestone, loadJson,
 } from './core.js';
-import { CRICKET_INTL, CRICKET_IPL, FOOTBALL_STARS, CAREER_PATHS } from './data/sportsData.js';
+const { CRICKET_INTL, CRICKET_IPL, FOOTBALL_STARS, CAREER_PATHS } = await loadJson('./data/sports/sports.json');
 
 initChrome('sports');
 

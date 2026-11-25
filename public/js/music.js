@@ -1,28 +1,43 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, resetStreak,
-  shuffle, escapeHtml, preloadImage, showToast, triggerFlash,
+  shuffle, escapeHtml, preloadImage, showToast, triggerFlash, loadJson,
 } from './core.js';
-import { MUSIC_TRACKS, LYRIC_QUIZZES } from './data/musicData.js';
+const { MUSIC_TRACKS, LYRIC_QUIZZES } = await loadJson('./data/music/music.json');
 
 initChrome('music');
 
 const itunesCache = new Map();
 
-async function lookupTrackMedia(track) {
-  if (itunesCache.has(track.query)) return itunesCache.get(track.query);
-  let result = null;
-  // 1) Try Cloudflare Pages proxy
+async function fetchLiveMusicPool(cat = 'all') {
   try {
-    const r = await fetch(`/api/music/search?term=${encodeURIComponent(track.query)}`);
-    if (r.ok) {
-      const j = await r.json();
-      if (j.track) result = j.track;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(`/api/music/pool?cat=${encodeURIComponent(cat)}`, { signal: controller.signal });
+    clearTimeout(timer);
+    if (res.ok) {
+      const json = await res.json();
+      if (Array.isArray(json.tracks) && json.tracks.length >= 8) {
+        return shuffle(json.tracks);
+      }
     }
   } catch {}
-  // 2) Direct iTunes fallback if testing locally without Pages Functions
+  // Direct fallback to curated tracks
+  const curated = cat === 'all' ? MUSIC_TRACKS : MUSIC_TRACKS.filter((t) => t.cat === cat);
+  return shuffle(curated.length >= 6 ? curated : MUSIC_TRACKS);
+}
+
+async function lookupTrackMedia(track) {
+  if (track.previewUrl && track.artwork) return { previewUrl: track.previewUrl, artwork: track.artwork };
+  const key = track.query || `${track.title} ${track.artist}`;
+  if (itunesCache.has(key)) return itunesCache.get(key);
+  let result = null;
+  try {
+    const r = await fetch(`/api/music/search?term=${encodeURIComponent(key)}`);
+    if (r.ok) { const j = await r.json(); if (j.track) result = j.track; }
+  } catch {}
   if (!result) {
     try {
-      const r = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(track.query)}&media=music&entity=song&limit=5`);
+      const r = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(key)}&media=music&entity=song&limit=5`);
       if (r.ok) {
         const j = await r.json();
         const t = (j.results || []).find((x) => x.previewUrl) || (j.results || [])[0];
@@ -35,11 +50,11 @@ async function lookupTrackMedia(track) {
       }
     } catch {}
   }
-  itunesCache.set(track.query, result);
+  itunesCache.set(key, result);
   return result;
 }
 
-// ---------- 1. 5-SECOND AUDIO HOOK ----------
+// ---------- 1. 5-SECOND AUDIO HOOK (Live iTunes Pool!) ----------
 function initAudioHook() {
   let pool = [], target = null, media = null, clipSecs = 5, pts = 300, locked = true, token = 0, choiceCount = 4;
   let audio = null, stopTimer = null;
@@ -63,13 +78,8 @@ function initAudioHook() {
     bars.classList.remove('playing');
   }
 
-  function getFiltered() {
-    const c = catSel.value;
-    return c === 'all' ? MUSIC_TRACKS : MUSIC_TRACKS.filter((t) => t.cat === c);
-  }
-
   function playClip() {
-    if (!media?.previewUrl) return showToast('Preview audio unavailable — use Artist/Movie clue!');
+    if (!media?.previewUrl) return showToast('Preview audio unavailable — use Artist/Album clue!');
     stopAudio();
     audio = new Audio(media.previewUrl);
     audio.volume = 0.65;
@@ -93,24 +103,27 @@ function initAudioHook() {
     hintBox.innerHTML = '';
     feedbackEl.classList.add('hidden');
     nextBtn.classList.add('hidden');
-    loader.textContent = 'Cueing track preview...';
+    loader.textContent = 'Fetching live tracks...';
     loader.classList.remove('hidden');
     optionsEl.innerHTML = '';
 
-    const list = getFiltered();
-    if (pool.length < 2) pool = shuffle(list);
-    target = pool.pop();
+    if (pool.length < choiceCount + 2) {
+      pool = await fetchLiveMusicPool(catSel.value);
+    }
+    if (t !== token) return;
 
+    target = pool.pop();
     media = await lookupTrackMedia(target);
     if (t !== token) return;
 
     loader.classList.add('hidden');
     if (!media?.previewUrl) {
-      hintBox.innerHTML = `<strong>Audio preview unavailable for this region.</strong> Clue: ${escapeHtml(target.artist)} (${target.year})`;
+      hintBox.innerHTML = `<strong>Audio preview unavailable.</strong> Clue: ${escapeHtml(target.artist)} (${target.year})`;
       hintBox.classList.remove('hidden');
     }
 
-    const decoys = shuffle(list.filter((x) => x.title !== target.title)).slice(0, choiceCount - 1);
+    const decoyPool = pool.length >= choiceCount - 1 ? pool : MUSIC_TRACKS;
+    const decoys = shuffle(decoyPool.filter((x) => x.title !== target.title)).slice(0, choiceCount - 1);
     shuffle([target, ...decoys]).forEach((tr) => {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -129,13 +142,13 @@ function initAudioHook() {
           playSfx('correct');
           const earned = recordWin('musicHook', pts);
           feedbackEl.classList.add('good');
-          feedbackEl.textContent = `Spot on! "${target.title}" — ${target.artist} (${target.movie}, ${target.year}) +${earned} pts`;
+          feedbackEl.textContent = `Spot on! "${target.title}" — ${target.artist} (${target.year}) +${earned} pts`;
         } else {
           playSfx('wrong');
           btn.classList.add('wrong');
           resetStreak();
           feedbackEl.classList.add('bad');
-          feedbackEl.textContent = `That track was "${target.title}" by ${target.artist} (${target.movie}).`;
+          feedbackEl.textContent = `That track was "${target.title}" by ${target.artist}.`;
         }
         nextBtn.classList.remove('hidden');
       });
@@ -172,7 +185,7 @@ function initAudioHook() {
   startRound();
 }
 
-// ---------- 2. ALBUM & OST COVER UNBLUR ----------
+// ---------- 2. ALBUM & OST COVER UNBLUR (Live iTunes Pool!) ----------
 function initCoverUnblur() {
   let pool = [], target = null, hints = 0, pts = 300, locked = true, token = 0, choiceCount = 4;
 
@@ -186,11 +199,6 @@ function initCoverUnblur() {
   const optionsEl = document.getElementById('mc-options');
   const feedbackEl = document.getElementById('mc-feedback');
   const nextBtn = document.getElementById('mc-next');
-
-  function getFiltered() {
-    const c = catSel.value;
-    return c === 'all' ? MUSIC_TRACKS : MUSIC_TRACKS.filter((t) => t.cat === c);
-  }
 
   async function startRound() {
     const t = ++token;
@@ -208,15 +216,17 @@ function initCoverUnblur() {
     optionsEl.innerHTML = '';
     imgEl.className = 'blur-3';
 
-    const list = getFiltered();
-    if (pool.length < 2) pool = shuffle(list);
+    if (pool.length < choiceCount + 2) {
+      pool = await fetchLiveMusicPool(catSel.value);
+    }
+    if (t !== token) return;
     target = pool.pop();
 
     const media = await lookupTrackMedia(target);
     if (t !== token) return;
 
     if (!media?.artwork) {
-      loader.textContent = 'Cover art unavailable — tap Retry for next album.';
+      loader.textContent = 'Cover art unavailable — tap Next Cover.';
       nextBtn.textContent = 'Next Cover ↻';
       nextBtn.classList.remove('hidden');
       return;
@@ -228,13 +238,14 @@ function initCoverUnblur() {
     imgEl.className = 'blur-3 ready';
     loader.classList.add('hidden');
 
-    const decoys = shuffle(list.filter((x) => x.title !== target.title)).slice(0, choiceCount - 1);
+    const decoyPool = pool.length >= choiceCount - 1 ? pool : MUSIC_TRACKS;
+    const decoys = shuffle(decoyPool.filter((x) => x.title !== target.title)).slice(0, choiceCount - 1);
     shuffle([target, ...decoys]).forEach((tr) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'option-btn';
       btn.dataset.title = tr.title;
-      btn.textContent = `${tr.title} (${tr.movie})`;
+      btn.textContent = `${tr.title} — ${tr.artist}`;
       btn.addEventListener('click', () => {
         if (locked) return;
         locked = true; hintBtn.disabled = true;
@@ -255,7 +266,7 @@ function initCoverUnblur() {
           btn.classList.add('wrong');
           resetStreak();
           feedbackEl.classList.add('bad');
-          feedbackEl.textContent = `That cover belongs to "${target.title}" (${target.movie}).`;
+          feedbackEl.textContent = `That cover belongs to "${target.title}" by ${target.artist}.`;
         }
         nextBtn.textContent = 'Next Cover →';
         nextBtn.classList.remove('hidden');
@@ -279,7 +290,7 @@ function initCoverUnblur() {
       hintBtn.textContent = '💡 Year & Sharpen (-75 pts)';
     } else {
       imgEl.className = 'blur-1 ready';
-      hintBox.innerHTML += `<br/><strong>Clue 2:</strong> Released in <strong>${target.year}</strong>`;
+      hintBox.innerHTML += `<br/><strong>Clue 2:</strong> Released in <strong>${target.year}</strong> (${escapeHtml(target.movie)})`;
       hintBtn.disabled = true;
     }
   });
@@ -291,7 +302,7 @@ function initCoverUnblur() {
   startRound();
 }
 
-// ---------- 3. FINISH THE LYRIC ----------
+// ---------- 3. FINISH THE LYRIC (40 Choruses) ----------
 function initLyrics() {
   let pool = [], current = null, locked = false;
   const catSel = document.getElementById('ml-cat');

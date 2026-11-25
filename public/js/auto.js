@@ -1,8 +1,8 @@
 import {
   initChrome, setupModeTabs, playSfx, getAudioCtx, recordWin,
-  recordBestValue, resetStreak, shuffle, escapeHtml, animateNumber, triggerFlash,
+  recordBestValue, resetStreak, shuffle, escapeHtml, animateNumber, triggerFlash, loadJson,
 } from './core.js';
-import { AUTO_SPECS, HEADLIGHT_CLUES, EXHAUST_SOUNDS } from './data/autoData.js';
+const { AUTO_SPECS, HEADLIGHT_CLUES, EXHAUST_SOUNDS } = await loadJson('./data/auto/auto.json');
 
 initChrome('auto');
 
@@ -29,7 +29,7 @@ function initSpecs() {
 
   const fmt = (v) => `${META[metric].prefix || ''}${v}${META[metric].unit}`;
   function getPackList() {
-    if (pack === 'all') return [...AUTO_SPECS.bikes, ...AUTO_SPECS.suvs, ...AUTO_SPECS.supercars, ...AUTO_SPECS.jdm];
+    if (pack === 'all') return Object.values(AUTO_SPECS).flat();
     return AUTO_SPECS[pack] || AUTO_SPECS.bikes;
   }
 
@@ -267,6 +267,16 @@ function initExhaust() {
         osc.type = 'square'; sub.type = 'sawtooth';
         osc.frequency.setValueAtTime(195, now); osc.frequency.exponentialRampToValueAtTime(760, now + 2.1); osc.frequency.exponentialRampToValueAtTime(210, now + dur);
         sub.frequency.setValueAtTime(97, now); lfo.frequency.setValueAtTime(22, now); lfoGain.gain.setValueAtTime(0.09, now); filter.frequency.setValueAtTime(1300, now);
+      } else if (type === 'flat6') {
+        osc.type = 'sawtooth'; sub.type = 'triangle';
+        osc.frequency.setValueAtTime(220, now); osc.frequency.exponentialRampToValueAtTime(840, now + 2.2); osc.frequency.linearRampToValueAtTime(310, now + dur);
+        sub.frequency.setValueAtTime(330, now); sub.frequency.exponentialRampToValueAtTime(1260, now + 2.2);
+        lfo.frequency.setValueAtTime(30, now); lfoGain.gain.setValueAtTime(0.03, now); filter.frequency.setValueAtTime(1950, now);
+      } else if (type === 'inline3') {
+        osc.type = 'sawtooth'; sub.type = 'sine';
+        osc.frequency.setValueAtTime(135, now); osc.frequency.exponentialRampToValueAtTime(510, now + 2.1); osc.frequency.linearRampToValueAtTime(180, now + dur);
+        sub.frequency.setValueAtTime(850, now); sub.frequency.exponentialRampToValueAtTime(1900, now + 2.1);
+        lfo.frequency.setValueAtTime(19, now); lfoGain.gain.setValueAtTime(0.06, now); filter.frequency.setValueAtTime(1400, now);
       } else {
         // diesel clatter + turbo whistle
         osc.type = 'square'; sub.type = 'sine';

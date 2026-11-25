@@ -5,8 +5,8 @@ import {
 
 export { animateNumber, burstMilestone, triggerFlash };
 
-const BESTS_KEY = 'fandom_arcade_suite_bests_v6';
-const SESSION_KEY = 'fandom_arcade_suite_session_v6';
+const BESTS_KEY = 'fandom_arcade_suite_bests_v7';
+const SESSION_KEY = 'fandom_arcade_suite_session_v7';
 
 const DEFAULT_BESTS = {
   moviesUnblur: 0, moviesCast: 0,
@@ -15,14 +15,12 @@ const DEFAULT_BESTS = {
   foodCompass: 0, foodIng: 0, foodMacro: 0, foodBracket: 0,
   cartoonUnblur: 0, cartoonDuel: 0,
   devStars: 0, devBug: 0, devOutput: 0, devLang: 0, devBigO: 0, devHttp: 0, devOutage: 0,
-  geoFlags: 0, geoDuel: 0, geoWeather: 0,
   autoSpecs: 0, autoUnblur: 0, autoSound: 0,
   sportsClash: 0, sportsPath: 0, sportsTiming: 0,
   musicHook: 0, musicCover: 0, musicLyric: 0,
   tvUnblur: 0, tvDuel: 0, tvCast: 0,
   gameDuel: 0, gameId: 0, gameStudio: 0,
-  chessTactics: 0, chessSprint: 0, chessGm: 0,
-  cosmosJutsu: 0, cosmosPower: 0, cosmosSpace: 0,
+  engClash: 0, engMech: 0, engArch: 0, engCodes: 0,
   arcStack: 0, arcDrift: 0, arcDash: 0,
   blitz: 0,
 };
@@ -103,6 +101,17 @@ export function preloadImage(url, timeoutMs = 8000) {
     img.onerror = () => done(false);
     img.src = url;
   });
+}
+
+
+const _jsonCache = new Map();
+export async function loadJson(path) {
+  if (_jsonCache.has(path)) return _jsonCache.get(path);
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
+  const data = await res.json();
+  _jsonCache.set(path, data);
+  return data;
 }
 
 export function haptic(pattern = 12) {
@@ -276,6 +285,7 @@ export function syncHud(animate = false) {
 export function initChrome(activePage) {
   const navItems = [
     { id: 'hub', href: 'index.html', label: '⌂ Hub' },
+    { id: 'engineering', href: 'engineering.html', label: '📐 Mech & Arch' },
     { id: 'movies', href: 'movies.html', label: '🎬 Movies' },
     { id: 'tv', href: 'tv.html', label: '📺 TV' },
     { id: 'anime', href: 'anime.html', label: '⚡ Anime' },
@@ -283,13 +293,10 @@ export function initChrome(activePage) {
     { id: 'sports', href: 'sports.html', label: '🏏 Sports' },
     { id: 'music', href: 'music.html', label: '🎵 Music' },
     { id: 'gaming', href: 'gaming.html', label: '🎮 Gaming' },
-    { id: 'chess', href: 'chess.html', label: '♟️ Chess' },
-    { id: 'cosmos', href: 'cosmos.html', label: '🌌 Battles & Space' },
     { id: 'arcade', href: 'arcade.html', label: '🕹️ Arcade' },
     { id: 'food', href: 'food.html', label: '🍜 Food' },
     { id: 'cartoons', href: 'cartoons.html', label: '🎨 Cartoons' },
     { id: 'dev', href: 'dev.html', label: '💻 Dev' },
-    { id: 'geography', href: 'geography.html', label: '🌍 World' },
     { id: 'auto', href: 'auto.html', label: '🏍️ Auto' },
     { id: 'blitz', href: 'blitz.html', label: '⏱️ Blitz' },
   ];

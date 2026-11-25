@@ -1,11 +1,11 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
-  resetStreak, shuffle, escapeHtml, animateNumber, triggerFlash,
+  resetStreak, shuffle, escapeHtml, animateNumber, triggerFlash, loadJson,
 } from './core.js';
-import {
+const {
   FALLBACK_GITHUB_REPOS, BUG_SNIPPETS, OUTPUT_QUIZZES,
   LANG_SNIPPETS, BIGO_QUESTIONS, HTTP_GIT_QUESTIONS, OUTAGE_SCENARIOS,
-} from './data/devData.js';
+} = await loadJson('./data/dev/dev.json');
 
 initChrome('dev');
 
@@ -527,4 +527,93 @@ setupModeTabs((mode) => {
   if (mode === 'bigo') initBigO();
   if (mode === 'http') initHttpGit();
   if (mode === 'outage') initOutage();
+  if (mode === 'livetrivia') initLiveCsTrivia();
 });
+
+
+// ---------- 8. LIVE CS TRIVIA (Open Trivia DB Proxy + Direct Fallback) ----------
+function initLiveCsTrivia() {
+  let pool = [], current = null, locked = true;
+  const loader = document.getElementById('dev-lt-loader');
+  const diffEl = document.getElementById('dev-lt-diff');
+  const qEl = document.getElementById('dev-lt-q');
+  const optionsEl = document.getElementById('dev-lt-options');
+  const feedbackEl = document.getElementById('dev-lt-feedback');
+  const nextBtn = document.getElementById('dev-lt-next');
+
+  function decode(s) {
+    const el = document.createElement('textarea');
+    el.innerHTML = s || '';
+    return el.value;
+  }
+
+  async function refill() {
+    try {
+      const r = await fetch('/api/trivia/live?cat=dev&amount=15');
+      if (r.ok) { const j = await r.json(); if (j.questions?.length) return shuffle(j.questions); }
+    } catch {}
+    const r2 = await fetch('https://opentdb.com/api.php?amount=15&category=18&type=multiple');
+    if (!r2.ok) throw new Error('OpenTDB unavailable');
+    const j2 = await r2.json();
+    return shuffle((j2.results || []).map((q) => {
+      const ans = decode(q.correct_answer);
+      return { difficulty: q.difficulty, q: decode(q.question), answer: ans, options: [ans, ...(q.incorrect_answers || []).map(decode)] };
+    }));
+  }
+
+  async function nextRound() {
+    locked = true;
+    feedbackEl.classList.add('hidden');
+    nextBtn.classList.add('hidden');
+    optionsEl.innerHTML = '';
+    if (!pool.length) {
+      loader.textContent = 'Fetching live CS questions...';
+      loader.classList.remove('hidden');
+      try { pool = await refill(); } catch {
+        loader.textContent = 'Open Trivia DB busy — tap Retry.';
+        nextBtn.textContent = 'Retry ↻';
+        nextBtn.classList.remove('hidden');
+        return;
+      }
+    }
+    loader.classList.add('hidden');
+    current = pool.pop();
+    diffEl.textContent = (current.difficulty || 'live').toUpperCase();
+    qEl.textContent = current.q;
+
+    shuffle(current.options).forEach((opt) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option-btn';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => {
+        if (locked) return;
+        locked = true;
+        optionsEl.querySelectorAll('.option-btn').forEach((b) => {
+          b.disabled = true;
+          if (b.textContent === current.answer) b.classList.add('correct');
+        });
+        feedbackEl.classList.remove('hidden', 'good', 'bad');
+        if (opt === current.answer) {
+          playSfx('correct');
+          const earned = recordWin('devHttp', 190);
+          feedbackEl.classList.add('good');
+          feedbackEl.textContent = `Correct! +${earned} pts`;
+        } else {
+          playSfx('wrong');
+          btn.classList.add('wrong');
+          resetStreak();
+          feedbackEl.classList.add('bad');
+          feedbackEl.textContent = `Answer: ${current.answer}`;
+        }
+        nextBtn.textContent = 'Next Live Question →';
+        nextBtn.classList.remove('hidden');
+      });
+      optionsEl.appendChild(btn);
+    });
+    locked = false;
+  }
+
+  nextBtn.addEventListener('click', () => { playSfx('click'); nextRound(); });
+  nextRound();
+}

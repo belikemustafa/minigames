@@ -32,11 +32,12 @@
       <button class="mode-tab active" data-mode="duel" type="button">📊 Sales &amp; Score Duel</button>
       <button class="mode-tab" data-mode="id" type="button">🗺️ Map / Weapon / Boss</button>
       <button class="mode-tab" data-mode="studio" type="button">🏢 Studio Match</button>
+      <button class="mode-tab" data-mode="livetrivia" type="button">🌐 Live Game Trivia</button>
     </div>
 
     <section class="mode-panel active" data-panel="duel">
       <div class="game-header">
-        <div><span class="game-tag">36 Blockbuster Titles</span><h2>Sales &amp; Score Showdown</h2></div>
+        <div><span class="game-tag">90 Blockbuster Titles</span><h2>Sales &amp; Score Showdown</h2></div>
         <span class="points-chip">Run: <strong id="gm-run">0</strong></span>
       </div>
       <div class="filter-row">
@@ -70,12 +71,12 @@
 
     <section class="mode-panel" data-panel="id">
       <div class="game-header">
-        <div><span class="game-tag">32 Iconic Relics</span><h2>Map, Weapon &amp; Boss ID</h2></div>
+        <div><span class="game-tag">85 Iconic Relics</span><h2>Map, Weapon &amp; Boss ID</h2></div>
         <span id="gi-pts" class="points-chip">+220 PTS</span>
       </div>
       <div class="filter-row">
         <select id="gi-kind" class="gen-select" aria-label="Clue Type">
-          <option value="all">All (32)</option>
+          <option value="all">All (85)</option>
           <option value="Map">Maps Only</option>
           <option value="Weapon">Weapons Only</option>
           <option value="Boss">Bosses Only</option>
@@ -104,7 +105,7 @@
 
     <section class="mode-panel" data-panel="studio">
       <div class="game-header">
-        <div><span class="game-tag">34 Blockbusters</span><h2>Studio Match</h2></div>
+        <div><span class="game-tag">85 Blockbusters</span><h2>Studio Match</h2></div>
         <div class="seg-toggle">
           <button id="gs-opt-4" class="seg-btn active" type="button">4 Options</button>
           <button id="gs-opt-6" class="seg-btn" type="button">6 Options</button>
@@ -120,6 +121,23 @@
       <div id="gs-options" class="options-grid"></div>
       <div id="gs-feedback" class="feedback hidden"></div>
       <button id="gs-next" class="btn btn-primary full-width hidden" type="button">Next Title →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="livetrivia">
+      <div class="game-header">
+        <div><span class="game-tag">Open Trivia DB • 1,000+ Live Questions</span><h2>Live Video Game Trivia</h2></div>
+        <span id="gm-lt-diff" class="points-chip">LIVE</span>
+      </div>
+      <p class="game-tip">Infinite gaming trivia across retro classics, RPGs, shooters, and esports pulled live online.</p>
+
+      <div class="stage-card clue-stage" style="min-height:110px;">
+        <div id="gm-lt-loader" class="loader">Fetching live gaming trivia...</div>
+        <div id="gm-lt-q" class="quote-block"></div>
+      </div>
+
+      <div id="gm-lt-options" class="options-grid"></div>
+      <div id="gm-lt-feedback" class="feedback hidden"></div>
+      <button id="gm-lt-next" class="btn btn-primary full-width hidden" type="button">Next Live Question →</button>
     </section>
   </main>
 

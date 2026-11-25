@@ -1,0 +1,766 @@
+{
+  "materials": [
+    {
+      "name": "Structural Steel (ASTM A36)",
+      "cat": "Metals",
+      "emoji": "\ud83c\udfd7\ufe0f",
+      "tensile": 400,
+      "modulus": 200,
+      "density": 7850,
+      "melt": 1425,
+      "note": "Workhorse carbon steel for I-beams, columns, and frames"
+    },
+    {
+      "name": "Stainless Steel 304",
+      "cat": "Metals",
+      "emoji": "\ud83d\udd29",
+      "tensile": 515,
+      "modulus": 193,
+      "density": 8000,
+      "melt": 1400,
+      "note": "Corrosion-resistant austenitic Cr-Ni alloy"
+    },
+    {
+      "name": "Stainless Steel 316L",
+      "cat": "Metals",
+      "emoji": "\u2693",
+      "tensile": 485,
+      "modulus": 193,
+      "density": 8000,
+      "melt": 1375,
+      "note": "Marine-grade molybdenum stainless steel"
+    },
+    {
+      "name": "High-Strength Alloy Steel 4340",
+      "cat": "Metals",
+      "emoji": "\u2699\ufe0f",
+      "tensile": 1100,
+      "modulus": 205,
+      "density": 7850,
+      "melt": 1427,
+      "note": "Quenched & tempered steel for aircraft landing gear and shafts"
+    },
+    {
+      "name": "Maraging Steel (350 Grade)",
+      "cat": "Metals",
+      "emoji": "\ud83d\ude80",
+      "tensile": 2350,
+      "modulus": 200,
+      "density": 8100,
+      "melt": 1413,
+      "note": "Ultra-high-strength aerospace steel for rocket casings"
+    },
+    {
+      "name": "Gray Cast Iron",
+      "cat": "Metals",
+      "emoji": "\ud83c\udfed",
+      "tensile": 200,
+      "modulus": 110,
+      "density": 7200,
+      "melt": 1150,
+      "note": "High vibration damping; used in engine blocks and lathe beds"
+    },
+    {
+      "name": "Ductile (Nodular) Iron",
+      "cat": "Metals",
+      "emoji": "\ud83d\udd27",
+      "tensile": 450,
+      "modulus": 169,
+      "density": 7100,
+      "melt": 1149,
+      "note": "Spherical graphite nodules give toughness for crankshafts & pipes"
+    },
+    {
+      "name": "Aluminum 6061-T6",
+      "cat": "Metals",
+      "emoji": "\u2708\ufe0f",
+      "tensile": 310,
+      "modulus": 69,
+      "density": 2700,
+      "melt": 582,
+      "note": "Lightweight weldable alloy for frames, bikes, and curtain walls"
+    },
+    {
+      "name": "Aluminum 7075-T6",
+      "cat": "Metals",
+      "emoji": "\ud83d\udee9\ufe0f",
+      "tensile": 572,
+      "modulus": 72,
+      "density": 2810,
+      "melt": 477,
+      "note": "Zinc-alloyed aerospace aluminum with steel-like strength"
+    },
+    {
+      "name": "Titanium Ti-6Al-4V (Grade 5)",
+      "cat": "Metals",
+      "emoji": "\ud83d\udef8",
+      "tensile": 950,
+      "modulus": 114,
+      "density": 4430,
+      "melt": 1604,
+      "note": "Workhorse aerospace & biomedical titanium alloy"
+    },
+    {
+      "name": "Inconel 718 (Nickel Superalloy)",
+      "cat": "Metals",
+      "emoji": "\ud83d\udd25",
+      "tensile": 1240,
+      "modulus": 205,
+      "density": 8190,
+      "melt": 1260,
+      "note": "Retains high strength inside jet engine turbines"
+    },
+    {
+      "name": "Pure Copper (C11000)",
+      "cat": "Metals",
+      "emoji": "\u26a1",
+      "tensile": 220,
+      "modulus": 117,
+      "density": 8960,
+      "melt": 1085,
+      "note": "Benchmark electrical & thermal conductor for busbars and coils"
+    },
+    {
+      "name": "Cartridge Brass (70Cu-30Zn)",
+      "cat": "Metals",
+      "emoji": "\ud83c\udfba",
+      "tensile": 340,
+      "modulus": 110,
+      "density": 8530,
+      "melt": 915,
+      "note": "Low-friction corrosion-resistant alloy for valves & fittings"
+    },
+    {
+      "name": "Phosphor Bronze",
+      "cat": "Metals",
+      "emoji": "\u2699\ufe0f",
+      "tensile": 480,
+      "modulus": 110,
+      "density": 8860,
+      "melt": 950,
+      "note": "Wear-resistant alloy for bushings, bearings, and worm gears"
+    },
+    {
+      "name": "Magnesium Alloy AZ31B",
+      "cat": "Metals",
+      "emoji": "\ud83e\udeb6",
+      "tensile": 260,
+      "modulus": 45,
+      "density": 1770,
+      "melt": 605,
+      "note": "Lightest structural metal used in racing wheels & laptops"
+    },
+    {
+      "name": "Tungsten (Pure)",
+      "cat": "Metals",
+      "emoji": "\ud83d\udc8e",
+      "tensile": 980,
+      "modulus": 411,
+      "density": 19250,
+      "melt": 3422,
+      "note": "Highest melting point of all pure metals"
+    },
+    {
+      "name": "Lead (Pure)",
+      "cat": "Metals",
+      "emoji": "\ud83e\uddf1",
+      "tensile": 18,
+      "modulus": 16,
+      "density": 11340,
+      "melt": 327,
+      "note": "Dense malleable metal for radiation shielding & acoustics"
+    },
+    {
+      "name": "Gold (Pure)",
+      "cat": "Metals",
+      "emoji": "\ud83e\ude99",
+      "tensile": 120,
+      "modulus": 79,
+      "density": 19300,
+      "melt": 1064,
+      "note": "Ultra-ductile corrosion-free contact plating"
+    },
+    {
+      "name": "Zinc (Die-Cast Zamak 3)",
+      "cat": "Metals",
+      "emoji": "\ud83d\udd29",
+      "tensile": 283,
+      "modulus": 96,
+      "density": 6600,
+      "melt": 381,
+      "note": "Precision thin-wall die-casting alloy"
+    },
+    {
+      "name": "Beryllium",
+      "cat": "Metals",
+      "emoji": "\ud83d\udef0\ufe0f",
+      "tensile": 370,
+      "modulus": 287,
+      "density": 1850,
+      "melt": 1287,
+      "note": "Ultra-stiff, featherweight metal used in James Webb Space Telescope mirrors"
+    },
+    {
+      "name": "Carbon Fiber (CFRP Unidirectional)",
+      "cat": "Composites",
+      "emoji": "\ud83c\udfce\ufe0f",
+      "tensile": 1800,
+      "modulus": 150,
+      "density": 1600,
+      "melt": 350,
+      "note": "Extraordinary strength-to-weight ratio for F1 monocoques & airframes"
+    },
+    {
+      "name": "Kevlar 49 (Aramid Fiber)",
+      "cat": "Composites",
+      "emoji": "\ud83d\udee1\ufe0f",
+      "tensile": 3000,
+      "modulus": 112,
+      "density": 1440,
+      "melt": 500,
+      "note": "High impact & ballistic toughness para-aramid fiber"
+    },
+    {
+      "name": "Fiberglass (E-Glass / Epoxy)",
+      "cat": "Composites",
+      "emoji": "\u26f5",
+      "tensile": 450,
+      "modulus": 28,
+      "density": 1850,
+      "melt": 280,
+      "note": "Cost-effective composite for wind turbine blades & hulls"
+    },
+    {
+      "name": "Reinforced Concrete (M40)",
+      "cat": "Construction",
+      "emoji": "\ud83c\udfe2",
+      "tensile": 4,
+      "modulus": 31,
+      "density": 2400,
+      "melt": 1200,
+      "note": "High compressive strength (~40 MPa) paired with steel rebar for tension"
+    },
+    {
+      "name": "Ultra-High Performance Concrete",
+      "cat": "Construction",
+      "emoji": "\ud83c\udf09",
+      "tensile": 12,
+      "modulus": 50,
+      "density": 2500,
+      "melt": 1250,
+      "note": "Fiber-reinforced concrete exceeding 150 MPa compressive strength"
+    },
+    {
+      "name": "Granite (Natural Stone)",
+      "cat": "Construction",
+      "emoji": "\ud83e\udea8",
+      "tensile": 10,
+      "modulus": 55,
+      "density": 2700,
+      "melt": 1215,
+      "note": "Dense igneous rock prized for foundations, cladding, and surface plates"
+    },
+    {
+      "name": "Carrara Marble",
+      "cat": "Construction",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "tensile": 8,
+      "modulus": 50,
+      "density": 2710,
+      "melt": 825,
+      "note": "Metamorphic limestone sculpted into classical architecture"
+    },
+    {
+      "name": "Fired Clay Brick",
+      "cat": "Construction",
+      "emoji": "\ud83e\uddf1",
+      "tensile": 3,
+      "modulus": 15,
+      "density": 1920,
+      "melt": 1100,
+      "note": "Traditional masonry unit with strong thermal mass"
+    },
+    {
+      "name": "Tempered Architectural Glass",
+      "cat": "Construction",
+      "emoji": "\ud83e\ude9f",
+      "tensile": 120,
+      "modulus": 70,
+      "density": 2500,
+      "melt": 1400,
+      "note": "Heat-treated safety glass 4x stronger than annealed float glass"
+    },
+    {
+      "name": "Teak Wood (Along Grain)",
+      "cat": "Timber",
+      "emoji": "\ud83e\udeb5",
+      "tensile": 95,
+      "modulus": 12,
+      "density": 660,
+      "melt": 300,
+      "note": "Naturally oil-rich, termite-resistant structural hardwood"
+    },
+    {
+      "name": "Cross-Laminated Timber (CLT)",
+      "cat": "Timber",
+      "emoji": "\ud83c\udf32",
+      "tensile": 24,
+      "modulus": 11,
+      "density": 500,
+      "melt": 280,
+      "note": "Engineered mass-timber panels enabling sustainable tall wood towers"
+    },
+    {
+      "name": "Structural Bamboo (Moso)",
+      "cat": "Timber",
+      "emoji": "\ud83c\udf8b",
+      "tensile": 190,
+      "modulus": 18,
+      "density": 700,
+      "melt": 290,
+      "note": "Fast-growing grass with higher tensile strength than mild steel per kg"
+    },
+    {
+      "name": "ABS Thermoplastic",
+      "cat": "Polymers",
+      "emoji": "\ud83e\uddf1",
+      "tensile": 43,
+      "modulus": 2.3,
+      "density": 1040,
+      "melt": 220,
+      "note": "Tough impact-resistant polymer used in LEGO bricks & 3D printing"
+    },
+    {
+      "name": "Polycarbonate (Lexan)",
+      "cat": "Polymers",
+      "emoji": "\ud83e\udd7d",
+      "tensile": 65,
+      "modulus": 2.4,
+      "density": 1200,
+      "melt": 267,
+      "note": "Shatter-resistant transparent polymer for skylights & visors"
+    },
+    {
+      "name": "PEEK (High-Perf Polymer)",
+      "cat": "Polymers",
+      "emoji": "\u2699\ufe0f",
+      "tensile": 100,
+      "modulus": 3.9,
+      "density": 1320,
+      "melt": 343,
+      "note": "Aerospace & medical polymer replacing metal gears at high temp"
+    },
+    {
+      "name": "Nylon 6/6 (Polyamide)",
+      "cat": "Polymers",
+      "emoji": "\u2699\ufe0f",
+      "tensile": 82,
+      "modulus": 3.0,
+      "density": 1140,
+      "melt": 265,
+      "note": "Self-lubricating engineering plastic for gears, cams & zip ties"
+    },
+    {
+      "name": "PTFE (Teflon)",
+      "cat": "Polymers",
+      "emoji": "\ud83e\uddea",
+      "tensile": 25,
+      "modulus": 0.5,
+      "density": 2200,
+      "melt": 327,
+      "note": "Ultra-low friction fluoropolymer for seals and bridge bearing pads"
+    },
+    {
+      "name": "Silicon Carbide (Ceramic)",
+      "cat": "Ceramics",
+      "emoji": "\ud83d\udd25",
+      "tensile": 340,
+      "modulus": 410,
+      "density": 3100,
+      "melt": 2730,
+      "note": "Ultra-hard ceramic for mechanical shaft seals & brake rotors"
+    },
+    {
+      "name": "Alumina (Al\u2082O\u2083 Ceramic)",
+      "cat": "Ceramics",
+      "emoji": "\u26a1",
+      "tensile": 260,
+      "modulus": 370,
+      "density": 3950,
+      "melt": 2072,
+      "note": "Electrical insulator and wear-resistant technical ceramic"
+    },
+    {
+      "name": "Graphene (Single-Layer Sheet)",
+      "cat": "Advanced",
+      "emoji": "\ud83e\uddec",
+      "tensile": 130000,
+      "modulus": 1000,
+      "density": 2267,
+      "melt": 3652,
+      "note": "Strongest tested 2D carbon lattice \u2014 ~200x stronger than structural steel"
+    }
+  ],
+  "landmarks": [
+    {
+      "name": "Burj Khalifa (Dubai)",
+      "loc": "UAE",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 828,
+      "year": 2010,
+      "floors": 163,
+      "note": "World's tallest structure; buttressed-core Y-plan by Adrian Smith (SOM)"
+    },
+    {
+      "name": "Merdeka 118 (Kuala Lumpur)",
+      "loc": "Malaysia",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 679,
+      "year": 2023,
+      "floors": 118,
+      "note": "Second-tallest skyscraper with faceted diamond glass facade"
+    },
+    {
+      "name": "Shanghai Tower",
+      "loc": "China",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 632,
+      "year": 2015,
+      "floors": 128,
+      "note": "Twisting 120\u00b0 aerodynamic double-skin facade cuts wind loads by 24%"
+    },
+    {
+      "name": "Abraj Al-Bait Clock Tower",
+      "loc": "Saudi Arabia",
+      "emoji": "\ud83d\udd70\ufe0f",
+      "height": 601,
+      "year": 2012,
+      "floors": 120,
+      "note": "Houses the world's largest clock face overlooking Mecca"
+    },
+    {
+      "name": "Ping An Finance Centre",
+      "loc": "China",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 599,
+      "year": 2017,
+      "floors": 115,
+      "note": "Stainless-steel clad mega-column skyscraper in Shenzhen"
+    },
+    {
+      "name": "Lotte World Tower (Seoul)",
+      "loc": "South Korea",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 555,
+      "year": 2017,
+      "floors": 123,
+      "note": "Sleek tapered cone inspired by traditional Korean ceramics"
+    },
+    {
+      "name": "One World Trade Center",
+      "loc": "USA",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 541,
+      "year": 2014,
+      "floors": 94,
+      "note": "1,776-foot symbolic height with chamfered triangular facade"
+    },
+    {
+      "name": "Taipei 101",
+      "loc": "Taiwan",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 508,
+      "year": 2004,
+      "floors": 101,
+      "note": "Famous for its 660-tonne suspended golden tuned mass damper"
+    },
+    {
+      "name": "Empire State Building",
+      "loc": "USA",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "height": 443,
+      "year": 1931,
+      "floors": 102,
+      "note": "Art Deco limestone icon built in just 410 days"
+    },
+    {
+      "name": "Petronas Twin Towers",
+      "loc": "Malaysia",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 452,
+      "year": 1998,
+      "floors": 88,
+      "note": "Tallest twin towers linked by a 170m-high double-decker skybridge"
+    },
+    {
+      "name": "Willis (Sears) Tower",
+      "loc": "USA",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 442,
+      "year": 1973,
+      "floors": 108,
+      "note": "Pioneered Fazlur Rahman Khan's bundled-tube structural system"
+    },
+    {
+      "name": "Eiffel Tower (Paris)",
+      "loc": "France",
+      "emoji": "\ud83d\uddfc",
+      "height": 330,
+      "year": 1889,
+      "floors": 3,
+      "note": "Wrought-iron lattice masterpiece by Gustave Eiffel"
+    },
+    {
+      "name": "Tokyo Skytree",
+      "loc": "Japan",
+      "emoji": "\ud83d\uddfc",
+      "height": 634,
+      "year": 2012,
+      "floors": 29,
+      "note": "World's tallest freestanding tower with a pagoda-inspired central seismic shaft"
+    },
+    {
+      "name": "The Shard (London)",
+      "loc": "UK",
+      "emoji": "\ud83d\udd3a",
+      "height": 310,
+      "year": 2012,
+      "floors": 73,
+      "note": "Renzo Piano's glass-clad pyramidal spire beside London Bridge"
+    },
+    {
+      "name": "Chrysler Building",
+      "loc": "USA",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 319,
+      "year": 1930,
+      "floors": 77,
+      "note": "Art Deco stainless-steel terraced crown in Manhattan"
+    },
+    {
+      "name": "30 St Mary Axe (The Gherkin)",
+      "loc": "UK",
+      "emoji": "\ud83e\udd52",
+      "height": 180,
+      "year": 2004,
+      "floors": 41,
+      "note": "Norman Foster's aerodynamic steel diagrid tower in London"
+    },
+    {
+      "name": "Marina Bay Sands",
+      "loc": "Singapore",
+      "emoji": "\ud83d\udea2",
+      "height": 207,
+      "year": 2010,
+      "floors": 57,
+      "note": "Three inclined towers crowned by a 340m cantilevered SkyPark"
+    },
+    {
+      "name": "Statue of Unity (Gujarat)",
+      "loc": "India",
+      "emoji": "\ud83d\uddff",
+      "height": 182,
+      "year": 2018,
+      "floors": 5,
+      "note": "World's tallest statue \u2014 bronze-clad reinforced concrete core"
+    },
+    {
+      "name": "Chenab Rail Bridge (J&K)",
+      "loc": "India",
+      "emoji": "\ud83c\udf09",
+      "height": 359,
+      "year": 2022,
+      "floors": 1,
+      "note": "World's highest railway steel arch bridge (359m above river bed)"
+    },
+    {
+      "name": "Millau Viaduct",
+      "loc": "France",
+      "emoji": "\ud83c\udf09",
+      "height": 343,
+      "year": 2004,
+      "floors": 1,
+      "note": "Norman Foster & Michel Virlogeux's cable-stayed bridge taller than Eiffel Tower"
+    },
+    {
+      "name": "Golden Gate Bridge",
+      "loc": "USA",
+      "emoji": "\ud83c\udf09",
+      "height": 227,
+      "year": 1937,
+      "floors": 1,
+      "note": "Art Deco suspension icon with 1,280m main span in International Orange"
+    },
+    {
+      "name": "Akashi Kaikyo Bridge",
+      "loc": "Japan",
+      "emoji": "\ud83c\udf09",
+      "height": 283,
+      "year": 1998,
+      "floors": 1,
+      "note": "1,991m suspension span engineered to survive Magnitude 8.5 quakes"
+    },
+    {
+      "name": "1915 \u00c7anakkale Bridge",
+      "loc": "Turkey",
+      "emoji": "\ud83c\udf09",
+      "height": 318,
+      "year": 2022,
+      "floors": 1,
+      "note": "World's longest suspension bridge main span at 2,023 meters"
+    },
+    {
+      "name": "Taj Mahal (Agra)",
+      "loc": "India",
+      "emoji": "\ud83d\udd4c",
+      "height": 73,
+      "year": 1653,
+      "floors": 2,
+      "note": "Symmetrical Mughal white Makrana marble double-dome mausoleum"
+    },
+    {
+      "name": "Qutub Minar (Delhi)",
+      "loc": "India",
+      "emoji": "\ud83d\uddfc",
+      "height": 73,
+      "year": 1220,
+      "floors": 5,
+      "note": "Tallest brick minaret in the world with fluted red sandstone shaft"
+    },
+    {
+      "name": "Brihadeeswarar Temple (Thanjavur)",
+      "loc": "India",
+      "emoji": "\ud83d\uded5",
+      "height": 66,
+      "year": 1010,
+      "floors": 13,
+      "note": "Chola granite vimana topped by an 80-tonne monolithic capstone"
+    },
+    {
+      "name": "Great Pyramid of Giza",
+      "loc": "Egypt",
+      "emoji": "\ud83d\udd3a",
+      "height": 139,
+      "year": -2560,
+      "floors": 1,
+      "note": "Oldest Wonder of the Ancient World \u2014 ~2.3 million limestone blocks"
+    },
+    {
+      "name": "Colosseum (Rome)",
+      "loc": "Italy",
+      "emoji": "\ud83c\udfdf\ufe0f",
+      "height": 48,
+      "year": 80,
+      "floors": 4,
+      "note": "Roman travertine, tuff & concrete amphitheater using stacked barrel vaults"
+    },
+    {
+      "name": "Pantheon (Rome)",
+      "loc": "Italy",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "height": 43,
+      "year": 126,
+      "floors": 1,
+      "note": "World's largest unreinforced concrete dome (43.3m span) with an open oculus"
+    },
+    {
+      "name": "Hagia Sophia (Istanbul)",
+      "loc": "Turkey",
+      "emoji": "\ud83d\udd4c",
+      "height": 55,
+      "year": 537,
+      "floors": 2,
+      "note": "Byzantine pendentive dome engineering marvel"
+    },
+    {
+      "name": "Sagrada Fam\u00edlia (Barcelona)",
+      "loc": "Spain",
+      "emoji": "\u26ea",
+      "height": 172,
+      "year": 2026,
+      "floors": 18,
+      "note": "Antoni Gaud\u00ed's catenary-arch & hyperboloid-vault basilica"
+    },
+    {
+      "name": "Sydney Opera House",
+      "loc": "Australia",
+      "emoji": "\ud83c\udfad",
+      "height": 65,
+      "year": 1973,
+      "floors": 5,
+      "note": "J\u00f8rn Utzon's precast spherical-segment concrete sail shells"
+    },
+    {
+      "name": "Guggenheim Museum Bilbao",
+      "loc": "Spain",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "height": 50,
+      "year": 1997,
+      "floors": 3,
+      "note": "Frank Gehry's titanium-clad freeform curves modeled in CATIA"
+    },
+    {
+      "name": "Lotus Temple (New Delhi)",
+      "loc": "India",
+      "emoji": "\ud83e\udeb7",
+      "height": 34,
+      "year": 1986,
+      "floors": 2,
+      "note": "27 free-standing marble-clad concrete petals by Fariborz Sahba"
+    },
+    {
+      "name": "Vidhana Soudha (Bengaluru)",
+      "loc": "India",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "height": 46,
+      "year": 1956,
+      "floors": 4,
+      "note": "Neo-Dravidian granite legislative landmark of Karnataka"
+    },
+    {
+      "name": "Fallingwater (Pennsylvania)",
+      "loc": "USA",
+      "emoji": "\ud83c\udfe1",
+      "height": 12,
+      "year": 1939,
+      "floors": 3,
+      "note": "Frank Lloyd Wright's reinforced-concrete cantilevers suspended over a waterfall"
+    },
+    {
+      "name": "Palais Royale (Mumbai)",
+      "loc": "India",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 320,
+      "year": 2024,
+      "floors": 88,
+      "note": "One of India's tallest residential supertall towers"
+    },
+    {
+      "name": "World One (Mumbai)",
+      "loc": "India",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 280,
+      "year": 2020,
+      "floors": 76,
+      "note": "Curvilinear glass residential tower in Lower Parel, Mumbai"
+    },
+    {
+      "name": "Burj Al Arab (Dubai)",
+      "loc": "UAE",
+      "emoji": "\u26f5",
+      "height": 321,
+      "year": 1999,
+      "floors": 56,
+      "note": "Iconic sail-shaped exoskeleton hotel built on a man-made island"
+    },
+    {
+      "name": "CCTV Headquarters (Beijing)",
+      "loc": "China",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "height": 234,
+      "year": 2012,
+      "floors": 44,
+      "note": "Rem Koolhaas (OMA) continuous cantilevered structural loop"
+    }
+  ]
+}

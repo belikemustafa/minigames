@@ -1,93 +1,88 @@
 import {
   initChrome, setupModeTabs, playSfx, recordWin, recordBestValue,
-  resetStreak, shuffle, createSeededRng, showToast, burstMilestone, triggerFlash,
+  resetStreak, shuffle, createSeededRng, showToast, burstMilestone, triggerFlash, loadJson,
 } from './core.js';
-import { WORLD_COUNTRIES } from './data/worldData.js';
-import { MACRO_FOODS } from './data/foodData.js';
-import { AUTO_SPECS } from './data/autoData.js';
-import { OUTPUT_QUIZZES, BIGO_QUESTIONS, HTTP_GIT_QUESTIONS } from './data/devData.js';
-import { CRICKET_INTL, FOOTBALL_STARS } from './data/sportsData.js';
-import { LYRIC_QUIZZES } from './data/musicData.js';
-import { GAME_IDS, STUDIO_MATCHES } from './data/gamingData.js';
-import { JUTSU_POWERS, SPACE_BODIES } from './data/cosmosData.js';
 
 initChrome('blitz');
+
+const [foodData, autoData, devData, sportsData, musicData, gamingData, mechQ, archQ, codesQ] = await Promise.all([
+  loadJson('./data/food/food.json'),
+  loadJson('./data/auto/auto.json'),
+  loadJson('./data/dev/dev.json'),
+  loadJson('./data/sports/sports.json'),
+  loadJson('./data/music/music.json'),
+  loadJson('./data/gaming/gaming.json'),
+  loadJson('./data/engineering/mech-questions.json'),
+  loadJson('./data/engineering/arch-questions.json'),
+  loadJson('./data/engineering/codes-units.json'),
+]);
 
 function buildQuestionBank() {
   const bank = [];
 
-  // 1. World Capitals (70)
-  WORLD_COUNTRIES.slice(0, 70).forEach((c, idx) => {
-    const decoys = WORLD_COUNTRIES.filter((x) => x.code !== c.code)
-      .slice((idx * 3) % 45, ((idx * 3) % 45) + 3)
-      .map((x) => x.capital);
-    bank.push({ group: 'world', cat: 'World Capitals', q: `What is the capital city of ${c.name}?`, answer: c.capital, options: [c.capital, ...decoys] });
+  // 1. Engineering (Mech + Arch + Codes: 204 questions!)
+  mechQ.forEach((m) => bank.push({ group: 'engineering', cat: `Mech: ${m.topic}`, q: m.q, answer: m.answer, options: m.options }));
+  archQ.forEach((a) => bank.push({ group: 'engineering', cat: `Arch: ${a.topic}`, q: a.q, answer: a.answer, options: a.options }));
+  codesQ.forEach((c, idx) => {
+    const decoys = codesQ.filter((x) => x.answer !== c.answer).slice((idx * 5) % 45, ((idx * 5) % 45) + 3).map((x) => x.answer);
+    bank.push({ group: 'engineering', cat: `Eng ${c.cat}`, q: `What is "${c.prompt}"?`, answer: c.answer, options: [c.answer, ...decoys] });
   });
 
-  // 2. Food Calories & Protein (80)
-  for (let i = 0; i + 1 < MACRO_FOODS.length; i += 2) {
-    const a = MACRO_FOODS[i], b = MACRO_FOODS[i + 1];
+  // 2. Food Calories & Protein
+  const foods = foodData.MACRO_FOODS;
+  for (let i = 0; i + 1 < foods.length; i += 2) {
+    const a = foods[i], b = foods[i + 1];
     bank.push({ group: 'food', cat: 'Food Calories', q: `Per 100g, which has MORE calories: ${a.name} or ${b.name}?`, answer: a.calories >= b.calories ? a.name : b.name, options: [a.name, b.name] });
     bank.push({ group: 'food', cat: 'Food Protein', q: `Per 100g, which has MORE protein: ${a.name} or ${b.name}?`, answer: a.protein >= b.protein ? a.name : b.name, options: [a.name, b.name] });
   }
 
-  // 3. Auto Power & 0-100 (78)
-  const allVehicles = [...AUTO_SPECS.bikes, ...AUTO_SPECS.suvs, ...AUTO_SPECS.supercars, ...AUTO_SPECS.jdm];
+  // 3. Auto Power & 0-100
+  const allVehicles = Object.values(autoData.AUTO_SPECS).flat();
   for (let i = 0; i + 1 < allVehicles.length; i += 2) {
     const a = allVehicles[i], b = allVehicles[i + 1];
     bank.push({ group: 'auto', cat: 'Bikes & Cars', q: `Which machine makes MORE horsepower (BHP): ${a.name} or ${b.name}?`, answer: a.bhp >= b.bhp ? a.name : b.name, options: [a.name, b.name] });
     bank.push({ group: 'auto', cat: 'Bikes & Cars', q: `Which reaches 0–100 km/h FASTER: ${a.name} or ${b.name}?`, answer: a.zeroTo100 <= b.zeroTo100 ? a.name : b.name, options: [a.name, b.name] });
   }
 
-  // 4. Dev Output, Big-O, HTTP/Git (102)
-  OUTPUT_QUIZZES.forEach((o) => {
+  // 4. Dev Output, Big-O, HTTP/Git
+  devData.OUTPUT_QUIZZES.forEach((o) => {
     bank.push({ group: 'dev', cat: 'Dev Output', q: `[${o.lang}] What prints? → ${o.code.replace(/\n/g, ' ; ')}`, answer: o.answer, options: o.options });
   });
-  BIGO_QUESTIONS.forEach((b) => {
+  devData.BIGO_QUESTIONS.forEach((b) => {
     const baseOpts = ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'];
     const opts = baseOpts.includes(b.answer) ? baseOpts : ['O(1)', 'O(n)', 'O(n²)', b.answer];
     bank.push({ group: 'dev', cat: 'Dev Big-O', q: `Time complexity of: ${b.prompt}`, answer: b.answer, options: [...new Set(opts)] });
   });
-  HTTP_GIT_QUESTIONS.forEach((h) => {
+  devData.HTTP_GIT_QUESTIONS.forEach((h) => {
     bank.push({ group: 'dev', cat: `Dev ${h.tag}`, q: `What does "${h.prompt}" mean?`, answer: h.answer, options: h.options });
   });
 
-  // 5. Sports (Cricket & Football Duels)
-  for (let i = 0; i + 1 < CRICKET_INTL.length; i += 2) {
-    const a = CRICKET_INTL[i], b = CRICKET_INTL[i + 1];
+  // 5. Sports (Cricket & Football)
+  for (let i = 0; i + 1 < sportsData.CRICKET_INTL.length; i += 2) {
+    const a = sportsData.CRICKET_INTL[i], b = sportsData.CRICKET_INTL[i + 1];
     bank.push({ group: 'sports', cat: 'Cricket', q: `Who scored MORE international runs: ${a.name} or ${b.name}?`, answer: a.runs >= b.runs ? a.name : b.name, options: [a.name, b.name] });
   }
-  for (let i = 0; i + 1 < FOOTBALL_STARS.length; i += 2) {
-    const a = FOOTBALL_STARS[i], b = FOOTBALL_STARS[i + 1];
+  for (let i = 0; i + 1 < sportsData.FOOTBALL_STARS.length; i += 2) {
+    const a = sportsData.FOOTBALL_STARS[i], b = sportsData.FOOTBALL_STARS[i + 1];
     bank.push({ group: 'sports', cat: 'Football', q: `Who scored MORE career goals: ${a.name} or ${b.name}?`, answer: a.goals >= b.goals ? a.name : b.name, options: [a.name, b.name] });
   }
 
   // 6. Music Lyrics
-  LYRIC_QUIZZES.forEach((l) => {
+  musicData.LYRIC_QUIZZES.forEach((l) => {
     bank.push({ group: 'music', cat: 'Finish the Lyric', q: `[${l.song}] "${l.lines}..."`, answer: l.answer, options: l.options });
   });
 
   // 7. Gaming IDs & Studios
-  const allTitles = [...new Set(GAME_IDS.map((x) => x.answer))];
-  GAME_IDS.forEach((g, idx) => {
-    const decoys = allTitles.filter((t) => t !== g.answer).slice(idx % 12, (idx % 12) + 3);
+  const allTitles = [...new Set(gamingData.GAME_IDS.map((x) => x.answer))];
+  gamingData.GAME_IDS.forEach((g, idx) => {
+    const decoys = allTitles.filter((t) => t !== g.answer).slice(idx % 16, (idx % 16) + 3);
     bank.push({ group: 'gaming', cat: `Gaming ${g.kind}`, q: `Which video game features "${g.clue}"?`, answer: g.answer, options: [g.answer, ...decoys] });
   });
-  const allStudios = [...new Set(STUDIO_MATCHES.map((x) => x.studio))];
-  STUDIO_MATCHES.forEach((s, idx) => {
-    const decoys = allStudios.filter((st) => st !== s.studio).slice(idx % 10, (idx % 10) + 3);
+  const allStudios = [...new Set(gamingData.STUDIO_MATCHES.map((x) => x.studio))];
+  gamingData.STUDIO_MATCHES.forEach((s, idx) => {
+    const decoys = allStudios.filter((st) => st !== s.studio).slice(idx % 12, (idx % 12) + 3);
     bank.push({ group: 'gaming', cat: 'Game Studio', q: `Which studio developed ${s.game}?`, answer: s.studio, options: [s.studio, ...decoys] });
   });
-
-  // 8. Battles & Space
-  JUTSU_POWERS.forEach((j, idx) => {
-    const decoys = JUTSU_POWERS.filter((x) => x.answer !== j.answer).slice(idx % 20, (idx % 20) + 3).map((x) => x.answer);
-    bank.push({ group: 'cosmos', cat: j.universe, q: `Who uses "${j.ability}"?`, answer: j.answer, options: [j.answer, ...decoys] });
-  });
-  for (let i = 0; i + 1 < SPACE_BODIES.length; i += 2) {
-    const a = SPACE_BODIES[i], b = SPACE_BODIES[i + 1];
-    bank.push({ group: 'cosmos', cat: 'Space', q: `Which has STRONGER surface gravity: ${a.name} or ${b.name}?`, answer: a.gravity >= b.gravity ? a.name : b.name, options: [a.name, b.name] });
-  }
 
   return bank;
 }
@@ -96,7 +91,8 @@ const QUESTION_BANK = buildQuestionBank();
 
 function initBlitz() {
   let duration = 60, endTime = 0, timerRaf = null, blitzScore = 0, blitzStreak = 0, pool = [], current = null, running = false;
-  const activeGroups = new Set(['world', 'food', 'auto', 'dev', 'sports', 'music', 'gaming', 'cosmos']);
+  const activeGroups = new Set(['engineering', 'food', 'auto', 'dev', 'sports', 'music', 'gaming', 'live']);
+  let liveQuestions = [];
 
   const timerEl = document.getElementById('blitz-timer');
   const scoreEl = document.getElementById('blitz-score');
@@ -109,7 +105,35 @@ function initBlitz() {
   const optionsEl = document.getElementById('blitz-options');
   const resultEl = document.getElementById('blitz-result');
 
-  const getActivePool = () => QUESTION_BANK.filter((q) => activeGroups.has(q.group));
+  async function prefetchLive() {
+    try {
+      const r = await fetch('/api/trivia/live?cat=all&amount=20');
+      if (r.ok) {
+        const j = await r.json();
+        if (Array.isArray(j.questions)) {
+          liveQuestions = j.questions.map((q) => ({ ...q, group: 'live', cat: `🌐 ${q.cat}` }));
+          return;
+        }
+      }
+    } catch {}
+    try {
+      const r2 = await fetch('https://opentdb.com/api.php?amount=20&type=multiple');
+      if (r2.ok) {
+        const j2 = await r2.json();
+        const dec = (s) => { const el = document.createElement('textarea'); el.innerHTML = s || ''; return el.value; };
+        liveQuestions = (j2.results || []).map((q) => {
+          const ans = dec(q.correct_answer);
+          return { group: 'live', cat: `🌐 ${dec(q.category)}`, q: dec(q.question), answer: ans, options: [ans, ...(q.incorrect_answers || []).map(dec)] };
+        });
+      }
+    } catch {}
+  }
+  prefetchLive();
+
+  const getActivePool = () => {
+    const local = QUESTION_BANK.filter((q) => activeGroups.has(q.group));
+    return activeGroups.has('live') && liveQuestions.length ? [...local, ...liveQuestions] : local;
+  };
 
   function nextQuestion() {
     if (!pool.length) pool = shuffle(getActivePool());
@@ -187,6 +211,7 @@ function initBlitz() {
     resultEl.classList.add('hidden');
     playEl.classList.remove('hidden');
     pool = shuffle(getActivePool());
+    if (activeGroups.has('live')) prefetchLive();
     nextQuestion();
     if (timerRaf) cancelAnimationFrame(timerRaf);
     timerRaf = requestAnimationFrame(tickTimer);

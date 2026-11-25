@@ -1,0 +1,1504 @@
+{
+  "MUSIC_TRACKS": [
+    {
+      "title": "Kesariya",
+      "artist": "Arijit Singh",
+      "movie": "Brahmastra",
+      "cat": "bollywood",
+      "year": 2022,
+      "query": "Kesariya Arijit Singh Brahmastra"
+    },
+    {
+      "title": "Tum Hi Ho",
+      "artist": "Arijit Singh",
+      "movie": "Aashiqui 2",
+      "cat": "bollywood",
+      "year": 2013,
+      "query": "Tum Hi Ho Arijit Singh Aashiqui 2"
+    },
+    {
+      "title": "Chaiyya Chaiyya",
+      "artist": "Sukhwinder Singh & A.R. Rahman",
+      "movie": "Dil Se",
+      "cat": "bollywood",
+      "year": 1998,
+      "query": "Chaiyya Chaiyya Sukhwinder Singh Rahman"
+    },
+    {
+      "title": "Kal Ho Naa Ho",
+      "artist": "Sonu Nigam",
+      "movie": "Kal Ho Naa Ho",
+      "cat": "bollywood",
+      "year": 2003,
+      "query": "Kal Ho Naa Ho Sonu Nigam"
+    },
+    {
+      "title": "Jai Ho",
+      "artist": "A.R. Rahman & Sukhwinder Singh",
+      "movie": "Slumdog Millionaire",
+      "cat": "bollywood",
+      "year": 2008,
+      "query": "Jai Ho A R Rahman"
+    },
+    {
+      "title": "Kun Faya Kun",
+      "artist": "A.R. Rahman, Javed Ali & Mohit Chauhan",
+      "movie": "Rockstar",
+      "cat": "bollywood",
+      "year": 2011,
+      "query": "Kun Faya Kun Rockstar Rahman"
+    },
+    {
+      "title": "Channa Mereya",
+      "artist": "Arijit Singh",
+      "movie": "Ae Dil Hai Mushkil",
+      "cat": "bollywood",
+      "year": 2016,
+      "query": "Channa Mereya Arijit Singh"
+    },
+    {
+      "title": "Apna Bana Le",
+      "artist": "Arijit Singh",
+      "movie": "Bhediya",
+      "cat": "bollywood",
+      "year": 2022,
+      "query": "Apna Bana Le Arijit Singh"
+    },
+    {
+      "title": "Tujh Mein Rab Dikhta Hai",
+      "artist": "Roop Kumar Rathod",
+      "movie": "Rab Ne Bana Di Jodi",
+      "cat": "bollywood",
+      "year": 2008,
+      "query": "Tujh Mein Rab Dikhta Hai Roop Kumar"
+    },
+    {
+      "title": "Kabira",
+      "artist": "Tochi Raina & Rekha Bhardwaj",
+      "movie": "Yeh Jawaani Hai Deewani",
+      "cat": "bollywood",
+      "year": 2013,
+      "query": "Kabira Yeh Jawaani Hai Deewani"
+    },
+    {
+      "title": "Ghungroo",
+      "artist": "Arijit Singh & Shilpa Rao",
+      "movie": "War",
+      "cat": "bollywood",
+      "year": 2019,
+      "query": "Ghungroo War Arijit Singh"
+    },
+    {
+      "title": "Chaleya",
+      "artist": "Arijit Singh & Shilpa Rao",
+      "movie": "Jawan",
+      "cat": "bollywood",
+      "year": 2023,
+      "query": "Chaleya Jawan Arijit Singh"
+    },
+    {
+      "title": "Naatu Naatu",
+      "artist": "Rahul Sipligunj & Kaala Bhairava",
+      "movie": "RRR",
+      "cat": "south",
+      "year": 2021,
+      "query": "Naatu Naatu RRR Keeravani"
+    },
+    {
+      "title": "Why This Kolaveri Di",
+      "artist": "Dhanush & Anirudh",
+      "movie": "3",
+      "cat": "south",
+      "year": 2011,
+      "query": "Why This Kolaveri Di Dhanush Anirudh"
+    },
+    {
+      "title": "Arabic Kuthu",
+      "artist": "Anirudh Ravichander & Jonita Gandhi",
+      "movie": "Beast",
+      "cat": "south",
+      "year": 2022,
+      "query": "Arabic Kuthu Anirudh Beast"
+    },
+    {
+      "title": "Rowdy Baby",
+      "artist": "Dhanush & Dhee",
+      "movie": "Maari 2",
+      "cat": "south",
+      "year": 2018,
+      "query": "Rowdy Baby Dhanush Dhee"
+    },
+    {
+      "title": "Oo Antava",
+      "artist": "Indravathi Chauhan",
+      "movie": "Pushpa: The Rise",
+      "cat": "south",
+      "year": 2021,
+      "query": "Oo Antava Pushpa Devi Sri Prasad"
+    },
+    {
+      "title": "Buttabomma",
+      "artist": "Armaan Malik",
+      "movie": "Ala Vaikunthapurramuloo",
+      "cat": "south",
+      "year": 2020,
+      "query": "Buttabomma Armaan Malik Thaman"
+    },
+    {
+      "title": "Toofan (KGF 2)",
+      "artist": "Ravi Basrur",
+      "movie": "KGF Chapter 2",
+      "cat": "south",
+      "year": 2022,
+      "query": "Toofan KGF Chapter 2 Ravi Basrur"
+    },
+    {
+      "title": "Varaha Roopam",
+      "artist": "Sai Vignesh & B. Ajaneesh Loknath",
+      "movie": "Kantara",
+      "cat": "south",
+      "year": 2022,
+      "query": "Varaha Roopam Kantara Ajaneesh"
+    },
+    {
+      "title": "Kaavaalaa",
+      "artist": "Shilpa Rao & Anirudh",
+      "movie": "Jailer",
+      "cat": "south",
+      "year": 2023,
+      "query": "Kaavaalaa Jailer Anirudh"
+    },
+    {
+      "title": "Mungaru Male",
+      "artist": "Sonu Nigam",
+      "movie": "Mungaru Male",
+      "cat": "south",
+      "year": 2006,
+      "query": "Anisuthide Mungaru Male Sonu Nigam"
+    },
+    {
+      "title": "Hukum (Thalaivar Alappara)",
+      "artist": "Anirudh Ravichander",
+      "movie": "Jailer",
+      "cat": "south",
+      "year": 2023,
+      "query": "Hukum Jailer Anirudh"
+    },
+    {
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "movie": "After Hours",
+      "cat": "global",
+      "year": 2019,
+      "query": "Blinding Lights The Weeknd"
+    },
+    {
+      "title": "Shape of You",
+      "artist": "Ed Sheeran",
+      "movie": "Divide",
+      "cat": "global",
+      "year": 2017,
+      "query": "Shape of You Ed Sheeran"
+    },
+    {
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "movie": "A Night at the Opera",
+      "cat": "global",
+      "year": 1975,
+      "query": "Bohemian Rhapsody Queen"
+    },
+    {
+      "title": "Believer",
+      "artist": "Imagine Dragons",
+      "movie": "Evolve",
+      "cat": "global",
+      "year": 2017,
+      "query": "Believer Imagine Dragons"
+    },
+    {
+      "title": "Lose Yourself",
+      "artist": "Eminem",
+      "movie": "8 Mile OST",
+      "cat": "global",
+      "year": 2002,
+      "query": "Lose Yourself Eminem"
+    },
+    {
+      "title": "Billie Jean",
+      "artist": "Michael Jackson",
+      "movie": "Thriller",
+      "cat": "global",
+      "year": 1982,
+      "query": "Billie Jean Michael Jackson"
+    },
+    {
+      "title": "Starboy",
+      "artist": "The Weeknd & Daft Punk",
+      "movie": "Starboy",
+      "cat": "global",
+      "year": 2016,
+      "query": "Starboy The Weeknd"
+    },
+    {
+      "title": "Levitating",
+      "artist": "Dua Lipa",
+      "movie": "Future Nostalgia",
+      "cat": "global",
+      "year": 2020,
+      "query": "Levitating Dua Lipa"
+    },
+    {
+      "title": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "movie": "Nevermind",
+      "cat": "global",
+      "year": 1991,
+      "query": "Smells Like Teen Spirit Nirvana"
+    },
+    {
+      "title": "Sunflower",
+      "artist": "Post Malone & Swae Lee",
+      "movie": "Spider-Verse OST",
+      "cat": "global",
+      "year": 2018,
+      "query": "Sunflower Post Malone Swae Lee"
+    },
+    {
+      "title": "As It Was",
+      "artist": "Harry Styles",
+      "movie": "Harry's House",
+      "cat": "global",
+      "year": 2022,
+      "query": "As It Was Harry Styles"
+    },
+    {
+      "title": "Numb",
+      "artist": "Linkin Park",
+      "movie": "Meteora",
+      "cat": "global",
+      "year": 2003,
+      "query": "Numb Linkin Park"
+    },
+    {
+      "title": "Blue Bird",
+      "artist": "Ikimonogakari",
+      "movie": "Naruto Shippuden OP 3",
+      "cat": "anime",
+      "year": 2008,
+      "query": "Blue Bird Ikimonogakari"
+    },
+    {
+      "title": "Silhouette",
+      "artist": "KANA-BOON",
+      "movie": "Naruto Shippuden OP 16",
+      "cat": "anime",
+      "year": 2014,
+      "query": "Silhouette KANA-BOON"
+    },
+    {
+      "title": "Gurenge",
+      "artist": "LiSA",
+      "movie": "Demon Slayer OP 1",
+      "cat": "anime",
+      "year": 2019,
+      "query": "Gurenge LiSA"
+    },
+    {
+      "title": "Unravel",
+      "artist": "TK from Ling tosite sigure",
+      "movie": "Tokyo Ghoul OP 1",
+      "cat": "anime",
+      "year": 2014,
+      "query": "Unravel TK Ling tosite sigure"
+    },
+    {
+      "title": "Kaikai Kitan",
+      "artist": "Eve",
+      "movie": "Jujutsu Kaisen OP 1",
+      "cat": "anime",
+      "year": 2020,
+      "query": "Kaikai Kitan Eve"
+    },
+    {
+      "title": "Kick Back",
+      "artist": "Kenshi Yonezu",
+      "movie": "Chainsaw Man OP",
+      "cat": "anime",
+      "year": 2022,
+      "query": "Kick Back Kenshi Yonezu"
+    },
+    {
+      "title": "Idol",
+      "artist": "YOASOBI",
+      "movie": "Oshi no Ko OP",
+      "cat": "anime",
+      "year": 2023,
+      "query": "Idol YOASOBI"
+    },
+    {
+      "title": "A Cruel Angel's Thesis",
+      "artist": "Yoko Takahashi",
+      "movie": "Neon Genesis Evangelion",
+      "cat": "anime",
+      "year": 1995,
+      "query": "Cruel Angel Thesis Yoko Takahashi"
+    },
+    {
+      "title": "Bling-Bang-Bang-Born",
+      "artist": "Creepy Nuts",
+      "movie": "Mashle S2 OP",
+      "cat": "anime",
+      "year": 2024,
+      "query": "Bling-Bang-Bang-Born Creepy Nuts"
+    },
+    {
+      "title": "Tera Ban Jaunga",
+      "artist": "Akhil Sachdeva & Tulsi Kumar",
+      "movie": "Kabir Singh",
+      "cat": "bollywood",
+      "year": 2019,
+      "query": "Tera Ban Jaunga Kabir Singh"
+    },
+    {
+      "title": "Raataan Lambiyan",
+      "artist": "Jubin Nautiyal & Asees Kaur",
+      "movie": "Shershaah",
+      "cat": "bollywood",
+      "year": 2021,
+      "query": "Raataan Lambiyan Shershaah"
+    },
+    {
+      "title": "Agar Tum Saath Ho",
+      "artist": "Alka Yagnik & Arijit Singh",
+      "movie": "Tamasha",
+      "cat": "bollywood",
+      "year": 2015,
+      "query": "Agar Tum Saath Ho Tamasha"
+    },
+    {
+      "title": "Gerua",
+      "artist": "Arijit Singh & Antara Mitra",
+      "movie": "Dilwale",
+      "cat": "bollywood",
+      "year": 2015,
+      "query": "Gerua Dilwale Arijit Singh"
+    },
+    {
+      "title": "Pee Loon",
+      "artist": "Mohit Chauhan",
+      "movie": "Once Upon a Time in Mumbaai",
+      "cat": "bollywood",
+      "year": 2010,
+      "query": "Pee Loon Mohit Chauhan"
+    },
+    {
+      "title": "Zinda",
+      "artist": "Siddharth Mahadevan",
+      "movie": "Bhaag Milkha Bhaag",
+      "cat": "bollywood",
+      "year": 2013,
+      "query": "Zinda Bhaag Milkha Bhaag"
+    },
+    {
+      "title": "Badtameez Dil",
+      "artist": "Benny Dayal",
+      "movie": "Yeh Jawaani Hai Deewani",
+      "cat": "bollywood",
+      "year": 2013,
+      "query": "Badtameez Dil Benny Dayal"
+    },
+    {
+      "title": "Srivalli",
+      "artist": "Sid Sriram / Javed Ali",
+      "movie": "Pushpa: The Rise",
+      "cat": "south",
+      "year": 2021,
+      "query": "Srivalli Pushpa Sid Sriram"
+    },
+    {
+      "title": "Vaathi Coming",
+      "artist": "Anirudh Ravichander",
+      "movie": "Master",
+      "cat": "south",
+      "year": 2020,
+      "query": "Vaathi Coming Master Anirudh"
+    },
+    {
+      "title": "Samajavaragamana",
+      "artist": "Sid Sriram",
+      "movie": "Ala Vaikunthapurramuloo",
+      "cat": "south",
+      "year": 2019,
+      "query": "Samajavaragamana Sid Sriram"
+    },
+    {
+      "title": "Kurchi Madathapetti",
+      "artist": "Thaman S",
+      "movie": "Guntur Kaaram",
+      "cat": "south",
+      "year": 2024,
+      "query": "Kurchi Madathapetti Thaman"
+    },
+    {
+      "title": "Illuminati",
+      "artist": "Sushin Shyam & Dabzee",
+      "movie": "Aavesham",
+      "cat": "south",
+      "year": 2024,
+      "query": "Illuminati Aavesham Sushin Shyam"
+    },
+    {
+      "title": "Singara Siriye",
+      "artist": "Vijay Prakash & Ananya Bhat",
+      "movie": "Kantara",
+      "cat": "south",
+      "year": 2022,
+      "query": "Singara Siriye Kantara"
+    },
+    {
+      "title": "Salaam Rocky Bhai",
+      "artist": "Vijay Prakash & Ravi Basrur",
+      "movie": "KGF Chapter 1",
+      "cat": "south",
+      "year": 2018,
+      "query": "Salaam Rocky Bhai KGF"
+    },
+    {
+      "title": "Inkem Inkem Inkem Kaavaale",
+      "artist": "Sid Sriram",
+      "movie": "Geetha Govindam",
+      "cat": "south",
+      "year": 2018,
+      "query": "Inkem Inkem Sid Sriram"
+    },
+    {
+      "title": "Anti-Hero",
+      "artist": "Taylor Swift",
+      "movie": "Midnights",
+      "cat": "global",
+      "year": 2022,
+      "query": "Anti-Hero Taylor Swift"
+    },
+    {
+      "title": "Cruel Summer",
+      "artist": "Taylor Swift",
+      "movie": "Lover",
+      "cat": "global",
+      "year": 2019,
+      "query": "Cruel Summer Taylor Swift"
+    },
+    {
+      "title": "Bad Guy",
+      "artist": "Billie Eilish",
+      "movie": "When We All Fall Asleep",
+      "cat": "global",
+      "year": 2019,
+      "query": "Bad Guy Billie Eilish"
+    },
+    {
+      "title": "Birds of a Feather",
+      "artist": "Billie Eilish",
+      "movie": "Hit Me Hard and Soft",
+      "cat": "global",
+      "year": 2024,
+      "query": "Birds of a Feather Billie Eilish"
+    },
+    {
+      "title": "Uptown Funk",
+      "artist": "Mark Ronson & Bruno Mars",
+      "movie": "Uptown Special",
+      "cat": "global",
+      "year": 2014,
+      "query": "Uptown Funk Bruno Mars"
+    },
+    {
+      "title": "Die With A Smile",
+      "artist": "Lady Gaga & Bruno Mars",
+      "movie": "Single",
+      "cat": "global",
+      "year": 2024,
+      "query": "Die With A Smile Bruno Mars Lady Gaga"
+    },
+    {
+      "title": "Viva La Vida",
+      "artist": "Coldplay",
+      "movie": "Viva La Vida",
+      "cat": "global",
+      "year": 2008,
+      "query": "Viva La Vida Coldplay"
+    },
+    {
+      "title": "Yellow",
+      "artist": "Coldplay",
+      "movie": "Parachutes",
+      "cat": "global",
+      "year": 2000,
+      "query": "Yellow Coldplay"
+    },
+    {
+      "title": "Wake Me Up",
+      "artist": "Avicii",
+      "movie": "True",
+      "cat": "edm",
+      "year": 2013,
+      "query": "Wake Me Up Avicii"
+    },
+    {
+      "title": "Levels",
+      "artist": "Avicii",
+      "movie": "Single",
+      "cat": "edm",
+      "year": 2011,
+      "query": "Levels Avicii"
+    },
+    {
+      "title": "Faded",
+      "artist": "Alan Walker",
+      "movie": "Different World",
+      "cat": "edm",
+      "year": 2015,
+      "query": "Faded Alan Walker"
+    },
+    {
+      "title": "HUMBLE.",
+      "artist": "Kendrick Lamar",
+      "movie": "DAMN.",
+      "cat": "hiphop",
+      "year": 2017,
+      "query": "HUMBLE Kendrick Lamar"
+    },
+    {
+      "title": "Not Like Us",
+      "artist": "Kendrick Lamar",
+      "movie": "Single",
+      "cat": "hiphop",
+      "year": 2024,
+      "query": "Not Like Us Kendrick Lamar"
+    },
+    {
+      "title": "SICKO MODE",
+      "artist": "Travis Scott",
+      "movie": "ASTROWORLD",
+      "cat": "hiphop",
+      "year": 2018,
+      "query": "SICKO MODE Travis Scott"
+    },
+    {
+      "title": "God's Plan",
+      "artist": "Drake",
+      "movie": "Scorpion",
+      "cat": "hiphop",
+      "year": 2018,
+      "query": "Gods Plan Drake"
+    },
+    {
+      "title": "Dynamite",
+      "artist": "BTS",
+      "movie": "BE",
+      "cat": "kpop",
+      "year": 2020,
+      "query": "Dynamite BTS"
+    },
+    {
+      "title": "How You Like That",
+      "artist": "BLACKPINK",
+      "movie": "THE ALBUM",
+      "cat": "kpop",
+      "year": 2020,
+      "query": "How You Like That BLACKPINK"
+    },
+    {
+      "title": "APT.",
+      "artist": "ROS\u00c9 & Bruno Mars",
+      "movie": "rosie",
+      "cat": "kpop",
+      "year": 2024,
+      "query": "APT Rose Bruno Mars"
+    },
+    {
+      "title": "Specialz",
+      "artist": "King Gnu",
+      "movie": "Jujutsu Kaisen S2 OP",
+      "cat": "anime",
+      "year": 2023,
+      "query": "Specialz King Gnu"
+    },
+    {
+      "title": "The Rumbling",
+      "artist": "SiM",
+      "movie": "Attack on Titan Final",
+      "cat": "anime",
+      "year": 2022,
+      "query": "The Rumbling SiM"
+    },
+    {
+      "title": "Otonoke",
+      "artist": "Creepy Nuts",
+      "movie": "Dandadan OP",
+      "cat": "anime",
+      "year": 2024,
+      "query": "Otonoke Creepy Nuts"
+    }
+  ],
+  "LYRIC_QUIZZES": [
+    {
+      "song": "Blinding Lights",
+      "artist": "The Weeknd",
+      "cat": "global",
+      "lines": "I said, ooh, I'm blinded by the lights",
+      "answer": "No, I can't sleep until I feel your touch",
+      "options": [
+        "No, I can't sleep until I feel your touch",
+        "I'm running out of time tonight",
+        "And nobody else is around to judge",
+        "I'm calling out your name in the dark"
+      ]
+    },
+    {
+      "song": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "cat": "global",
+      "lines": "Is this the real life? Is this just fantasy?",
+      "answer": "Caught in a landslide, no escape from reality",
+      "options": [
+        "Caught in a landslide, no escape from reality",
+        "Open your eyes, look up to the skies and see",
+        "Mama, just killed a man",
+        "Nothing really matters to me"
+      ]
+    },
+    {
+      "song": "Lose Yourself",
+      "artist": "Eminem",
+      "cat": "global",
+      "lines": "His palms are sweaty, knees weak, arms are heavy",
+      "answer": "There's vomit on his sweater already, mom's spaghetti",
+      "options": [
+        "There's vomit on his sweater already, mom's spaghetti",
+        "He's nervous, but on the surface he looks calm and ready",
+        "Snap back to reality, ope there goes gravity",
+        "You better lose yourself in the music"
+      ]
+    },
+    {
+      "song": "Believer",
+      "artist": "Imagine Dragons",
+      "cat": "global",
+      "lines": "Pain! You made me a, you made me a believer, believer",
+      "answer": "Pain! You break me down and build me up, believer, believer",
+      "options": [
+        "Pain! You break me down and build me up, believer, believer",
+        "Pain! Let the bullets fly, oh let them rain",
+        "First things first, I'ma say all the words inside my head",
+        "My life, my love, my drive, it came from pain"
+      ]
+    },
+    {
+      "song": "Numb",
+      "artist": "Linkin Park",
+      "cat": "global",
+      "lines": "I've become so numb, I can't feel you there",
+      "answer": "Become so tired, so much more aware",
+      "options": [
+        "Become so tired, so much more aware",
+        "All I want to do is be more like me",
+        "Every step that I take is another mistake",
+        "Caught in the undertow, just caught in the undertow"
+      ]
+    },
+    {
+      "song": "Shape of You",
+      "artist": "Ed Sheeran",
+      "cat": "global",
+      "lines": "The club isn't the best place to find a lover",
+      "answer": "So the bar is where I go",
+      "options": [
+        "So the bar is where I go",
+        "Come on now, follow my lead",
+        "I'm in love with the shape of you",
+        "And now my bedsheets smell like you"
+      ]
+    },
+    {
+      "song": "Billie Jean",
+      "artist": "Michael Jackson",
+      "cat": "global",
+      "lines": "Billie Jean is not my lover",
+      "answer": "She's just a girl who claims that I am the one",
+      "options": [
+        "She's just a girl who claims that I am the one",
+        "But the kid is not my son",
+        "People always told me be careful of what you do",
+        "She came and stood right by me"
+      ]
+    },
+    {
+      "song": "Rolling in the Deep",
+      "artist": "Adele",
+      "cat": "global",
+      "lines": "We could have had it all",
+      "answer": "Rolling in the deep",
+      "options": [
+        "Rolling in the deep",
+        "You had my heart inside of your hand",
+        "There's a fire starting in my heart",
+        "Go ahead and sell me out"
+      ]
+    },
+    {
+      "song": "Viva La Vida",
+      "artist": "Coldplay",
+      "cat": "global",
+      "lines": "I used to rule the world",
+      "answer": "Seas would rise when I gave the word",
+      "options": [
+        "Seas would rise when I gave the word",
+        "Now in the morning I sleep alone",
+        "I hear Jerusalem bells a-ringing",
+        "One minute I held the key"
+      ]
+    },
+    {
+      "song": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "cat": "global",
+      "lines": "With the lights out, it's less dangerous",
+      "answer": "Here we are now, entertain us",
+      "options": [
+        "Here we are now, entertain us",
+        "Hello, hello, hello, how low",
+        "I feel stupid and contagious",
+        "Load up on guns, bring your friends"
+      ]
+    },
+    {
+      "song": "Sunflower",
+      "artist": "Post Malone & Swae Lee",
+      "cat": "global",
+      "lines": "Needless to say, I keep her in check",
+      "answer": "She was a bad-bad, nevertheless",
+      "options": [
+        "She was a bad-bad, nevertheless",
+        "Then you're left in the dust",
+        "Calling it quits now, baby, I'm a wreck",
+        "You're a sunflower, I think your love would be too much"
+      ]
+    },
+    {
+      "song": "Hotel California",
+      "artist": "Eagles",
+      "cat": "global",
+      "lines": "Welcome to the Hotel California",
+      "answer": "Such a lovely place, such a lovely face",
+      "options": [
+        "Such a lovely place, such a lovely face",
+        "You can check out any time you like",
+        "Mirrors on the ceiling, the pink champagne on ice",
+        "On a dark desert highway, cool wind in my hair"
+      ]
+    },
+    {
+      "song": "Counting Stars",
+      "artist": "OneRepublic",
+      "cat": "global",
+      "lines": "Lately, I've been, I've been losing sleep",
+      "answer": "Dreaming about the things that we could be",
+      "options": [
+        "Dreaming about the things that we could be",
+        "No more counting dollars, we'll be counting stars",
+        "Everything that kills me makes me feel alive",
+        "I feel something so right doing the wrong thing"
+      ]
+    },
+    {
+      "song": "Kesariya",
+      "artist": "Arijit Singh",
+      "cat": "bollywood",
+      "lines": "Kesariya tera ishq hai piya",
+      "answer": "Rang jaaun jo main haath lagaaun",
+      "options": [
+        "Rang jaaun jo main haath lagaaun",
+        "Din beete saara teri fikar mein",
+        "Patjhad ke mausam mein bhi",
+        "Rabba ne tujhko banaane mein"
+      ]
+    },
+    {
+      "song": "Tum Hi Ho",
+      "artist": "Arijit Singh",
+      "cat": "bollywood",
+      "lines": "Hum tere bin ab reh nahi sakte",
+      "answer": "Tere bina kya wajood mera",
+      "options": [
+        "Tere bina kya wajood mera",
+        "Kyunki tum hi ho, ab tum hi ho",
+        "Tujhse juda gar ho jaayenge",
+        "Mera chain vain sab ujda"
+      ]
+    },
+    {
+      "song": "Kal Ho Naa Ho",
+      "artist": "Sonu Nigam",
+      "cat": "bollywood",
+      "lines": "Har ghadi badal rahi hai roop zindagi",
+      "answer": "Chhaanv hai kabhi, kabhi hai dhoop zindagi",
+      "options": [
+        "Chhaanv hai kabhi, kabhi hai dhoop zindagi",
+        "Har pal yahan jee bhar jiyo",
+        "Jo hai sama, kal ho naa ho",
+        "Chaahe jo tumhe poore dil se"
+      ]
+    },
+    {
+      "song": "Channa Mereya",
+      "artist": "Arijit Singh",
+      "cat": "bollywood",
+      "lines": "Accha chalta hoon, duaon mein yaad rakhna",
+      "answer": "Mere zikr ka zubaan pe swaad rakhna",
+      "options": [
+        "Mere zikr ka zubaan pe swaad rakhna",
+        "Dil ke sandookon mein mere acche kaam rakhna",
+        "Channa mereya mereya, o piya",
+        "Andhera tera maine le liya"
+      ]
+    },
+    {
+      "song": "Chaiyya Chaiyya",
+      "artist": "Sukhwinder Singh",
+      "cat": "bollywood",
+      "lines": "Jinke sar ho ishq ki chhaaon",
+      "answer": "Paaon ke neeche jannat hogi",
+      "options": [
+        "Paaon ke neeche jannat hogi",
+        "Chal chaiyya chaiyya chaiyya",
+        "Woh yaar hai jo khushbu ki tarah",
+        "Shaam o sehar mein teri yaad"
+      ]
+    },
+    {
+      "song": "Tujh Mein Rab Dikhta Hai",
+      "artist": "Roop Kumar Rathod",
+      "cat": "bollywood",
+      "lines": "Tu hi toh jannat meri, tu hi mera junoon",
+      "answer": "Tu hi toh mannat meri, tu hi rooh ka sukoon",
+      "options": [
+        "Tu hi toh mannat meri, tu hi rooh ka sukoon",
+        "Tujh mein rab dikhta hai, yaara main kya karoon",
+        "Sajde sar jhukta hai",
+        "Rab di saunh tenu pyaar karda"
+      ]
+    },
+    {
+      "song": "Why This Kolaveri Di",
+      "artist": "Dhanush",
+      "cat": "south",
+      "lines": "Yo boys, I am singing song \u2014 Soup song, flop song",
+      "answer": "Why this kolaveri, kolaveri, kolaveri di?",
+      "options": [
+        "Why this kolaveri, kolaveri, kolaveri di?",
+        "Distance-la moon-u moon-u",
+        "Hand-la glass-u, glass-la scotch-u",
+        "Empty life-u, girl come-u"
+      ]
+    },
+    {
+      "song": "Naatu Naatu",
+      "artist": "Rahul Sipligunj & Kaala Bhairava",
+      "cat": "south",
+      "lines": "Polam gattu dummulona potlagitta dookinattu",
+      "answer": "Naatu Naatu Naatu Naatu Naatu Veera Naatu",
+      "options": [
+        "Naatu Naatu Naatu Naatu Naatu Veera Naatu",
+        "Dosti dosti dosti",
+        "Komuram Bheemudo",
+        "Ettara Jenda"
+      ]
+    },
+    {
+      "song": "Pok\u00e9mon Theme (Indigo League)",
+      "artist": "Jason Paige",
+      "cat": "anime",
+      "lines": "I wanna be the very best, like no one ever was",
+      "answer": "To catch them is my real test, to train them is my cause",
+      "options": [
+        "To catch them is my real test, to train them is my cause",
+        "I will travel across the land, searching far and wide",
+        "Pok\u00e9mon, gotta catch 'em all!",
+        "You teach me and I'll teach you"
+      ]
+    },
+    {
+      "song": "In the End",
+      "artist": "Linkin Park",
+      "cat": "global",
+      "lines": "I tried so hard and got so far",
+      "answer": "But in the end, it doesn't even matter",
+      "options": [
+        "But in the end, it doesn't even matter",
+        "I had to fall to lose it all",
+        "One thing, I don't know why",
+        "Time is a valuable thing"
+      ]
+    },
+    {
+      "song": "Despacito",
+      "artist": "Luis Fonsi & Daddy Yankee",
+      "cat": "global",
+      "lines": "Despacito, quiero respirar tu cuello despacito",
+      "answer": "Deja que te diga cosas al o\u00eddo",
+      "options": [
+        "Deja que te diga cosas al o\u00eddo",
+        "Pasito a pasito, suave suavecito",
+        "Sube, sube, sube",
+        "T\u00fa, t\u00fa eres el im\u00e1n y yo soy el metal"
+      ]
+    },
+    {
+      "song": "Uptown Funk",
+      "artist": "Mark Ronson & Bruno Mars",
+      "cat": "global",
+      "lines": "Girls hit your hallelujah (whoo!)",
+      "answer": "'Cause uptown funk gon' give it to you",
+      "options": [
+        "'Cause uptown funk gon' give it to you",
+        "Don't believe me, just watch",
+        "Stop, wait a minute",
+        "I'm too hot, hot damn"
+      ]
+    },
+    {
+      "song": "Kabira",
+      "artist": "Tochi Raina & Rekha Bhardwaj",
+      "cat": "bollywood",
+      "lines": "Kaisi teri khudgarzi, na dhoop chune na chhaaon",
+      "answer": "Kaisi teri khudgarzi, kisi thor tike na paaon",
+      "options": [
+        "Kaisi teri khudgarzi, kisi thor tike na paaon",
+        "Re Kabira maan jaa, re Fakeera maan jaa",
+        "Ban liya apna paigambar",
+        "Tooti chaarpai wohi thandi purwai"
+      ]
+    },
+    {
+      "song": "Someone Like You",
+      "artist": "Adele",
+      "cat": "global",
+      "lines": "Never mind, I'll find someone like you",
+      "answer": "I wish nothing but the best for you, too",
+      "options": [
+        "I wish nothing but the best for you, too",
+        "Don't forget me, I beg",
+        "Sometimes it lasts in love",
+        "I heard that you're settled down"
+      ]
+    },
+    {
+      "song": "Starboy",
+      "artist": "The Weeknd",
+      "cat": "global",
+      "lines": "I'm tryna put you in the worst mood, ah",
+      "answer": "P1 cleaner than your church shoes, ah",
+      "options": [
+        "P1 cleaner than your church shoes, ah",
+        "Look what you've done",
+        "I'm a motherf***in' starboy",
+        "House so empty, need a centerpiece"
+      ]
+    },
+    {
+      "song": "Levitating",
+      "artist": "Dua Lipa",
+      "cat": "global",
+      "lines": "You want me, I want you, baby",
+      "answer": "My sugarboo, I'm levitating",
+      "options": [
+        "My sugarboo, I'm levitating",
+        "The Milky Way, we're renegading",
+        "If you wanna run away with me",
+        "I got you, moonlight, you're my starlight"
+      ]
+    },
+    {
+      "song": "Perfect",
+      "artist": "Ed Sheeran",
+      "cat": "global",
+      "lines": "Baby, I'm dancing in the dark",
+      "answer": "With you between my arms",
+      "options": [
+        "With you between my arms",
+        "Barefoot on the grass",
+        "Listening to our favorite song",
+        "You look perfect tonight"
+      ]
+    },
+    {
+      "song": "Sweet Child O' Mine",
+      "artist": "Guns N' Roses",
+      "cat": "global",
+      "lines": "She's got a smile that it seems to me",
+      "answer": "Reminds me of childhood memories",
+      "options": [
+        "Reminds me of childhood memories",
+        "Where everything was as fresh as the bright blue sky",
+        "Whoa, oh, sweet child o' mine",
+        "Now and then when I see her face"
+      ]
+    },
+    {
+      "song": "Mr. Brightside",
+      "artist": "The Killers",
+      "cat": "global",
+      "lines": "Coming out of my cage and I've been doing just fine",
+      "answer": "Gotta gotta be down because I want it all",
+      "options": [
+        "Gotta gotta be down because I want it all",
+        "It started out with a kiss, how did it end up like this",
+        "Jealousy, turning saints into the sea",
+        "Now I'm falling asleep and she's calling a cab"
+      ]
+    },
+    {
+      "song": "Don't Stop Believin'",
+      "artist": "Journey",
+      "cat": "global",
+      "lines": "Just a small town girl, livin' in a lonely world",
+      "answer": "She took the midnight train goin' anywhere",
+      "options": [
+        "She took the midnight train goin' anywhere",
+        "Just a city boy, born and raised in South Detroit",
+        "Hold on to that feelin'",
+        "Strangers waiting up and down the boulevard"
+      ]
+    },
+    {
+      "song": "Apna Bana Le",
+      "artist": "Arijit Singh",
+      "cat": "bollywood",
+      "lines": "Tu mera koi na hoke bhi kuch laage",
+      "answer": "Kiya re jo bhi tune kaise kiya re",
+      "options": [
+        "Kiya re jo bhi tune kaise kiya re",
+        "Apna bana le piya",
+        "Jiya ko mere baandh aise liya re",
+        "Samajh ke bhi na samajh main sakoon"
+      ]
+    },
+    {
+      "song": "Kun Faya Kun",
+      "artist": "A.R. Rahman",
+      "cat": "bollywood",
+      "lines": "Jab kahin pe kuch nahi bhi nahi tha",
+      "answer": "Wahi tha, wahi tha, wahi tha, wahi tha",
+      "options": [
+        "Wahi tha, wahi tha, wahi tha, wahi tha",
+        "Sajra savera mere tan barse",
+        "O mujhpe karam sarkar tera",
+        "Rangreza rang mera tan mera mann"
+      ]
+    },
+    {
+      "song": "Agar Tum Saath Ho",
+      "artist": "Alka Yagnik & Arijit Singh",
+      "cat": "bollywood",
+      "lines": "Pal bhar thahar jaao, dil ye sambhal jaaye",
+      "answer": "Kaise tumhe roka karoon",
+      "options": [
+        "Kaise tumhe roka karoon",
+        "Meri taraf aata har gham phisal jaaye",
+        "Teri nazron mein hai tere sapne",
+        "Tum saath ho ya na ho kya farq hai"
+      ]
+    },
+    {
+      "song": "Arabic Kuthu",
+      "artist": "Anirudh & Jonita Gandhi",
+      "cat": "south",
+      "lines": "Halamithi Habibo, Halamithi Habiband",
+      "answer": "Malam Pitha Pithadhe, Malam Pitha Pithadhe",
+      "options": [
+        "Malam Pitha Pithadhe, Malam Pitha Pithadhe",
+        "Vaathi Coming othu",
+        "Rowdy Baby my dear",
+        "Oo Antava mama"
+      ]
+    },
+    {
+      "song": "Hukum",
+      "artist": "Anirudh Ravichander",
+      "cat": "south",
+      "lines": "Hukum \u2014 Tiger ka Hukum",
+      "answer": "Alappara kelapparom, Thalaivar nirandharam",
+      "options": [
+        "Alappara kelapparom, Thalaivar nirandharam",
+        "Kaavaalaa hey Kaavaalaa",
+        "Why this kolaveri di",
+        "Toofan aaya re"
+      ]
+    },
+    {
+      "song": "Blue Bird (Naruto)",
+      "artist": "Ikimonogakari",
+      "cat": "anime",
+      "lines": "Habataitara modoranai to itte",
+      "answer": "Mezashita no wa aoi aoi ano sora",
+      "options": [
+        "Mezashita no wa aoi aoi ano sora",
+        "Kanashimi wa mada oboerarezu",
+        "Shiroi kumo wo tsukinuketara",
+        "We are fighting dreamers"
+      ]
+    },
+    {
+      "song": "Gurenge (Demon Slayer)",
+      "artist": "LiSA",
+      "cat": "anime",
+      "lines": "Tsuyoku nareru riyuu wo shitta",
+      "answer": "Boku wo tsurete susume",
+      "options": [
+        "Boku wo tsurete susume",
+        "Dorodarake no soumatou ni you",
+        "Doushitemo kesenai yume mo",
+        "Arigatou kanashimi yo"
+      ]
+    },
+    {
+      "song": "Yellow",
+      "artist": "Coldplay",
+      "cat": "global",
+      "lines": "Look at the stars, look how they shine for you",
+      "answer": "And everything you do, yeah, they were all yellow",
+      "options": [
+        "And everything you do, yeah, they were all yellow",
+        "I came along and wrote a song for you",
+        "Your skin, oh yeah, your skin and bones",
+        "Turn into something beautiful"
+      ]
+    },
+    {
+      "song": "Fix You",
+      "artist": "Coldplay",
+      "cat": "global",
+      "lines": "Lights will guide you home",
+      "answer": "And ignite your bones, and I will try to fix you",
+      "options": [
+        "And ignite your bones, and I will try to fix you",
+        "When you try your best, but you don't succeed",
+        "Tears stream down your face",
+        "Stuck in reverse"
+      ]
+    },
+    {
+      "song": "Cruel Summer",
+      "artist": "Taylor Swift",
+      "cat": "global",
+      "lines": "I'm drunk in the back of the car",
+      "answer": "And I cried like a baby coming home from the bar",
+      "options": [
+        "And I cried like a baby coming home from the bar",
+        "It's new, the shape of your body",
+        "He looks up grinning like a devil",
+        "Devils roll the dice, angels roll their eyes"
+      ]
+    },
+    {
+      "song": "Anti-Hero",
+      "artist": "Taylor Swift",
+      "cat": "global",
+      "lines": "It's me, hi!",
+      "answer": "I'm the problem, it's me",
+      "options": [
+        "I'm the problem, it's me",
+        "I'll stare directly at the sun",
+        "Everybody agrees",
+        "At tea time, everybody agrees"
+      ]
+    },
+    {
+      "song": "Bad Guy",
+      "artist": "Billie Eilish",
+      "cat": "global",
+      "lines": "So you're a tough guy, like it really rough guy",
+      "answer": "Just can't get enough guy, chest always so puffed guy",
+      "options": [
+        "Just can't get enough guy, chest always so puffed guy",
+        "I'm that bad type, make your mama sad type",
+        "Might seduce your dad type",
+        "I'm the bad guy, duh"
+      ]
+    },
+    {
+      "song": "Wake Me Up",
+      "artist": "Avicii",
+      "cat": "global",
+      "lines": "So wake me up when it's all over",
+      "answer": "When I'm wiser and I'm older",
+      "options": [
+        "When I'm wiser and I'm older",
+        "All this time I was finding myself",
+        "Feeling my way through the darkness",
+        "Guided by a beating heart"
+      ]
+    },
+    {
+      "song": "Faded",
+      "artist": "Alan Walker",
+      "cat": "global",
+      "lines": "Where are you now? Was it all in my fantasy?",
+      "answer": "Where are you now? Were you only imaginary?",
+      "options": [
+        "Where are you now? Were you only imaginary?",
+        "Atlantis, under the sea",
+        "The monster's running wild inside of me",
+        "You were the shadow to my light"
+      ]
+    },
+    {
+      "song": "HUMBLE.",
+      "artist": "Kendrick Lamar",
+      "cat": "global",
+      "lines": "Bitch, be humble",
+      "answer": "Sit down, be humble",
+      "options": [
+        "Sit down, be humble",
+        "My left stroke just went viral",
+        "Show me something natural",
+        "I remember syrup sandwiches"
+      ]
+    },
+    {
+      "song": "Without Me",
+      "artist": "Eminem",
+      "cat": "global",
+      "lines": "Guess who's back, back again",
+      "answer": "Shady's back, tell a friend",
+      "options": [
+        "Shady's back, tell a friend",
+        "Now this looks like a job for me",
+        "Everybody just follow me",
+        "I've created a monster"
+      ]
+    },
+    {
+      "song": "Take On Me",
+      "artist": "a-ha",
+      "cat": "global",
+      "lines": "Take on me (take on me), take me on (take on me)",
+      "answer": "I'll be gone in a day or two",
+      "options": [
+        "I'll be gone in a day or two",
+        "Talking away, I don't know what I'm to say",
+        "Shying away, I'll be coming for your love",
+        "Needless to say, I'm odds and ends"
+      ]
+    },
+    {
+      "song": "Africa",
+      "artist": "Toto",
+      "cat": "global",
+      "lines": "It's gonna take a lot to drag me away from you",
+      "answer": "There's nothing that a hundred men or more could ever do",
+      "options": [
+        "There's nothing that a hundred men or more could ever do",
+        "I bless the rains down in Africa",
+        "Gonna take some time to do the things we never had",
+        "Hurry boy, it's waiting there for you"
+      ]
+    },
+    {
+      "song": "Stairway to Heaven",
+      "artist": "Led Zeppelin",
+      "cat": "global",
+      "lines": "There's a lady who's sure all that glitters is gold",
+      "answer": "And she's buying a stairway to heaven",
+      "options": [
+        "And she's buying a stairway to heaven",
+        "When she gets there she knows",
+        "With a word she can get what she came for",
+        "And it makes me wonder"
+      ]
+    },
+    {
+      "song": "Back in Black",
+      "artist": "AC/DC",
+      "cat": "global",
+      "lines": "Back in black, I hit the sack",
+      "answer": "I've been too long, I'm glad to be back",
+      "options": [
+        "I've been too long, I'm glad to be back",
+        "Yes, I'm let loose from the noose",
+        "Forget the hearse 'cause I never die",
+        "I got nine lives, cat's eyes"
+      ]
+    },
+    {
+      "song": "Badtameez Dil",
+      "artist": "Benny Dayal",
+      "cat": "bollywood",
+      "lines": "Badtameez dil, badtameez dil, badtameez dil",
+      "answer": "Maane na, maane na",
+      "options": [
+        "Maane na, maane na",
+        "Yeh jo haal hai mera",
+        "Paan mein pudina dekha",
+        "Aaj kal tere mere pyaar ke charche"
+      ]
+    },
+    {
+      "song": "Raataan Lambiyan",
+      "artist": "Jubin Nautiyal",
+      "cat": "bollywood",
+      "lines": "Kaatun kaise raataan, o saawre?",
+      "answer": "Jiya nahi jaata, sun baawre",
+      "options": [
+        "Jiya nahi jaata, sun baawre",
+        "Ke raataan lambiyan lambiyan re",
+        "Teri meri gallan hogi mashhoor",
+        "Chhad ke na jaavin mainu tu"
+      ]
+    },
+    {
+      "song": "Tera Ban Jaunga",
+      "artist": "Akhil Sachdeva",
+      "cat": "bollywood",
+      "lines": "Meri raahein tere tak hain",
+      "answer": "Tujhpe hi toh mera haq hai",
+      "options": [
+        "Tujhpe hi toh mera haq hai",
+        "Ishq mera tu beshak hai",
+        "Main tera ban jaunga",
+        "Tujhse hi mera jeevan hai"
+      ]
+    },
+    {
+      "song": "Pee Loon",
+      "artist": "Mohit Chauhan",
+      "cat": "bollywood",
+      "lines": "Pee loon tere neele neele nainon se shabnam",
+      "answer": "Pee loon tere geele geele honthon ki sargam",
+      "options": [
+        "Pee loon tere geele geele honthon ki sargam",
+        "Pee loon hai peene ka mausam",
+        "Tere sang ishq taari hai",
+        "Tere bin ab na lenge ek bhi dam"
+      ]
+    },
+    {
+      "song": "Chaleya",
+      "artist": "Arijit Singh & Shilpa Rao",
+      "cat": "bollywood",
+      "lines": "Ishq mein dil bana hai, ishq mein dil fanaa hai",
+      "answer": "Mita de ya bana de, maine tujhko chuna hai",
+      "options": [
+        "Mita de ya bana de, maine tujhko chuna hai",
+        "Tere or chaleya, tera ho chaleya",
+        "Tu hi mera sahara hai",
+        "Duniya se kya lena"
+      ]
+    },
+    {
+      "song": "Senorita",
+      "artist": "Zindagi Na Milegi Dobara",
+      "cat": "bollywood",
+      "lines": "Na main samjha, na main jaana",
+      "answer": "Jo bhi tumne mujhse kaha hai senorita",
+      "options": [
+        "Jo bhi tumne mujhse kaha hai senorita",
+        "Magar phir bhi na jaane kyun",
+        "Mujhe sun ke accha laga",
+        "Har pal yahan jee bhar jiyo"
+      ]
+    },
+    {
+      "song": "Rowdy Baby",
+      "artist": "Dhanush & Dhee",
+      "cat": "south",
+      "lines": "Hey en goli sodaave, en kari kozhambe",
+      "answer": "Un kutty puppy naan take me, take me",
+      "options": [
+        "Un kutty puppy naan take me, take me",
+        "You are my darling rowdy baby",
+        "Vaathi coming othu",
+        "Arabic kuthu habibo"
+      ]
+    },
+    {
+      "song": "Illuminati (Aavesham)",
+      "artist": "Sushin Shyam & Dabzee",
+      "cat": "south",
+      "lines": "Naadin nanmakane ponmakane muthayavane",
+      "answer": "Minnum sooryanum chandranum onnayavane",
+      "options": [
+        "Minnum sooryanum chandranum onnayavane",
+        "Eda mone happy alle",
+        "Alappara kelapparom",
+        "Naatu naatu veera naatu"
+      ]
+    },
+    {
+      "song": "Buttabomma",
+      "artist": "Armaan Malik",
+      "cat": "south",
+      "lines": "Inthakanna manchi polika, ekkada dorikindi",
+      "answer": "Butta bomma, butta bomma, nannu suttukuntive",
+      "options": [
+        "Butta bomma, butta bomma, nannu suttukuntive",
+        "Samajavaragamana ninu choosi",
+        "Inkem inkem inkem kaavaale",
+        "Srivalli nee choope"
+      ]
+    },
+    {
+      "song": "Unravel (Tokyo Ghoul)",
+      "artist": "TK",
+      "cat": "anime",
+      "lines": "Oshiete, oshiete yo sono shikumi wo",
+      "answer": "Boku no naka ni dare ga iru no?",
+      "options": [
+        "Boku no naka ni dare ga iru no?",
+        "Kowareta kowareta yo kono sekai de",
+        "Yuganda sekai ni dandan boku wa",
+        "Mitsukenaide boku no koto wo"
+      ]
+    },
+    {
+      "song": "Silhouette (Naruto)",
+      "artist": "KANA-BOON",
+      "cat": "anime",
+      "lines": "Isse no se de fumikomu gourain bokura wa",
+      "answer": "Nanimo nanimo mada shiranu",
+      "options": [
+        "Nanimo nanimo mada shiranu",
+        "Oboetenai koto mo takusan atta darou",
+        "Hirari hirari to matteru",
+        "Mezashita no wa aoi sora"
+      ]
+    },
+    {
+      "song": "Kaikai Kitan (JJK)",
+      "artist": "Eve",
+      "cat": "anime",
+      "lines": "Utsutsu ni nukasarete, kyou mo mata",
+      "answer": "Yami wo haratte, yami wo haratte",
+      "options": [
+        "Yami wo haratte, yami wo haratte",
+        "Bling-bang-bang-born",
+        "Kimi wa kanpeki de kyuukyoku no aidoru",
+        "Shinzo wo sasageyo"
+      ]
+    },
+    {
+      "song": "Idol (Oshi no Ko)",
+      "artist": "YOASOBI",
+      "cat": "anime",
+      "lines": "Muteki no egao de arasu media",
+      "answer": "Shiritai sono himitsu misuteriasu",
+      "options": [
+        "Shiritai sono himitsu misuteriasu",
+        "Dare mo ga me wo ubawarete iku",
+        "Kimi wa kanpeki de kyuukyoku no aidoru",
+        "Sore wa tobidashita uso"
+      ]
+    }
+  ]
+}

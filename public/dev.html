@@ -36,11 +36,12 @@
       <button class="mode-tab" data-mode="bigo" type="button">📈 Big-O Blitz</button>
       <button class="mode-tab" data-mode="http" type="button">🌐 HTTP &amp; Git</button>
       <button class="mode-tab" data-mode="outage" type="button">🚨 Prod Outage</button>
+      <button class="mode-tab" data-mode="livetrivia" type="button">🌐 Live CS Trivia</button>
     </div>
 
     <section class="mode-panel active" data-panel="stars">
       <div class="game-header">
-        <div><span class="game-tag">Live GitHub API + 42 Curated</span><h2>GitHub Stars Duel</h2></div>
+        <div><span class="game-tag">Live GitHub API + 70 Curated</span><h2>GitHub Stars Duel</h2></div>
         <span class="points-chip">Run: <strong id="gh-run">0</strong></span>
       </div>
       <div class="filter-row">
@@ -76,7 +77,7 @@
 
     <section class="mode-panel" data-panel="bug">
       <div class="game-header">
-        <div><span class="game-tag">22 Real Code Bugs</span><h2>Spot the Bug</h2></div>
+        <div><span class="game-tag">48 Real Code Bugs</span><h2>Spot the Bug</h2></div>
         <span id="bug-lang" class="points-chip">JavaScript</span>
       </div>
       <div class="filter-row">
@@ -98,7 +99,7 @@
 
     <section class="mode-panel" data-panel="output">
       <div class="game-header">
-        <div><span class="game-tag">22 Runtime Brainteasers</span><h2>What's the Output?</h2></div>
+        <div><span class="game-tag">48 Runtime Brainteasers</span><h2>What's the Output?</h2></div>
         <span id="out-lang" class="points-chip">JS</span>
       </div>
       <div class="filter-row">
@@ -118,7 +119,7 @@
 
     <section class="mode-panel" data-panel="lang">
       <div class="game-header">
-        <div><span class="game-tag">20 Languages</span><h2>Guess the Language</h2></div>
+        <div><span class="game-tag">36 Language Snippets</span><h2>Guess the Language</h2></div>
         <span id="lang-pts" class="points-chip">+200 PTS</span>
       </div>
       <div class="filter-row">
@@ -142,7 +143,7 @@
 
     <section class="mode-panel" data-panel="bigo">
       <div class="game-header">
-        <div><span class="game-tag">24 Algorithms</span><h2>Big-O Blitz</h2></div>
+        <div><span class="game-tag">45 Algorithms</span><h2>Big-O Blitz</h2></div>
         <span class="points-chip">+150 PTS</span>
       </div>
       <p class="game-tip">Tap the matching time complexity.</p>
@@ -158,12 +159,12 @@
 
     <section class="mode-panel" data-panel="http">
       <div class="game-header">
-        <div><span class="game-tag">30 Backend &amp; CLI Cards</span><h2>HTTP &amp; Git Survival</h2></div>
+        <div><span class="game-tag">60 Backend &amp; CLI Cards</span><h2>HTTP &amp; Git Survival</h2></div>
         <span id="http-tag" class="points-chip">HTTP</span>
       </div>
       <div class="filter-row">
         <select id="http-filter" class="gen-select" aria-label="Topic Filter">
-          <option value="all">All Topics (30)</option>
+          <option value="all">All Topics (60)</option>
           <option value="HTTP">HTTP Status Codes</option>
           <option value="Git">Git Commands</option>
           <option value="Linux/Docker">Linux, Docker &amp; SQL</option>
@@ -182,8 +183,8 @@
 
     <section class="mode-panel" data-panel="outage">
       <div class="game-header">
-        <div><span class="game-tag">14 On-Call Incidents</span><h2>Prod Outage Simulator</h2></div>
-        <span id="outage-step" class="points-chip">Incident 1 / 14</span>
+        <div><span class="game-tag">24 On-Call Incidents</span><h2>Prod Outage Simulator</h2></div>
+        <span id="outage-step" class="points-chip">Incident 1 / 24</span>
       </div>
       <p class="game-tip">Make the smartest first move to keep uptime high and latency low.</p>
 
@@ -200,6 +201,23 @@
       <div id="outage-choices" class="clue-list" style="margin-bottom:14px;"></div>
       <div id="outage-feedback" class="feedback hidden"></div>
       <button id="outage-next" class="btn btn-primary full-width hidden" type="button">Next Incident →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="livetrivia">
+      <div class="game-header">
+        <div><span class="game-tag">Open Trivia DB • Infinite CS Pool</span><h2>Live Computer Science Trivia</h2></div>
+        <span id="dev-lt-diff" class="points-chip">LIVE</span>
+      </div>
+      <p class="game-tip">Fresh computer science, networking, hardware, and software questions pulled live online.</p>
+
+      <div class="stage-card clue-stage" style="min-height:110px;">
+        <div id="dev-lt-loader" class="loader">Fetching live CS questions...</div>
+        <div id="dev-lt-q" class="quote-block"></div>
+      </div>
+
+      <div id="dev-lt-options" class="options-grid"></div>
+      <div id="dev-lt-feedback" class="feedback hidden"></div>
+      <button id="dev-lt-next" class="btn btn-primary full-width hidden" type="button">Next Live Question →</button>
     </section>
   </main>
 

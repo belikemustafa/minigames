@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07090d" />
+  <title>Mechanical & Architecture Arena — Fandom Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="engineering">
+  <div id="ambient-bg" aria-hidden="true"></div>
+
+  <header class="hud">
+    <a class="brand" href="index.html" aria-label="Fandom Arcade Home">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-text">Fandom<strong>Arcade</strong></span>
+    </a>
+    <div class="hud-stats">
+      <div class="pill" title="Session Score"><span class="pill-label">PTS</span><span id="hud-score">0</span></div>
+      <div class="pill streak-pill" title="Current Win Streak"><span aria-hidden="true">🔥</span><span id="hud-streak">0</span></div>
+      <button id="sound-toggle" class="icon-btn" type="button" aria-label="Toggle Sound">🔊</button>
+    </div>
+  </header>
+
+  <nav id="cat-strip" class="cat-strip" aria-label="Game Categories"></nav>
+
+  <main class="container">
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="clash" type="button">📊 Material &amp; Landmark Clash</button>
+      <button class="mode-tab" data-mode="mech" type="button">⚙️ Mechanical Blitz</button>
+      <button class="mode-tab" data-mode="arch" type="button">🏛️ Architecture &amp; Structures</button>
+      <button class="mode-tab" data-mode="codes" type="button">📐 Units, Codes &amp; Tools</button>
+    </div>
+
+    <section class="mode-panel active" data-panel="clash">
+      <div class="game-header">
+        <div><span class="game-tag">40 Materials • 40 World Landmarks</span><h2>Material &amp; Landmark Clash</h2></div>
+        <span class="points-chip">Run: <strong id="eng-run">0</strong></span>
+      </div>
+      <div class="filter-row">
+        <select id="eng-pack" class="gen-select" aria-label="Engineering Pack">
+          <option value="materials">Engineering Materials (40)</option>
+          <option value="landmarks">Skyscrapers, Bridges &amp; Monuments (40)</option>
+        </select>
+        <div id="eng-metrics" class="seg-toggle"></div>
+      </div>
+      <p id="eng-clash-tip" class="game-tip">Compare real tensile strength, stiffness, density, or landmark heights.</p>
+
+      <div class="duel-arena">
+        <article class="duel-card-text">
+          <div><div id="eng-l-emoji" class="emoji-big">🏗️</div><h3 id="eng-l-name">---</h3><p id="eng-l-note" class="sub"></p></div>
+          <div class="score-box"><span id="eng-l-label" class="score-label">TENSILE</span><span id="eng-l-val" class="score-val">--</span></div>
+        </article>
+        <div class="vs-badge" aria-hidden="true">VS</div>
+        <article class="duel-card-text">
+          <div><div id="eng-r-emoji" class="emoji-big">⚙️</div><h3 id="eng-r-name">---</h3><p id="eng-r-note" class="sub"></p></div>
+          <div class="score-box"><span id="eng-r-label" class="score-label">TENSILE</span><span id="eng-r-val" class="score-val mystery">???</span></div>
+        </article>
+      </div>
+
+      <div id="eng-controls" class="duel-controls">
+        <button id="eng-hi" class="btn btn-higher" type="button">▲ Higher</button>
+        <button id="eng-lo" class="btn btn-lower" type="button">▼ Lower</button>
+      </div>
+      <div id="eng-status" class="feedback hidden"></div>
+      <button id="eng-restart" class="btn btn-primary full-width hidden" type="button">New Engineering Streak ↻</button>
+    </section>
+
+    <section class="mode-panel" data-panel="mech">
+      <div class="game-header">
+        <div><span class="game-tag">72 Mechanical Engineering Questions</span><h2>Mechanical &amp; Thermo Blitz</h2></div>
+        <span id="mc-topic-badge" class="points-chip">THERMO</span>
+      </div>
+      <div class="filter-row">
+        <select id="mech-filter" class="gen-select" aria-label="Mechanical Topic">
+          <option value="all">All Mechanical (72)</option>
+          <option value="Thermo">Thermodynamics &amp; Heat Transfer</option>
+          <option value="Fluids">Fluid Mechanics &amp; HVAC</option>
+          <option value="Strength">Strength of Materials</option>
+          <option value="Design">Machine Design &amp; Mechanisms</option>
+          <option value="Mfg">Manufacturing &amp; Metallurgy</option>
+          <option value="CAD/FEA">CAD, FEA &amp; Controls</option>
+        </select>
+      </div>
+      <p class="game-tip">Test your mechanical fundamentals across thermo, fluids, solids, design, and FEA.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="mech-q" class="quote-block">Loading questions...</div>
+      </div>
+
+      <div id="mech-options" class="options-grid"></div>
+      <div id="mech-feedback" class="feedback hidden"></div>
+      <button id="mech-next" class="btn btn-primary full-width hidden" type="button">Next Question →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="arch">
+      <div class="game-header">
+        <div><span class="game-tag">72 Architecture &amp; Structural Questions</span><h2>Architecture &amp; Structures</h2></div>
+        <span id="ar-topic-badge" class="points-chip">STYLES</span>
+      </div>
+      <div class="filter-row">
+        <select id="arch-filter" class="gen-select" aria-label="Architecture Topic">
+          <option value="all">All Architecture (72)</option>
+          <option value="Styles">Architectural Styles &amp; History</option>
+          <option value="Architects">Iconic Global &amp; Indian Architects</option>
+          <option value="Structures">Structural Systems &amp; RCC</option>
+          <option value="Indian Arch">Indian &amp; Vernacular Architecture</option>
+          <option value="Green Arch">Sustainable &amp; Passive Design</option>
+          <option value="Urban/BIM">Urban Planning, Drawings &amp; BIM</option>
+        </select>
+      </div>
+      <p class="game-tip">From Pritzker architects and diagrid towers to passive Indian jaalis and BIM workflows.</p>
+
+      <div class="stage-card clue-stage">
+        <div id="arch-q" class="quote-block">Loading questions...</div>
+      </div>
+
+      <div id="arch-options" class="options-grid"></div>
+      <div id="arch-feedback" class="feedback hidden"></div>
+      <button id="arch-next" class="btn btn-primary full-width hidden" type="button">Next Question →</button>
+    </section>
+
+    <section class="mode-panel" data-panel="codes">
+      <div class="game-header">
+        <div><span class="game-tag">60 Units, Codes &amp; Software</span><h2>Units, Codes &amp; Tools</h2></div>
+        <span id="cd-cat-badge" class="points-chip">CODES</span>
+      </div>
+      <div class="filter-row">
+        <select id="codes-filter" class="gen-select" aria-label="Code Category">
+          <option value="all">All Topics (60)</option>
+          <option value="Dimensionless">Dimensionless Numbers (Re, Ma, Nu...)</option>
+          <option value="Units">SI Engineering Units</option>
+          <option value="Codes">IS, ASME, ASHRAE &amp; Building Codes</option>
+          <option value="Tools">CAD, BIM, FEA &amp; MEP Tools</option>
+        </select>
+        <div class="seg-toggle">
+          <button id="cd-opt-4" class="seg-btn active" type="button">4 Options</button>
+          <button id="cd-opt-6" class="seg-btn" type="button">6 Options</button>
+        </div>
+      </div>
+      <p class="game-tip">Match the engineering code, unit, dimensionless number, or software tool to its exact role.</p>
+
+      <div class="stage-card clue-stage" style="text-align:center;">
+        <div id="cd-prompt" class="quote-block" style="font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:700;">Loading...</div>
+      </div>
+
+      <div id="cd-options" class="options-grid"></div>
+      <div id="cd-feedback" class="feedback hidden"></div>
+      <button id="cd-next" class="btn btn-primary full-width hidden" type="button">Next Card →</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/engineering.js"></script>
+</body>
+</html>

@@ -1,0 +1,866 @@
+[
+  {
+    "topic": "Thermo",
+    "q": "Which thermodynamic cycle models an ideal spark-ignition petrol engine?",
+    "answer": "Otto Cycle",
+    "options": [
+      "Otto Cycle",
+      "Diesel Cycle",
+      "Rankine Cycle",
+      "Brayton Cycle"
+    ],
+    "note": "The Otto cycle consists of two isentropic and two constant-volume (isochoric) processes."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Which cycle is the idealized model for gas turbine jet engines?",
+    "answer": "Brayton Cycle",
+    "options": [
+      "Brayton Cycle",
+      "Rankine Cycle",
+      "Carnot Cycle",
+      "Stirling Cycle"
+    ],
+    "note": "Brayton cycle uses constant-pressure heat addition and rejection."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Which cycle models steam power plants with a boiler, turbine, condenser, and pump?",
+    "answer": "Rankine Cycle",
+    "options": [
+      "Rankine Cycle",
+      "Otto Cycle",
+      "Brayton Cycle",
+      "Atkinson Cycle"
+    ],
+    "note": "The Rankine cycle converts thermal energy from steam into mechanical shaft work."
+  },
+  {
+    "topic": "Thermo",
+    "q": "What is the theoretical maximum efficiency of any heat engine operating between temperatures T_H and T_C?",
+    "answer": "Carnot Efficiency: 1 - (T_C / T_H)",
+    "options": [
+      "Carnot Efficiency: 1 - (T_C / T_H)",
+      "1 - (T_H / T_C)",
+      "(T_H - T_C) / T_C",
+      "T_C / (T_H + T_C)"
+    ],
+    "note": "Temperatures must be in Kelvin; no real engine can exceed Carnot efficiency."
+  },
+  {
+    "topic": "Thermo",
+    "q": "The First Law of Thermodynamics is fundamentally a statement of:",
+    "answer": "Conservation of Energy",
+    "options": [
+      "Conservation of Energy",
+      "Entropy always increases",
+      "Absolute zero is unattainable",
+      "Thermal equilibrium transitivity"
+    ],
+    "note": "\u0394U = Q - W: energy can neither be created nor destroyed, only transformed."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Which law of thermodynamics defines temperature via thermal equilibrium between three bodies?",
+    "answer": "Zeroth Law",
+    "options": [
+      "Zeroth Law",
+      "First Law",
+      "Second Law",
+      "Third Law"
+    ],
+    "note": "If A is in thermal equilibrium with B and B with C, then A and C are at the same temperature."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Fourier's Law governs which mode of heat transfer?",
+    "answer": "Conduction",
+    "options": [
+      "Conduction",
+      "Convection",
+      "Radiation",
+      "Advection"
+    ],
+    "note": "q = -k \u00b7 A \u00b7 (dT/dx), where k is thermal conductivity."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Stefan-Boltzmann Law states that blackbody radiation power scales with absolute temperature to the power of:",
+    "answer": "T\u2074 (fourth power)",
+    "options": [
+      "T\u2074 (fourth power)",
+      "T\u00b2 (squared)",
+      "T (linear)",
+      "T\u00b3 (cubed)"
+    ],
+    "note": "E = \u03c3 \u00b7 T\u2074, so doubling Kelvin temperature increases radiated heat 16x."
+  },
+  {
+    "topic": "Thermo",
+    "q": "What happens to enthalpy during an ideal throttling (Joule-Thomson) expansion through a capillary valve?",
+    "answer": "Remains constant (Isenthalpic)",
+    "options": [
+      "Remains constant (Isenthalpic)",
+      "Drops to zero",
+      "Doubles",
+      "Remains constant entropy"
+    ],
+    "note": "Throttling valves in ACs and refrigerators drop pressure at constant enthalpy."
+  },
+  {
+    "topic": "Thermo",
+    "q": "In vapor-compression refrigeration, which component rejects heat to the outside ambient air?",
+    "answer": "Condenser",
+    "options": [
+      "Condenser",
+      "Evaporator",
+      "Expansion Valve",
+      "Suction Accumulator"
+    ],
+    "note": "High-pressure hot refrigerant condenses from vapor to liquid in the condenser."
+  },
+  {
+    "topic": "Thermo",
+    "q": "What is the Coefficient of Performance (COP) of a refrigerator defined as?",
+    "answer": "Heat removed from cold space / Work input",
+    "options": [
+      "Heat removed from cold space / Work input",
+      "Work input / Heat rejected",
+      "Heat rejected / Heat removed",
+      "1 - (T_C / T_H)"
+    ],
+    "note": "COP can easily exceed 1 (typically 3\u20135 for modern inverter ACs)."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Which heat exchanger flow arrangement achieves the highest log-mean temperature difference (LMTD)?",
+    "answer": "Counter-flow",
+    "options": [
+      "Counter-flow",
+      "Parallel-flow",
+      "Cross-flow unmixed",
+      "Shell-side stagnant"
+    ],
+    "note": "Counter-flow allows the cold fluid exit temperature to exceed the hot fluid exit temperature."
+  },
+  {
+    "topic": "Thermo",
+    "q": "Adding thin metal fins to a radiator or CPU heatsink increases heat transfer primarily by:",
+    "answer": "Increasing convective surface area",
+    "options": [
+      "Increasing convective surface area",
+      "Lowering ambient air temperature",
+      "Eliminating conduction resistance",
+      "Doubling radiation emissivity"
+    ],
+    "note": "Q = h \u00b7 A \u00b7 \u0394T; fins dramatically enlarge A where air-side h is low."
+  },
+  {
+    "topic": "Thermo",
+    "q": "What is the critical point of water on a P-T phase diagram?",
+    "answer": "374\u00b0C and 22.06 MPa (liquid & vapor become indistinguishable)",
+    "options": [
+      "374\u00b0C and 22.06 MPa (liquid & vapor become indistinguishable)",
+      "100\u00b0C and 1 atm",
+      "0.01\u00b0C and 611 Pa",
+      "0\u00b0C and 1 atm"
+    ],
+    "note": "Above the critical point, water becomes a supercritical fluid with zero latent heat."
+  },
+  {
+    "topic": "Thermo",
+    "q": "On a psychrometric chart, moving horizontally to the left at constant humidity ratio represents:",
+    "answer": "Sensible cooling",
+    "options": [
+      "Sensible cooling",
+      "Evaporative cooling",
+      "Humidification",
+      "Latent heating"
+    ],
+    "note": "Dry-bulb temperature drops while moisture content (kg/kg dry air) stays constant."
+  },
+  {
+    "topic": "Fluids",
+    "q": "In internal pipe flow, the transition from laminar to turbulent flow typically begins around Reynolds number:",
+    "answer": "Re \u2248 2,300",
+    "options": [
+      "Re \u2248 2,300",
+      "Re \u2248 100",
+      "Re \u2248 500,000",
+      "Re \u2248 10"
+    ],
+    "note": "Below 2,300 pipe flow is laminar; above 4,000 it is fully turbulent."
+  },
+  {
+    "topic": "Fluids",
+    "q": "Bernoulli's equation assumes the fluid flow is steady, inviscid, incompressible, and:",
+    "answer": "Along a streamline",
+    "options": [
+      "Along a streamline",
+      "Supersonic",
+      "Two-phase",
+      "High-viscosity"
+    ],
+    "note": "P + \u00bd\u03c1v\u00b2 + \u03c1gh = constant along a streamline."
+  },
+  {
+    "topic": "Fluids",
+    "q": "What phenomenon occurs in a centrifugal pump when local static pressure drops below the liquid's vapor pressure?",
+    "answer": "Cavitation",
+    "options": [
+      "Cavitation",
+      "Water hammer",
+      "Laminar lock",
+      "Choked flow"
+    ],
+    "note": "Vapor bubbles collapse violently against impeller blades, causing pitting and noise."
+  },
+  {
+    "topic": "Fluids",
+    "q": "To prevent cavitation in a pump, which condition must be satisfied?",
+    "answer": "NPSH Available > NPSH Required",
+    "options": [
+      "NPSH Available > NPSH Required",
+      "NPSH Available < NPSH Required",
+      "Discharge valve fully closed",
+      "Pump speed doubled"
+    ],
+    "note": "Net Positive Suction Head Available must exceed the pump's required NPSH."
+  },
+  {
+    "topic": "Fluids",
+    "q": "Which device measures local fluid velocity by comparing stagnation pressure and static pressure?",
+    "answer": "Pitot-static tube",
+    "options": [
+      "Pitot-static tube",
+      "Rotameter",
+      "Bourdon gauge",
+      "Orifice plate"
+    ],
+    "note": "Used on aircraft wings to measure indicated airspeed."
+  },
+  {
+    "topic": "Fluids",
+    "q": "According to the Darcy-Weisbach equation, major head loss in a pipe is proportional to velocity squared and inversely proportional to:",
+    "answer": "Pipe diameter (D)",
+    "options": [
+      "Pipe diameter (D)",
+      "Pipe length (L)",
+      "Fluid density (\u03c1)",
+      "Gravity (g)"
+    ],
+    "note": "h_f = f \u00b7 (L/D) \u00b7 (v\u00b2 / 2g)."
+  },
+  {
+    "topic": "Fluids",
+    "q": "What is 1 Ton of Refrigeration (TR) approximately equal to in kilowatts of cooling?",
+    "answer": "3.517 kW (12,000 BTU/hr)",
+    "options": [
+      "3.517 kW (12,000 BTU/hr)",
+      "1.000 kW",
+      "10.5 kW",
+      "0.746 kW"
+    ],
+    "note": "Historically defined as the heat needed to melt 1 short ton of ice in 24 hours."
+  },
+  {
+    "topic": "Fluids",
+    "q": "In a chilled-water HVAC system, what does an Air Handling Unit (AHU) primarily do?",
+    "answer": "Filters, cools/heats, and circulates conditioned air via ducts",
+    "options": [
+      "Filters, cools/heats, and circulates conditioned air via ducts",
+      "Compresses refrigerant gas",
+      "Cools condenser water by evaporation",
+      "Generates emergency backup power"
+    ],
+    "note": "AHUs house cooling coils, fans, filters, and dampers."
+  },
+  {
+    "topic": "Fluids",
+    "q": "Which chart is used to find the Darcy friction factor (f) from Reynolds number and relative pipe roughness?",
+    "answer": "Moody Chart",
+    "options": [
+      "Moody Chart",
+      "Mollier Diagram",
+      "Mohr's Circle",
+      "Iron-Carbon Diagram"
+    ],
+    "note": "Moody diagrams visualize the Colebrook-White equation across laminar and turbulent regimes."
+  },
+  {
+    "topic": "Fluids",
+    "q": "What happens to the speed of subsonic airflow when it passes through a converging nozzle?",
+    "answer": "Velocity increases and static pressure drops",
+    "options": [
+      "Velocity increases and static pressure drops",
+      "Velocity decreases and pressure rises",
+      "Both velocity and pressure drop",
+      "Velocity remains constant"
+    ],
+    "note": "Continuity (A\u2081v\u2081 = A\u2082v\u2082) accelerates subsonic flow in a narrowing area."
+  },
+  {
+    "topic": "Fluids",
+    "q": "Which pump type is best suited for moving high-viscosity oils at a constant flow rate regardless of discharge pressure?",
+    "answer": "Positive displacement (Gear / Screw) pump",
+    "options": [
+      "Positive displacement (Gear / Screw) pump",
+      "Centrifugal pump",
+      "Axial propeller fan",
+      "Jet ejector"
+    ],
+    "note": "Positive displacement pumps trap and force a fixed volume per revolution."
+  },
+  {
+    "topic": "Fluids",
+    "q": "What causes 'water hammer' inside piping networks?",
+    "answer": "Sudden valve closure creating a high-pressure shock wave",
+    "options": [
+      "Sudden valve closure creating a high-pressure shock wave",
+      "Slow laminar leaks",
+      "Dissolved oxygen corrosion",
+      "Excessive pipe insulation"
+    ],
+    "note": "Arrestors and slow-closing actuators prevent water hammer pipe bursts."
+  },
+  {
+    "topic": "Strength",
+    "q": "What does the slope of the linear elastic region on a stress-strain curve represent?",
+    "answer": "Young's Modulus (E)",
+    "options": [
+      "Young's Modulus (E)",
+      "Yield Strength",
+      "Poisson's Ratio",
+      "Toughness"
+    ],
+    "note": "Hooke's Law: \u03c3 = E \u00b7 \u03b5; stiffer materials have steeper slopes."
+  },
+  {
+    "topic": "Strength",
+    "q": "Where does maximum bending stress occur in a symmetric beam under pure bending?",
+    "answer": "At the outermost top and bottom fibers",
+    "options": [
+      "At the outermost top and bottom fibers",
+      "Along the neutral axis",
+      "At the centroid only",
+      "Uniformly across the section"
+    ],
+    "note": "\u03c3 = M\u00b7y / I \u2014 stress is zero at the neutral axis and peaks at maximum distance y."
+  },
+  {
+    "topic": "Strength",
+    "q": "Which graphical tool is used to determine principal stresses and maximum shear stress at a point?",
+    "answer": "Mohr's Circle",
+    "options": [
+      "Mohr's Circle",
+      "Moody Chart",
+      "S-N Curve",
+      "Psychrometric Chart"
+    ],
+    "note": "Mohr's circle maps normal and shear stress transformations across all plane angles."
+  },
+  {
+    "topic": "Strength",
+    "q": "For a cantilever beam of length L with a point load P at the free end, where is the maximum bending moment?",
+    "answer": "At the fixed support (M = P \u00b7 L)",
+    "options": [
+      "At the fixed support (M = P \u00b7 L)",
+      "At the free tip",
+      "At L/2 midpoint",
+      "Zero everywhere"
+    ],
+    "note": "The lever arm is greatest right at the wall support."
+  },
+  {
+    "topic": "Strength",
+    "q": "What is Poisson's ratio (\u03bd) for most isotropic structural metals like steel and aluminum?",
+    "answer": "~0.28 to 0.33",
+    "options": [
+      "~0.28 to 0.33",
+      "~0.95",
+      "~0.00",
+      "~1.50"
+    ],
+    "note": "It is the negative ratio of transverse strain to axial strain; theoretical max for isotropic solids is 0.5."
+  },
+  {
+    "topic": "Strength",
+    "q": "Which failure theory is most accurate for predicting yielding in ductile metals under multi-axial loading?",
+    "answer": "Von Mises (Distortion Energy) Theory",
+    "options": [
+      "Von Mises (Distortion Energy) Theory",
+      "Maximum Normal Stress (Rankine) Theory",
+      "Euler Buckling Formula",
+      "Coulomb Friction Law"
+    ],
+    "note": "FEA tools like ANSYS default to Von Mises equivalent stress for ductile parts."
+  },
+  {
+    "topic": "Strength",
+    "q": "Euler's critical buckling load for a slender column is proportional to:",
+    "answer": "EI / L_e\u00b2 (inversely to effective length squared)",
+    "options": [
+      "EI / L_e\u00b2 (inversely to effective length squared)",
+      "Yield strength \u00d7 Area",
+      "L_e\u00b2 / EI",
+      "Column mass only"
+    ],
+    "note": "Doubling a slender column's unbraced length reduces its buckling load to one-quarter!"
+  },
+  {
+    "topic": "Strength",
+    "q": "What does the total area under a stress-strain curve up to fracture measure?",
+    "answer": "Modulus of Toughness",
+    "options": [
+      "Modulus of Toughness",
+      "Modulus of Resilience",
+      "Hardness",
+      "Shear Modulus"
+    ],
+    "note": "Toughness measures total energy absorbed per unit volume before breaking."
+  },
+  {
+    "topic": "Strength",
+    "q": "Which material property is evaluated using a Charpy or Izod pendulum test?",
+    "answer": "Impact Toughness",
+    "options": [
+      "Impact Toughness",
+      "Creep Rate",
+      "Fatigue Limit",
+      "Electrical Conductivity"
+    ],
+    "note": "Notched specimens measure ductile-to-brittle transition energy."
+  },
+  {
+    "topic": "Strength",
+    "q": "In a solid circular shaft under pure torsion, shear stress is maximum at:",
+    "answer": "The outer surface radius",
+    "options": [
+      "The outer surface radius",
+      "The exact center axis",
+      "Half the radius",
+      "Uniform across the radius"
+    ],
+    "note": "\u03c4 = T\u00b7r / J; that's why hollow tubes save weight with minimal torsion loss."
+  },
+  {
+    "topic": "Strength",
+    "q": "What is 'Creep' in mechanical engineering materials?",
+    "answer": "Slow permanent deformation under constant load at elevated temperatures",
+    "options": [
+      "Slow permanent deformation under constant load at elevated temperatures",
+      "Instant brittle shattering at sub-zero temp",
+      "Surface rusting in saltwater",
+      "Elastic springback after bending"
+    ],
+    "note": "Critical in jet turbine blades and high-temperature boiler tubes."
+  },
+  {
+    "topic": "Strength",
+    "q": "Why are I-beams shaped with wide top and bottom flanges connected by a thin vertical web?",
+    "answer": "Maximizes moment of inertia (I) per unit weight",
+    "options": [
+      "Maximizes moment of inertia (I) per unit weight",
+      "Makes welding easier",
+      "Reduces paint cost",
+      "Eliminates thermal expansion"
+    ],
+    "note": "Placing material far from the neutral axis dramatically boosts bending stiffness."
+  },
+  {
+    "topic": "Strength",
+    "q": "What does an S-N (W\u00f6hler) curve plot for a metal component?",
+    "answer": "Cyclic Stress Amplitude vs. Number of Cycles to Failure",
+    "options": [
+      "Cyclic Stress Amplitude vs. Number of Cycles to Failure",
+      "Speed vs. Noise",
+      "Strain vs. Necking",
+      "Specific Heat vs. Nitrogen"
+    ],
+    "note": "Ferrous steels exhibit an endurance limit below which infinite fatigue life is possible."
+  },
+  {
+    "topic": "Design",
+    "q": "What gear tooth profile is overwhelmingly used in modern power transmission because it maintains constant velocity ratio even if center distance varies slightly?",
+    "answer": "Involute profile",
+    "options": [
+      "Involute profile",
+      "Cycloidal profile",
+      "Square peg profile",
+      "Triangular sawtooth"
+    ],
+    "note": "Involute gears have a constant pressure angle (commonly 20\u00b0) and conjugate action."
+  },
+  {
+    "topic": "Design",
+    "q": "Which gear type allows high reduction ratios in a compact space and can be designed to be self-locking?",
+    "answer": "Worm and Worm Wheel",
+    "options": [
+      "Worm and Worm Wheel",
+      "Spur Gear",
+      "Bevel Gear",
+      "Rack and Pinion"
+    ],
+    "note": "Sliding friction prevents the driven wheel from back-driving the worm at low lead angles."
+  },
+  {
+    "topic": "Design",
+    "q": "What is the primary purpose of a flywheel attached to a reciprocating engine crankshaft?",
+    "answer": "Smooth out cyclic torque & speed fluctuations",
+    "options": [
+      "Smooth out cyclic torque & speed fluctuations",
+      "Increase peak fuel combustion temperature",
+      "Replace the gearbox",
+      "Cool the cylinder head"
+    ],
+    "note": "A flywheel stores kinetic energy during the power stroke and releases it during compression."
+  },
+  {
+    "topic": "Design",
+    "q": "In rolling-element bearings, which bearing type handles BOTH heavy radial loads AND axial thrust loads simultaneously?",
+    "answer": "Tapered roller bearing",
+    "options": [
+      "Tapered roller bearing",
+      "Needle roller bearing",
+      "Cylindrical roller bearing",
+      "Flat thrust washer"
+    ],
+    "note": "Widely used in automotive wheel hubs and differential pinions."
+  },
+  {
+    "topic": "Design",
+    "q": "What is 'Backlash' in a meshing gear pair?",
+    "answer": "Intentional clearance between mating tooth flanks",
+    "options": [
+      "Intentional clearance between mating tooth flanks",
+      "A broken gear tooth",
+      "Reverse motor rotation",
+      "Excessive shaft speed"
+    ],
+    "note": "Prevents jamming from thermal expansion and allows a lubricant film between teeth."
+  },
+  {
+    "topic": "Design",
+    "q": "Which mechanism converts rotary motion into linear reciprocating motion in an internal combustion engine?",
+    "answer": "Slider-Crank mechanism",
+    "options": [
+      "Slider-Crank mechanism",
+      "Scotch Yoke",
+      "Geneva Drive",
+      "Oldham Coupling"
+    ],
+    "note": "Piston (slider), connecting rod, and crankshaft form a 4-bar inversion."
+  },
+  {
+    "topic": "Design",
+    "q": "What does a Geneva drive mechanism produce?",
+    "answer": "Intermittent stepped rotational motion",
+    "options": [
+      "Intermittent stepped rotational motion",
+      "Continuous high-speed vibration",
+      "Hydraulic pressure",
+      "Linear hydraulic thrust"
+    ],
+    "note": "Used in film projectors, watchmaking, and automated indexing tables."
+  },
+  {
+    "topic": "Design",
+    "q": "In GD&T (Geometric Dimensioning & Tolerancing), what does a concentric circle symbol (\u25ce) control?",
+    "answer": "Concentricity",
+    "options": [
+      "Concentricity",
+      "Flatness",
+      "Perpendicularity",
+      "Parallelism"
+    ],
+    "note": "GD&T per ASME Y14.5 ensures functional assembly interchangeability."
+  },
+  {
+    "topic": "Design",
+    "q": "Which thread form is specifically designed for power screws and leadscrews (e.g., lathe carriages) due to high strength and easy engagement?",
+    "answer": "Acme / Trapezoidal thread",
+    "options": [
+      "Acme / Trapezoidal thread",
+      "Pipe taper (NPT)",
+      "Unified Fine (UNF)",
+      "Wood lag thread"
+    ],
+    "note": "Its 29\u00b0 (or 30\u00b0 metric) flank angle allows split-nut engagement."
+  },
+  {
+    "topic": "Design",
+    "q": "What is the main advantage of helical gears over straight-cut spur gears?",
+    "answer": "Quieter, smoother operation with higher load capacity",
+    "options": [
+      "Quieter, smoother operation with higher load capacity",
+      "Zero axial thrust force",
+      "Cheaper to stamp from sheet metal",
+      "No lubrication required"
+    ],
+    "note": "Gradual tooth engagement cuts noise, though it introduces axial thrust."
+  },
+  {
+    "topic": "Design",
+    "q": "What is a 'Key' (such as a Woodruff or parallel key) used for on a rotating shaft?",
+    "answer": "Transmit torque between a shaft and a mounted hub/gear",
+    "options": [
+      "Transmit torque between a shaft and a mounted hub/gear",
+      "Measure shaft RPM",
+      "Seal oil leaks",
+      "Balance static weight"
+    ],
+    "note": "Acts as a mechanical lock \u2014 and often a sacrificial shear fuse during overload."
+  },
+  {
+    "topic": "Design",
+    "q": "In a Four-Bar Linkage, Grashof's Law determines whether:",
+    "answer": "At least one link can make a full 360\u00b0 revolution",
+    "options": [
+      "At least one link can make a full 360\u00b0 revolution",
+      "The linkage will buckle under compression",
+      "Lubrication is needed",
+      "The links are made of steel"
+    ],
+    "note": "If S + L \u2264 P + Q, the shortest link can continuously rotate 360\u00b0."
+  },
+  {
+    "topic": "Mfg",
+    "q": "Which heat treatment rapidly cools austenitized steel in water or oil to form hard Martensite?",
+    "answer": "Quenching",
+    "options": [
+      "Quenching",
+      "Annealing",
+      "Normalizing",
+      "Carburizing"
+    ],
+    "note": "Quenching is usually followed by tempering to restore toughness and relieve brittleness."
+  },
+  {
+    "topic": "Mfg",
+    "q": "What is the primary purpose of 'Annealing' a cold-worked metal?",
+    "answer": "Soften the metal, restore ductility, and relieve internal stresses",
+    "options": [
+      "Soften the metal, restore ductility, and relieve internal stresses",
+      "Maximize surface hardness",
+      "Add a chrome coating",
+      "Melt the metal into a mold"
+    ],
+    "note": "Heating above recrystallization temperature followed by slow furnace cooling."
+  },
+  {
+    "topic": "Mfg",
+    "q": "Which machining process uses a multi-point rotating cutter to remove metal from a stationary or translating workpiece?",
+    "answer": "Milling",
+    "options": [
+      "Milling",
+      "Turning",
+      "Broaching",
+      "Honing"
+    ],
+    "note": "CNC 5-axis mills sculpt complex aerospace impellers and molds."
+  },
+  {
+    "topic": "Mfg",
+    "q": "In TIG (GTAW) welding, what type of electrode is used?",
+    "answer": "Non-consumable tungsten electrode",
+    "options": [
+      "Non-consumable tungsten electrode",
+      "Consumable flux-coated stick",
+      "Continuous steel spool wire",
+      "Carbon graphite rod"
+    ],
+    "note": "Shielded by inert Argon gas for ultra-clean aluminum and stainless welds."
+  },
+  {
+    "topic": "Mfg",
+    "q": "Which casting process produces thin-walled, high-precision complex parts using a sacrificial wax pattern coated in ceramic slurry?",
+    "answer": "Investment Casting (Lost-Wax)",
+    "options": [
+      "Investment Casting (Lost-Wax)",
+      "Green Sand Casting",
+      "Centrifugal Casting",
+      "Continuous Casting"
+    ],
+    "note": "Used for single-crystal jet turbine blades and orthopedic implants."
+  },
+  {
+    "topic": "Mfg",
+    "q": "In additive manufacturing (3D printing), what does SLS stand for?",
+    "answer": "Selective Laser Sintering",
+    "options": [
+      "Selective Laser Sintering",
+      "Standard Linear Slicing",
+      "Solid Liquid Spray",
+      "Surface Layer Sanding"
+    ],
+    "note": "A laser fuses powdered nylon or metal layer-by-layer without needing support structures."
+  },
+  {
+    "topic": "Mfg",
+    "q": "In the Iron-Carbon phase diagram, the eutectic mixture of Austenite and Cementite at 4.3% carbon is called:",
+    "answer": "Ledeburite",
+    "options": [
+      "Ledeburite",
+      "Pearlite",
+      "Martensite",
+      "Bainite"
+    ],
+    "note": "Pearlite is the eutectoid mixture (0.77% C) of ferrite and cementite."
+  },
+  {
+    "topic": "Mfg",
+    "q": "Which process creates an ultra-smooth, wear-resistant oxide layer on Aluminum parts (often dyed in colors)?",
+    "answer": "Anodizing",
+    "options": [
+      "Anodizing",
+      "Galvanizing",
+      "Nitriding",
+      "Shot Peening"
+    ],
+    "note": "Electrochemical anodizing grows aluminum oxide directly out of the substrate."
+  },
+  {
+    "topic": "Mfg",
+    "q": "What does 'Shot Peening' do to a metal spring or gear surface?",
+    "answer": "Induces compressive residual stresses to boost fatigue life",
+    "options": [
+      "Induces compressive residual stresses to boost fatigue life",
+      "Polishes it to a mirror finish",
+      "Reduces its density",
+      "Melts surface cracks shut"
+    ],
+    "note": "Compressive surface layers resist fatigue crack initiation under cyclic tension."
+  },
+  {
+    "topic": "Mfg",
+    "q": "Which non-destructive testing (NDT) method uses high-frequency sound waves to detect deep internal weld flaws?",
+    "answer": "Ultrasonic Testing (UT)",
+    "options": [
+      "Ultrasonic Testing (UT)",
+      "Dye Penetrant Testing",
+      "Visual Inspection",
+      "Brinell Hardness Test"
+    ],
+    "note": "UT detects subsurface voids, laminations, and cracks without cutting the part."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "In Finite Element Analysis (FEA), what is 'Mesh Convergence'?",
+    "answer": "Refining mesh size until stress/displacement results stop changing significantly",
+    "options": [
+      "Refining mesh size until stress/displacement results stop changing significantly",
+      "Deleting all boundary conditions",
+      "Converting 3D CAD into a 2D PDF",
+      "Running a simulation with zero gravity"
+    ],
+    "note": "Ensures numerical results aren't artificially distorted by a coarse mesh."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "In a PID controller, what does the 'I' (Integral) term primarily eliminate?",
+    "answer": "Steady-state error",
+    "options": [
+      "Steady-state error",
+      "High-frequency sensor noise",
+      "Initial startup torque",
+      "Mechanical backlash"
+    ],
+    "note": "Integrating past error over time drives persistent offset down to zero."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "What is the main advantage of Parametric CAD modeling (SolidWorks, Creo, Inventor)?",
+    "answer": "Changing a dimension automatically updates dependent features & drawings",
+    "options": [
+      "Changing a dimension automatically updates dependent features & drawings",
+      "Zero RAM usage",
+      "Only works for 2D floor plans",
+      "Automatically fabricates metal parts"
+    ],
+    "note": "Feature history trees and constraints drive rapid engineering iterations."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "In CFD (Computational Fluid Dynamics), what does the dimensionless wall distance y+ measure?",
+    "answer": "Near-wall mesh resolution inside the boundary layer",
+    "options": [
+      "Near-wall mesh resolution inside the boundary layer",
+      "Total pipe length",
+      "Mach number at the outlet",
+      "Ambient humidity"
+    ],
+    "note": "Accurate turbulence models (like k-\u03c9 SST) require y+ \u2248 1 near walls."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "Which CAD file format is the universal ISO standard (ISO 10303) for exchanging clean 3D B-Rep solid geometry between different software?",
+    "answer": "STEP (.stp / .step)",
+    "options": [
+      "STEP (.stp / .step)",
+      "STL (.stl)",
+      "JPG (.jpg)",
+      "DXF (.dxf)"
+    ],
+    "note": "Unlike triangulated STL meshes, STEP preserves exact mathematical NURBS surfaces."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "What is 'Topology Optimization' in modern mechanical CAD?",
+    "answer": "Algorithmically removing unneeded material within a design space to minimize weight",
+    "options": [
+      "Algorithmically removing unneeded material within a design space to minimize weight",
+      "Color-coding assembly bolts",
+      "Translating drawings to Spanish",
+      "Compressing ZIP archives"
+    ],
+    "note": "Creates organic, bone-like lightweight brackets ideal for 3D metal printing."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "What happens if an under-constrained FEA model has no fixed boundary conditions (supports)?",
+    "answer": "Rigid body motion causes the stiffness matrix to be singular (solver fails)",
+    "options": [
+      "Rigid body motion causes the stiffness matrix to be singular (solver fails)",
+      "Stress becomes zero everywhere",
+      "The part melts",
+      "Mesh size doubles"
+    ],
+    "note": "Every static FEA model needs enough constraints to prevent free translation/rotation."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "In robotics and kinematics, how many Degrees of Freedom (DOF) does an unconstrained rigid body have in 3D space?",
+    "answer": "6 DOF (3 translations + 3 rotations)",
+    "options": [
+      "6 DOF (3 translations + 3 rotations)",
+      "3 DOF",
+      "4 DOF",
+      "12 DOF"
+    ],
+    "note": "X, Y, Z translation plus Roll, Pitch, and Yaw rotation."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "What is 'Resonance' in mechanical vibrations?",
+    "answer": "When forcing frequency matches a structure's natural frequency, causing huge amplitudes",
+    "options": [
+      "When forcing frequency matches a structure's natural frequency, causing huge amplitudes",
+      "Complete zero vibration",
+      "Thermal expansion at 100\u00b0C",
+      "Quiet laminar airflow"
+    ],
+    "note": "Modal analysis in FEA identifies natural frequencies so engineers avoid resonance."
+  },
+  {
+    "topic": "CAD/FEA",
+    "q": "Which neutral 3D format represents geometry purely as a surface mesh of triangles (standard for 3D printing slicers)?",
+    "answer": "STL (Stereolithography)",
+    "options": [
+      "STL (Stereolithography)",
+      "STEP",
+      "IGES",
+      "DWG"
+    ],
+    "note": "STL approximates curved surfaces with triangular facets."
+  }
+]
